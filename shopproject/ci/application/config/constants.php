@@ -35,12 +35,13 @@ define('FOPEN_WRITE_CREATE',					'ab');
 define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
-define("LAYOUT_URL","http://localhost/boot/css/");
-define("LAYOUT1_URL","http://localhost/boot/css/");
-define("THEME_URL","http://localhost/boot/css/");
-define("JS","http://localhost/boot/js/");
+define("LAYOUT_URL","http://localhost/Shopproject/shopproject/ci/asset/css/");
+
+define("THEME_URL","http://localhost/Shopproject/shopproject/ci/asset/css/");
+define("JS_URL","http://localhost/Shopproject/shopproject/ci/asset/js/");
 define("BI","https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/");
 
+define("logo_pic","http://localhost/Shopproject/shopproject/ci/asset/img/");
 
 
 /* End of file constants.php */

@@ -1,9 +1,9 @@
 <html>
 	<head>
 		
-		<link rel="stylesheet" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
+		<link rel="stylesheet" href="<? echo base_url();?>boot/css/bootstrap.min.css">
 		<!--<link rel="stylesheet" href="layout.css">-->
-		<link rel="stylesheet" href="<?php echo THEME_URL;?>bootstrap-theme.min.css">
+		<link rel="stylesheet" href="<? echo base_url();?>boot/css/bootstrap-theme.min.css">
 		<meta charset="UTF-8">
 		<style>
 		* { margin: 0; padding: 0; }
@@ -65,8 +65,8 @@
 
 
 
-		<script src="<?php echo BI;?>jquery.min.js"></script>
-		<script src="<?php echo JS;?>bootstrap.min.js"></script>
+		<script src="<? echo base_url();?>boot/js/sjquery.min.js"></script>
+		<script src="<? echo base_url();?>boot/js/bootstrap.min.js"></script>
 	</body>
 		
 </html>
