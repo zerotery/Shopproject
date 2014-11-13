@@ -55,6 +55,9 @@
 			}else{
 			$data['user']=$this->session->userdata('loginname');
 			$data['userid']=$this->session->userdata('memberid');	
+			
+			//$this->shop->showshop();
+			$data['myshopname'] = $this->shop->showshop();
 			$this->load->view('myshop',$data);
 			
 			}
@@ -62,11 +65,13 @@
 
 		public function logout(){
 			$this->session->unset_userdata('loginname');
+			$this->session->sess_destroy();
 			$this->index();
 
 		}
 
 		public function testshop(){
+			echo site_url();
 			$this->load->view('backshop');
 		}
 

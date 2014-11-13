@@ -51,7 +51,7 @@
              
              <ul>
                      
-                 <div class="div3"><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;">&nbsp;คุณเข้าระบบในชื่อ <span><?php echo $user." ".$userid; ?></span></div>
+                 <div class="div3"><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;">&nbsp;คุณเข้าระบบในชื่อ <span><?php echo $user; ?></span></div>
            		
                     
                 </ul>
@@ -106,12 +106,75 @@
       </thead>
       <tbody>
         <tr class="active">
-          <td>1</td>
-          <td>name</td>
+
+        <?php
+        	if($this->session->userdata('shop_status')=="f"){
+				
+				
+				echo '<tr><td colspan=\"4\">';//echo "true username and password";
+				echo '<center><h4>You have no shop</h4></center></td>';
+				echo '</tr>';
+
+			}else{
+
+				$j=1;	
+        	 for($i=0; $i<count($myshopname); $i++){
+        	 	echo '<td>'.$j.'</td>';
+        	 	echo '<td>';
+        	 	print_r($myshopname[$i]['shopname']);
+        	 	echo '</td>';
+        	 	//echo '<td>'.'<a href=\"http://localhost/Shopproject/shopproject/ci/index.php/backshop/testshop\">go backshop</a>'.'</td>';
+        	 	echo '<td>';
+        	 	echo "backshop";
+        	 	echo '</td>';
+        	 	echo '<td>'.'url shop'.'</td>';
+        	 	$j++;
+
+        	 }
+        	 echo "</tr>";
+				
+				
+
+			}
+        	 
+        	
+
+
+
+
+
+
+        ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <!-- <td>1</td>
+          <td><?php //print_r($myshopname[0]['shopname']); ?></td>
           <td><a href="shop_back">link</a></td>
-          <td><a href="shop_back">link2</a></td>
+          <td><a href="shop_back">link2</a></td>-->
           
         </tr>
+        <!--
         <tr>
           <td>2</td>
             <td>name</td>
@@ -141,7 +204,7 @@
            <td>name</td>
           <td><a href="shop_back">link</a></td>
           <td><a href="shop_back">link2</a></td>
-        </tr>
+        </tr>-->
         
       </tbody>
     </table>
