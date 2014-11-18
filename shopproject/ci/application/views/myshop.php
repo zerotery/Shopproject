@@ -51,7 +51,7 @@
              
              <ul>
                      
-                 <div class="div3"><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;">&nbsp;คุณเข้าระบบในชื่อ <span><?php echo $user; ?></span></div>
+                 <div class="div3"><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;">&nbsp;<?=$this->lang->line("login");?> <span><?php echo $user; ?></span></div>
            		
                     
                 </ul>
@@ -68,8 +68,8 @@
                  
              <div>
          <td height="25" align="MIDDLE">
-           <a href="#"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
-           <a href="#"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
+           <a href="<?php echo site_url('backshop/changemyshop/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
+           <a href="<?php echo site_url('backshop/changemyshop/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
             </div> 
                  </ul>
          </div>
@@ -99,114 +99,49 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Store Name</th>
-          <th>Back office</th>
-          <th>Shop view</th>
+          <th><?=$this->lang->line("store_name");?></th>
+          <th><?=$this->lang->line("back_office");?></th>
+          <th><?=$this->lang->line("shop_view");?></th>
         </tr>
       </thead>
       <tbody>
-        <tr class="active">
+        
 
         <?php
         	if($this->session->userdata('shop_status')=="f"){
 				
 				
-				echo '<tr><td colspan=\"4\">';//echo "true username and password";
+				echo '<tr><td colspan=\"5\">';//echo "true username and password";
 				echo '<center><h4>You have no shop</h4></center></td>';
 				echo '</tr>';
 
 			}else{
-
+				
 				$j=1;	
         	 for($i=0; $i<count($myshopname); $i++){
+        	 	echo '<tr class="active">';
         	 	echo '<td>'.$j.'</td>';
         	 	echo '<td>';
         	 	print_r($myshopname[$i]['shopname']);
         	 	echo '</td>';
-        	 	//echo '<td>'.'<a href=\"http://localhost/Shopproject/shopproject/ci/index.php/backshop/testshop\">go backshop</a>'.'</td>';
-        	 	echo '<td>';
-        	 	echo "backshop";
-        	 	echo '</td>';
+        	 	$shopname["$i"]=$myshopname[$i]['shopname'];
+        	 	$num=$i;
+        	 	echo '<td>'.anchor('http://localhost/Shopproject/shopproject/ci/index.php/backshop/gobackshop/?shopid='.$num.'','go backshop').'</td>';
         	 	echo '<td>'.'url shop'.'</td>';
         	 	$j++;
+        	 	echo "</tr>";
+        	 }
+        	 for($i=0;$i<count($shopname);$i++){
+        	 		$data[$i]=$shopname[$i];
+					$this->session->set_userdata($data);
+
 
         	 }
-        	 echo "</tr>";
-				
-				
-
-			}
+        	}
         	 
-        	
-
-
-
-
-
-
-        ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         <!-- <td>1</td>
-          <td><?php //print_r($myshopname[0]['shopname']); ?></td>
-          <td><a href="shop_back">link</a></td>
-          <td><a href="shop_back">link2</a></td>-->
-          
-        </tr>
-        <!--
-        <tr>
-          <td>2</td>
-            <td>name</td>
-          <td><a href="shop_back">link</a></td>
-          <td><a href="shop_back">link2</a></td>
-        </tr>
-        <tr class="success">
-          <td>3</td>
-            <td>name</td>
-          <td><a href="shop_back">link</a></td>
-          <td><a href="shop_back">link2</a></td>
-        </tr>
-        <tr>
-          <td>4</td>
-            <td>name</td>
-          <td><a href="shop_back">link</a></td>
-          <td><a href="shop_back">link2</a></td>
-        </tr>
-        <tr class="info">
-          <td>5</td>
-            <td>name</td>
-          <td><a href="shop_back">link</a></td>
-          <td><a href="shop_back">link2</a></td>
-        </tr>
-        <tr>
-          <td>6</td>
-           <td>name</td>
-          <td><a href="shop_back">link</a></td>
-          <td><a href="shop_back">link2</a></td>
-        </tr>-->
-        
-      </tbody>
+      	?>
+         </tr>       
+    </tbody>
     </table>
 
      
@@ -218,8 +153,7 @@
     </div>
                  <div class="modal-footer">
           <div style="font-size:11px; padding-bottom: 30px;" align="center">
-			<a href="#"><b style="color:#333">TBShop.com</b></a>
-			เว็บไซต์ให้บริการ <b>เปิดร้านค้าออนไลน์ฟรี</b> ด้วยการตกแต่งร้านค้าแนวใหม่ พร้อมระบบหลังร้าน ไม่จำกัดพื้นที่เว็บ ไม่จำกัดจำนวนสินค้า พร้อมทีมงานช่วยเหลือทุกวัน <a href="#">สร้างเว็บขายของฟรี</a>
+			<center><h5><?=$this->lang->line("footer");?></h5></center>
 			
 		</div>
     </div>

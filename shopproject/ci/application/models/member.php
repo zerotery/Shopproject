@@ -24,6 +24,7 @@
 				foreach($query as $row){
 					$memberid=$row->memberID;
 					$this->session->set_userdata('memberid',"$memberid");
+					
 				}
 			}
 

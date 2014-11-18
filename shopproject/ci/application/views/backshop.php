@@ -35,7 +35,7 @@
                     
         <div class="container btn-toolbar navbar " style="width:150px" align="right" >
             
-            <a href="#" class="button glow button-small button-caution button-pill" style="color:white;width:80px;height: 20px;font-size: 14px"> Log out</a>
+            <a href="<?php echo site_url('backshop/logout');?>" class="button glow button-small button-caution button-pill" style="color:white;width:80px;height: 20px;font-size: 14px"> Log out</a>
       </div>
                     
                 </ul>
@@ -49,7 +49,7 @@
              
              <ul>
                      
-                 <div class="div3"><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;">&nbsp;คุณเข้าระบบในชื่อ <span></span></div>
+                 <div class="div3"><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;">&nbsp;<?=$this->lang->line("login");?> <span><?php echo $user; ?></span></div>
            
                     
                 </ul>
@@ -67,8 +67,8 @@
                  
              <div>
          <td height="25" align="MIDDLE">
-           <a href="#"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
-           <a href="#"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
+           <a href="<?php echo site_url('backshop/changebackshop/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
+           <a href="<?php echo site_url('backshop/changebackshop/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
             </div> 
                  </ul>
          </div>
@@ -87,48 +87,48 @@
    <ul class="nav nav-pills " role="tablist">
        
  <div class="btn-group ">
-     <button type="button" class="btn btn-danger active " ><a href="#"><text style="color: ivory">แผงหลังร้าน</text></a></button>
+     <button type="button" class="btn btn-danger active " ><a href="#"><text style="color: ivory"><?=$this->lang->line("store");?></text></a></button>
 
   <div class="btn-group">
     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-      สินค้า
+      <?=$this->lang->line("product");?>
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">หมวดหมู่สินค้า</a></li>
-      <li><a href="#">จัดการสินค้า</a></li>
-      <li><a href="#">option</a></li>
+      <li><a href="#"><?=$this->lang->line("product_type");?></a></li>
+      <li><a href="#"><?=$this->lang->line("product_management");?></a></li>
+      <li><a href="#"><?=$this->lang->line("option");?></a></li>
     </ul> 
   </div>
      <div class="btn-group">
     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-      งานขาย
+      <?=$this->lang->line("sell");?>
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">คำสั่งซื้อ</a></li>
-      <li><a href="#">ธนาคาร</a></li>
+      <li><a href="#"><?=$this->lang->line("order_buy");?></a></li>
+      <li><a href="#"><?=$this->lang->line("bank");?></a></li>
     </ul> 
   </div>
      <div class="btn-group">
     <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-      รายงาน
+      <?=$this->lang->line("report");?>
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">การขาย</a></li>
-      <li><a href="#">การชำระเงิน</a></li>
-      <li><a href="#">สมาชิกร้าน</a></li>
+      <li><a href="#"><?=$this->lang->line("selling");?></a></li>
+      <li><a href="#"><?=$this->lang->line("payment");?></a></li>
+      <li><a href="#"><?=$this->lang->line("mem_shop");?></a></li>
     </ul> 
   </div>
      <div class="btn-group">
     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-      ระบบ
+      <?=$this->lang->line("system");?>
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">ตั้งค่า</a></li>
-      <li><a href="#">Management</a></li>
+      <li><a href="#"><?=$this->lang->line("setting");?></a></li>
+      <li><a href="#"><?=$this->lang->line("management");?></a></li>
     </ul> 
   </div>
     
@@ -144,7 +144,7 @@
             
            <div> 
                
-            <a href="#" class="button button-rounded button-flat-highlight center-block" style="color:white;width:150px;height: 22px;font-size: 14px; ">ดูหน้าร้าน</a>
+            <a href="<?php echo site_url('backshop/myshop');?>" class="button button-rounded button-flat-highlight center-block" style="color:white;width:150px;height: 22px;font-size: 14px; "><?=$this->lang->line("viewshop");?></a>
            </div>
            </div>
                     
@@ -156,7 +156,7 @@
              
              <ul>
                      
-             <div class="div3"><img src="<?php echo logo_pic;?>Icon-Shop.ico" alt="" style="position: relative; top:-2px; width:18px ;height:18px ">&nbsp;ร้าน <span></span></div>
+             <div class="div3"><img src="<?php echo logo_pic;?>Icon-Shop.ico" alt="" style="position: relative; top:-2px; width:18px ;height:18px ">&nbsp;<?=$this->lang->line("shop_name");?>&nbsp;&nbsp;<span><?php echo $nameshop;?></span></div>
            
                     
                 </ul>
@@ -172,7 +172,7 @@
     
    <!-- end nav -->
     <div class="breadcrumb">
-        <a href="http://www.weloveandaman.com/admin/index.php?route=common/home&amp;token=843aff502f13406339ba73862c6c463a">หน้าแรก</a>
+        <a href="#"><?=$this->lang->line("home");?></a>
       
 
   
@@ -186,42 +186,39 @@
               <br><br>
         <!--ภาพรวม -->
  <div class="panel panel-default">
-           <div class="panel-heading"> <h4>ภาพรวม</h4></div>
-   			<div class="panel-body">
+           <div class="panel-heading"> <h4><?=$this->lang->line("overview");?></h4></div>
+        <div class="panel-body">
               <div class="dashboard-content">
                   <table style="font-size: larger"   width=100% height=20%>
             <tbody><tr>
-              <td>ยอดขายทั้งหมด:</td>
+              <td><?=$this->lang->line("sell_t");?></td>
               <td>4,359,050.00 ฿</td>
             </tr>
             <tr>
-              <td>ยอดขายของปีนี้:</td>
+              <td><?=$this->lang->line("sell_y");?></td>
               <td>3,558,100.00 ฿</td>
             </tr>
             <tr>
-              <td>รวมคำสั่งซื้อ:</td>
+              <td><?=$this->lang->line("order_t");?></td>
               <td>449</td>
             </tr>
             <tr>
-              <td>จำนวนลูกค้า:</td>
+              <td><?=$this->lang->line("num_m");?></td>
               <td>687</td>
             </tr>
             <tr>
-              <td>ลูกค้ารอการอนุมัติ:</td>
+              <td><?=$this->lang->line("mem_w");?></td>
               <td>0</td>
             </tr>
             <tr>
-              <td>ข้อคิดเห็นรอการอนุมัติ:</td>
+              <td><?=$this->lang->line("ally");?></td>
               <td>13</td>
             </tr>
             <tr>
-              <td>จำนวนพันธมิตร:</td>
+              <td><?=$this->lang->line("ally_w");?></td>
               <td>1</td>
             </tr>
-            <tr>
-              <td>พันธมิตรรอการอนุมัติ:</td>
-              <td>1</td>
-            </tr>
+            
           </tbody></table>
         </div>
                         </div>
@@ -231,18 +228,18 @@
      <!-- 10คำสั่งซื้อ -->
        <!--ภาพรวม -->
  <div class="panel panel-default">
-           <div class="panel-heading"> <h4>10 คำสั่งซื้อล่าสุด</h4></div>
-   			<div class="panel-body">
+           <div class="panel-heading"> <h4><?=$this->lang->line("top_order");?></h4></div>
+        <div class="panel-body">
                             <div class="dashboard-content" style="background-image: url(<?php echo logo_pic;?>bg-table.jpg)">
                  <table class="list" border=1  width=100% height=20% >
             <thead>
                 <tr  >
-                <td class="right">รหัสคำสั่งซื้อ</td>
-                <td class="left">ชื่อลูกค้า</td>
-                <td class="left">สถานะ</td>
-                <td class="left">วันที่สั่ง</td>
-                <td class="right">รวม</td>
-                <td class="right">การกระทำ</td>
+                <td class="right"><?=$this->lang->line("order");?></td>
+                <td class="left"><?=$this->lang->line("mem_name");?></td>
+                <td class="left"><?=$this->lang->line("mem_status");?></td>
+                <td class="left"><?=$this->lang->line("date");?></td>
+                <td class="right"><?=$this->lang->line("total_price");?></td>
+                <td class="right">a<?=$this->lang->line("action_v");?></td>
               </tr>
             </thead>
             <tbody>
@@ -252,7 +249,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">09/11/2014</td>
                 <td class="right">5,600.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                             <tr>
@@ -261,7 +258,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">08/11/2014</td>
                 <td class="right">16,800.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                             <tr>
@@ -270,7 +267,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">06/11/2014</td>
                 <td class="right">38,400.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                             <tr>
@@ -279,7 +276,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">03/11/2014</td>
                 <td class="right">11,800.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                             <tr>
@@ -288,7 +285,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">03/11/2014</td>
                 <td class="right">10,000.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                             <tr>
@@ -297,7 +294,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">28/10/2014</td>
                 <td class="right">14,200.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                             <tr>
@@ -306,7 +303,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">28/10/2014</td>
                 <td class="right">16,400.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                             <tr>
@@ -315,7 +312,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">21/10/2014</td>
                 <td class="right">1,900.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                             <tr>
@@ -324,7 +321,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">18/10/2014</td>
                 <td class="right">3,600.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                             <tr>
@@ -333,7 +330,7 @@
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">17/10/2014</td>
                 <td class="right">8,400.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon">ดู</a> ]
+                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
                   </td>
               </tr>
                                         </tbody>
@@ -348,10 +345,10 @@
      
     <div class="modal-footer">
           <div style="font-size:11px; padding-bottom: 30px;" align="center">
-			<a href="#"><b style="color:#333">TBShop.com</b></a>
-			เว็บไซต์ให้บริการ <b>เปิดร้านค้าออนไลน์ฟรี</b> ด้วยการตกแต่งร้านค้าแนวใหม่ พร้อมระบบหลังร้าน ไม่จำกัดพื้นที่เว็บ ไม่จำกัดจำนวนสินค้า พร้อมทีมงานช่วยเหลือทุกวัน <a href="#">สร้างเว็บขายของฟรี</a>
-			
-		</div>
+      <a href="#"><b style="color:#333">TBShop.com</b></a>
+      เว็บไซต์ให้บริการ <b>เปิดร้านค้าออนไลน์ฟรี</b> ด้วยการตกแต่งร้านค้าแนวใหม่ พร้อมระบบหลังร้าน ไม่จำกัดพื้นที่เว็บ ไม่จำกัดจำนวนสินค้า พร้อมทีมงานช่วยเหลือทุกวัน <a href="#">สร้างเว็บขายของฟรี</a>
+      
+    </div>
     </div>
             </form>
             

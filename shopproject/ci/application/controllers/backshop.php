@@ -48,7 +48,9 @@
 		}
 
 		public function myshop(){
-
+			$lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+			
+			$this->lang->load($lang,$lang);
 
 			if($this->session->userdata('loginname')==""){
 				$this->index();
@@ -70,10 +72,55 @@
 
 		}
 
-		public function testshop(){
-			echo site_url();
-			$this->load->view('backshop');
+		public function gobackshop(){
+
+			$lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+			
+			$this->lang->load($lang,$lang);
+
+			if($this->session->userdata('loginname')==""){
+				$this->index();
+			}else{
+			
+			//$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			//$data['id']=$id;
+			$nameshop = $this->session->userdata("$id");
+			$this->session->set_userdata('shopname',$nameshop);
+			$this->activeshop();
+			//$this->load->view('backshop',$data);
+			}
 		}
+
+		public function activeshop(){
+			$lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+			
+			$this->lang->load($lang,$lang);
+			if($this->session->userdata('loginname')==""){
+				$this->index();
+			}else{
+
+			$data['user']=$this->session->userdata('loginname');
+			$data['nameshop']=$this->session->userdata('shopname');
+			$this->load->view('backshop',$data);
+			}
+
+		} 
+
+		public function changemyshop($type){
+			$this->session->set_userdata('lang',$type);
+			redirect('backshop/myshop', 'refresh');
+			//$this->myshop();
+			//redirect("","refresh");
+		}
+		public function changebackshop($type){
+			$this->session->set_userdata('lang',$type);
+			redirect('backshop/activeshop', 'refresh');
+		}	//$this->gobackshop();
+			//redirect("","refresh");
+		
+
+
 
 
 	}
