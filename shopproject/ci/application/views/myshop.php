@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>style.css">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>bootflat.css">
 
-</head>
+	</head>
 <body style="background-image: url('<?php echo logo_pic;?>bg.jpg')">
      
     
@@ -111,12 +111,13 @@
         	if($this->session->userdata('shop_status')=="f"){
 				
 				
-				echo '<tr><td colspan=\"5\">';//echo "true username and password";
-				echo '<center><h4>You have no shop</h4></center></td>';
+				echo '<tr><td align=\"center\"></td>';//echo "true username and password";
+				echo '<td>';
+				echo '<h6>'.$this->lang->line("noshop").'</h6></td>';
 				echo '</tr>';
 
 			}else{
-				
+				//print_r($myshopname);
 				$j=1;	
         	 for($i=0; $i<count($myshopname); $i++){
         	 	echo '<tr class="active">';
@@ -126,7 +127,7 @@
         	 	echo '</td>';
         	 	$shopname["$i"]=$myshopname[$i]['shopname'];
         	 	$num=$i;
-        	 	echo '<td>'.anchor('http://localhost/Shopproject/shopproject/ci/index.php/backshop/gobackshop/?shopid='.$num.'','go backshop').'</td>';
+        	 	echo '<td>'.anchor('http://localhost/Shopproject/shopproject/ci/backshop/gobackshop/?shopid='.$num.'','go backshop').'</td>';
         	 	echo '<td>'.'url shop'.'</td>';
         	 	$j++;
         	 	echo "</tr>";

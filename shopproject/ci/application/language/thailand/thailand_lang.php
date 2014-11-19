@@ -1,7 +1,7 @@
 <?php
 	$lang['home']="หน้าหลัก";
 	$lang['login']="คุณเข้าระบบในชื่อ";
-
+	$lang['noshop']="คุณไม่มีร้านค้า";
 	$lang['viewshop']="ร้านค้าของฉัน";
 	$lang['store_name']="ชื่อร้านค้า";
 	$lang['back_office']="จัดการหลังร้าน";

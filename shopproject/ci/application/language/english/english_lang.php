@@ -5,7 +5,7 @@
 	$lang['back_office']="Back office";
 	$lang['shop_view']="Shop view";
 	$lang['footer']="TBshop © 2014 All Rights Reserved.";
-
+	$lang['noshop']="You have no shop";
 	$lang['viewshop']="My shop";
 	$lang['home']="home";	
 	$lang['shop_name']="Shop name";

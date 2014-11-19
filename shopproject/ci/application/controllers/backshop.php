@@ -33,9 +33,7 @@
 			}else{
 
 				if($this->session->userdata('status')=="f"){
-				echo '<script language="javascript">';
-				echo 'alert("Wrong Username or Password")';
-				echo '</script>';
+				$this->load->view('error_login');
 				$this->index();
 				}
 				
@@ -110,15 +108,12 @@
 		public function changemyshop($type){
 			$this->session->set_userdata('lang',$type);
 			redirect('backshop/myshop', 'refresh');
-			//$this->myshop();
-			//redirect("","refresh");
+			
 		}
 		public function changebackshop($type){
 			$this->session->set_userdata('lang',$type);
 			redirect('backshop/activeshop', 'refresh');
-		}	//$this->gobackshop();
-			//redirect("","refresh");
-		
+		}	
 
 
 
