@@ -15,6 +15,20 @@
 <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>stylesheet.css" media="screen">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>color-schemes/black.css" id="color_scheme">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>styles.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
+<style type="text/css">
+  textarea{ 
+  width: 200px; 
+  min-width:200px; 
+  max-width:200px; 
+
+  height:100px; 
+  min-height:100px;  
+  max-height:100px;
+  }
+
+
+</style>
 
 
 <link href="http://fonts.googleapis.com/css?family=Carme" rel="stylesheet" type="text/css">
@@ -107,22 +121,22 @@
       <table class="form">
         <tbody><tr>
           <td><span class="required">*</span> ชื่อ:</td>
-          <td><input type="text" name="firstname" value="">
+          <td><input type="text" class="form-control" name="firstname" value="">
             </td>
         </tr>
         <tr>
           <td><span class="required">*</span> นามสกุล:</td>
-          <td><input type="text" name="lastname" value="">
+          <td><input type="text" class="form-control" name="lastname" value="">
             </td>
         </tr>
         <tr>
           <td><span class="required">*</span> E-Mail:</td>
-          <td><input type="text" name="email" value="">
+          <td><input type="text" class="form-control" name="email" value="">
             </td>
         </tr>
         <tr>
           <td><span class="required ">*</span> รหัสประจำตัวประชาชน:</td>
-          <td><input type="text" name="license" value="">
+          <td><input type="text"  class="form-control" name="license" value="">
             </td>
         </tr>
         
@@ -134,18 +148,18 @@
         <tbody>
         <tr>
             <td><span class="required">*</span> ที่อยู่ :</td>
-            <td><textarea name="address" rows="5" cols="60"></textarea>
+            <td><textarea name="address" rows="5" cols="60" class="form-control"></textarea>
             </td>
         </tr>
        
         <tr>
           <td><span class="required">*</span> จังหวัด:</td>
-          <td><input type="text" name="city" value="">
+          <td><input type="text" name="city" value="" class="form-control">
             </td>
         </tr>
         <tr>
           <td><span class="required">*</span> รหัสไปรษณีย์:</td>
-          <td><input type="text" name="postcode" value="">
+          <td><input type="text" name="postcode" value="" class="form-control">
             </td>
         </tr>
         
@@ -157,25 +171,23 @@
         <tbody>
             <tr>
           <td><span class="required">*</span> Username:</td>
-          <td><input type="text"  name="username" value="">
-              
-            </td>
-            <td>
-                <div style="position:absolute; top:830px; left:600px;">
-    	 <div id="btnCheck" style="display:block"><img src="<?php echo logo_pic;?>btnCheck.png" width="39" height="20" border="0" style="cursor:pointer;" onclick="chkid()"></div></td>
-    </div>
+          <td><input type="text"  name="username" value="" class="form-control"></td>
+          <td><div id="btnCheck" style="position:absolute; left:590px; top:925;"><img src="<?php echo logo_pic;?>btnCheck.png" width="39" height="20" border="0" style="cursor:pointer;" onclick="chkid()"></div></td>
+               <!-- <div style="position:absolute; top:830px; left:600px;">
+    	 
+    </div>-->
                
             
             </tr>
             
             <tr>
           <td><span class="required">*</span> Password:</td>
-          <td><input type="password" name="password" value="">
+          <td><input type="password" name="password" value="" class="form-control">
             </td>
         </tr>
         <tr>
           <td><span class="required">*</span> Password Confirm:</td>
-          <td><input type="password" name="confirm" value="">
+          <td><input type="password" name="confirm" value="" class="form-control">
             </td>
         </tr>
         
