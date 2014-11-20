@@ -61,6 +61,19 @@
     <div id="logo">
     <img src="<?php echo logo_pic;?>logo2.png" ></a>
     </div>
+    <nav class="  navbar-right " role="navigation">
+         <div class="container-fluid  " >
+                  <ul>
+                 
+             <div>
+         <td height="25" align="MIDDLE">
+           <a href="<?php echo site_url('backshop/changebackshop/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
+           <a href="<?php echo site_url('backshop/changebackshop/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
+            </div> 
+                 </ul>
+         </div>
+        
+     </nav>
 
 <div class="clear"></div>
 </div>
