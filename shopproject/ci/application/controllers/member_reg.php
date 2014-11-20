@@ -1,7 +1,7 @@
 <?php
    class member_reg extends CI_Controller{
-		function __construct(){
-			parent::__construct();
+		            function __construct(){
+			          parent::__construct();
                         $this->load->model('member','member');
 	
 		}
