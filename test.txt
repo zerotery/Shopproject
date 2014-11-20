@@ -3,11 +3,4 @@ Hello world.
 I will know.
 
 what is the fox say.
-ã¹ dev
- git add .
- git commit -m "test"
- git checkout master
-ã¹master
- git remote update
- git pull origin master
- git checkout dev
+fixed
