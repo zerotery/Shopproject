@@ -5,6 +5,10 @@
 	$lang['back_office']="Back office";
 	$lang['shop_view']="Shop view";
 	$lang['footer']="TBshop © 2014 All Rights Reserved.";
+	$lang['footer1']="";
+	$lang['footer2']="";
+	$lang['footer3']="";
+	$lang['footer4']="";
 	$lang['noshop']="You have no shop";
 	$lang['viewshop']="My shop";
 	$lang['home']="home";	
@@ -43,7 +47,26 @@
 	$lang['view']="View";	
 //end backshop.php 
 
-	
+	//register.php
+	$lang['reg_account']="Register Account";
+	$lang['reg_s']="If you already have an account with us, please login at the login page.";
+	$lang['reg_login']="login page.";
+	$lang['personal']="Your Personal Details";
+	$lang['f_name']="First Name:";
+	$lang['l_name']="Last Name:";
+	$lang['email']="E-mail:";
+	$lang['license']="Personal id:";
+	$lang['address']="Your Address";
+	$lang['address_d']="Address:";
+	$lang['province']="Province:";
+	$lang['postcode']=" Postcode:";
+	$lang['user_pass']="Username and Password";
+	$lang['username']="Username:";
+	$lang['password']="Password:";
+	$lang['password_c']="Password Confirm:";
+	$lang['profile_img']="Profile picture";
+	$lang['btn_reg']="register";
+	//end register.php
 
 
 

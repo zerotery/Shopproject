@@ -16,6 +16,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>color-schemes/black.css" id="color_scheme">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>styles.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
+
+
 <style type="text/css">
   textarea{ 
   width: 200px; 
@@ -36,10 +38,11 @@
 
 
 <script src="<?php echo JS_URL;?>html5.js"></script>
+<script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 
 </head>
 
-<body data-twttr-rendered="true" style="background-image:  url('<?php echo logo_pic;?>bg.jpg')" >
+<body data-twttr-rendered="true" >
 
 
 
@@ -49,14 +52,10 @@
 
 <!--Header Part Start-->
 <header>
- 
-
-  	<div class="clear"></div>
-</div>
 
 <div class="headerBg">
 
-<div id="headerMain">
+<div id="headerMain" >
 <div id="header">
     <div id="logo">
     <img src="<?php echo logo_pic;?>logo2.png" ></a>
@@ -120,12 +119,12 @@
  
 <div id="content">
   
-  <h1><span>สมัครสมาชิก</span></h1>
-  <p>ถ้าคุณเป็นสมาชิกอยู้แล้ว กรุณาเข้าสู่ระบบ <a href="http://localhost/Shopproject/shopproject/ci/index.php/backshop">login page</a>.</p>
-  <?php echo form_open('member_reg');?>
+  <h1><span><?=$this->lang->line("reg_account");?></span></h1>
+  <p><?=$this->lang->line("reg_s");?><a href="http://localhost/Shopproject/shopproject/ci/index.php/backshop"><?=$this->lang->line("reg_login");?></a>.</p>
   
-  <form action="#" method="post" enctype="multipart/form-data">
-    <h2>ประวัตืส่วนตัว</h2>
+  
+  <form action="<?php echo form_open('member_reg');?>" method="post" enctype="multipart/form-data">
+    <h2><?=$this->lang->line("personal");?></h2>
     
     
     <div class="content">
@@ -133,57 +132,57 @@
         
       <table class="form">
         <tbody><tr>
-          <td><span class="required">*</span> ชื่อ:</td>
+          <td><span class="required">*</span><?=$this->lang->line("f_name");?></td>
           <td><input type="text" class="form-control" name="firstname" value="">
             </td>
         </tr>
        <tr>
-          <td><span class="required">*</span> นามสกุล:</td>
+          <td><span class="required">*</span><?=$this->lang->line("l_name");?></td>
           <td><input type="text" class="form-control" name="lastname" value="">
             </td>
         </tr>
         <tr>
-          <td><span class="required">*</span> E-Mail:</td>
+          <td><span class="required">*</span><?=$this->lang->line("email");?></td>
           <td><input type="text" class="form-control" name="email" value="">
             </td>
         </tr>
         <tr>
-          <td><span class="required ">*</span> รหัสประจำตัวประชาชน:</td>
+          <td><span class="required ">*</span><?=$this->lang->line("license");?></td>
           <td><input type="text"  class="form-control" name="license" value="">
             </td>
         </tr>
         
       </tbody></table>
     </div>
-    <h2>ที่อยู่ </h2>
+    <h2><?=$this->lang->line("address");?></h2>
     <div class="content">
       <table class="form">
         <tbody>
         <tr>
-            <td><span class="required">*</span> ที่อยู่ :</td>
+            <td><span class="required">*</span><?=$this->lang->line("address_d");?></td>
             <td><textarea name="address" rows="5" cols="60" class="form-control"></textarea>
             </td>
         </tr>
        
         <tr>
-          <td><span class="required">*</span> จังหวัด:</td>
+          <td><span class="required">*</span><?=$this->lang->line("province");?></td>
           <td><input type="text" name="city" value="" class="form-control">
             </td>
         </tr>
         <tr>
-          <td><span class="required">*</span> รหัสไปรษณีย์:</td>
+          <td><span class="required">*</span><?=$this->lang->line("postcode");?></td>
           <td><input type="text" name="postcode" value="" class="form-control">
             </td>
         </tr>
         
         </tbody></table>
     </div>
-    <h2>ชื่อผู้ใช้ และรหัสผ่าน</h2>
+    <h2><?=$this->lang->line("user_pass");?></h2>
     <div class="content">
       <table class="form">
         <tbody>
             <tr>
-          <td><span class="required">*</span> Username:</td>
+          <td><span class="required">*</span><?=$this->lang->line("username");?></td>
           <td><input type="text"  name="username" value="" class="form-control"></td>
           <td><div id="btnCheck" style="position:absolute; left:590px; top:925;"><img src="<?php echo logo_pic;?>btnCheck.png" width="39" height="20" border="0" style="cursor:pointer;" onclick="chkid()"></div></td>
                <!-- <div style="position:absolute; top:830px; left:600px;">
@@ -194,18 +193,18 @@
             </tr>
             
             <tr>
-          <td><span class="required">*</span> Password:</td>
+          <td><span class="required">*</span><?=$this->lang->line("password");?></td>
           <td><input type="password" name="password" value="" class="form-control">
             </td>
         </tr>
         <tr>
-          <td><span class="required">*</span> Password Confirm:</td>
+          <td><span class="required">*</span><?=$this->lang->line("password_c");?></td>
           <td><input type="password" name="confirm" value="" class="form-control">
             </td>
         </tr>
         
         <tr>
-          <td><span class="required">*</span> Profile Image:</td>
+          <td><span class="required">*</span><?=$this->lang->line("profile_img");?></td>
           
           <td>
                    
@@ -339,12 +338,12 @@
    
         <div class="buttons">
       
-            <input type="submit" name="btnsave" value="สมัครสมาชิก" class="button">
+            <input type="submit" name="btnsave" value=" <?=$this->lang->line("btn_reg");?> " class="button">
       
     </div>
       </form>
  <?php echo form_close();?>
-  </div>
+  
 
 <div class="clear"></div>
 
@@ -365,8 +364,8 @@
     <div id="powered">
        
           <div style="font-size:11px; padding-bottom: 30px;color: #eee;" align="center">
-              <a href="#" style="color: greenyellow" >TBShop.com</a>
-                        เว็บไซต์ให้บริการ <b>เปิดร้านค้าออนไลน์ฟรี</b> ด้วยการตกแต่งร้านค้าแนวใหม่ พร้อมระบบหลังร้าน ไม่จำกัดพื้นที่เว็บ ไม่จำกัดจำนวนสินค้า พร้อมทีมงานช่วยเหลือทุกวัน <a href="#" style="color: lawngreen">สร้างเว็บขายของฟรี</a>
+              <a href="#" style="color: greenyellow" ><?=$this->lang->line("footer");?></a>
+                        <?=$this->lang->line("footer1");?><b><?=$this->lang->line("footer2");?></b><?=$this->lang->line("footer3");?><a href="#" style="color: lawngreen"><?=$this->lang->line("footer4");?></a>
 			
 		</div>
     
@@ -374,15 +373,15 @@
 
 </div>
        
-</footer>
+</footer></div>
 <!--Footer Part End-->
 
-</div>
+
 
 
 
 <iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" style="display: none;"></iframe>
-<script src="<?php echo BI2_URL;?>jquery.min.js"></script>
+
 <script type="text/javascript" src="<?php echo JS_URL;?>picedit.min.js"></script>
 
 <script type="text/javascript">

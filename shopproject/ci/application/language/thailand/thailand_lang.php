@@ -6,7 +6,13 @@
 	$lang['store_name']="ชื่อร้านค้า";
 	$lang['back_office']="จัดการหลังร้าน";
 	$lang['shop_view']="ดูหน้าร้านค้า";
-	$lang['footer']="TBshop © 2014 All Rights Reserved."; 
+	$lang['footer']="TBshop.com";
+	$lang['footer1']="เว็บไซต์ให้บริการ";
+	$lang['footer2']="เปิดร้านค้าออนไลน์ฟรี";
+	$lang['footer3']="ด้วยการตกแต่งร้านค้าแนวใหม่ พร้อมระบบหลังร้าน ไม่จำกัดพื้นที่เว็บ ไม่จำกัดจำนวนสินค้า พร้อมทีมงานช่วยเหลือทุกวัน";
+	$lang['footer4']="สร้างเว็บขายของฟรี";
+
+
 	$lang['shop_name']="ชื่อร้าน";
 	$lang['seeshop']="ไปหน้าร้าน";
 	$lang['store']="แผงหลังร้าน";
@@ -41,6 +47,25 @@
 	$lang['action_v']="การกระทำ";
 	$lang['view']="ดู";	
 
+
+	$lang['reg_account']="สมัครสมาชิก";
+	$lang['reg_s']="ถ้าคุณเป็นสมาชิกอยู้แล้ว กรุณาเข้าสู่ระบบ login page.";
+	$lang['reg_login']="เข้าสู่ระบบ";
+	$lang['personal']="ประวัติส่วนตัว";
+	$lang['f_name']="ชื่อ:";
+	$lang['l_name']="นามสกุล:";
+	$lang['email']="E-mail:";
+	$lang['license']="รหัสประจำตัวประชาชน:";
+	$lang['address']="ที่อยู่";
+	$lang['address_d']="ที่อยู่:";
+	$lang['province']="จังหวัด:";
+	$lang['postcode']=" รหัสไปรษณีย์:";
+	$lang['user_pass']="ชื่อผู้ใช้ และรหัสผ่าน";
+	$lang['username']="ชื่อผู้ใช้:";
+	$lang['password']="รหัสผ่าน:";
+	$lang['password_c']="ยืนยันรหัสผ่าน:";
+	$lang['profile_img']="รูปโปรไฟล์";
+	$lang['btn_reg']="สมัครสมาชิก";
 
 
 

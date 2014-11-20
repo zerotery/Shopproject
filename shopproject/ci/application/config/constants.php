@@ -40,7 +40,7 @@ define("LAYOUT_URL","http://localhost/Shopproject/shopproject/ci/asset/css/");
 define("THEME_URL","http://localhost/Shopproject/shopproject/ci/asset/css/");
 define("JS_URL","http://localhost/Shopproject/shopproject/ci/asset/js/");
 define("BI","https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/");
-define("BI2","http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/");
+
 define("logo_pic","http://localhost/Shopproject/shopproject/ci/asset/img/");
 define("logo_pic2","http://localhost/Shopproject/shopproject/ci/asset/images/");
 

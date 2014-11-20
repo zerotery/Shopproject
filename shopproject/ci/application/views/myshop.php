@@ -152,11 +152,12 @@
           
 		  </div>
     </div>
-                 <div class="modal-footer">
+                <div class="modal-footer">
           <div style="font-size:11px; padding-bottom: 30px;" align="center">
-			<center><h5><?=$this->lang->line("footer");?></h5></center>
-			
-		</div>
+      <a href="#"><b style="color:#333"><?=$this->lang->line("footer");?></b></a>
+      <?=$this->lang->line("footer1");?> <b><?=$this->lang->line("footer2");?></b><?=$this->lang->line("footer3");?><a href="#"><?=$this->lang->line("footer4");?></a>
+      
+    </div>
     </div>
             </form>
             
