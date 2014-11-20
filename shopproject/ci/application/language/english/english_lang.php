@@ -49,7 +49,7 @@
 
 	//register.php
 	$lang['reg_account']="Register Account";
-	$lang['reg_s']="If you already have an account with us, please login at the login page.";
+	$lang['reg_s']="If you already have an account with us, please login at the";
 	$lang['reg_login']="login page.";
 	$lang['personal']="Your Personal Details";
 	$lang['f_name']="First Name:";

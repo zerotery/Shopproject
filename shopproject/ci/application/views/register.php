@@ -120,10 +120,10 @@
 <div id="content">
   
   <h1><span><?=$this->lang->line("reg_account");?></span></h1>
-  <p><?=$this->lang->line("reg_s");?><a href="http://localhost/Shopproject/shopproject/ci/index.php/backshop"><?=$this->lang->line("reg_login");?></a>.</p>
+  <p><?=$this->lang->line("reg_s");?> <a href="http://localhost/Shopproject/shopproject/ci/index.php/backshop"><?=$this->lang->line("reg_login");?></a>.</p>
   
   
-  <form action="<?php echo form_open('member_reg');?>" method="post" enctype="multipart/form-data">
+  <form action="#" method="post" enctype="multipart/form-data">
     <h2><?=$this->lang->line("personal");?></h2>
     
     
