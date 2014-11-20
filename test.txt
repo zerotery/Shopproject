@@ -4,14 +4,9 @@ I will know.
 
 what is the fox say.
 
-ding
-asdasdasddddddddddddddddddddddddddddddddd
-ddddddddddddddddddddddddddddddddddddddd
 git merge dev --no-ff
  เพื่อ merge branch dev เข้ากับ master
 
 11.สั่ง git push origin master เพื่อนำเข้าไปในเซิร์ฟเวอร์
 
 12.สั่ง git remote update เพื่อเตรียมเครื่องเราจะให้เหมือนกับตัว master
-
-dddddddddddddddddddddddddddddddddddddddddddd
