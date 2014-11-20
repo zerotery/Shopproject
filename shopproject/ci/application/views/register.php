@@ -67,8 +67,8 @@
                  
              <div>
          <td height="25" align="MIDDLE">
-           <a href="<?php echo site_url('backshop/changebackshop/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
-           <a href="<?php echo site_url('backshop/changebackshop/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
+           <a href="<?php echo site_url('member_reg/changelangreg/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
+           <a href="<?php echo site_url('member_reg/changelangreg/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
             </div> 
                  </ul>
          </div>
@@ -137,17 +137,7 @@
           <td><input type="text" class="form-control" name="firstname" value="">
             </td>
         </tr>
-        <tr>
-          <td><span class="required">*</span> ชื่อ:</td>
-          <td><input type="text" class="form-control" name="firstname" value="">
-            </td>
-        </tr>
-        <tr>
-          <td><span class="required">*</span> ชื่อ:</td>
-          <td><input type="text" class="form-control" name="firstname" value="">
-            </td>
-        </tr>
-        <tr>
+       <tr>
           <td><span class="required">*</span> นามสกุล:</td>
           <td><input type="text" class="form-control" name="lastname" value="">
             </td>

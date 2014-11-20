@@ -4,8 +4,10 @@
 			          parent::__construct();
                         $this->load->model('member','member');
 	
-		}
+		            }
                 public function index() {
+                        $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                        $this->lang->load($lang,$lang);
                         if($this->input->post('btnsave')!=null){
                            $ar =array(
                                 "f_name" => $this->input->post("firstname") ,
@@ -21,8 +23,27 @@
                            redirect("member_reg","refresh");
                            exit();
                         }
-			$this->load->view('register');
 
-		}
+			                   $this->load->view('register');
+
+		            }
+                public function changelangreg($type){
+                  $this->session->set_userdata('lang',$type);
+                  redirect('member_reg/index', 'refresh');
+      
+
+
+
+                }
+
                
-   }
+                 
+
+
+
+
+
+
+
+                 }
+?>
