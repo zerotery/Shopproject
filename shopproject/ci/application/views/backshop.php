@@ -345,8 +345,8 @@
      
     <div class="modal-footer">
           <div style="font-size:11px; padding-bottom: 30px;" align="center">
-      <a href="#"><b style="color:#333">TBShop.com</b></a>
-      เว็บไซต์ให้บริการ <b>เปิดร้านค้าออนไลน์ฟรี</b> ด้วยการตกแต่งร้านค้าแนวใหม่ พร้อมระบบหลังร้าน ไม่จำกัดพื้นที่เว็บ ไม่จำกัดจำนวนสินค้า พร้อมทีมงานช่วยเหลือทุกวัน <a href="#">สร้างเว็บขายของฟรี</a>
+      <a href="#"><b style="color:#333"><?=$this->lang->line("footer");?></b></a>
+      <?=$this->lang->line("footer1");?> <b><?=$this->lang->line("footer2");?></b><?=$this->lang->line("footer3");?><a href="#"><?=$this->lang->line("footer4");?></a>
       
     </div>
     </div>

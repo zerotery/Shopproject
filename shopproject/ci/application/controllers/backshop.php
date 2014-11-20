@@ -58,6 +58,7 @@
 			
 			//$this->shop->showshop();
 			$data['myshopname'] = $this->shop->showshop();
+			
 			$this->load->view('myshop',$data);
 			
 			}
