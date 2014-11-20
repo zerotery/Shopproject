@@ -40,9 +40,17 @@
 			
 			//echo '</table>';
 			
-			
-
-		}
+                    }
+                    public function register($ar){
+                        
+                        $this->db->insert("member",$ar);
+                        
+                        
+                        
+                        
+                        
+                        
+                    }
 
 
 
