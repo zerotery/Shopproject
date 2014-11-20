@@ -23,7 +23,11 @@
     
     
     <nav class="navbar navbar-default  " role="navigation" style="height: 50px" >
-        <div class="container-fluid "  >
+        <div class="container-fluid  "  >
+
+
+      
+
       <ul>
     <div class="navbar-header ">
       <a class="navbar-brand" href="#">
@@ -77,14 +81,14 @@
      </nav>
      <!-- end language -->      
     </div>
+
   </div>
         
 </nav>
    
      
     <!-- end navbar top -->
-   
-
+  
     <!--  Fixed layout -->
   
    
