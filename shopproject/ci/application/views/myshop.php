@@ -20,74 +20,88 @@
      
     
     <!-- navbar top -->
-    
-    
-    <nav class="navbar navbar-default  " role="navigation" style="height: 50px" >
-        <div class="container-fluid  "  >
 
 
-      
+    <div class="navbar navbar-default navbar-fixed-top" style="height: 50px">
+      <div class="container">
+        <div class="container-fluid">
+         <div class="row">
+         <div class="col-xs-12 col-md-8">
+         <div class="navbar-header">
+          <a href="#" class="navbar-brand"><img src="<?php echo logo_pic;?>logo-3.png" width="210px" height="30px"></a>
+          <button class="navbar-toggle collapsed " type="button" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        </div>
 
-      <ul>
-    <div class="navbar-header ">
-      <a class="navbar-brand" href="#">
-          <img alt="Brand" img src="<?php echo logo_pic;?>logo-3.png" width="210px" height="30px">
-      </a>
-        </ul>
-         
+        <div class="col-xs-6 col-md-4">
+        <div class="navbar-collapse collapse" id="navbar-main" aria-expanded="false" style="height: 1px;">
+          
+              <!-- logout btn -->
             
-        <nav class="  navbar-right " role="navigation">
-            <div class="container-fluid  " ><ul>
-                    
-        <div class="container btn-toolbar navbar " style="width:150px" align="right" >
+            <ul class="nav navbar-nav navbar-right">
+            <li><div class="container btn-toolbar navbar " style="width:150px" align="right" >
             
             <a href="<?php echo site_url('backshop/logout');?>" class="button glow button-small button-caution button-pill" style="color:white;width:80px;height: 20px;font-size: 14px"> Log out</a>
-      </div>
-                    
-                </ul>
-                     
+                  </div></li>
+          </ul>
+             <!-- end logout btn -->
 
-             </div>
-        </nav>
-              <!-- session id -->
-     <nav class="  navbar-right " role="navigation">
-         <div class="container-fluid  " >
-             
-             <ul>
-                     
-                 <div class="div3"><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;">&nbsp;<?=$this->lang->line("login");?> <span><?php echo $user; ?></span></div>
-           		
-                    
-                </ul>
-         </div>
-         
-         
-     </nav>
-     <!-- end session id -->
-      
-       <!-- language -->
-     <nav class="  navbar-right " role="navigation">
-         <div class="container-fluid  " >
-                  <ul>
-                 
-             <div>
-         <td height="25" align="MIDDLE">
+             <!-- language -->
+           <ul class="nav navbar-nav navbar-right">
+            <li width="20">
+               
+            <td height="20" align="MIDDLE">
            <a href="<?php echo site_url('backshop/changemyshop/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
            <a href="<?php echo site_url('backshop/changemyshop/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
-            </div> 
-                 </ul>
-         </div>
-        
-     </nav>
-     <!-- end language -->      
-    </div>
+            </li></ul>
+             <!-- end language --> 
+          
 
-  </div>
-        
-</nav>
-   
+            
+            <!-- session id -->
+            <ul class="nav navbar-nav navbar-right">
      
+                <li><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;"><?=$this->lang->line("login");?> <span><?php echo $user; ?></span>
+
+                </li> </ul>
+     
+     <!-- end session id -->
+
+    
+         </div>
+         </div>
+         </div>
+        </div>
+      </div>
+    </div>
     <!-- end navbar top -->
+    
+    
+      
+
+      
+                    
+        
+                    
+                
+                     
+
+            
+        
+              
+      
+       
+                  
+                 
+             
+ 
+  
+     
+    
   
     <!--  Fixed layout -->
   
