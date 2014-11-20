@@ -125,6 +125,16 @@
             </td>
         </tr>
         <tr>
+          <td><span class="required">*</span> ชื่อ:</td>
+          <td><input type="text" class="form-control" name="firstname" value="">
+            </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> ชื่อ:</td>
+          <td><input type="text" class="form-control" name="firstname" value="">
+            </td>
+        </tr>
+        <tr>
           <td><span class="required">*</span> นามสกุล:</td>
           <td><input type="text" class="form-control" name="lastname" value="">
             </td>
