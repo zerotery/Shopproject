@@ -145,7 +145,7 @@
         	 	echo '</td>';
         	 	$shopname["$i"]=$myshopname[$i]['shopname'];
         	 	$num=$i;
-        	 	echo '<td>'.anchor('http://localhost/Shopproject/shopproject/ci/backshop/gobackshop/?shopid='.$num.'','go backshop').'</td>';
+        	 	echo '<td>'.anchor(site_url('backshop/gobackshop/').'/?shopid='.$num.'','go backshop').'</td>';
         	 	echo '<td>'.'url shop'.'</td>';
         	 	$j++;
         	 	echo "</tr>";

@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/Shopproject/shopproject/ci/';
+$config['base_url']	= 'http://localhost/Shopproject/ci/';
 
 /*
 |--------------------------------------------------------------------------

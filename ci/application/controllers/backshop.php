@@ -14,6 +14,7 @@
 
 			$this->load->view('loginadmin');
 			//$this->load->view('myshop.php');
+			
 
 		}
 
