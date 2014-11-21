@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-compatible" content="id=edge">
 
-<link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>layout.css">
+
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>bootstrap-theme.css">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>buttons.css">
@@ -186,15 +186,12 @@
     
     </body>
     
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="<?php echo BI_URL;?>jquery.js"></script>
-   
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-    <script src="<?php echo JS_URL;?>buttons.js"></script>
-    <script src="<?php echo JS_URL;?>all.js"></script>
+    
+    
   
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
-    <script src="<?php echo JS_URL;?>icheck.min.js"></script>
-    <script src="<?php echo JS_URL;?>jquery.fs.selecter.min.js"></script>
+    
+  
 </html>
