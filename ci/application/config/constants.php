@@ -35,6 +35,7 @@ define('FOPEN_WRITE_CREATE',					'ab');
 define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
+
 define("LAYOUT_URL","http://localhost/Shopproject/ci/asset/css/");
 
 define("THEME_URL","http://localhost/Shopproject/ci/asset/css/");
@@ -42,7 +43,7 @@ define("JS_URL","http://localhost/Shopproject/ci/asset/js/");
 define("BI","https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/");
 
 define("logo_pic","http://localhost/Shopproject/ci/asset/img/");
-define("logo_pic2","http://localhost/Shopproject/ci/asset/images/");
+
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
