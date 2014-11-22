@@ -3,26 +3,23 @@
     <head>  
 
 <title>TB Shop|My shop's</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-compatible" content="id=edge">
 
-
-<link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>buttons.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>style.css">
-<link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>bootflat.css">
 
-	</head>
-<body style="background-image: url('<?php echo logo_pic;?>bg.jpg')">
+
+</head>
+<body>
+
+
      
     
     <!-- navbar top -->
 
 
-    <div class="navbar navbar-default navbar-fixed-top" style="height: 50px">
+    <!--<div class="navbar navbar-default navbar-fixed-top" style="height: 50px">
       <div class="container">
         <div class="container-fluid">
          <div class="row">
@@ -40,17 +37,16 @@
         <div class="col-xs-6 col-md-4">
         <div class="navbar-collapse collapse" id="navbar-main" aria-expanded="false" style="height: 1px;">
           
-              <!-- logout btn -->
-            
+              
             <ul class="nav navbar-nav navbar-right">
             <li><div class="container btn-toolbar navbar " style="width:150px" align="right" >
             
             <a href="<?php echo site_url('backshop/logout');?>" class="button glow button-small button-caution button-pill" style="color:white;width:80px;height: 20px;font-size: 14px"> Log out</a>
                   </div></li>
           </ul>
-             <!-- end logout btn -->
+            
 
-             <!-- language -->
+          
            <ul class="nav navbar-nav navbar-right">
             <li width="20">
                
@@ -58,18 +54,17 @@
            <a href="<?php echo site_url('backshop/changemyshop/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
            <a href="<?php echo site_url('backshop/changemyshop/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
             </li></ul>
-             <!-- end language --> 
-          
+            
 
             
-            <!-- session id -->
+            
             <ul class="nav navbar-nav navbar-right">
      
                 <li><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;"><?=$this->lang->line("login");?> <span><?php echo $user; ?></span>
 
                 </li> </ul>
      
-     <!-- end session id -->
+     
 
     
          </div>
@@ -107,6 +102,19 @@
   
    
     <div class="container ">
+    <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div>
+
         
         <div class="modal-body" >
             <form class="form col-md-12 center-block" style=" background-color: #CCCCCC">
@@ -185,13 +193,13 @@
     <!-- end Fixed layout -->
     
     </body>
-    
+    <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
     
     
   
-    <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
+    
     
   
 </html>
