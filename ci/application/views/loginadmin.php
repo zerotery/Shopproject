@@ -2,19 +2,34 @@
     <head>
     <title>Log in</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>style.css">
+    <style type="text/css">
+      body {
+        brackgound:#000000; 
+        background:url("<?php echo logo_pic;?>bg.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+
+     
+    </style>
     </head>
     <body>
-        <img src="<?php echo logo_pic;?>bg.jpg" width="100%" height="100%" >
+
+        <!--<img src="<?php //echo logo_pic;?>bg.jpg" width="100%" height="100%" style="margin:0 auto;">
         <!--login modal-->
         <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true" >
-        <div class="modal-dialog">
-        <div class="modal-content">
-              <div class="modal-header">
+        <dev class="box">
+        <div class="modal-dialog" bgcolor="white" >
+        <div class="modal-content" style="background-color: #336699;">
+            
+              <div class="modal-header" style="background-color:#336699;">
                   <h1 class="text-center" style="font-family:  cursive">Back Office</h1>
               </div>
-              <div class="modal-body">
+              <div class="modal-body" style="background-color: #336699;">
                   <form class="form col-md-12 center-block" role="form" method="post" action="<?php echo site_url('backshop/checkup'); ?>">
                   <div class="form-group">
                       <input type="text" class="form-control input-lg" placeholder="Username" name="username" required>
@@ -29,26 +44,21 @@
                   </form>
               </div>
                
-              <div class="modal-footer">
+              <div class="modal-footer" style="background-color: #336699;">
                   <div class="col-md-12">
                   </div>	
               </div>
         </div>
         </div>
+        </dev>
         </div>
-
-    <script src="<?php echo JS_URL;?>jquery.js"></script>
+        
+    <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="<?php echo JS_URL;?>center.js"></script>
+    <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+   
    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-    <script src="<?php echo JS_URL;?>buttons.js"></script>
-    <script src="<?php echo JS_URL;?>all.js"></script>
-  
-    <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
-    <script src="<?php echo JS_URL;?>icheck.min.js"></script>
-    <script src="<?php echo JS_URL;?>jquery.fs.selecter.min.js"></script>
-    <script src="<?php echo JS_URL;?>bootstrap.min.js"></script>
-        
     </body>
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     

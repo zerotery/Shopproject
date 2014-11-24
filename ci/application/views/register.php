@@ -14,15 +14,20 @@
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.42857143;
-  color: #ebebeb;
-  background-color: #2b3e50;
+  brackgound:#000000; 
+  background:url("<?php echo logo_pic;?>bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   }
+
 </style>
 </head>
 
 <body>
 
-<div class="navbar navbar-default navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
       <span class="icon-bar"></span>
@@ -67,8 +72,8 @@
       <div class="page-header">
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
-            <h1><?=$this->lang->line("reg_account");?></h1>
-            <p><?=$this->lang->line("reg_s");?> <a href="<?php echo site_url('backshop');?>"><?=$this->lang->line("reg_login");?></a>.</p>
+            <h1><font style="color:#FF4000;"><?=$this->lang->line("reg_account");?></font></h1>
+            <p style="color:#FF4000;"><?=$this->lang->line("reg_s");?> <a href="<?php echo site_url('backshop');?>"><?=$this->lang->line("reg_login");?></a>.</p>
           </div>
           <!--<div class="col-lg-4 col-md-5 col-sm-6">
               <h6>What the ?</h6>
@@ -79,9 +84,9 @@
         <div class="row">
           <div class="col-lg-12">
             
-             <div class="well bs-component">
+             <div class="well bs-component" style="background-color:#336699;">
               <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data">
-                <fieldset>
+                <fieldset >
                   <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("personal");?></h3>
                   </div>
@@ -265,7 +270,7 @@
 <footer>
 
    
-    <div class="powered-main" style="background-color: #666">
+    <div class="powered-main" style="background-color: #FF4000">
     <div id="powered">
        
           <div style="font-size:11px; padding-bottom: 30px;color: #eee;" align="center">

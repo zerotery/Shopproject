@@ -6,200 +6,164 @@
 
 <meta charset="UTF-8">
 
-<link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
+<style>
+body {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.42857143;
+  brackgound:#000000; 
+  background:url("<?php echo logo_pic;?>bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+  </style>
 
 
 </head>
 <body>
 
-
-     
-    
-    <!-- navbar top -->
-
-
-    <!--<div class="navbar navbar-default navbar-fixed-top" style="height: 50px">
-      <div class="container">
-        <div class="container-fluid">
-         <div class="row">
-         <div class="col-xs-12 col-md-8">
-         <div class="navbar-header">
-          <a href="#" class="navbar-brand"><img src="<?php echo logo_pic;?>logo-3.png" width="210px" height="30px"></a>
-          <button class="navbar-toggle collapsed " type="button" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        </div>
-
-        <div class="col-xs-6 col-md-4">
-        <div class="navbar-collapse collapse" id="navbar-main" aria-expanded="false" style="height: 1px;">
-          
-              
-            <ul class="nav navbar-nav navbar-right">
-            <li><div class="container btn-toolbar navbar " style="width:150px" align="right" >
-            
-            <a href="<?php echo site_url('backshop/logout');?>" class="button glow button-small button-caution button-pill" style="color:white;width:80px;height: 20px;font-size: 14px"> Log out</a>
-                  </div></li>
-          </ul>
-            
-
-          
-           <ul class="nav navbar-nav navbar-right">
-            <li width="20">
-               
-            <td height="20" align="MIDDLE">
-           <a href="<?php echo site_url('backshop/changemyshop/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a>
-           <a href="<?php echo site_url('backshop/changemyshop/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></td>
-            </li></ul>
-            
-
-            
-            
-            <ul class="nav navbar-nav navbar-right">
-     
-                <li><img src="<?php echo logo_pic;?>lock.png" alt="" style="position: relative; top:-2px;"><?=$this->lang->line("login");?> <span><?php echo $user; ?></span>
-
-                </li> </ul>
-     
-     
-
-    
-         </div>
-         </div>
-         </div>
-        </div>
-      </div>
-    </div>
-    <!-- end navbar top -->
-    
-    
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#" align="left">
+    <img src="<?php echo logo_pic;?>logo2.png" width="100px" height="20px" >
+    </a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="#">My Store</a>
+      </li>
       
-
-      
-                    
-        
-                    
-                
-                     
-
-            
-        
-              
-      
-       
-                  
-                 
-             
- 
-  
-     
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"><?=$this->lang->line("login");?><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp<?php echo $user; ?></span></a></li>
+        </ul>
+      </li>
+    </ul>
     
-  
-    <!--  Fixed layout -->
-  
-   
-    <div class="container ">
-    <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-  </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">Language<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="<?php echo site_url('backshop/changemyshop/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0">&nbsp&nbsp English</a></li>
+          <li><a href="<?php echo site_url('backshop/changemyshop/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0">&nbsp&nbsp Thai</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="<?php echo site_url('backshop/logout');?>"><span class="glyphicon glyphicon-off" >&nbspLogout</span></a>
+      </li>
+    </ul>
+  </div>
 </div>
 
+
+
+<div class="box">
+<div class="container">
+<div class="well bs-component" style="background-color:#CCFFCC;">
+   
+      <form class="form-horizontal">
         
-        <div class="modal-body" >
-            <form class="form col-md-12 center-block" style=" background-color: #CCCCCC">
-                    <table class="table">
-                        <br>
-                        <p style="font-family: Curlz MT, serif; font-size:25pt; font-style:italic ; color: saddlebrown">My store</p>
-                        <p style="font-family: Curlz MT, serif; font-size:14pt; font-style:italic; color: saddlebrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ร้านค้าของฉัน</p><br><br>
+      <table class="table table-striped table-hover ">
+        <p style="font-family: Curlz MT, serif; font-size:25pt; font-style:italic ; color:#0099CC">My store</p>
+        <p style="font-family: Curlz MT, serif; font-size:14pt; font-style:italic; color:#0099CC">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ร้านค้าของฉัน</p><br><br>
+      
       <thead>
         <tr>
-          <th>#</th>
-          <th><?=$this->lang->line("store_name");?></th>
-          <th><?=$this->lang->line("back_office");?></th>
-          <th><?=$this->lang->line("shop_view");?></th>
+          <th><font color="#003399">#</font></th>
+          <th><font color="#003399"><?=$this->lang->line("store_name");?></font></th>
+          <th><font color="#003399"><?=$this->lang->line("back_office");?></font></th>
+          <th><font color="#003399"><?=$this->lang->line("shop_view");?></font></th>
         </tr>
       </thead>
       <tbody>
         
 
         <?php
-        	if($this->session->userdata('shop_status')=="f"){
-				
-				
-				echo '<tr><td align=\"center\"></td>';//echo "true username and password";
-				echo '<td>';
-				echo '<h6>'.$this->lang->line("noshop").'</h6></td>';
-				echo '</tr>';
+          if($this->session->userdata('shop_status')=="f"){
+        
+        
+        echo '<tr class=\"warning\"><td align=\"center\"></td>';//echo "true username and password";
+        echo '<td>';
+        echo '<font color=\"red\"><h6>'.$this->lang->line("noshop").'</h6></font></td>';
+        echo '</tr>';
 
-			}else{
-				//print_r($myshopname);
-				$j=1;	
-        	 for($i=0; $i<count($myshopname); $i++){
-        	 	echo '<tr class="active">';
-        	 	echo '<td>'.$j.'</td>';
-        	 	echo '<td>';
-        	 	print_r($myshopname[$i]['shopname']);
-        	 	echo '</td>';
-        	 	$shopname["$i"]=$myshopname[$i]['shopname'];
-        	 	$num=$i;
-        	 	echo '<td>'.anchor(site_url('backshop/gobackshop/').'/?shopid='.$num.'','go backshop').'</td>';
-        	 	echo '<td>'.'url shop'.'</td>';
-        	 	$j++;
-        	 	echo "</tr>";
-        	 }
-        	 for($i=0;$i<count($shopname);$i++){
-        	 		$data[$i]=$shopname[$i];
-					$this->session->set_userdata($data);
+      }else{
+        //print_r($myshopname);
+        $j=1; 
+           for($i=0; $i<count($myshopname); $i++){
+            echo '<tr class="info">';
+            echo '<td>'.$j.'</td>';
+            echo '<td>';
+            print_r($myshopname[$i]['shopname']);
+            echo '</td>';
+            $shopname["$i"]=$myshopname[$i]['shopname'];
+            $num=$i;
+            echo '<td>'.anchor(site_url('backshop/gobackshop/').'/?shopid='.$num.'','go backshop').'</td>';
+            echo '<td>'.'url shop'.'</td>';
+            $j++;
+            echo "</tr>";
+           }
+           for($i=0;$i<count($shopname);$i++){
+              $data[$i]=$shopname[$i];
+          $this->session->set_userdata($data);
 
 
-        	 }
-        	}
-        	 
-      	?>
+           }
+          }
+           
+        ?>
          </tr>       
     </tbody>
     </table>
-
      
-     
-    <div class="modal-footer">
-          <div class="col-md-12">
-          
-		  </div>
+  
+                
+            </form>
     </div>
-                <div class="modal-footer">
-          <div style="font-size:11px; padding-bottom: 30px;" align="center">
-      <a href="#"><b style="color:#333"><?=$this->lang->line("footer");?></b></a>
-      <?=$this->lang->line("footer1");?> <b><?=$this->lang->line("footer2");?></b><?=$this->lang->line("footer3");?><a href="#"><?=$this->lang->line("footer4");?></a>
+   </div> 
+  </div>
+
+
+        
+      
+        
+
+    
+    
+<footer style=" position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;">
+
+   
+    <div class="powered-main" style="background-color: #FF4000">
+    <div id="powered">
+       
+          <div style="font-size:11px; padding-bottom: 30px;color: #eee;" align="center">
+              <a href="#" style="color: greenyellow" ><?=$this->lang->line("footer");?></a>
+                        <?=$this->lang->line("footer1");?><b><?=$this->lang->line("footer2");?></b><?=$this->lang->line("footer3");?><a href="#" style="color: lawngreen"><?=$this->lang->line("footer4");?></a>
       
     </div>
-    </div>
-            </form>
-            
-        </div>
-        
-    </div>
-    <!-- end Fixed layout -->
     
-    </body>
+    </div>
+
+    </div>
+       
+    </footer>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
-    
+    <script type="text/javascript" src="<?php echo JS_URL;?>center.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-    
-    
-  
-    
-    
-  
+    </body>
 </html>
