@@ -80,14 +80,13 @@
 
 	$lang['sreg_account']="เปิดร้านค้าออนไลน์";
 	$lang['spersonal']="กรอกข้อมูลร้านค้าของคุณ";
-	
 	$lang['s_name']="ชื่อร้าน:";
  	$lang['url_name']="URL ร้าน:";
  	$lang['s_type']="หมวดหมู่ร้านค้า:";
  	$lang['shop_detail']="รายละเอียดร้านค้าโดยย่อ:";
  	$lang['s_address']="รายละเอียดร้านค้าเพิ่มเติม";
  	$lang['s_fanpage']="แฟนเพจ";
- 	$lang['modify']="การปรับแต่งร้าน";
+ 	$lang['decorate']="การปรับแต่งร้าน";
  	$lang['theme']="ธีม:";
  	$lang['theme_s1']="แบบที่ 1";
  	$lang['theme_s2']="แบบที่ 2";
@@ -95,6 +94,11 @@
  	$lang['shopprofile']="เลือกโปรไฟล์ร้านค้า :";
  	$lang['bg_pic']="เลือกรูปพื้นหลัง :";
  	$lang['header_pic']="เลือกรูปปก :";
+ 	$lang['select_pic']="เลือกรูปภาพ";
+ 	$lang['change_pic']="เปลี่ยน";
+ 	$lang['remove_pic']="ลบ";
+ 	$lang['submit']="ยืนยัน";
+ 	$lang['cancel']="ยกเลิก";
 
 
 
