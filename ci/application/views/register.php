@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>fileinput.min.css">
 
 
 
@@ -190,9 +191,9 @@
                   <div class="form-group">
                     <label for="inputphoto" class="col-lg-2 control-label"><?=$this->lang->line("profile_img");?></label>
                     <div class="col-lg-4">
-                      <form id="form1" runat="server">
-                      <input type='file' id="imgInp" />
-                      <img id="blah" src="<?php echo logo_pic;?>1.jpg" alt="your image" />
+
+                      <form id="upload_picture" action="<?php echo site_url('member_tb/do_upload'); ?>" method="post"  enctype="multipart/form-data"  >
+                      <input id="pro_picture" type="file" class="file" data-preview-file-type="text">
                       </form>
 
                       
@@ -238,25 +239,13 @@
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-
+<script src="<?php echo JS_URL;?>fileinput.min.js"></script>
 <script>
-  function readURL(input) {
-
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#blah').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-$("#imgInp").change(function(){
-    readURL(this);
-});
+  $("#pro_picture").fileinput();
 </script>
+
+
+
 
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
