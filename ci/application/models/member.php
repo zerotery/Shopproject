@@ -3,6 +3,8 @@
 	class member extends CI_model{
 		public $user;
 		public $pass;
+		public $theQuery;
+
 
 		function __construct(){
 			parent::__construct();
@@ -27,6 +29,34 @@
 					
 				}
 			}
+		}
+
+
+		public function checkuser($username) {
+		$username=$username;
+		$query = "SELECT username FROM member WHERE username = '$username' LIMIT 1;";
+       	$query=$this->db->query($query)->result();
+        if(empty($query)){
+        	$num=0;
+        }else{
+        	$num=1;
+        }
+
+
+        return $num;
+
+    	}
+
+		
+
+    //*** Function: close, Purpose: Close the connection ***
+   		 
+
+
+
+
+
+
 
 			//echo '<table width="100%" border="1"><tr><th>username</th><th>password</th></tr>';
 			//foreach ($query as $row) {
@@ -40,17 +70,17 @@
 			
 			//echo '</table>';
 			
-                    }
-                    public function register($ar){
+            
+                   // public function register($ar){
                         
-                        $this->db->insert("member",$ar);
-                        
-                        
+                     //   $this->db->insert("member",$ar);
                         
                         
                         
                         
-                    }
+                        
+                        
+                    //}
 
 
 

@@ -67,6 +67,19 @@
 	$lang['profile_img']="Profile picture";
 	$lang['btn_reg']="register";
 	//end register.php
+	$lang['error_empty']="Please input your information!!!";
+	$lang['error_number']="Please input number!!!";
+	$lang['error_license']="License must be 13 number!!!";
+	$lang['error_email']="email address must be in the format of name@domain.com!!!";
+	$lang['error_postcode']="postcode must be 5 number!!!";
+	$lang['error_repassword']="wrong re-password retry!!!";
+	$lang['error_username']="username must be in the format of a-z and A-Z and 0-9 or - or _ !!!";
+	$lang['error_charusername']="username must be 6-8 character!!!";
+	$lang['username_ok']="Username can use!!!";
+	$lang['username_no']="Username can't use. Please re-try username!!!";
+
+
+
 
 
 

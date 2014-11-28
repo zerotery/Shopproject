@@ -9,9 +9,12 @@
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
 
+
+
+
 <style type="text/css">
   body {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.42857143;
   brackgound:#000000; 
@@ -21,8 +24,24 @@
   -o-background-size: cover;
   background-size: cover;
   }
+  #cropContainerHeader {
+      width: 200px;
+      height: 150px;
+      position:relative; /* or fixed or absolute */
+  }
+#username{
+  padding:3px;
+  font-size:18px;
+  border:3px #CCC solid;
+}
+
+#tick{display:none}
+#cross{display:none}
 
 </style>
+
+
+
 </head>
 
 <body>
@@ -59,8 +78,8 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown">Language<b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="<?php echo site_url('member_reg/changelangreg/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0">English</a></li>
-          <li><a href="<?php echo site_url('member_reg/changelangreg/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0">Thai</a></li>
+          <li><a href="<?php echo site_url('member_tb/changelangreg/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0">English</a></li>
+          <li><a href="<?php echo site_url('member_tb/changelangreg/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0">Thai</a></li>
         </ul>
       </li>
     </ul>
@@ -85,7 +104,7 @@
           <div class="col-lg-12">
             
              <div class="well bs-component" style="background-color:#336699;">
-              <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" id="regform" action="#" method="post" enctype="multipart/form-data">
                 <fieldset >
                   <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("personal");?></h3>
@@ -93,7 +112,7 @@
                   <div class="form-group">
                     <label for="inputfname" class="col-lg-2 control-label"><?=$this->lang->line("f_name");?></label>
                     <div class="col-lg-6">
-                      <input type="text" class="form-control" name="firstname" value="">
+                      <input type="text" id="fname" class="form-control" name="firstname"  value="">
                     </div>
                   </div>
                   <div class="form-group">
@@ -105,7 +124,7 @@
                   <div class="form-group">
                     <label for="inputemail" class="col-lg-2 control-label"><?=$this->lang->line("email");?></label>
                     <div class="col-lg-6">
-                      <input type="email" class="form-control" name="email" value="">
+                      <input type="email" id="email" class="form-control" name="email" value="">
                     </div>
                   </div>
                   <div class="form-group">
@@ -126,87 +145,7 @@
                   <div class="form-group">
                     <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("province");?></label>
                     <div class="col-lg-4">
-                      <select select class="form-control" id="select" name="province">
-                      <option value="" selected>--------- เลือกจังหวัด ---------</option>
-                      <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
-                      <option value="กระบี่">กระบี่ </option>
-                      <option value="กาญจนบุรี">กาญจนบุรี </option>
-                      <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
-                      <option value="กำแพงเพชร">กำแพงเพชร </option>
-                      <option value="ขอนแก่น">ขอนแก่น</option>
-                      <option value="จันทบุรี">จันทบุรี</option>
-                      <option value="ฉะเชิงเทรา">ฉะเชิงเทรา </option>
-                      <option value="ชัยนาท">ชัยนาท </option>
-                      <option value="ชัยภูมิ">ชัยภูมิ </option>
-                      <option value="ชุมพร">ชุมพร </option>
-                      <option value="ชลบุรี">ชลบุรี </option>
-                      <option value="เชียงใหม่">เชียงใหม่ </option>
-                      <option value="เชียงราย">เชียงราย </option>
-                      <option value="ตรัง">ตรัง </option>
-                      <option value="ตราด">ตราด </option>
-                      <option value="ตาก">ตาก </option>
-                      <option value="นครนายก">นครนายก </option>
-                      <option value="นครปฐม">นครปฐม </option>
-                      <option value="นครพนม">นครพนม </option>
-                      <option value="นครราชสีมา">นครราชสีมา </option>
-                      <option value="นครศรีธรรมราช">นครศรีธรรมราช </option>
-                      <option value="นครสวรรค์">นครสวรรค์ </option>
-                      <option value="นราธิวาส">นราธิวาส </option>
-                      <option value="น่าน">น่าน </option>
-                      <option value="นนทบุรี">นนทบุรี </option>
-                      <option value="บึงกาฬ">บึงกาฬ</option>
-                      <option value="บุรีรัมย์">บุรีรัมย์</option>
-                      <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </option>
-                      <option value="ปทุมธานี">ปทุมธานี </option>
-                      <option value="ปราจีนบุรี">ปราจีนบุรี </option>
-                      <option value="ปัตตานี">ปัตตานี </option>
-                      <option value="พะเยา">พะเยา </option>
-                      <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </option>
-                      <option value="พังงา">พังงา </option>
-                      <option value="พิจิตร">พิจิตร </option>
-                      <option value="พิษณุโลก">พิษณุโลก </option>
-                      <option value="เพชรบุรี">เพชรบุรี </option>
-                      <option value="เพชรบูรณ์">เพชรบูรณ์ </option>
-                      <option value="แพร่">แพร่ </option>
-                      <option value="พัทลุง">พัทลุง </option>
-                      <option value="ภูเก็ต">ภูเก็ต </option>
-                      <option value="มหาสารคาม">มหาสารคาม </option>
-                      <option value="มุกดาหาร">มุกดาหาร </option>
-                      <option value="แม่ฮ่องสอน">แม่ฮ่องสอน </option>
-                      <option value="ยโสธร">ยโสธร </option>
-                      <option value="ยะลา">ยะลา </option>
-                      <option value="ร้อยเอ็ด">ร้อยเอ็ด </option>
-                      <option value="ระนอง">ระนอง </option>
-                      <option value="ระยอง">ระยอง </option>
-                      <option value="ราชบุรี">ราชบุรี</option>
-                      <option value="ลพบุรี">ลพบุรี </option>
-                      <option value="ลำปาง">ลำปาง </option>
-                      <option value="ลำพูน">ลำพูน </option>
-                      <option value="เลย">เลย </option>
-                      <option value="ศรีสะเกษ">ศรีสะเกษ</option>
-                      <option value="สกลนคร">สกลนคร</option>
-                      <option value="สงขลา">สงขลา </option>
-                      <option value="สมุทรสาคร">สมุทรสาคร </option>
-                      <option value="สมุทรปราการ">สมุทรปราการ </option>
-                      <option value="สมุทรสงคราม">สมุทรสงคราม </option>
-                      <option value="สระแก้ว">สระแก้ว </option>
-                      <option value="สระบุรี">สระบุรี </option>
-                      <option value="สิงห์บุรี">สิงห์บุรี </option>
-                      <option value="สุโขทัย">สุโขทัย </option>
-                      <option value="สุพรรณบุรี">สุพรรณบุรี </option>
-                      <option value="สุราษฎร์ธานี">สุราษฎร์ธานี </option>
-                      <option value="สุรินทร์">สุรินทร์ </option>
-                      <option value="สตูล">สตูล </option>
-                      <option value="หนองคาย">หนองคาย </option>
-                      <option value="หนองบัวลำภู">หนองบัวลำภู </option>
-                      <option value="อำนาจเจริญ">อำนาจเจริญ </option>
-                      <option value="อุดรธานี">อุดรธานี </option>
-                      <option value="อุตรดิตถ์">อุตรดิตถ์ </option>
-                      <option value="อุทัยธานี">อุทัยธานี </option>
-                      <option value="อุบลราชธานี">อุบลราชธานี</option>
-                      <option value="อ่างทอง">อ่างทอง </option>
-                      <option value="อื่นๆ">อื่นๆ</option>
-                  </select>
+                      <input type="text" class="form-control" name="province" value="">
                     </div>
                   </div>
 
@@ -223,14 +162,21 @@
                   <div class="form-group">
                     <label for="inputusername" class="col-lg-2 control-label"><?=$this->lang->line("username");?></label>
                     <div class="col-lg-4">
-                      <input type="text" class="form-control" name="postcode" value="">
+                      <input type="text" class="form-control" name="username" value="" id="username">
+                      
+                    </div>
+                    <div class="col-lg-4">
+                      
+                      <font id="tick" color="66CCFF" style="font-weight:bold; font-size:15px;"><?=$this->lang->line("username_ok");?></font>
+                      <font id="cross" color="#FF0000" style="font-weight:bold; font-size:15px;"><?=$this->lang->line("username_no");?></font>
+                      
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="inputpassword" class="col-lg-2 control-label"><?=$this->lang->line("password");?></label>
                     <div class="col-lg-4">
-                      <input type="password" name="password" value="" class="form-control">
+                      <input type="password" id="password" name="password" value="" class="form-control">
                     </div>
                   </div>
 
@@ -244,6 +190,11 @@
                   <div class="form-group">
                     <label for="inputphoto" class="col-lg-2 control-label"><?=$this->lang->line("profile_img");?></label>
                     <div class="col-lg-4">
+                      <form id="form1" runat="server">
+                      <input type='file' id="imgInp" />
+                      <img id="blah" src="<?php echo logo_pic;?>1.jpg" alt="your image" />
+                      </form>
+
                       
                     </div>
                   </div>
@@ -285,19 +236,194 @@
        
 </footer>
 
-
-
-
-
-
-
-
-
-
-
-
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+
+<script>
+  function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+</script>
+
+
+<script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
+
+<script>
+
+
+
+$.validator.addMethod(
+       "regex",
+        function(value, element, regexp) {
+        var check = false;
+        return this.optional(element) || regexp.test(value);
+        },
+        "Please check your input."
+        );
+
+$("#regform").validate({
+  rules: {
+    firstname: {
+      required: true
+    },
+    lastname: {
+      required: true
+    },
+    license: {
+      required: true,
+      number: true,
+      rangelength: [13, 13]
+    },
+    email: {
+      required: true,
+      email: true
+    },
+    address: {
+      required: true
+
+    },
+    province: {
+      required: true
+
+    },
+    postcode: {
+      required: true,
+      number: true,
+      rangelength: [5, 5]
+
+    },
+    username: {
+      required: true,
+      regex: /^([a-zA-Z0-9]|[-_])+$/,
+      rangelength: [6, 8]
+    },
+    password: {
+      required: true,
+    },
+    passwordre: {
+      required: true,
+      equalTo: "#password"
+      
+    }
+    
+
+  },
+  messages: {
+    firstname: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    },
+    lastname: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    },
+    license: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      number: "<?php echo "<font color='red'>".$this->lang->line("error_number")."</font>"; ?>",
+      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_license")."</font>"; ?>"
+
+    },
+    email: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      email: "<?php echo "<font color='red'>".$this->lang->line("error_email")."</font>"; ?>"
+    },
+    address: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+
+    },
+    province: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+
+    },
+    postcode: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      number: "<?php echo "<font color='red'>".$this->lang->line("error_number")."</font>"; ?>",
+      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_postcode")."</font>"; ?>"
+    },
+    username: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_username")."</font>";?>",
+      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_charusername")."</font>"; ?>" 
+    },
+    password: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    },
+    passwordre:{
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      equalTo: "<?php echo "<font color='red'>".$this->lang->line("error_repassword")."</font>";?>"
+    }
+
+  }
+
+
+});
+
+
+
+
+
+
+</script>
+
+<script>
+
+$(document).ready(function(){
+$('#username').keyup(username_check);
+});
+  
+function username_check(){  
+var username = $('#username').val();
+if(username == "" || username.length < 4){
+$('#username').css('border', '3px #CCC solid');
+$('#tick').hide();
+}else{
+
+jQuery.ajax({
+   type: "POST",
+   url: "<?php echo site_url();?>member_tb/checkusername/",
+   data: 'username='+ username,
+   cache: false,
+   success: function(response){
+if(response == 1){
+  $('#username').css('border', '3px #C33 solid'); 
+  $('#tick').hide();
+  $('#cross').fadeIn();
+  }else{
+  $('#username').css('border', '3px #090 solid');
+  $('#cross').hide();
+  $('#tick').fadeIn();
+       }
+
+}
+});
+}
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 
