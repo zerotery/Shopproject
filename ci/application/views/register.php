@@ -199,8 +199,8 @@
                     </div>
                   </div>
                   <div class="col-lg-10 col-lg-offset-2">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                      <button class="btn btn-default">Cancel</button>
+                      <button type="submit" class="btn btn-primary"><?=$this->lang->line("submit");?></button>
+                      <button class="btn btn-default"><?=$this->lang->line("cancel");?></button>
                       
                   </div>
                   </div>

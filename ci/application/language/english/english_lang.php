@@ -78,8 +78,27 @@
 	$lang['username_ok']="Username can use!!!";
 	$lang['username_no']="Username can't use. Please re-try username!!!";
 
-
-
+    $lang['sreg_account']="Open shop Online";
+	$lang['spersonal']="Shop Detail";
+	$lang['s_name']="Shop Name:";
+ 	$lang['url_name']="Shop URL:";
+ 	$lang['s_type']="Shop Category:";
+ 	$lang['shop_detail']="Shop Description:";
+ 	$lang['s_address']="Shop Description extra";
+ 	$lang['s_fanpage']="Fanpage";
+ 	$lang['decorate']="Shop Decorate";
+ 	$lang['theme']="Theme:";
+ 	$lang['theme_s1']="Design 1";
+ 	$lang['theme_s2']="Design 2";
+ 	$lang['shopprofile_s']="Choose";
+ 	$lang['shopprofile']="Choose Profile picture :";
+ 	$lang['bg_pic']="Choose Background picture :";
+ 	$lang['header_pic']="Choose Cover picture :";
+ 	$lang['select_pic']="Select image";
+ 	$lang['change_pic']="Change";
+ 	$lang['remove_pic']="Remove";
+ 	$lang['submit']="Submit";
+ 	$lang['cancel']="Cancel";
 
 
 
