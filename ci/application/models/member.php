@@ -47,45 +47,23 @@
 
     	}
 
+    	public function insertcustomer($data){
+
+    		if($this->db->insert('member',$data)){
+    			echo "success";
+    		}else{
+    			echo "fail insert";
+    		}
+
+
+
+    	}
+
+
+
 		
 
-    //*** Function: close, Purpose: Close the connection ***
-   		 
-
-
-
-
-
-
-
-			//echo '<table width="100%" border="1"><tr><th>username</th><th>password</th></tr>';
-			//foreach ($query as $row) {
-				//echo '<tr><td>'.$row->username.'</td><td>'.$row->password.'</td></tr>';
-			//	if(!($row->username&&$row->password)){
-
-					//echo "wrong username and password!!!";
-			//	}
-			 
-
-			
-			//echo '</table>';
-			
-            
-                   // public function register($ar){
-                        
-                     //   $this->db->insert("member",$ar);
-                        
-                        
-                        
-                        
-                        
-                        
-                    //}
-
-
-
-
-
+    
 	}
 
 
