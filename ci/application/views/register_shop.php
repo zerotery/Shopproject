@@ -103,22 +103,41 @@
           <div class="col-lg-12">
             
              <div class="well bs-component" style="background-color:#336699;">
-              <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data" id="regshop" name="regshop">
                 <fieldset >
                   <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("spersonal");?></h3>
                   </div>
                  
                   <div class="form-group">
-                    <label for="inputfname" class="col-lg-2 control-label"><?=$this->lang->line("s_name");?></label>
-                    <div class="col-lg-2">
-                      <input type="text" class="form-control" name="shopname" value="">
+                    <label for="inputsname" class="col-lg-2 control-label"><?=$this->lang->line("s_name");?></label>
+                    
+                    <div class="col-lg-3">
+                      <input type="text" class="form-control" name="shopname_en" value="">
                     </div>
+                    <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
                   </div>
                   <div class="form-group">
-                    <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("url_name");?></label>
-                    <div class="col-lg-2">
+                    <label for="inputsname" class="col-lg-2 control-label"></label>
+                    
+                    <div class="col-lg-3">
+                      <input type="text" class="form-control" name="shopname_th" value="">
+                    </div>
+                    <label for="inputlang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
+
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="inputurl" class="col-lg-2 control-label"><?=$this->lang->line("url_name");?></label>
+                    <div class="col-lg-2.5">
+                      <label for="inputurl" class="col-lg-2 control-label">www.myaday.net/Project/TBShop/</label>
+                    </div>
+                    <div class="col-lg-3">
                       <input type="text" class="form-control" name="urlname" value="">
+                    </div>
+                    <div class="col-lg-1">
+                      <label for="inputcom" class="col-lg-0.6 control-label">.com</label>
                     </div>
                   </div>
                   
@@ -128,11 +147,22 @@
                     <input type="text" id="category" class="form-control" name="category" value="">
                     </div>
                   </div>
+
                   <div class="form-group">
                     <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("shop_detail");?></label>
                     <div class="col-lg-5">
-                      <textarea name="address" rows="3" cols="60" class="form-control" name="shopdetail"></textarea>
+                      <textarea rows="3" cols="60" class="form-control" name="shopdetail_en"></textarea>
                     </div>
+                    <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputadress" class="col-lg-2 control-label"></label>
+                    <div class="col-lg-5">
+                      <textarea rows="3" cols="60" class="form-control" name="shopdetail_th"></textarea>
+                    </div>
+                    <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
+
                   </div>
                   <div class="form-group">
                     <label for="inputusername" class="col-lg-2 control-label"><?=$this->lang->line("s_fanpage");?></label>
@@ -140,28 +170,7 @@
                       <input type="text" class="form-control" name="fanpageshop" value="">
                     </div>
                   </div>
-                  <div class="page-header">
-                  <h3 id="formaddress"><?=$this->lang->line("s_address");?></h3>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("address_d");?></label>
-                    <div class="col-lg-5">
-                      <textarea name="shopaddress" rows="1" cols="30" class="form-control"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("province");?></label>
-                    <div class="col-lg-3">
-                     <input type="text" id="province" class="form-control" name="province" value="">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("postcode");?></label>
-                    <div class="col-lg-2">
-                      <input type="text" class="form-control" name="postcode" value="">
-                    </div>
-                  </div>
+                 
 
                   <div class="page-header">
                   <h3 id="formusername"><?=$this->lang->line("decorate");?></h3>
@@ -366,6 +375,112 @@
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
+<script>
+
+$.validator.addMethod(
+       "regex",
+        function(value, element, regexp) {
+        var check = false;
+        return this.optional(element) || regexp.test(value);
+        },
+        "Please check your input."
+        );
+
+$("#regshop").validate({
+  rules: {
+    shopname: {
+      required: true
+    },
+    urlname: {
+      required: true,
+      regex: /^([a-zA-Z0-9])+$/,
+      rangelength: [2, 10]
+    },
+    license: {
+      required: true,
+      number: true,
+      rangelength: [13, 13]
+    },
+    email: {
+      required: true,
+      email: true
+    },
+    address: {
+      required: true
+
+    },
+    province: {
+      required: true
+
+    },
+    postcode: {
+      required: true,
+      number: true,
+      rangelength: [5, 5]
+
+    },
+    
+    password: {
+      required: true,
+    },
+    passwordre: {
+      required: true,
+      equalTo: "#password"
+      
+    }
+    
+
+  },
+  messages: {
+    shopname: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    },
+    urlname: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_username")."</font>";?>"
+       
+    },
+    lastname: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    },
+    license: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      number: "<?php echo "<font color='red'>".$this->lang->line("error_number")."</font>"; ?>",
+      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_license")."</font>"; ?>"
+
+    },
+    email: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      email: "<?php echo "<font color='red'>".$this->lang->line("error_email")."</font>"; ?>"
+    },
+    address: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+
+    },
+    province: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+
+    },
+    postcode: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      number: "<?php echo "<font color='red'>".$this->lang->line("error_number")."</font>"; ?>",
+      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_postcode")."</font>"; ?>"
+    },
+    
+    password: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    },
+    passwordre:{
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      equalTo: "<?php echo "<font color='red'>".$this->lang->line("error_repassword")."</font>";?>"
+    }
+
+  }
+
+
+});
+</script>
 
 </body>
 
