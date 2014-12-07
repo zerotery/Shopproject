@@ -135,7 +135,7 @@
                   }
 
 
-    }
+               }
 
 
 
@@ -158,9 +158,8 @@
                         $this->session->set_userdata('loginname',"$user");
 
                         $this->regshop();
-                    //echo "true username and password";
-
-      }             else{
+                    //echo "true username and password"; 
+                    }else{
 
                         if($this->session->userdata('status')=="f"){
                         $this->load->view('error_login');
@@ -173,24 +172,57 @@
       
 
       
-      }
+                }
                 
                 public function regshop(){
                   
                   $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
                   $this->lang->load($lang,$lang);
+                  if($lang=="english"){
+                    $this->session->set_userdata('langreg',1);
+                  }
+                  else if($lang=="thailand"){
+                    $this->session->set_userdata('langreg',2);
+                  }
+
+
+
                   if($this->session->userdata('loginname')==""){
                         $this->login();
                       }else{
                       $data['user']=$this->session->userdata('loginname');
                       $data['userid']=$this->session->userdata('memberid'); 
+                      $data['cate']=$this->member->type_category();
                       $this->load->view('register_shop',$data);
                       
-                            }
+                      }
 
 
 
                 }
+
+                public function test_category(){
+
+                      $Shopname_en=$this->input->post('shopname_en');
+                      $Shopname_th=$this->input->post('shopname_th');
+                      $Shopname_url=$this->input->post('shopname_th');
+                      $Shopname_cate=$this->input->post('shopname_th');
+                      $Shopname_th=$this->input->post('shopname_th');
+                      $Shopname_th=$this->input->post('shopname_th');
+                      $Shopname_th=$this->input->post('shopname_th');
+                       $data=$this->member->type_category();
+                       $tlang=$this->session->userdata('langreg');
+                       echo "$tlang";
+
+                       echo "<html><head><meta http-equiv=Content-Type content=\"text/html; charset=utf-8\"></head><table><tr><th>1</th><th>2</th><th>3</th><th>4</th></tr>";
+                      foreach ($data as $value) {
+                         echo "<tr><td>".$value->shop_category_ID."</td><td>".$value->shop_name_type."</td><td>".$value->shop_category_parent_ID."</td><td>".$value->lang_ID."</td></tr>";
+                       }
+                       echo "</table></html>";
+
+
+                }
+
 
                 public function logout(){
                   $this->session->unset_userdata('loginname');

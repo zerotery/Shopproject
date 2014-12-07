@@ -91,7 +91,6 @@
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
             <h1><font style="color:#FF4000;"><?=$this->lang->line("sreg_account");?></font></h1>
-            
           </div>
           <!--<div class="col-lg-4 col-md-5 col-sm-6">
               <h6>What the ?</h6>
@@ -103,8 +102,9 @@
           <div class="col-lg-12">
             
              <div class="well bs-component" style="background-color:#336699;">
-              <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data" id="regshop" name="regshop">
+              <form class="form-horizontal" action="<?php echo site_url('member_tb/test_category'); ?>" method="post" enctype="multipart/form-data" id="regshop" name="regshop">
                 <fieldset >
+
                   <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("spersonal");?></h3>
                   </div>
@@ -112,7 +112,7 @@
                   <div class="form-group">
                     <label for="inputsname" class="col-lg-2 control-label"><?=$this->lang->line("s_name");?></label>
                     
-                    <div class="col-lg-3">
+                    <div class="col-lg-5">
                       <input type="text" class="form-control" name="shopname_en" value="">
                     </div>
                     <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
@@ -120,7 +120,7 @@
                   <div class="form-group">
                     <label for="inputsname" class="col-lg-2 control-label"></label>
                     
-                    <div class="col-lg-3">
+                    <div class="col-lg-5">
                       <input type="text" class="form-control" name="shopname_th" value="">
                     </div>
                     <label for="inputlang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
@@ -137,14 +137,22 @@
                       <input type="text" class="form-control" name="urlname" value="">
                     </div>
                     <div class="col-lg-1">
-                      <label for="inputcom" class="col-lg-0.6 control-label">.com</label>
+                      <label for="inputcom" class="col-lg-0.6 control-label">.com </label>
                     </div>
                   </div>
                   
                   <div class="form-group">
                     <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("s_type");?></label>
                     <div class="col-lg-3">
-                    <input type="text" id="category" class="form-control" name="category" value="">
+                    <select name="category" class="form-control">
+                    <?php 
+
+                      foreach( $cate as $value){ 
+                      echo "<option value=\"$value->shop_name_type\">".$value->shop_name_type."</option>";}
+                    ?>
+                        
+                    </select>
+                   
                     </div>
                   </div>
 
@@ -325,7 +333,7 @@
                   
                   <div class="col-lg-10 col-lg-offset-2">
                       <button type="submit" class="btn btn-primary"><?=$this->lang->line("submit");?></button>
-                      <button class="btn btn-default"><?=$this->lang->line("cancel");?></button>
+                      <button class="btn btn-default" type="reset"><?=$this->lang->line("cancel");?></button>
                       
                   </div>
 
@@ -389,93 +397,62 @@ $.validator.addMethod(
 
 $("#regshop").validate({
   rules: {
-    shopname: {
-      required: true
+    shopname_en: {
+      required: true,
+      regex: /^([a-zA-Z0-9]|[-_])+$/
+    },
+    shopname_th: {
+      required: true,
+      regex: /^([ก-๙0-9]|[-_])+$/
     },
     urlname: {
       required: true,
       regex: /^([a-zA-Z0-9])+$/,
       rangelength: [2, 10]
     },
-    license: {
+    shopdetail_en: {
       required: true,
-      number: true,
-      rangelength: [13, 13]
-    },
-    email: {
-      required: true,
-      email: true
-    },
-    address: {
-      required: true
-
-    },
-    province: {
-      required: true
-
-    },
-    postcode: {
-      required: true,
-      number: true,
-      rangelength: [5, 5]
-
-    },
-    
-    password: {
-      required: true,
-    },
-    passwordre: {
-      required: true,
-      equalTo: "#password"
+      regex: /^([a-zA-Z0-9]|[-_])+$/
       
+    },
+    shopdetail_th: {
+      required: true,
+      regex: /^([ก-๙0-9]|[-_])+$/
+    },
+    fanpageshop: {
+      required: true,
     }
-    
 
   },
   messages: {
-    shopname: {
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    shopname_en: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_emptyshop")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_shopnameen")."</font>";?>"
+      
+    },
+    shopname_th: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_emptyshop")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_shopnameth")."</font>";?>"
+      
     },
     urlname: {
       required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
-      regex: "<?php echo "<font color='red'>".$this->lang->line("error_username")."</font>";?>"
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_url")."</font>";?>"
        
     },
-    lastname: {
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
-    },
-    license: {
+    shopdetail_en: {
       required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
-      number: "<?php echo "<font color='red'>".$this->lang->line("error_number")."</font>"; ?>",
-      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_license")."</font>"; ?>"
-
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_shopnameen")."</font>";?>"
+      
     },
-    email: {
+    shopdetail_th: {
       required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
-      email: "<?php echo "<font color='red'>".$this->lang->line("error_email")."</font>"; ?>"
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_shopnameth")."</font>";?>"
+      
     },
-    address: {
+    fanpageshop: {
       required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
-
-    },
-    province: {
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
-
-    },
-    postcode: {
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
-      number: "<?php echo "<font color='red'>".$this->lang->line("error_number")."</font>"; ?>",
-      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_postcode")."</font>"; ?>"
-    },
-    
-    password: {
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
-    },
-    passwordre:{
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
-      equalTo: "<?php echo "<font color='red'>".$this->lang->line("error_repassword")."</font>";?>"
     }
-
   }
 
 
