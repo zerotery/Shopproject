@@ -65,6 +65,7 @@
 	$lang['password']="Password:";
 	$lang['password_c']="Password Confirm:";
 	$lang['profile_img']="Profile picture";
+	$lang['profile_select']="Choose profile :";
 	$lang['btn_reg']="register";
 	//end register.php
 	$lang['error_empty']="Please input your information!!!";
@@ -77,10 +78,6 @@
 	$lang['error_charusername']="username must be 6-8 character!!!";
 	$lang['username_ok']="Username can use!!!";
 	$lang['username_no']="Username can't use. Please re-try username!!!";
-	$lang['error_emptyshop']="Please input your information!!!,But no information Please input '-' ";
-	$lang['error_shopnameen']="Please input information with English language!!!";
-	$lang['error_shopnameth']="Please Thai language!!!";
-	$lang['error_url']="URL must be in the format of a-z and A-Z and 0-9 or - or _ !!!";
 
     $lang['sreg_account']="Open shop Online";
 	$lang['spersonal']="Shop Detail";

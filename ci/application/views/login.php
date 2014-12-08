@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
     <style type="text/css">
       body {
         brackgound:#000000; 
@@ -52,6 +53,8 @@
         </div>
         </dev>
         </div>
+
+          
         
     <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script type="text/javascript" src="<?php echo JS_URL;?>center.js"></script>
@@ -60,6 +63,8 @@
    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     </body>
+
+    
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     
 </html>

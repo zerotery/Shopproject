@@ -198,6 +198,8 @@ th {
   a,
   a:visited {
     text-decoration: underline;
+  color: #228B22;
+
   }
   a[href]:after {
     content: " (" attr(href) ")";
@@ -923,6 +925,10 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+a:link {
+    color: #FF0000;
+}
+
 figure {
   margin: 0;
 }
@@ -6135,6 +6141,14 @@ div.transbox
   opacity:0.8;
   filter:alpha(opacity=60); /* For IE8 and earlier */
 }
+div.transboxreg
+{
+ 
+  background-color: #20B2AA;
+  border: 1px solid black;
+  opacity:0.9;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
 div.transboxz
 {
  
@@ -6339,5 +6353,4 @@ div.transbox p
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
-
 
