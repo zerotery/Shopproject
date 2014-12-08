@@ -30,7 +30,7 @@
                   <h1 class="text-center" style="font-family:  cursive">Log in</h1>
               </div>
               <div class="modal-body" style="background-color: #58D3F7;">
-                  <form class="form col-md-12 center-block" role="form" method="post" action="<?php echo site_url('member_tb/checkup_mem'); ?>">
+                  <form class="form col-md-12 center-block" role="form" method="post" action="<?php echo site_url('main/login_check'); ?>">
                   <div class="form-group">
                       <input type="text" class="form-control input-lg" placeholder="Username" name="username" required>
                   </div>

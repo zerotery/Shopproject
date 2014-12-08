@@ -142,7 +142,7 @@
 
 
                 public function login() {
-                        $this->load->view('loginmem');
+                        $this->load->view('login');
 
                 }
 
@@ -209,13 +209,15 @@
 
                 public function test_category(){
 
-                      $Shopname_en=$this->input->post('shopname_en');
+                      /*$Shopname_en=$this->input->post('shopname_en');
                       $Shopname_th=$this->input->post('shopname_th');
                       $Shopname_url=$this->input->post('shopname_th');
                       $Shopname_cate=$this->input->post('shopname_th');
                       $Shopname_th=$this->input->post('shopname_th');
                       $Shopname_th=$this->input->post('shopname_th');
-                      $Shopname_th=$this->input->post('shopname_th');
+                      $Shopname_th=$this->input->post('shopname_th');*/
+                       $this->load->library('login_system');
+                       $this->login_system->test();
                        $data=$this->member->type_category();
                        $tlang=$this->session->userdata('langreg');
                        echo "$tlang";

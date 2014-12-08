@@ -12,38 +12,10 @@
 
 		public function index(){
 
-			$this->load->view('loginadmin');
-			//$this->load->view('myshop.php');
+			//$this->load->view('loginadmin');
+			redirect('main/login');
 			
 
-		}
-
-		public function checkup(){
-			
-			$user=$this->input->post('username');
-			$pass=$this->input->post('password');
-			$this->member->user=$user;
-			$this->member->pass=$pass;
-			$this->member->checkmember();
-			if($this->session->userdata('status')=="t"){
-				
-				$this->session->set_userdata('loginname',"$user");
-				$this->myshop();
-				//echo "true username and password";
-
-			}else{
-
-				if($this->session->userdata('status')=="f"){
-				$this->load->view('error_login');
-				$this->index();
-				}
-				
-
-			}
-
-			
-
-			
 		}
 
 		public function myshop(){

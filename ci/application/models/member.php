@@ -1,8 +1,7 @@
 <?php
 	
 	class member extends CI_model{
-		public $user;
-		public $pass;
+		
 		public $theQuery;
 
 
@@ -12,12 +11,9 @@
 			parent::__construct();
 
 		}
-		public function checkmember(){
-
+		public function checkmember($user,$pass){
 			
-			$chuser=$this->user;
-			$chpass=$this->pass;
-			$sql="SELECT username,password,memberID FROM member WHERE username='$chuser' AND password='$chpass';";
+			$sql="SELECT username,password,memberID FROM member WHERE username='$user' AND password='$pass';";
 			$query=$this->db->query($sql)->result();
 			if(empty($query)){
 				$this->session->set_userdata('status','f');
@@ -29,6 +25,15 @@
 					$memberid=$row->memberID;
 					$this->session->set_userdata('memberid',"$memberid");
 					
+				}
+				$memberid=$this->session->userdata('memberid');
+				$sql="SELECT memberID FROM shop WHERE memberID='$memberid';";
+				$query=$this->db->query($sql)->result();
+				if(empty($query)){
+				$this->session->set_userdata('status_shop','f');
+				}
+				else{
+				$this->session->set_userdata('status_shop','t');
 				}
 			}
 		}
