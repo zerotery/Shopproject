@@ -91,7 +91,6 @@
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
             <h1><font style="color:#FF4000;"><?=$this->lang->line("sreg_account");?></font></h1>
-            
           </div>
           <!--<div class="col-lg-4 col-md-5 col-sm-6">
               <h6>What the ?</h6>
@@ -103,36 +102,75 @@
           <div class="col-lg-12">
             
              <div class="well bs-component" style="background-color:#336699;">
-              <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" action="<?php echo site_url('member_tb/test_category'); ?>" method="post" enctype="multipart/form-data" id="regshop" name="regshop">
                 <fieldset >
+
                   <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("spersonal");?></h3>
                   </div>
                  
                   <div class="form-group">
-                    <label for="inputfname" class="col-lg-2 control-label"><?=$this->lang->line("s_name");?></label>
-                    <div class="col-lg-2">
-                      <input type="text" class="form-control" name="shopname" value="">
+                    <label for="inputsname" class="col-lg-2 control-label"><?=$this->lang->line("s_name");?></label>
+                    
+                    <div class="col-lg-5">
+                      <input type="text" class="form-control" name="shopname_en" value="">
                     </div>
+                    <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
                   </div>
                   <div class="form-group">
-                    <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("url_name");?></label>
-                    <div class="col-lg-2">
+                    <label for="inputsname" class="col-lg-2 control-label"></label>
+                    
+                    <div class="col-lg-5">
+                      <input type="text" class="form-control" name="shopname_th" value="">
+                    </div>
+                    <label for="inputlang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
+
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="inputurl" class="col-lg-2 control-label"><?=$this->lang->line("url_name");?></label>
+                    <div class="col-lg-2.5">
+                      <label for="inputurl" class="col-lg-2 control-label">www.myaday.net/Project/TBShop/</label>
+                    </div>
+                    <div class="col-lg-3">
                       <input type="text" class="form-control" name="urlname" value="">
+                    </div>
+                    <div class="col-lg-1">
+                      <label for="inputcom" class="col-lg-0.6 control-label">.com </label>
                     </div>
                   </div>
                   
                   <div class="form-group">
                     <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("s_type");?></label>
                     <div class="col-lg-3">
-                    <input type="text" id="category" class="form-control" name="category" value="">
+                    <select name="category" class="form-control">
+                    <?php 
+
+                      foreach( $cate as $value){ 
+                      echo "<option value=\"$value->shop_name_type\">".$value->shop_name_type."</option>";}
+                    ?>
+                        
+                    </select>
+                   
                     </div>
                   </div>
+
                   <div class="form-group">
                     <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("shop_detail");?></label>
                     <div class="col-lg-5">
-                      <textarea name="address" rows="3" cols="60" class="form-control" name="shopdetail"></textarea>
+                      <textarea rows="3" cols="60" class="form-control" name="shopdetail_en"></textarea>
                     </div>
+                    <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputadress" class="col-lg-2 control-label"></label>
+                    <div class="col-lg-5">
+                      <textarea rows="3" cols="60" class="form-control" name="shopdetail_th"></textarea>
+                    </div>
+                    <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
+
                   </div>
                   <div class="form-group">
                     <label for="inputusername" class="col-lg-2 control-label"><?=$this->lang->line("s_fanpage");?></label>
@@ -140,28 +178,7 @@
                       <input type="text" class="form-control" name="fanpageshop" value="">
                     </div>
                   </div>
-                  <div class="page-header">
-                  <h3 id="formaddress"><?=$this->lang->line("s_address");?></h3>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("address_d");?></label>
-                    <div class="col-lg-5">
-                      <textarea name="shopaddress" rows="1" cols="30" class="form-control"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("province");?></label>
-                    <div class="col-lg-3">
-                     <input type="text" id="province" class="form-control" name="province" value="">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("postcode");?></label>
-                    <div class="col-lg-2">
-                      <input type="text" class="form-control" name="postcode" value="">
-                    </div>
-                  </div>
+                 
 
                   <div class="page-header">
                   <h3 id="formusername"><?=$this->lang->line("decorate");?></h3>
@@ -318,7 +335,7 @@
                   
                   <div class="col-lg-10 col-lg-offset-2">
                       <button type="submit" class="btn btn-primary"><?=$this->lang->line("submit");?></button>
-                      <button class="btn btn-default"><?=$this->lang->line("cancel");?></button>
+                      <button class="btn btn-default" type="reset"><?=$this->lang->line("cancel");?></button>
                       
                   </div>
 
@@ -369,6 +386,81 @@
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
+<script>
+
+$.validator.addMethod(
+       "regex",
+        function(value, element, regexp) {
+        var check = false;
+        return this.optional(element) || regexp.test(value);
+        },
+        "Please check your input."
+        );
+
+$("#regshop").validate({
+  rules: {
+    shopname_en: {
+      required: true,
+      regex: /^([a-zA-Z0-9]|[-_])+$/
+    },
+    shopname_th: {
+      required: true,
+      regex: /^([ก-๙0-9]|[-_])+$/
+    },
+    urlname: {
+      required: true,
+      regex: /^([a-zA-Z0-9])+$/,
+      rangelength: [2, 10]
+    },
+    shopdetail_en: {
+      required: true,
+      regex: /^([a-zA-Z0-9]|[-_])+$/
+      
+    },
+    shopdetail_th: {
+      required: true,
+      regex: /^([ก-๙0-9]|[-_])+$/
+    },
+    fanpageshop: {
+      required: true,
+    }
+
+  },
+  messages: {
+    shopname_en: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_emptyshop")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_shopnameen")."</font>";?>"
+      
+    },
+    shopname_th: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_emptyshop")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_shopnameth")."</font>";?>"
+      
+    },
+    urlname: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_url")."</font>";?>"
+       
+    },
+    shopdetail_en: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_shopnameen")."</font>";?>"
+      
+    },
+    shopdetail_th: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_shopnameth")."</font>";?>"
+      
+    },
+    fanpageshop: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    }
+  }
+
+
+});
+</script>
 
 </body>
 

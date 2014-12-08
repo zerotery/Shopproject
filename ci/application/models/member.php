@@ -49,40 +49,29 @@
 
     	}
 
-		
+    	public function insertcustomer($data){
 
-    //*** Function: close, Purpose: Close the connection ***
-   		 
-
-
-
-
-
+    		if($this->db->insert('member',$data)){
+    			echo "success";
+    		}else{
+    			echo "fail insert";
+    		}
 
 
-			//echo '<table width="100%" border="1"><tr><th>username</th><th>password</th></tr>';
-			//foreach ($query as $row) {
-				//echo '<tr><td>'.$row->username.'</td><td>'.$row->password.'</td></tr>';
-			//	if(!($row->username&&$row->password)){
 
-					//echo "wrong username and password!!!";
-			//	}
-			 
+    	}
 
-			
-			//echo '</table>';
-			
-            
-                   // public function register($ar){
-                        
-                     //   $this->db->insert("member",$ar);
-                        
-                        
-                        
-                        
-                        
-                        
-                    //}
+
+    	public function type_category(){
+    		$tlang=$this->session->userdata('langreg');
+    		$sql="SELECT * FROM shop_category WHERE shop_category_ID=shop_category_parent_ID AND lang_ID='$tlang';";
+    		$query=$this->db->query($sql)->result();
+    		return $query;
+}
+
+
+
+
 
     	public function member_detail() {
 		    
@@ -90,11 +79,22 @@
   
         return $rs;
 
+    	} 
+
+
     	}
+
 
   
 	
-}
+
+
+
+		
+
+    
+	
+
 
 
 ?>
