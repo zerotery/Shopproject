@@ -2,7 +2,7 @@
     
 <head>
 <title>TB Shop - My Profile</title>
-<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon.ico">
 
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
 <meta charset="UTF-8">
