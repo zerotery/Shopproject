@@ -61,7 +61,10 @@
                    if($this->session->userdata('status')=="t"){
         
                         $this->session->set_userdata('loginname',"$user");
+                        
+
                         $this->regshop();
+                        
         //echo "true username and password";
 
       }             else{
@@ -112,9 +115,57 @@
 
                 }
 
+                public function profile(){
+                  
+                  $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                  $this->lang->load($lang,$lang);
+
+                  if($this->session->userdata('loginname')==""){
+                        $this->login();
+                      }
+                      else{
+                    $data['user']=$this->session->userdata('loginname');
+                      $data['userid']=$this->session->userdata('memberid'); 
+                      
+                       $rs=$this->member->member_detail();
+
+                       $data['rs']= $rs->result_array();
+                      if($rs->num_rows()==0){
+                        $data['rs']=array();
+                      }
+                      else{
+                        $data['rs']=$rs->row_array();
+                      }
+                      
+                      $this->load->view('profile',$data);
+                      
+                            }
+
+}
+
+                          
+                
+
+                 
+                
+
+
+                 public function changelangprofile($type){
+                          $this->session->set_userdata('lang',$type);
+                          redirect('member_tb/profile', 'refresh');
+              
+
+
+
+                }
+
+
                  
 
 
+                
+
+              
 
 
 

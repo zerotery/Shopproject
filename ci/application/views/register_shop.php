@@ -267,12 +267,12 @@
                     <div class="col-lg-2">
 
                      <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail img-responsive" >
-                          <img src="<?php echo logo_pic;?>avatar.png" class="img-responsive" alt="...">
+                        <div class="fileinput-new thumbnail" style="width: 168px; height: 168px; " >
+                          <img src="<?php echo logo_pic;?>avatar.png" class="img-responsive">
                         </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 1366px; max-height: 768px;"></div>
+                        <div class="fileinput-preview fileinput-exists thumbnail" style="width: 168px; height: 168px; line-height: 150px;"></div>
                         <div>
-                          <span class="btn btn-success btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                          <span class="btn btn-success btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>
@@ -312,7 +312,9 @@
                         </div>
                       </div>
                     </div>
-                  </div>                 
+                  </div>
+
+
                   
                   <div class="col-lg-10 col-lg-offset-2">
                       <button type="submit" class="btn btn-primary"><?=$this->lang->line("submit");?></button>
@@ -323,6 +325,7 @@
                   </div>
                 </fieldset>
               </form>
+             
             </div>
           </div>
       </div>

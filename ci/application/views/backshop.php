@@ -97,7 +97,9 @@ body {
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown"><?=$this->lang->line("login");?><b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp<?php echo $user; ?></span></a></li>
+
+          
+          <li><a href="<?php echo site_url('member_tb/profile');?>"><span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp<?php echo $user; ?></span></a></li>
           <li class="divider"></li>
           <li class="dropdown-header"><font color="white"><?=$this->lang->line("shop_name");?></font></li>
           <li><a href="#"><span class="glyphicon glyphicon-briefcase" aria-hidden="true">&nbsp<?php echo $nameshop;?></span></a></li>

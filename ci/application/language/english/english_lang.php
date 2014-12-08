@@ -102,6 +102,11 @@
 
 
 
+ 	$lang['greet']="Hi";
+ 	$lang['datamem']="Personal data";
+ 	$lang['save']="save";
+
+
 
 
 

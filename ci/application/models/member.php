@@ -6,6 +6,8 @@
 		public $theQuery;
 
 
+
+
 		function __construct(){
 			parent::__construct();
 
@@ -82,11 +84,17 @@
                         
                     //}
 
+    	public function member_detail() {
+		    
+		     $rs=$this->db->get_where('member', array('memberID' => $this->session->userdata('memberid')));
+  
+        return $rs;
 
+    	}
 
-
-
-	}
+  
+	
+}
 
 
 ?>

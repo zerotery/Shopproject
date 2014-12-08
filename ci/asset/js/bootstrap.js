@@ -2311,3 +2311,58 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 }(window.jQuery);
 
+/////////////hidden/show///////////////////
+ $(document).ready(function () {
+     $("#txt").hide()
+     $("#txt2").hide()
+     $("#txt3").hide()
+     $("#txt4").hide()
+     $("#txt5").hide()
+     $("#txt6").hide()
+     $("#txt7").hide()
+     $("#btn_s").hide()
+     $("#btn_c").hide()
+
+     $("#edit").click(function () {
+       
+         $("#fname").toggle();
+         $("#txt").html($("#fname").val());
+         $('#txt').toggle();
+      
+         $("#lname").toggle();
+         $("#txt2").html($("#lname").val());
+         $('#txt2').toggle();
+         $("#email").toggle();
+         $("#txt3").html($("#email").val());
+         $('#txt3').toggle();
+         $("#license").toggle();
+         $("#txt4").html($("#license").val());
+         $('#txt4').toggle();
+
+         $("#addr").toggle();
+         $("#txt5").html($("#addr").val());
+         $('#txt5').toggle();
+
+         $("#province").toggle();
+         $("#txt6").html($("#province").val());
+         $('#txt6').toggle();
+
+         $("#postcode").toggle();
+         $("#txt7").html($("#postcode").val());
+         $('#txt7').toggle();
+
+         $("#savable").toggle();
+         $("#btn_s").html($("#savable").val());
+         $('#btn_s').toggle();
+
+         $("#cancel_e").toggle();
+         $("#btn_c").html($("#cancel_e").val());
+         $('#btn_c').toggle();
+
+
+
+
+     });
+
+ });
+$('.fileinput').fileinput()
