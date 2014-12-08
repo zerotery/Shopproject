@@ -18,7 +18,8 @@ class Login_system {
     		$CI->session->set_userdata('loginname',"$user");
     		redirect('backshop/myshop');
     	}else if($CI->session->userdata('status')=='t' && $CI->session->userdata('status_shop')=='f'){
-    		redirect('main/index', 'refresh');
+    		$CI->session->set_userdata('loginname',"$user");
+            redirect('main/index', 'refresh');
     	}else{
     		echo '<script language="javascript">';
 			echo 'alert("Wrong Username or Password")';

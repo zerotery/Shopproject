@@ -9,7 +9,7 @@
 		}
 		public function index(){
 
-			echo "main page";
+			$this->load->view('main');
 
 
 		}
