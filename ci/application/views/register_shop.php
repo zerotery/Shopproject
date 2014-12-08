@@ -2,7 +2,7 @@
     
 <head>
 <title>TB Shop - Shop Registration</title>
-<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
 <meta charset="UTF-8">

@@ -2,7 +2,7 @@
     
 <head>
 <title>TB Shop - Registration</title>
-<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
 <meta charset="UTF-8">
@@ -19,7 +19,7 @@
   font-size: 15px;
   line-height: 1.42857143;
   brackgound:#000000; 
-  background:url("<?php echo logo_pic;?>bg.jpg") no-repeat center center fixed;
+  background:url("<?php echo logo_pic;?>reg_bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -92,8 +92,8 @@
       <div class="page-header">
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
-            <h1><font style="color:#FF4000;"><?=$this->lang->line("reg_account");?></font></h1>
-            <p style="color:#FF4000;"><?=$this->lang->line("reg_s");?> <a href="<?php echo site_url('backshop');?>"><?=$this->lang->line("reg_login");?></a>.</p>
+            <h1><font style="color:#00CD00;"><?=$this->lang->line("reg_account");?></font></h1>
+            <p style="color:black;"><?=$this->lang->line("reg_s");?></p> <p><a href="<?php echo site_url('backshop');?> "><?=$this->lang->line("reg_login");?></a></p>
           </div>
           <!--<div class="col-lg-4 col-md-5 col-sm-6">
               <h6>What the ?</h6>
@@ -101,44 +101,35 @@
         </div>
       </div>
 
-       <div class="row">
-          <div class="col-lg-12">
-          <div class="well bs-component" style="background-color:#336699;">
-          <form action="<?php echo site_url('member_tb/do_upload'); ?>" method="post"  enctype="multipart/form-data">
-          <fieldset>
-          <div class="page-header">
-                  <h3 id="formpersonal">Upload picture profile</h3>
-          </div>
-          <div class="form-group">
-                    <label for="inputphoto" class="col-lg-2 control-label"><?=$this->lang->line("profile_img");?></label>
-                    <div class="col-lg-5">
-
-                      
-                      <input id="propicture" type="file" class="file" name="propicture">
-                      <?php echo $error;?>
-                    
-
-                      
-                    </div>
-                    <div class="col-lg-4">
-                      
-                    </div>
-            </div>
-                  
-          </fieldset>
-          </form>
-          </div>
-
-          </div>
-          </div>
+       
 
       <div class="bs-docs-section clearfix">
         <div class="row">
           <div class="col-lg-12">
             
-             <div class="well bs-component" style="background-color:#336699;">
+             <div class="well bs-component transboxreg " >
               <form class="form-horizontal" id="regform" name="regform" action="<?php echo site_url('member_tb/submit_data'); ?>" method="post">
                 <fieldset >
+
+                 <div class="page-header">
+                  <h3 id="formpersonal"><?=$this->lang->line("profile_img");?></h3>
+                  </div>
+                      <div class="form-group">
+                    <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("profile_select");?></label>
+                    <div class="col-lg-2">
+
+                     <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail" style="width: 168px; height: 168px; " >
+                          <img src="<?php echo logo_pic;?>defaulfuse.png" class="img-responsive">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail" style="width: 168px; height: 168px; line-height: 150px;"></div>
+                        <div>
+                          <span class="btn btn-success btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
                   <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("personal");?></h3>
                   </div>
@@ -219,6 +210,14 @@
                       <input type="password" name="passwordre" value="" class="form-control">
                     </div>
                   </div>
+                  <div class="col-lg-2"></div>
+                  <div class="form-group">
+                  <div class="col-lg-4">
+                      <button type="submit" class="btn btn-primary" id="btu_submit"><?=$this->lang->line("submit");?></button>
+                      <button class="btn btn-default" type="button" id="btu_reset" onclick="myFunction()"><?=$this->lang->line("cancel");?></button>
+                      
+            </div>
+            </div>
 
                    </fieldset>
               </form>
@@ -231,19 +230,7 @@
                   
          
 
-          <div class="row">
-          <div class="col-lg-12">
-          <div class="well bs-component" style="background-color:#92CD00;">
-          <fieldset>
-            <div class="col-lg-8 col-lg-offset-8">
-                      <button type="submit" class="btn btn-primary" id="btu_submit"><?=$this->lang->line("submit");?></button>
-                      <button class="btn btn-default" type="button" id="btu_reset" onclick="myFunction()"><?=$this->lang->line("cancel");?></button>
-                      
-            </div>
-          </fieldset>
-          </div>
-          </div>
-          </div>
+         
 
 
     </div>
