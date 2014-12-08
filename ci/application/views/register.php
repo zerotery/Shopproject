@@ -108,7 +108,7 @@
           <div class="col-lg-12">
             
              <div class="well bs-component transboxreg " >
-              <form class="form-horizontal" id="regform" name="regform" action="<?php echo site_url('member_tb/submit_data'); ?>" method="post">
+              <form class="form-horizontal" id="regform" name="regform" action="<?php echo site_url('member_tb/submit_data'); ?>" method="post" enctype="multipart/form-data">
                 <fieldset >
 
                  <div class="page-header">
@@ -124,7 +124,7 @@
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail" style="width: 168px; height: 168px; line-height: 150px;"></div>
                         <div>
-                          <span class="btn btn-success btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                          <span class="btn btn-success btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="imgpro"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>
@@ -214,7 +214,7 @@
                   <div class="form-group">
                   <div class="col-lg-4">
                       <button type="submit" class="btn btn-primary" id="btu_submit"><?=$this->lang->line("submit");?></button>
-                      <button class="btn btn-default" type="button" id="btu_reset" onclick="myFunction()"><?=$this->lang->line("cancel");?></button>
+                      <button class="btn btn-default" type="reset" id="btu_reset" ><?=$this->lang->line("cancel");?></button>
                       
             </div>
             </div>
@@ -268,75 +268,8 @@
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
 
-<script src="<?php echo JS_URL;?>fileinput.min.js"></script>
-
 <script>
-    <?php
-    if(empty($this->session->userdata('prepic'))){
-      $namepic=0;
-      $np="defaulfuse.png";
-    }else{
-      $namepic=$this->session->userdata('prepic');
-      $np=$this->session->userdata('picture_name');
-    }
-      
-    
-      
-    ?>
-    var namepic=<?php echo $namepic;?>;
-    if(namepic==0){
-    $("#propicture").fileinput({
-    
-
-  
-    initialPreview: [
-        "<img src='<?php echo logo_pic;?>defaulfuse.png' class='file-preview-image' alt='Profile' title='Profile'>"
-    ],
-    overwriteInitial: true,
-    maxFileSize: 100,
-    initialCaption: "Profile"
-    });
-
-    }else{
-    $("#propicture").fileinput({
-    
-
-  
-    initialPreview: [
-        "<img src='<?php echo upload;?><?php echo $np; ?>' class='file-preview-image' alt='Profile' title='Profile'>"
-    ],
-    overwriteInitial: true,
-    maxFileSize: 100,
-    initialCaption: "Profile"
-    });
-
-    }
-  
-  
-  $(document).ready(function(){
-  $('#btu_submit').click(function(e){
-    $("#regform").submit();
-
-
-
-
-  });
-  });
-  function myFunction() {
-    document.getElementById("regform").reset();
-  }
-
-  
-  
-</script>
-
-
-
-
-
-
-<script>
-
+$('.fileinput').fileinput()
 
 
 $.validator.addMethod(
