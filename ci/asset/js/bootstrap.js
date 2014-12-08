@@ -1670,6 +1670,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 }(jQuery);
 
+$('#sne').popover();
+
 /* ========================================================================
  * Bootstrap: scrollspy.js v3.2.0
  * http://getbootstrap.com/javascript/#scrollspy
@@ -2366,3 +2368,5 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
  });
 $('.fileinput').fileinput()
+
+

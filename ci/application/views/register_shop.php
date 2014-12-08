@@ -15,7 +15,7 @@
   font-size: 15px;
   line-height: 1.42857143;
   brackgound:#000000; 
-  background:url("<?php echo logo_pic;?>bg_login.jpg") no-repeat center center fixed;
+  background:url("<?php echo logo_pic;?>regs_bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -101,7 +101,7 @@
         <div class="row">
           <div class="col-lg-12">
             
-             <div class="well bs-component" style="background-color:#336699;">
+             <div class="well bs-component transboxregs" >
               <form class="form-horizontal" action="<?php echo site_url('member_tb/test_category'); ?>" method="post" enctype="multipart/form-data" id="regshop" name="regshop">
                 <fieldset >
 
@@ -113,10 +113,13 @@
                     <label for="inputsname" class="col-lg-2 control-label"><?=$this->lang->line("s_name");?></label>
                     
                     <div class="col-lg-5">
-                      <input type="text" class="form-control" name="shopname_en" value="">
+                      <input type="text" id="sne" class="form-control" name="shopname_en" data-animation="false" data-easein="bounceInUp" data-toggle="popover" data-trigger="hover" data-content="My popover content.">
                     </div>
-                    <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
+                    <label for="inputslang"  class="col-lg-0.7 control-label" ><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
+                   
+
                   </div>
+                 
                   <div class="form-group">
                     <label for="inputsname" class="col-lg-2 control-label"></label>
                     
@@ -205,7 +208,7 @@
 
 
                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div  class="modal animated pulse" data-easein="pulse" data-easeout="rollOut"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -239,7 +242,7 @@
                             <img src="<?php echo logo_pic;?>pic.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal2" ></a>
 
                                <!-- Modal -->
-                                <div class="modal fade " id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal animated pulse" data-easein="pulse" data-easeout="rollOut" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     
                                     <div class="modal-content">
@@ -303,7 +306,7 @@
                     <div class="col-lg-2">
 
                      <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail img-responsive" >
+                        <div class="fileinput-new thumbnail img-responsive" style="width: 168px; height: 168px; " >
                           <img src="<?php echo logo_pic;?>pic_large.png" class="img-responsive" alt="...">
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 1366px; max-height: 768px;"></div>
@@ -319,7 +322,7 @@
                     <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("header_pic");?></label>
                     <div class="col-lg-2">
                       <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail img-responsive" >
+                        <div class="fileinput-new thumbnail img-responsive" style="width: 168px; height: 168px; ">
                           <img src="<?php echo logo_pic;?>pic_large.png" class="img-responsive" alt="...">
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 1366px; max-height: 768px;"></div>
