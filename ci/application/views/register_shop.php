@@ -186,8 +186,8 @@
 
                   <div class="page-header  ">
 
-                  <h3 id="formusername"><?=$this->lang->line("decorate");?>
-                   <div id="ck" class=" btn glyphicon glyphicon-chevron-down"    >
+                  <h3 id="formusername" ><?=$this->lang->line("decorate");?>
+                   <div id="ck" class=" btn glyphicon glyphicon-chevron-down" data-toggle="popover" data-trigger="hover " data-placement="right" data-content="<?=$this->lang->line("decnote");?>" >
                   </h3>
                   </div>
                 <span id="showreg">
@@ -209,19 +209,19 @@
                                 <label class="btn btn-info">
                               <input type="radio" name="options" id="option1" autocomplete="off" ><?=$this->lang->line("theme_s1");?>
                             </label>
-                            <img src="<?php echo logo_pic;?>pic.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" style="width: 180px; height: 180px; line-height: 150px;" ></a> 
+                            <img src="<?php echo logo_pic;?>theme1.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" style="width: 180px; height: 180px; line-height: 150px;" ></a> 
 
 
                                <!-- Modal -->
                                 <div  class="modal animated pulse" data-easein="pulse" data-easeout="rollOut"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog">
-                                    <div class="modal-content">
+                                  <div class="modal-dialog " >
+                                    <div class="modal-content" >
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                        <h4 class="modal-title" id="myModalLabel">THEME 1</h4>
                                       </div>
                                       <div class="modal-body">
-                                          <img src="<?php echo logo_pic;?>pic.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" ></a> 
+                                          <img src="<?php echo logo_pic;?>theme1.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" ></a> 
 
                                       </div>
                                       <div class="modal-footer">
@@ -244,7 +244,7 @@
                               <input type="radio" name="options" id="option2" autocomplete="off"><?=$this->lang->line("theme_s2");?>
                             </label>
                                   
-                            <img src="<?php echo logo_pic;?>pic.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal2" style="width: 180px; height: 180px; line-height: 150px;"></a>
+                            <img src="<?php echo logo_pic;?>theme2.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal2" style="width: 180px; height: 180px; line-height: 150px;"></a>
 
                                <!-- Modal -->
                                 <div class="modal animated pulse" data-easein="pulse" data-easeout="rollOut" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -253,10 +253,10 @@
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Modal title2</h4>
+                                        <h4 class="modal-title" id="myModalLabel">THEME 2</h4>
                                       </div>
                                       <div class="modal-body">
-                                         <img src="<?php echo logo_pic;?>pic.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" ></a> 
+                                         <img src="<?php echo logo_pic;?>theme2.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" ></a> 
 
                                       </div>
                                       <div class="modal-footer">
@@ -287,13 +287,13 @@
                        
                        <!-- end Choose theme --> 
                           <!-- Choose profile -->                         
-                    <div class="form-group animated fadeInDown">
+                    <div class="form-group animated fadeInDown" >
                     <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("shopprofile");?></label>
                     <div class="col-lg-2">
 
-                     <div class="fileinput fileinput-new" data-provides="fileinput">
+                     <div class="fileinput fileinput-new " data-provides="fileinput" id="profilepop" data-toggle="popover" data-trigger="hover " data-placement="right" data-content="<?=$this->lang->line("profile_size");?>" >
                         <div class="fileinput-new thumbnail" style="width: 180px; height: 180px; " >
-                          <img src="<?php echo logo_pic;?>avatar.png" class="img-responsive">
+                          <img src="<?php echo logo_pic;?>avatar.png" class="img-responsive" style="width: 180px; height: 180px; ">
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px; " ></div>
                         <div>
@@ -310,11 +310,11 @@
                     <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("bg_pic");?></label>
                     <div class="col-lg-2">
 
-                     <div class="fileinput fileinput-new" data-provides="fileinput">
+                     <div class="fileinput fileinput-new" data-provides="fileinput" id="bgpop" data-toggle="popover" data-trigger="hover " data-placement="right" data-content="<?=$this->lang->line("bg_size");?>"> 
                         <div class="fileinput-new thumbnail img-responsive" style="width: 180px; height: 180px; " >
-                          <img src="<?php echo logo_pic;?>pic_large.png" class="img-responsive" alt="...">
+                          <img src="<?php echo logo_pic;?>bg_shop.jpg" class="img-responsive" style="width: 180px; height: 180px; ">
                         </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="max-width: 1366px; max-height: 768px;"></div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px;"></div>
                         <div>
                           <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
@@ -326,9 +326,9 @@
                   <div class="form-group animated fadeInDown">
                     <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("header_pic");?></label>
                     <div class="col-lg-2">
-                      <div class="fileinput fileinput-new" data-provides="fileinput">
+                      <div class="fileinput fileinput-new" data-provides="fileinput" id="coverpop" data-toggle="popover" data-trigger="hover " data-placement="right" data-content="<?=$this->lang->line("cover_size");?>">
                         <div class="fileinput-new thumbnail img-responsive" style="width: 600px; height: 240px; ">
-                          <img src="<?php echo logo_pic;?>pic_large.png" class="img-responsive" alt="...">
+                          <img src="<?php echo logo_pic;?>pic_cover.jpg" class="img-responsive"style="width: 600px; height: 240px;">
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 600px; height: 240px;" ></div>
                         <div>

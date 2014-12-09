@@ -1673,7 +1673,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 $('#sne').popover();
 $('#sde').popover();
 $('#fp').popover();
-
+$('#ck').popover();
+$('#profilepop').popover();
+$('#bgpop').popover();
+$('#coverpop').popover();
+$('#propop').popover();
 ///////////////////////////////////////////////////////////////////////////
 ////////////////
 ///////////////////////////////////////////////////////////////////////////

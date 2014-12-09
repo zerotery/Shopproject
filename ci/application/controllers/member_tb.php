@@ -105,41 +105,6 @@
 
 
 
-                public function do_upload(){
-
-                //echo var_dump(is_dir('./asset/uploads/'));
-                 
-                $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
-                $this->lang->load($lang,$lang);
-                $config['upload_path'] ='./asset/uploads/';
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size'] = '0';
-                $config['max_width']  = '0';
-                $config['max_height']  = '0';
-                $this->upload->initialize($config);
-                //$this->load->library('upload', $config);
-                if($this->upload->do_upload('propicture')){
-                      $data=array('upload_data' =>$this->upload->data());
-                      //$ip=$this->input->ip_address();
-                      //echo $ip;
-                      $picname=$data['upload_data']['file_name']; 
-                      $this->session->set_userdata('picture_name',"$picname");
-                      $this->session->set_userdata('prepic','1');
-                      $data['error']="Upload success";
-
-                      $this->load->view('register',$data);
-                  }else{
-                      $data=array('error'=>$this->upload->display_errors());
-                      $this->load->view('register',$data);
-                      
-                  }
-
-
-               }
-
-
-
-
 
                 public function login() {
                         $this->load->view('loginmem');

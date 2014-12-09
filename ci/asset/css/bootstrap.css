@@ -5390,7 +5390,7 @@ button.close {
   overflow: hidden;
 }
 .modal {
-  position: fixed;
+  position: center;
   top: 0;
   right: 0;
   bottom: 0;
@@ -5400,6 +5400,7 @@ button.close {
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
   outline: 0;
+  
 }
 .modal.fade .modal-dialog {
   -webkit-transition: -webkit-transform .3s ease-out;
@@ -5649,7 +5650,9 @@ button.close {
 }
 .popover-content {
   padding: 9px 14px;
+  
 }
+
 .popover > .arrow,
 .popover > .arrow:after {
   position: absolute;
