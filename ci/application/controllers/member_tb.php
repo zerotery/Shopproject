@@ -7,7 +7,7 @@
 	
 		            }
                 public function index() {
-                       $data['error']="";
+                      
                        $this->load->view('register',$data);
 
 		            }
@@ -22,7 +22,6 @@
                 public function reg(){
                    $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
                    $this->lang->load($lang,$lang);
-                   $data['error']="";
                    $this->load->view('register',$data);
                  
                 }
@@ -37,7 +36,32 @@
                 }
 
                 public function submit_data(){
-                    if(empty($this->session->userdata('picture_name'))){
+
+                  $config['upload_path'] ='./asset/uploads/';
+                  $config['allowed_types'] = 'gif|jpg|png';
+                  $config['max_size'] = '0';
+                  $config['max_width']  = '0';
+                  $config['max_height']  = '0';
+                  $this->upload->initialize($config);
+                //$this->load->library('upload', $config);
+                if($this->upload->do_upload('imgpro')){
+                      $data=array('upload_data' =>$this->upload->data());
+                      
+                      $picname=$data['upload_data']['file_name']; 
+                      $this->session->set_userdata('picture_name',"$picname");
+                      
+                     
+
+                      
+                  }else{
+                      //$data=array('error'=>$this->upload->display_errors());
+                      $picname="defaulfuse.png";
+                      $this->session->set_userdata('picture_name',"$picname");
+                      //echo "don't upload ".$this->upload->display_errors();
+                      
+                  }
+
+                      
                       $fname=$this->input->post('firstname');
                       $lname=$this->input->post('lastname');
                       $email=$this->input->post('email');
@@ -48,34 +72,6 @@
                       date_default_timezone_set("Asia/Bangkok");
                       $date = date('Y-m-d');
                       $ip=$this->input->ip_address();
-                      $propic="defaulfuse.png";
-                      $info=array(
-                        'f_name' => "$fname",
-                        'l_name' => "$lname",
-                        'username' => "$username",
-                        'password' => "$password",
-                        'address' => "$address",
-                        'license' => "$perid",
-                        'e-mail' => "$email",
-                        'profile_pic' => "$propic",
-                        'member_ip' => "$ip",
-                        'reg_date' => "$date"
-                      );
-                      $this->member->insertcustomer($info);
-                      echo "loop 1<br>";
-                      //echo "$fname"." "."$lname"." "."$email"." "."$perid"." "."$address"." "."$username"." "."$password"." "."$propic"." "."$ip";
-                    }else {
-                      echo "Loop 2<br>";
-                      $fname=$this->input->post('firstname');
-                      $lname=$this->input->post('lastname');
-                      $email=$this->input->post('email');
-                      $perid=$this->input->post('license');
-                      $address=$this->input->post('address')." ".$this->input->post('province')." ".$this->input->post('postcode');
-                      $username=$this->input->post('username');
-                      $password=$this->input->post('password');
-                      $ip=$this->input->ip_address();
-                      date_default_timezone_set("Asia/Bangkok");
-                      $date = date('Y-m-d');
                       $propic=$this->session->userdata('picture_name');
                       $info=array(
                         'f_name' => "$fname",
@@ -90,6 +86,7 @@
                         'reg_date' => "$date"
                       );
                       $this->member->insertcustomer($info);
+
                       $this->session->unset_userdata('picture_name');
                       $this->session->unset_userdata('prepic');
                       
@@ -141,9 +138,11 @@
                          }
 
       
+                      echo "success save data!!!";
+                      //echo "$fname"." "."$lname"." "."$email"." "."$perid"." "."$address"." "."$username"." "."$password"." "."$propic"." "."$ip";
+                   }
 
-      
-                }
+                
                 
                 public function regshop(){
                   
@@ -174,13 +173,15 @@
 
                 public function test_category(){
 
-                      $Shopname_en=$this->input->post('shopname_en');
+                      /*$Shopname_en=$this->input->post('shopname_en');
                       $Shopname_th=$this->input->post('shopname_th');
                       $Shopname_url=$this->input->post('shopname_th');
                       $Shopname_cate=$this->input->post('shopname_th');
                       $Shopname_th=$this->input->post('shopname_th');
                       $Shopname_th=$this->input->post('shopname_th');
-                      $Shopname_th=$this->input->post('shopname_th');
+                      $Shopname_th=$this->input->post('shopname_th');*/
+                       $this->load->library('login_system');
+                       $this->login_system->test();
                        $data=$this->member->type_category();
                        $tlang=$this->session->userdata('langreg');
                        echo "$tlang";
@@ -198,7 +199,7 @@
                 public function logout(){
                   $this->session->unset_userdata('loginname');
                   $this->session->sess_destroy();
-                  $this->login();
+                  redirect('main/login');
 
                 }
 
