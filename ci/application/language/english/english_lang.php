@@ -100,6 +100,9 @@
  	$lang['remove_pic']="Remove";
  	$lang['submit']="Submit";
  	$lang['cancel']="Cancel";
+ 	$lang['note']="If you don't have a shop name in english.You must fill Dashes( - ) in the blank.";
+ 	$lang['dnote']="If you don't have a detail shop in english.You must fill Dashes( - ) in the blank.";
+ 	$lang['fnote']="If you don't a detail shop.You must fill Dashes( - ) in the blank.";
 
 
 

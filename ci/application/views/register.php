@@ -122,7 +122,7 @@
                         <div class="fileinput-new thumbnail" style="width: 168px; height: 168px; " >
                           <img src="<?php echo logo_pic;?>defaulfuse.png" class="img-responsive">
                         </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail" style="width: 168px; height: 168px; line-height: 150px;"></div>
+                        <div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px; line-height: 150px;"></div>
                         <div>
                           <span class="btn btn-success btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>

@@ -113,7 +113,8 @@
                     <label for="inputsname" class="col-lg-2 control-label"><?=$this->lang->line("s_name");?></label>
                     
                     <div class="col-lg-5">
-                      <input type="text" id="sne" class="form-control" name="shopname_en" data-animation="false" data-easein="bounceInUp" data-toggle="popover" data-trigger="hover" data-content="My popover content.">
+                      <input type="text" id="sne" class="form-control " name="shopname_en"  data-toggle="popover" data-trigger="hover " data-placement="bottom" data-content="<?=$this->lang->line("note");?>">
+
                     </div>
                     <label for="inputslang"  class="col-lg-0.7 control-label" ><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
                    
@@ -162,7 +163,7 @@
                   <div class="form-group">
                     <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("shop_detail");?></label>
                     <div class="col-lg-5">
-                      <textarea rows="3" cols="60" class="form-control" name="shopdetail_en"></textarea>
+                      <textarea rows="3" cols="60" class="form-control" id="sde" name="shopdetail_en" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("dnote");?>"></textarea>
                     </div>
                     <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
                   </div>
@@ -178,18 +179,22 @@
                   <div class="form-group">
                     <label for="inputusername" class="col-lg-2 control-label"><?=$this->lang->line("s_fanpage");?></label>
                     <div class="col-lg-4">
-                      <input type="text" class="form-control" name="fanpageshop" value="">
+                      <input type="text" class="form-control" name="fanpageshop" id="fp" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("fnote");?>" >
                     </div>
                   </div>
                  
 
-                  <div class="page-header">
-                  <h3 id="formusername"><?=$this->lang->line("decorate");?></h3>
+                  <div class="page-header  ">
+
+                  <h3 id="formusername"><?=$this->lang->line("decorate");?>
+                   <div id="ck" class=" btn glyphicon glyphicon-chevron-down"    >
+                  </h3>
                   </div>
+                <span id="showreg">
 
 
                   
-                  <div class="form-group">
+                  <div class="form-group animated fadeInDown">
                     <label for="inputlname" class="col-lg-2 control-label" name="theme"><?=$this->lang->line("theme");?></label>
                     <!-- Choose theme -->
                    
@@ -201,10 +206,10 @@
                           <!-- Theme 1-->
                           <div class="col-xs-6 col-md-10">
                           
-                                <label class="btn btn-success">
+                                <label class="btn btn-info">
                               <input type="radio" name="options" id="option1" autocomplete="off" ><?=$this->lang->line("theme_s1");?>
                             </label>
-                            <img src="<?php echo logo_pic;?>pic.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" ></a> 
+                            <img src="<?php echo logo_pic;?>pic.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" style="width: 180px; height: 180px; line-height: 150px;" ></a> 
 
 
                                <!-- Modal -->
@@ -235,11 +240,11 @@
                              <!-- end Theme1 -->
                              <!--theme2 -->
                           <div class="col-xs-6 col-md-10">
-                          <label class="btn btn-success">
+                          <label class="btn btn-info">
                               <input type="radio" name="options" id="option2" autocomplete="off"><?=$this->lang->line("theme_s2");?>
                             </label>
                                   
-                            <img src="<?php echo logo_pic;?>pic.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal2" ></a>
+                            <img src="<?php echo logo_pic;?>pic.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal2" style="width: 180px; height: 180px; line-height: 150px;"></a>
 
                                <!-- Modal -->
                                 <div class="modal animated pulse" data-easein="pulse" data-easeout="rollOut" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -282,17 +287,17 @@
                        
                        <!-- end Choose theme --> 
                           <!-- Choose profile -->                         
-                    <div class="form-group">
+                    <div class="form-group animated fadeInDown">
                     <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("shopprofile");?></label>
                     <div class="col-lg-2">
 
                      <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail" style="width: 168px; height: 168px; " >
+                        <div class="fileinput-new thumbnail" style="width: 180px; height: 180px; " >
                           <img src="<?php echo logo_pic;?>avatar.png" class="img-responsive">
                         </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail" style="width: 168px; height: 168px; line-height: 150px;"></div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px; " ></div>
                         <div>
-                          <span class="btn btn-success btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                          <span class="btn btn-info btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>
@@ -301,33 +306,33 @@
                    
                   <!-- end Choose profile -->
                     
-                    <div class="form-group">
+                    <div class="form-group animated fadeInDown">
                     <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("bg_pic");?></label>
                     <div class="col-lg-2">
 
                      <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail img-responsive" style="width: 168px; height: 168px; " >
+                        <div class="fileinput-new thumbnail img-responsive" style="width: 180px; height: 180px; " >
                           <img src="<?php echo logo_pic;?>pic_large.png" class="img-responsive" alt="...">
                         </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 1366px; max-height: 768px;"></div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="max-width: 1366px; max-height: 768px;"></div>
                         <div>
-                          <span class="btn btn-success btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                          <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group animated fadeInDown">
                     <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("header_pic");?></label>
                     <div class="col-lg-2">
                       <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail img-responsive" style="width: 168px; height: 168px; ">
+                        <div class="fileinput-new thumbnail img-responsive" style="width: 600px; height: 240px; ">
                           <img src="<?php echo logo_pic;?>pic_large.png" class="img-responsive" alt="...">
                         </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 1366px; max-height: 768px;"></div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 600px; height: 240px;" ></div>
                         <div>
-                          <span class="btn btn-success btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                          <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>
@@ -337,11 +342,11 @@
 
                   
                   <div class="col-lg-10 col-lg-offset-2">
-                      <button type="submit" class="btn btn-primary"><?=$this->lang->line("submit");?></button>
-                      <button class="btn btn-default" type="reset"><?=$this->lang->line("cancel");?></button>
+                      <button type="submit" class="btn btn-primary animated pulse"><?=$this->lang->line("submit");?></button>
+                      <button class="btn btn-default animated pulse" type="reset"><?=$this->lang->line("cancel");?></button>
                       
                   </div>
-
+            </span>
                   </div>
                 </fieldset>
               </form>
