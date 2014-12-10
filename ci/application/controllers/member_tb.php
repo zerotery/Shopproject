@@ -59,7 +59,7 @@
                       
                       $picname="defaulfuse.png";
                       $this->session->set_userdata('picture_name',"$picname");
-                      echo print_r($data['error']);
+                      //echo print_r($data['error']);
                       $set=1;
                       
 
@@ -99,65 +99,15 @@
                       );
                       //$this->member->insertcustomer($info);
 
-                      //$this->session->unset_userdata('picture_name');
-                      //$this->session->unset_userdata('prepic');
+                      $this->session->unset_userdata('picture_name');
                       
+                      echo "success save data!!!";
+                     // $memberID=$this->member->get_memID($username);
+                      //$this->active_member('$memberID');
                       
 
                     }
                   }
-
-
-
-
-                
-
-
-
-
-
-                public function login() {
-                        $this->load->view('login');
-
-                }
-
-                public function checkup_mem(){
-      
-                   $user=$this->input->post('username');
-                   $pass=$this->input->post('password');
-                   $this->member->user=$user;
-                   $this->member->pass=$pass;
-                   $this->member->checkmember();
-                   if($this->session->userdata('status')=="t"){
-        
-                        $this->session->set_userdata('loginname',"$user");
-
-                        
-
-                        $this->regshop();
-                        
-        //echo "true username and password";
-
-                        
-                    //echo "true username and password"; 
-                    }else{
-
-                        if($this->session->userdata('status')=="f"){
-                        $this->load->view('error_login');
-                        $this->login();
-                          }
-        
-
-                         }
-
-      
-                      echo "success save data!!!";
-                      $memberID=$this->member->get_memID($username);
-                      $this->active_member('$memberID');
-                    }
-
-                      //echo "$fname"." "."$lname"." "."$email"." "."$perid"." "."$address"." "."$username"." "."$password"." "."$propic"." "."$ip";
-                   
 
                 public function testactive(){
                   $name="gintoki";
@@ -243,32 +193,7 @@
 
                 }
 
-                public function test_category(){
-
-                      /*$Shopname_en=$this->input->post('shopname_en');
-                      $Shopname_th=$this->input->post('shopname_th');
-                      $Shopname_url=$this->input->post('shopname_th');
-                      $Shopname_cate=$this->input->post('shopname_th');
-                      $Shopname_th=$this->input->post('shopname_th');
-                      $Shopname_th=$this->input->post('shopname_th');
-                      $Shopname_th=$this->input->post('shopname_th');*/
-                       $this->load->library('login_system');
-                       $this->login_system->test();
-                       $data=$this->member->type_category();
-                       $tlang=$this->session->userdata('langreg');
-                       echo "$tlang";
-
-                       echo "<html><head><meta http-equiv=Content-Type content=\"text/html; charset=utf-8\"></head><table><tr><th>1</th><th>2</th><th>3</th><th>4</th></tr>";
-                      foreach ($data as $value) {
-                         echo "<tr><td>".$value->shop_category_ID."</td><td>".$value->shop_name_type."</td><td>".$value->shop_category_parent_ID."</td><td>".$value->lang_ID."</td></tr>";
-                       }
-                       echo "</table></html>";
-
-
-                }
-
-
-                public function logout(){
+               public function logout(){
                   $this->session->unset_userdata('loginname');
                   $this->session->sess_destroy();
                   redirect('main/login');
