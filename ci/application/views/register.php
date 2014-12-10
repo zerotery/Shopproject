@@ -129,6 +129,9 @@
                         </div>
                       </div>
                     </div>
+                    <div class="col-lg-4">
+                      <font color="white"><?php if($error=="error"){echo $this->lang->line("error_pic");}?></font>
+                    </div>
                   </div> 
                   <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("personal");?></h3>
