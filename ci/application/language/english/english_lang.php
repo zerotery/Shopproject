@@ -78,6 +78,7 @@
 	$lang['error_charusername']="username must be 6-8 character!!!";
 	$lang['username_ok']="Username can use!!!";
 	$lang['username_no']="Username can't use. Please re-try username!!!";
+	$lang['error_pic']="Picture profile must have full-size 1024*768!!!";
 
     $lang['sreg_account']="Open shop Online";
 	$lang['spersonal']="Shop Detail";
