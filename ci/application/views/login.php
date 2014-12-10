@@ -22,7 +22,7 @@
 
         <!--<img src="<?php //echo logo_pic;?>bg.jpg" width="100%" height="100%" style="margin:0 auto;">
         <!--login modal-->
-        <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true" >
+        <div id="loginModal" class="modal show " tabindex="-1" role="dialog" aria-hidden="true" >
         <dev class="box">
         <div class="modal-dialog" bgcolor="white" >
         <div class="modal-content" style="background-color: #336699;">

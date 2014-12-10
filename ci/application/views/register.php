@@ -114,17 +114,21 @@
                  <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("profile_img");?></h3>
                   </div>
-                      <div class="form-group">
-                    <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("profile_select");?></label>
-                    <div class="col-lg-2">
 
-                     <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail" style="width: 168px; height: 168px; " >
-                          <img src="<?php echo logo_pic;?>defaulfuse.png" class="img-responsive">
+
+                 <div class="form-group animated fadeInDown" >
+                    <label  class="col-lg-2 control-label"><?=$this->lang->line("profile_select");?></label>
+                    <div class="col-lg-2 ">
+
+                     <div class="fileinput fileinput-new " data-provides="fileinput" id="profilepop" data-toggle="popover" data-trigger="hover " data-placement="top" data-content="<?=$this->lang->line("profile_size");?>" >
+                        <div class="fileinput-new thumbnail" style="width: 180px; height: 180px; " >
+                          <img src="<?php echo logo_pic;?>defaulfuse.png" class="img-responsive" style="width: 180px; height: 180px; ">
                         </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail" style="width: 168px; height: 168px; line-height: 150px;"></div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px; " ></div>
                         <div>
+
                           <span class="btn btn-success btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="imgpro"></span>
+
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>
@@ -133,6 +137,9 @@
                       <font color="white"><?php if($error=="error"){echo $this->lang->line("error_pic");}?></font>
                     </div>
                   </div> 
+
+
+
                   <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("personal");?></h3>
                   </div>
@@ -272,7 +279,7 @@
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
 
 <script>
-$('.fileinput').fileinput()
+
 
 
 $.validator.addMethod(
