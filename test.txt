@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Hello ,bas
 
 
@@ -5,3 +6,9 @@ Hello ,bas
 
 
 hi hi hi hi hi hi hi hi hi hi hi
+=======
+Hello ,toey
+;;
+hihi
+d
+>>>>>>> 1a606772db45b88493e1fab0bd2b1782754269cb
