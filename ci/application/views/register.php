@@ -278,7 +278,7 @@
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
 
 <script>
-$('.fileinput').fileinput()
+
 
 
 $.validator.addMethod(
