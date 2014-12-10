@@ -100,7 +100,13 @@
  	$lang['remove_pic']="Remove";
  	$lang['submit']="Submit";
  	$lang['cancel']="Cancel";
-
+ 	$lang['note']="If you don't have a shop name in english.You must fill Dashes( - ) in the blank.";
+ 	$lang['dnote']="If you don't have a detail shop in english.You must fill Dashes( - ) in the blank.";
+ 	$lang['fnote']="If you don't a detail shop.You must fill Dashes ( - ) in the blank.";
+ 	$lang['decnote']="Press this button for decorate your shop.";
+ 	$lang['profile_size']="picture should be size 1024 x 768(width x height)pixel.Recommend 180 x 180 pixel";
+ 	$lang['bg_size']="picture should be size bigger than 1366x768(width x height)pixel.";
+ 	$lang['cover_size']="picture should be size bigger than 600x240 (width x height)pixel.";
 
 
  	$lang['greet']="Hi";

@@ -2,7 +2,7 @@
     
 <head>
 <title>TB Shop - My Profile</title>
-<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
 <meta charset="UTF-8">
@@ -116,9 +116,9 @@
                              <div class="col-lg-12">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                   <div class="fileinput-new " >
-                                    <img src="<?php echo logo_pic;?>pic_large.png" class="img-responsive" style="min-height:180px;height:180px;" >
+                                    <img src="<?php echo logo_pic;?>defaulfuse.png" class="img-responsive" style="height:180px;width:180px;" >
                                   </div>
-                                  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 1200px; max-height: 768px;"></div>
+                                  <div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div>
                                   <div>
                                     <span class="btn btn-success btn-file "><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
                                     <a href="#" class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>

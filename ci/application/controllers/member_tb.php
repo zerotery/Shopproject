@@ -86,6 +86,58 @@
                         'reg_date' => "$date"
                       );
                       $this->member->insertcustomer($info);
+
+                      $this->session->unset_userdata('picture_name');
+                      $this->session->unset_userdata('prepic');
+                      
+                      
+
+                    }
+
+
+
+
+                
+
+
+
+
+
+                public function login() {
+                        $this->load->view('login');
+
+                }
+
+                public function checkup_mem(){
+      
+                   $user=$this->input->post('username');
+                   $pass=$this->input->post('password');
+                   $this->member->user=$user;
+                   $this->member->pass=$pass;
+                   $this->member->checkmember();
+                   if($this->session->userdata('status')=="t"){
+        
+                        $this->session->set_userdata('loginname',"$user");
+
+                        
+
+                        $this->regshop();
+                        
+        //echo "true username and password";
+
+                        
+                    //echo "true username and password"; 
+                    }else{
+
+                        if($this->session->userdata('status')=="f"){
+                        $this->load->view('error_login');
+                        $this->login();
+                          }
+        
+
+                         }
+
+      
                       echo "success save data!!!";
                       //echo "$fname"." "."$lname"." "."$email"." "."$perid"." "."$address"." "."$username"." "."$password"." "."$propic"." "."$ip";
                    }
@@ -186,7 +238,7 @@
                       
                             }
 
-}
+                      }
 
                           
                 
@@ -218,10 +270,10 @@
                  
 
 
+    }
+
+      
 
 
-
-
-
-                 }
+                 
 ?>
