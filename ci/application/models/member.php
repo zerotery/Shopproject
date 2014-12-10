@@ -72,7 +72,7 @@
     		$sql="SELECT * FROM shop_category WHERE shop_category_ID=shop_category_parent_ID AND lang_ID='$tlang';";
     		$query=$this->db->query($sql)->result();
     		return $query;
-}
+		}
 
 
 
@@ -87,19 +87,28 @@
     	} 
 
 
-    	}
+   		public function get_memID($username){
+   			$sql="SELECT memberID,profile_pic FROM member WHERE username='$username';";
+   			$query=$this->db->query($sql)->result();
+   			foreach($query as $row){
+					$memberid=$row->memberID;
+					$picname=$row->profile_pic;
+
+					
+					
+			}
+			$data=array('memberid' => $memberid,'picname' => $picname );
+			return $data;
+
+   		}
 
 
-  
-	
 
 
 
-		
-
-    
-	
 
 
 
+
+   }
 ?>

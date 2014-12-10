@@ -19,9 +19,10 @@
 
 
                 }
-                public function reg(){
+                public function reg($error=null){
                    $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
                    $this->lang->load($lang,$lang);
+                   $data['error']=$error;
                    $this->load->view('register',$data);
                  
                 }
@@ -37,31 +38,42 @@
 
                 public function submit_data(){
 
-                  $config['upload_path'] ='./asset/uploads/';
+                  $config['upload_path'] ='./asset/temp/';
                   $config['allowed_types'] = 'gif|jpg|png';
                   $config['max_size'] = '0';
-                  $config['max_width']  = '0';
-                  $config['max_height']  = '0';
+                  $config['max_width']  = '1024';
+                  $config['max_height']  = '768';
                   $this->upload->initialize($config);
+                  $data=array('error'=>$this->upload->display_errors());
                 //$this->load->library('upload', $config);
                 if($this->upload->do_upload('imgpro')){
                       $data=array('upload_data' =>$this->upload->data());
                       
                       $picname=$data['upload_data']['file_name']; 
                       $this->session->set_userdata('picture_name',"$picname");
-                      
+                      $set=1;
                      
 
                       
-                  }else{
-                      //$data=array('error'=>$this->upload->display_errors());
+                  }else if(print_r($data['error'])=="You did not select a file to upload." && print_r($data['error']) != 1){
+                      
                       $picname="defaulfuse.png";
                       $this->session->set_userdata('picture_name',"$picname");
+                      echo print_r($data['error']);
+                      $set=1;
+                      
+
                       //echo "don't upload ".$this->upload->display_errors();
                       
+                  }else if(print_r($data['error'])==1){
+                      $set=null;
+                      //echo "full size";
+                      $error="error";
+                      $this->reg($error);
+
                   }
 
-                      
+                      if($set==1){
                       $fname=$this->input->post('firstname');
                       $lname=$this->input->post('lastname');
                       $email=$this->input->post('email');
@@ -85,14 +97,15 @@
                         'member_ip' => "$ip",
                         'reg_date' => "$date"
                       );
-                      $this->member->insertcustomer($info);
+                      //$this->member->insertcustomer($info);
 
-                      $this->session->unset_userdata('picture_name');
-                      $this->session->unset_userdata('prepic');
+                      //$this->session->unset_userdata('picture_name');
+                      //$this->session->unset_userdata('prepic');
                       
                       
 
                     }
+                  }
 
 
 
@@ -139,8 +152,67 @@
 
       
                       echo "success save data!!!";
+                      $memberID=$this->member->get_memID($username);
+                      $this->active_member('$memberID');
+                    }
+
                       //echo "$fname"." "."$lname"." "."$email"." "."$perid"." "."$address"." "."$username"." "."$password"." "."$propic"." "."$ip";
-                   }
+                   
+
+                public function testactive(){
+                  $name="gintoki";
+                  $memberID=$this->member->get_memID($name);
+                  $picname=$memberID['picname'];
+
+                  $this->session->set_userdata('picname',"$picname");
+                  $this->active_member($memberID);
+                  
+                }   
+
+
+                public function active_member($memberID){
+                  
+                  $memberID=$memberID['memberid'];
+                  $pic=$this->session->userdata('picname');
+                  
+                  $numsave=$memberID%1000;
+                  //$flgCreate = mkdir("./uploads/profiles/".$numsave);
+                    //if($flgCreate)
+                     //{
+                       $config['image_library']='gd2';
+                       $config['source_image']='./asset/temp/'.$pic;
+                       $config['width']=180;
+                       $config['height']=180;
+                       $config['new_image']='./uploads/profiles/'.$numsave.'/'.$pic;
+                       $this->image_lib->clear();
+                       $this->image_lib->initialize($config);
+                       $this->image_lib->resize();
+                       if(!$this->image_lib->resize()){
+                        echo $this->image_lib->display_errors();
+                       }else{
+                        
+                       /*$filename = './uploads/profiles/'.$numsave.'/'.$pic; check file 
+                       var_dump(is_dir('./asset/temp/'.$pic)) check path in com
+                        if(file_exists($filename)){
+                          echo "have";
+                        }else{
+                          echo "no";
+                        }*/
+
+                        echo img($config['source_image']);
+                        echo img($config['new_image']);
+                        $this->session->unset_userdata('picname');
+                       }
+      
+                     //}else{
+                       // echo "Folder Not Create.";
+                     //}
+
+
+
+
+
+                }    
 
                 
                 
@@ -236,9 +308,9 @@
                       
                       $this->load->view('profile',$data);
                       
-                            }
-
                       }
+
+                }
 
                           
                 
@@ -256,7 +328,7 @@
 
                 }
 
-
+}
                  
 
 
@@ -270,7 +342,7 @@
                  
 
 
-    }
+    
 
       
 
