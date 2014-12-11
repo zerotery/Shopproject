@@ -27,6 +27,20 @@
                  
                 }
 
+                public function autoload(){
+
+
+
+
+
+
+              }
+
+
+
+
+
+
                 public function checkusername(){
 
                   $username = trim(strtolower($_POST['username']));
