@@ -2431,10 +2431,6 @@ $(function() {
 
          
          $('#showreg').toggle();
-      
-        
-
-
 
      });
 
