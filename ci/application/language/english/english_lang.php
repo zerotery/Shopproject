@@ -115,8 +115,13 @@
  	$lang['save']="save";
 
 
+ 	$lang['e_waiting']="Thank you for registering TB Shop,You will recieve e-mail.Please verify your e-mail address";
+ 	$lang['l_waiting']="Please wait for Redirect...";
 
 
+ 	$lang['warning']="Activated Failure.Please contact :tbshop.project@gmail.com";
+ 	$lang['warning2']="Sorry,for the inconvenience.";
+ 	$lang['back']="Back to homepage";
 
 
 
