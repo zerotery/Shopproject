@@ -29,12 +29,37 @@
                 }
 
                 public function autoload(){
+
                   $name=$this->session->flashdata('username');
                   echo "autoload $name";
 
 
+                  $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                  $this->lang->load($lang,$lang);
+                  if($lang=="english"){
+                    $this->session->set_userdata('langreg',1);
+                  }
+                  else if($lang=="thailand"){
+                    $this->session->set_userdata('langreg',2);
+                  }
 
 
+                    $this->load->view('autoload');
+
+              }
+
+               public function activateFail(){
+
+                  $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                  $this->lang->load($lang,$lang);
+                  if($lang=="english"){
+                    $this->session->set_userdata('langreg',1);
+                  }
+                  else if($lang=="thailand"){
+                    $this->session->set_userdata('langreg',2);
+                  }
+
+                    $this->load->view('activateFail');
 
               }
               
