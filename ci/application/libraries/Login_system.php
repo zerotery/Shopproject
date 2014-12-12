@@ -22,7 +22,7 @@ class Login_system {
             redirect('main/index', 'refresh');
     	}else{
     		echo '<script language="javascript">';
-			echo 'alert("Wrong Username or Password")';
+			echo 'alert("Wrong Username or Password or no active member.")';
 			echo '</script>';
     		redirect('main/login','refresh');
     	}
