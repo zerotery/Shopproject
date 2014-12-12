@@ -209,7 +209,7 @@
                                 <label class="btn btn-info">
                               <input type="radio" name="options" id="option1" autocomplete="off" ><?=$this->lang->line("theme_s1");?>
                             </label>
-                            <img src="<?php echo logo_pic;?>theme1.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" style="width: 180px; height: 180px; line-height: 150px;" ></a> 
+                            <img src="<?php echo logo_pic;?>theme1.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" style="width: 180px; height: 180px; line-height: 150px;" >
 
 
                                <!-- Modal -->
@@ -221,7 +221,7 @@
                                         <h4 class="modal-title" id="myModalLabel">THEME 1</h4>
                                       </div>
                                       <div class="modal-body">
-                                          <img src="<?php echo logo_pic;?>theme1.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" ></a> 
+                                          <img src="<?php echo logo_pic;?>theme1.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" >
 
                                       </div>
                                       <div class="modal-footer">
@@ -232,7 +232,7 @@
                                   </div>
                                 </div>
 
-                              </div>
+                          </div>
                              
                               
                             
@@ -244,7 +244,7 @@
                               <input type="radio" name="options" id="option2" autocomplete="off"><?=$this->lang->line("theme_s2");?>
                             </label>
                                   
-                            <img src="<?php echo logo_pic;?>theme2.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal2" style="width: 180px; height: 180px; line-height: 150px;"></a>
+                            <img src="<?php echo logo_pic;?>theme2.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal2" style="width: 180px; height: 180px; line-height: 150px;">
 
                                <!-- Modal -->
                                 <div class="modal animated pulse" data-easein="pulse" data-easeout="rollOut" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -256,7 +256,7 @@
                                         <h4 class="modal-title" id="myModalLabel">THEME 2</h4>
                                       </div>
                                       <div class="modal-body">
-                                         <img src="<?php echo logo_pic;?>theme2.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" ></a> 
+                                         <img src="<?php echo logo_pic;?>theme2.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" >
 
                                       </div>
                                       <div class="modal-footer">
