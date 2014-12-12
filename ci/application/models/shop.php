@@ -30,6 +30,63 @@
 			return $data;
 		}
 
+		public function inputshop($data){
+			if($this->db->insert('shop',$data)){
+				$memid=$data['memberID'];
+    			$sql="SELECT s_ID FROM shop WHERE memberID='$memid';";
+   				$query=$this->db->query($sql)->result();
+   				foreach($query as $row){
+					$shopid=$row->s_ID;
+					
+				}
+			$data=array('sid' => $shopid);
+			return $data;
+
+
+    		}else{
+    			echo "fail insert";
+    		}
+    	}
+
+    	public function inputcate($data){
+
+    		if($this->db->insert('shop_category_detail',$data)){
+    			return "success";
+    		}else{
+    			return "fail insert";
+    		}
+
+
+
+
+
+
+    	}
+
+
+    	public function inputdetailen($data){
+
+    		if($this->db->insert('shop_detail',$data)){
+    			return "success";
+    		}else{
+    			return "fail insert";
+    		}
+
+
+    	}
+
+    	public function inputdetailth($data){
+
+    		if($this->db->insert('shop_detail',$data)){
+    			return "success";
+    		}else{
+    			return "fail insert";
+    		}
+
+
+
+    	}	
+
 
 
 

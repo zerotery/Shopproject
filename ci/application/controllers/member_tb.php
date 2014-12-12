@@ -5,6 +5,7 @@
 		            function __construct(){
 			          parent::__construct();
                         $this->load->model('member','member');
+                        $this->load->model('shop','shop');
 	
 		            }
                 public function index() {
@@ -233,7 +234,7 @@
 
                 
                 
-                public function regshop(){
+                public function regshop($error=null){
                   
                   $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
                   $this->lang->load($lang,$lang);
@@ -252,6 +253,9 @@
                       $data['user']=$this->session->userdata('loginname');
                       $data['userid']=$this->session->userdata('memberid'); 
                       $data['cate']=$this->member->type_category();
+                      $data['error']=$error;
+
+
                       $this->load->view('register_shop',$data);
                       
                       }
@@ -259,6 +263,201 @@
 
 
                 }
+
+                public function submit_shop(){
+                  //profile shop
+                  $config['upload_path'] ='./asset/temp/';
+                  $config['allowed_types'] = 'gif|jpg|png';
+                  $config['max_size'] = '0';
+                  $config['max_width']  = '1600';
+                  $config['max_height']  = '1200';
+                  $this->upload->initialize($config);
+                  
+                  
+                  if(!$this->upload->do_upload('select_shopprofile')){
+                    $data=array('error'=>$this->upload->display_errors());
+                    //0 loop 3 4 loop 2
+                    
+                          if($_FILES['select_shopprofile']['error']==4){
+                          $picname="Avatar.png";
+                          $this->session->set_userdata('picturesp_name',"$picname");
+                      
+                          $set1=1;
+                          }else if($_FILES['select_shopprofile']['error']==0){
+                          $set1=null;
+                      
+                          $error1="error1";
+                      
+                          $this->regshop($error1);
+                          }
+
+                    }else{
+                      $data=array('upload_data' =>$this->upload->data());
+                      
+                      $picname=$data['upload_data']['file_name']; 
+                      $this->session->set_userdata('picturesp_name',"$picname");
+                      $set1=1;
+                    
+                    }
+
+                    //background picture
+
+                  
+                  if(!$this->upload->do_upload('select_shopbg')){
+                    $data=array('error'=>$this->upload->display_errors());
+                    //0 loop 3 4 loop 2
+                    
+                          if($_FILES['select_shopbg']['error']==4){
+                          $picname="bg_shop.jpg";
+                          $this->session->set_userdata('picturesbg_name',"$picname");
+                      
+                          $set2=1;
+                          }else if($_FILES['select_shopbg']['error']==0){
+                          $set2=null;
+                      
+                          $error2="error2";
+                      
+                          $this->regshop($error2);
+                          }
+
+                    }else{
+                      $data=array('upload_data' =>$this->upload->data());
+                      
+                      $picname=$data['upload_data']['file_name']; 
+                      $this->session->set_userdata('picturesbg_name',"$picname");
+                      $set2=1;
+                    
+                    }
+
+                    //cover picture
+
+                 
+                  
+                  
+                  if(!$this->upload->do_upload('select_shopcover')){
+                    $data=array('error'=>$this->upload->display_errors());
+                    //0 loop 3 4 loop 2
+                    
+                          if($_FILES['select_shopcover']['error']==4){
+                          $picname="bg_shop.jpg";
+                          $this->session->set_userdata('picturesc_name',"$picname");
+                      
+                          $set3=1;
+                          }else if($_FILES['select_shopcover']['error']==0){
+                          $set3=null;
+                      
+                          $error3="error3";
+                      
+                          $this->regshop($error3);
+                          }
+
+                    }else{
+                      $data=array('upload_data' =>$this->upload->data());
+                      
+                      $picname=$data['upload_data']['file_name']; 
+                      $this->session->set_userdata('picturesc_name',"$picname");
+                      $set3=1;
+                    
+                    }
+
+
+
+
+
+                        
+
+                    
+                    if($set1==1&&$set2==1&&$set3==1){
+
+                      $shopname_en=$this->input->post('shopname_en');
+                      $shopname_th=$this->input->post('shopname_th');
+                      if($shopname_en=="-"){
+                        $shopname_en=$shopname_th;
+                      }else if($shopname_th=="-"){
+                        $shopname_th=$shopname_en;
+                      }else if($shopname_en=="-" && $shopname_th=="-"){
+                        $shopname_en="-";
+                        $shopname_th="-";
+                      }
+
+                      $URL="www.myaday.net/Project/TBShop/".$this->input->post('urlname');
+                      $category=$this->input->post('category');
+                      $shopdetail_en=$this->input->post('shopdetail_en');
+                      $shopdetail_th=$this->input->post('shopdetail_th');
+                      if($shopdetail_en=="-"){
+                        $shopdetail_en=$shopdetail_th;
+                      }else if($shopdetail_th=="-"){
+                        $shopdetail_th=$shopdetail_en;
+                      }else if($shopdetail_en=="-" && $shopdetail_th=="-"){
+                        $shopdetail_en="-";
+                        $shopdetail_th="-";
+                      }
+                      $fanpage=$this->input->post('fanpageshop');
+                      $theme=$this->input->post('theme');
+                      $profile=$this->session->userdata('picturesp_name');
+
+                      $bg=$this->session->userdata('picturesbg_name');
+                      $cover=$this->session->userdata('picturesc_name');
+                      date_default_timezone_set("Asia/Bangkok");
+                      $shopdate = date('Y-m-d');
+                      $idmember=$this->session->userdata('memberid'); 
+                      $inputshop=array(
+                        's_theme' => "$theme",
+                        'shop_pic_header' => "$cover",
+                        'shop_pic_bg' => "$bg",
+                        'shop_pic' => "$profile",
+                        'memberID' => "$idmember",
+                        's_url' => "$URL",
+                        'shop_create_date' => "$shopdate",
+                        
+                      );
+
+                     
+
+                      $result=$this->shop->inputshop($inputshop);
+                      $s_id=$result['sid'];
+                      //echo $s_id;
+                      $input_shop_cate=array(
+                        's_ID' => "$s_id",
+                        'shop_category_ID' => "$category"
+                        
+                      );
+
+                      $inputshop_detailen=array(
+                        'shop_name' => "$shopname_en",
+                        'shop_detail_data' => "$shopdetail_en",
+                        's_ID' => "$s_id",
+                        'lang_ID' => 1,
+                        
+                        
+                      );
+
+                      $inputshop_detailth=array(
+                        'shop_name' => "$shopname_th",
+                        'shop_detail_data' => "$shopdetail_th",
+                        's_ID' => "$s_id",
+                        'lang_ID' => 2,
+                        
+                        
+                      );
+
+                      $r1=$this->shop->inputcate($input_shop_cate);
+                      $r2=$this->shop->inputdetailen($inputshop_detailen);
+                      $r3=$this->shop->inputdetailth($inputshop_detailth);
+
+                      echo "$r1<br>$r2<br>$r3";
+
+
+                      //echo $shopname_en."  ".$shopname_th." ".$URL." ".$category." ".$shopdetail_en." ".$shopdetail_th." ".$fanpage." ".$theme." ". $profile." ".$bg." ".$cover." ".$shopdate;
+                    }else{
+                      echo "have problem";
+                    }
+
+                }
+
+
+
+
 
                public function logout(){
                   $this->session->unset_userdata('loginname');

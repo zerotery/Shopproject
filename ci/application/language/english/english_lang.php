@@ -77,8 +77,13 @@
 	$lang['error_username']="username must be in the format of a-z and A-Z and 0-9 or - or _ !!!";
 	$lang['error_charusername']="username must be 6-8 character!!!";
 	$lang['error_haveusername']="this username have in system.Please input again.!!!";
+	$lang['error_emptyshop']="Please input your information!!!";
+
+	$lang['error_shopnameen']="Please input English language.if no English name input - !!!";
+	$lang['error_shopnameth']="Please input Thai language.if no English name input - !!!";
+
 	
-	$lang['error_pic']="Picture profile must have full-size 1024*768!!!";
+	$lang['error_picshop']="Picture have full-size!!!";
 
     $lang['sreg_account']="Open shop Online";
 	$lang['spersonal']="Shop Detail";
