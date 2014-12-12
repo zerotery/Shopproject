@@ -1,6 +1,7 @@
 <?php
 
    class member_tb extends CI_Controller{
+                
 		            function __construct(){
 			          parent::__construct();
                         $this->load->model('member','member');
@@ -29,6 +30,10 @@
 
                 public function autoload(){
 
+                  $name=$this->session->flashdata('username');
+                  echo "autoload $name";
+
+
                   $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
                   $this->lang->load($lang,$lang);
                   if($lang=="english"){
@@ -37,6 +42,7 @@
                   else if($lang=="thailand"){
                     $this->session->set_userdata('langreg',2);
                   }
+
 
                     $this->load->view('autoload');
 
@@ -56,6 +62,7 @@
                     $this->load->view('activateFail');
 
               }
+              
 
 
 
@@ -76,37 +83,37 @@
                   $config['upload_path'] ='./asset/temp/';
                   $config['allowed_types'] = 'gif|jpg|png';
                   $config['max_size'] = '0';
-                  $config['max_width']  = '1024';
-                  $config['max_height']  = '768';
+                  $config['max_width']  = '180';
+                  $config['max_height']  = '180';
                   $this->upload->initialize($config);
-                  $data=array('error'=>$this->upload->display_errors());
-                //$this->load->library('upload', $config);
-                if($this->upload->do_upload('imgpro')){
+                  
+                  
+                  if(!$this->upload->do_upload('imgpro')){
+                    $data=array('error'=>$this->upload->display_errors());
+                    //0 loop 3 4 loop 2
+                    
+                          if($_FILES['imgpro']['error']==4){
+                          $picname="defaulfuse.png";
+                          $this->session->set_userdata('picture_name',"$picname");
+                      
+                          $set=1;
+                          }else if($_FILES['imgpro']['error']==0){
+                          $set=null;
+                      
+                          $error="error";
+                      
+                          $this->reg($error);
+                          }
+
+                    }else{
                       $data=array('upload_data' =>$this->upload->data());
                       
                       $picname=$data['upload_data']['file_name']; 
                       $this->session->set_userdata('picture_name',"$picname");
                       $set=1;
-                     
+                    
+                    }
 
-                      
-                  }else if(print_r($data['error'])=="You did not select a file to upload." && print_r($data['error']) != 1){
-                      
-                      $picname="defaulfuse.png";
-                      $this->session->set_userdata('picture_name',"$picname");
-                      //echo print_r($data['error']);
-                      $set=1;
-                      
-
-                      //echo "don't upload ".$this->upload->display_errors();
-                      
-                  }else if(print_r($data['error'])==1){
-                      $set=null;
-                      //echo "full size";
-                      $error="error";
-                      $this->reg($error);
-
-                  }
 
                       if($set==1){
                       $fname=$this->input->post('firstname');
@@ -134,70 +141,99 @@
                       );
                       //$this->member->insertcustomer($info);
 
-                      $this->session->unset_userdata('picture_name');
+                      
                       
                       echo "success save data!!!";
                      // $memberID=$this->member->get_memID($username);
-                      //$this->active_member('$memberID');
+                      
+                      $this->session->unset_userdata('picture_name');
+                      $this->session->set_flashdata('username', "$username");
+                      redirect('member_tb/autoload');
                       
 
                     }
                   }
 
                 public function testactive(){
+                  $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                  
                   $name="gintoki";
                   $memberID=$this->member->get_memID($name);
                   $picname=$memberID['picname'];
-
-                  $this->session->set_userdata('picname',"$picname");
-                  $this->active_member($memberID);
+                  $email=$memberID['e_mail'];
+                  $id=$memberID['memberid'];
+                  $token = md5($id.private_key);
+                  $this->session->set_userdata('datapic',$picname);
                   
-                }   
+                  $ci = get_instance();
+                  $ci->load->library('email');
+                  $config['protocol'] = "smtp";
+                  $config['smtp_host'] = "ssl://smtp.gmail.com";
+                  $config['smtp_port'] = "465";
+                  $config['smtp_user'] = "tbshop.project@gmail.com"; 
+                  $config['smtp_pass'] = "Zerotery2012";
+                  $config['charset'] = "utf-8";
+                  $config['mailtype'] = "html";
+                  $config['newline'] = "\r\n";
+
+                  $ci->email->initialize($config);
+
+                  $ci->email->from('tbshop.project@gmail.com', 'Active TBshop member.');
+                  $list = array('zero_tery@hotmail.com');
+                  $ci->email->to($list);  
+                  if($lang=="english"){
+                    $ci->email->subject('Active TBshop member.');
+                    $ci->email->message('Please Active Tbshop member follow URL link'."   ".anchor(site_url('member_tb/active_member/').'/?memberid='.urlencode($id).'&token='.$token.'','Active member.') );
+                    $ci->email->send();
+                  }else{
+                    $ci->email->subject('กรุณาทำการยื่นยัดการสมัครสามาชิก');
+                    $ci->email->message('กรุณาทำการยื่นยัดการสมัครสามาชิกโดยกดตาม URL link นี้'."   ".anchor(site_url('member_tb/active_member/').'/?memberid='.urlencode($id).'&token='.$token.'','Active member.') );
+                    $ci->email->send();
+
+                  }
+                
+                  //$this->session->set_userdata('picname',"$picname");
+                  //$this->active_member($memberID);
+                  
+        }   
 
 
-                public function active_member($memberID){
+                public function active_member(){
                   
-                  $memberID=$memberID['memberid'];
-                  $pic=$this->session->userdata('picname');
-                  
-                  $numsave=$memberID%1000;
-                  //$flgCreate = mkdir("./uploads/profiles/".$numsave);
-                    //if($flgCreate)
-                     //{
+                  $expected = md5($this->input->get('memberid').private_key);
+                  if ($expected != $this->input->get('token')) {
+                  die("You are not authorized");
+                  } else {
+                   echo "User is OK generate the certificate<br>";
+                   $idmem=$this->input->get('memberid');
+                   echo "$idmem<br>";
+                   $datapic=$this->session->userdata('datapic');
+                   $numsave=$idmem%1000;
+                   $flgCreate = mkdir("./uploads/profiles/".$numsave);
+                    if($flgCreate)
+                     {
                        $config['image_library']='gd2';
-                       $config['source_image']='./asset/temp/'.$pic;
+                       $config['source_image']='./asset/temp/'.$datapic;
                        $config['width']=180;
                        $config['height']=180;
-                       $config['new_image']='./uploads/profiles/'.$numsave.'/'.$pic;
+                       $config['new_image']='./uploads/profiles/'.$numsave.'/'.$datapic;
                        $this->image_lib->clear();
                        $this->image_lib->initialize($config);
                        $this->image_lib->resize();
                        if(!$this->image_lib->resize()){
                         echo $this->image_lib->display_errors();
                        }else{
-                        
-                       /*$filename = './uploads/profiles/'.$numsave.'/'.$pic; check file 
-                       var_dump(is_dir('./asset/temp/'.$pic)) check path in com
-                        if(file_exists($filename)){
-                          echo "have";
-                        }else{
-                          echo "no";
-                        }*/
-
-                        echo img($config['source_image']);
-                        echo img($config['new_image']);
-                        $this->session->unset_userdata('picname');
+                          $status=$this->member->active_member($idmem);
+                          $hit='./asset/temp/'.$datapic;
+                          unlink($hit);
+                          echo $status;
+                         //$this->session->unset_userdata('picname');
                        }
-      
-                     //}else{
-                       // echo "Folder Not Create.";
-                     //}
+                     }else{
 
-
-
-
-
-                }    
+                     }
+                }
+              }    
 
                 
                 
