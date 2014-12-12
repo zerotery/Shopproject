@@ -113,10 +113,14 @@
  	$lang['greet']="Hi";
  	$lang['datamem']="Personal data";
  	$lang['save']="save";
+ 	$lang['changepic']="Change profile picture";
 
 
  	$lang['e_waiting']="Thank you for registering TB Shop,You will recieve e-mail.Please verify your e-mail address";
  	$lang['l_waiting']="Please wait for Redirect...";
+
+ 	$lang['thx']="Thank you for fiduciary.";
+ 	$lang['loading']="Please wait I bring you to the main page.";
 
 
  	$lang['warning']="Activated Failure.Please contact :tbshop.project@gmail.com";

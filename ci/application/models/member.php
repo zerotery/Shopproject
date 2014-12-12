@@ -115,6 +115,17 @@
 
 
 
+			public function updatecustomer($data){
+    			$this->db->update('member',$data,array('memberID' => $this->session->userdata('memberid')));
+
+
+
+
+    	}
+
+
+
+
 
 
 

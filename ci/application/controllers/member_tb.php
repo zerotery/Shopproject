@@ -88,6 +88,19 @@
                   //$this->session->set_userdata('picname',"$picname");
                   //$this->active_member($memberID);
                   }
+              public function loading(){
+                 $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                  $this->lang->load($lang,$lang);
+                  if($lang=="english"){
+                    $this->session->set_userdata('langreg',1);
+                  }
+                  else if($lang=="thailand"){
+                    $this->session->set_userdata('langreg',2);
+                  }
+                $this->load->view('loading');
+
+                 
+                  }
 
                
 
@@ -298,11 +311,27 @@
                         $data['rs']=$rs->row_array();
                       }
                       
+                    
+                      /////update//////
+                    /* 
+                      $up=array(
+                        'f_name' => "$fname",
+                        'l_name' => "$lname",
+                        'address' => "$address",
+                        'license' => "$perid",
+                        'email' => "$email",
+                        
+                      );
+                    $this->member->updatecustomer($up);
+                      */
+                      
                       $this->load->view('profile',$data);
                       
                       }
+                            
+             }
+                
 
-                }
 
                           
                 
@@ -319,6 +348,7 @@
 
 
                 }
+
 
 
              

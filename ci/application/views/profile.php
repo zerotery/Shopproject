@@ -129,7 +129,8 @@
                                   <div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div>
                                   <div>
                                     <span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
-                                    <a href="#" class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
+                                    <div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div>
+                                    <a href="<?php echo site_url('member_tb/profile');?>"  id="change_pro"  name="changeprofile" class="btn btn-primary  animated bounce"> <?=$this->lang->line("changepic");?></a>
                                   </div>
                                 </div>
                               </div>
@@ -141,7 +142,7 @@
 
 
               <div class="well bs-component   col-sm-6 col-md-4 col-lg-8">
-                                      <form class="form-horizontal " action="#" method="post" enctype="multipart/form-data">
+                                      <form class="form-horizontal " id="profile" method="post" enctype="multipart/form-data">
                                         <fieldset >
                                          
                                               
@@ -234,7 +235,7 @@
 
                                            <div class="form-group">
                                             <div class="col-lg-10 col-lg-offset-2 ">
-                                               <input type="submit" class="btn btn-primary animated bounce" id="btn_s" name="btsave"  value="<?=$this->lang->line("back");?>" />
+                                               <a href="<?php echo site_url('member_tb/profile');?>"><input type="submit" class="btn btn-primary animated bounce" id="btn_s" name="btsave"  value="<?=$this->lang->line("save");?>" /></a>
                                                  <span id="savable"></span>
                                                 <a href="<?php echo site_url('member_tb/profile');?>"><input  type="submit" class="btn btn-default animated pulse" id="btn_c"  value="<?=$this->lang->line("cancel");?>" /></a>
                                                 <span id="cancel_e"></span>
@@ -297,7 +298,6 @@
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-
 
 
 </body>
