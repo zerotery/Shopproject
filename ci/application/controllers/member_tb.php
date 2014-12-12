@@ -87,12 +87,7 @@
                   
                   //$this->session->set_userdata('picname',"$picname");
                   //$this->active_member($memberID);
-                  
-
-
-                    
-                  
-              }
+                  }
 
                
 
@@ -209,7 +204,11 @@
                     if($flgCreate)
                      {
                        $config['image_library']='gd2';
+                       if($datapic=="defaulfuse.png"){
+                       $config['source_image']='./asset/img/'.$datapic;
+                       }else{
                        $config['source_image']='./asset/temp/'.$datapic;
+                       }
                        $config['width']=180;
                        $config['height']=180;
                        $config['new_image']='./uploads/profiles/'.$numsave.'/'.$datapic;
