@@ -134,7 +134,7 @@
                         'password' => "$password",
                         'address' => "$address",
                         'license' => "$perid",
-                        'e-mail' => "$email",
+                        'email' => "$email",
                         'profile_pic' => "$propic",
                         'member_ip' => "$ip",
                         'reg_date' => "$date"
@@ -323,6 +323,9 @@
 
 
                 }
+
+
+             
 
 }
                  

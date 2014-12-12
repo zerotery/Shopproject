@@ -66,6 +66,8 @@
 
     	}
 
+    	
+
     	public function active_member($id){
     		$sql="UPDATE member SET status=1 WHERE memberID='$id';";
     		if($this->db->query($sql)){ return "success!";}else{ return "fail!";}
