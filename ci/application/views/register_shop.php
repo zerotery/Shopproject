@@ -102,7 +102,7 @@
           <div class="col-lg-12">
             
              <div class="well bs-component transboxregs" >
-              <form class="form-horizontal" action="<?php echo site_url('member_tb/test_category'); ?>" method="post" enctype="multipart/form-data" id="regshop" name="regshop">
+              <form class="form-horizontal" action="<?php echo site_url('member_tb/submit_shop'); ?>" method="post" enctype="multipart/form-data" id="regshop" name="regshop">
                 <fieldset >
 
                   <div class="page-header">
@@ -113,7 +113,7 @@
                     <label for="inputsname" class="col-lg-2 control-label"><?=$this->lang->line("s_name");?></label>
                     
                     <div class="col-lg-5">
-                      <input type="text" id="sne" class="form-control " name="shopname_en"  data-toggle="popover" data-trigger="hover " data-placement="bottom" data-content="<?=$this->lang->line("note");?>">
+                      <input type="text" id="shopname_en" class="form-control " name="shopname_en"  data-toggle="popover" data-trigger="hover " data-placement="bottom" data-content="<?=$this->lang->line("note");?>">
 
                     </div>
                     <label for="inputslang"  class="col-lg-0.7 control-label" ><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
@@ -125,7 +125,7 @@
                     <label for="inputsname" class="col-lg-2 control-label"></label>
                     
                     <div class="col-lg-5">
-                      <input type="text" class="form-control" name="shopname_th" value="">
+                      <input type="text" id="shopname_th" class="form-control" name="shopname_th" value="">
                     </div>
                     <label for="inputlang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
 
@@ -141,7 +141,7 @@
                       <input type="text" class="form-control" name="urlname" value="">
                     </div>
                     <div class="col-lg-1">
-                      <label for="inputcom" class="col-lg-0.6 control-label">.com </label>
+                      <label for="inputcom" class="col-lg-0.6 control-label"></label>
                     </div>
                   </div>
                   
@@ -152,7 +152,7 @@
                     <?php 
 
                       foreach( $cate as $value){ 
-                      echo "<option value=\"$value->shop_name_type\">".$value->shop_name_type."</option>";}
+                      echo "<option value=\"$value->shop_category_ID\">".$value->shop_name_type."</option>";}
                     ?>
                         
                     </select>
@@ -207,7 +207,7 @@
                           <div class="col-xs-6 col-md-10">
                           
                                 <label class="btn btn-info">
-                              <input type="radio" name="options" id="option1" autocomplete="off" ><?=$this->lang->line("theme_s1");?>
+                              <input type="radio" name="theme" id="theme"  value="1" checked><?=$this->lang->line("theme_s1");?>
                             </label>
                             <img src="<?php echo logo_pic;?>theme1.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" style="width: 180px; height: 180px; line-height: 150px;" >
 
@@ -241,7 +241,7 @@
                              <!--theme2 -->
                           <div class="col-xs-6 col-md-10">
                           <label class="btn btn-info">
-                              <input type="radio" name="options" id="option2" autocomplete="off"><?=$this->lang->line("theme_s2");?>
+                              <input type="radio" name="theme" id="theme"  value="2"><?=$this->lang->line("theme_s2");?>
                             </label>
                                   
                             <img src="<?php echo logo_pic;?>theme2.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal2" style="width: 180px; height: 180px; line-height: 150px;">
@@ -297,10 +297,13 @@
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px; " ></div>
                         <div>
-                          <span class="btn btn-info btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                          <span class="btn btn-info btn-file"><span class="fileinput-new" ><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists" ><?=$this->lang->line("change_pic");?></span><input type="file" name="select_shopprofile"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>
+                    </div>
+                    <div class="col-lg-4">
+                    <font color="white"><?php if($error=="error1"){echo $this->lang->line("error_picshop");}?></font>
                     </div>
                   </div> 
                    
@@ -316,10 +319,13 @@
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px;"></div>
                         <div>
-                          <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                          <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_shopbg"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>
+                    </div>
+                    <div class="col-lg-4">
+                    <font color="white"><?php if($error=="error2"){echo $this->lang->line("error_picshop");}?></font>
                     </div>
                   </div>
 
@@ -332,10 +338,13 @@
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 600px; height: 240px;" ></div>
                         <div>
-                          <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                          <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_shopcover"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>
+                    </div>
+                    <div class="col-lg-2">
+                      <font color="white"><?php if($error=="error3"){echo $this->lang->line("error_picshop");}?></font>
                     </div>
                   </div>
 
@@ -419,7 +428,7 @@ $("#regshop").validate({
     urlname: {
       required: true,
       regex: /^([a-zA-Z0-9])+$/,
-      rangelength: [2, 10]
+      rangelength: [5, 15]
     },
     shopdetail_en: {
       required: true,
