@@ -13,7 +13,7 @@
 		}
 		public function checkmember($user,$pass){
 			
-			$sql="SELECT username,password,memberID FROM member WHERE username='$user' AND password='$pass';";
+			$sql="SELECT username,password,memberID,status FROM member WHERE username='$user' AND password='$pass' AND status=1;";
 			$query=$this->db->query($sql)->result();
 			if(empty($query)){
 				$this->session->set_userdata('status','f');
@@ -66,6 +66,13 @@
 
     	}
 
+    	public function active_member($id){
+    		$sql="UPDATE member SET status=1 WHERE memberID='$id';";
+    		if($this->db->query($sql)){ return "success!";}else{ return "fail!";}
+
+
+    	}
+
 
     	public function type_category(){
     		$tlang=$this->session->userdata('langreg');
@@ -88,16 +95,17 @@
 
 
    		public function get_memID($username){
-   			$sql="SELECT memberID,profile_pic FROM member WHERE username='$username';";
+   			$sql="SELECT memberID,profile_pic,email FROM member WHERE username='$username';";
    			$query=$this->db->query($sql)->result();
    			foreach($query as $row){
 					$memberid=$row->memberID;
 					$picname=$row->profile_pic;
+					$email=$row->email;
 
 					
 					
 			}
-			$data=array('memberid' => $memberid,'picname' => $picname );
+			$data=array('memberid' => $memberid,'picname' => $picname, 'e_mail' => $email );
 			return $data;
 
    		}

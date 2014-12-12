@@ -201,8 +201,7 @@
                     </div>
                     <div class="col-lg-4">
                       
-                      <font id="tick" color="66CCFF" style="font-weight:bold; font-size:15px;"><?=$this->lang->line("username_ok");?></font>
-                      <font id="cross" color="#FF0000" style="font-weight:bold; font-size:15px;"><?=$this->lang->line("username_no");?></font>
+                      
                       
                     </div>
                   </div>
@@ -279,8 +278,19 @@
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
 
 <script>
+var check_u = " ";
 
-
+ $.validator.addMethod(
+        "username_check", 
+        function(value, element) {
+         if (check_u=="error") {
+        return false;  // FAIL validation when REGEX matches
+        } else if(check_u=="pass"){
+        return true;   // PASS validation otherwise
+        };
+      }, "username can't use!!!"
+            
+    );
 
 $.validator.addMethod(
        "regex",
@@ -325,7 +335,8 @@ $("#regform").validate({
     username: {
       required: true,
       regex: /^([a-zA-Z0-9]|[-_])+$/,
-      rangelength: [6, 8]
+      rangelength: [6, 8],
+      username_check: true
     },
     password: {
       required: true,
@@ -371,7 +382,8 @@ $("#regform").validate({
     username: {
       required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
       regex: "<?php echo "<font color='red'>".$this->lang->line("error_username")."</font>";?>",
-      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_charusername")."</font>"; ?>" 
+      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_charusername")."</font>"; ?>",
+      username_check: "<?php echo "<font color='red'>".$this->lang->line("error_haveusername")."</font>"; ?>"
     },
     password: {
       required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
@@ -385,15 +397,6 @@ $("#regform").validate({
 
 
 });
-
-
-
-
-
-
-</script>
-
-<script>
 
 $(document).ready(function(){
 $('#username').keyup(username_check);
@@ -416,31 +419,23 @@ if(response == 1){
   $('#username').css('border', '3px #C33 solid'); 
   $('#tick').hide();
   $('#cross').fadeIn();
+  check_u="error";
   }else{
   $('#username').css('border', '3px #090 solid');
   $('#cross').hide();
   $('#tick').fadeIn();
-       }
+  check_u="pass";
+  }
 
 }
 });
 }
 }
 
+
+
+
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 

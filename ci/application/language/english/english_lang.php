@@ -76,8 +76,8 @@
 	$lang['error_repassword']="wrong re-password retry!!!";
 	$lang['error_username']="username must be in the format of a-z and A-Z and 0-9 or - or _ !!!";
 	$lang['error_charusername']="username must be 6-8 character!!!";
-	$lang['username_ok']="Username can use!!!";
-	$lang['username_no']="Username can't use. Please re-try username!!!";
+	$lang['error_haveusername']="this username have in system.Please input again.!!!";
+	
 	$lang['error_pic']="Picture profile must have full-size 1024*768!!!";
 
     $lang['sreg_account']="Open shop Online";
