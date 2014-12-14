@@ -118,8 +118,8 @@
                   <div class="form-group">
                     
                     <div class="row">
-                      
-                        <div class="col-sm-6 col-md-4 col-lg-8">
+                      <div class="col-lg-1"></div>
+                        <div class="col-sm-6 col-md-4 col-lg-8" align="center">
                            <div class="form-group animated fadeInUp">
                              <div class="col-lg-12">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -130,13 +130,20 @@
                                   <div>
                                     <span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
                                     <div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div>
-                                    <a href="<?php echo site_url('member_tb/profile');?>"  id="change_pro"  name="changeprofile" class="btn btn-primary  animated bounce"> <?=$this->lang->line("changepic");?></a>
+                                    
                                   </div>
                                 </div>
                               </div>
                             </div>         
                       </div>
+
+                     
                     </div>
+                     <div class="col-lg-2"></div>
+                    <!-- update profile picture -->    
+                       <a href="<?php echo site_url('member_tb/profile');?>"  id="change_pro"  name="changeprofile" class="btn btn-primary  animated bounce"> <?=$this->lang->line("changepic");?></a>
+                          <!-- end update profile picture -->            
+                                   
                     </div>
               </div>
 
