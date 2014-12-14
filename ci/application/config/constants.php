@@ -43,7 +43,7 @@ define("JS_URL","http://localhost/Shopproject/ci/asset/js/");
 define("BI","https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/");
 
 define("logo_pic","http://localhost/Shopproject/ci/asset/img/");
-define("upload","http://localhost/Shopproject/ci/asset/uploads/");
+define("upload","http://localhost/Shopproject/ci/uploads/profiles/");
 define("private_key","Tbshop2014");
 
 
