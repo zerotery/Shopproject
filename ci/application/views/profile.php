@@ -100,7 +100,7 @@
           <div class="col-lg-12 ">
             
              <div class=" well bs-component transbox" >
-              <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data">
+             
                 <fieldset >
 
                   <div class="page-header-b ">
@@ -115,6 +115,7 @@
                     </div>
 
               <div class="well bs-component col-sm-6 col-md-4 transboxz  " >
+              <form class="form-horizontal" action="<?php echo site_url('member_tb/changeprofile'); ?>" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                     
                     <div class="row">
@@ -124,11 +125,11 @@
                              <div class="col-lg-12">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                   <div class="fileinput-new " >
-                                    <img src="<?php echo logo_pic;?>defaulfuse.png" class="img-responsive" style="height:180px;width:180px;" >
+                                    <img src="<?php echo upload;?><?php echo $userid."/".$namepicture;?>" class="img-responsive" style="height:180px;width:180px;" >
                                   </div>
                                   <div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div>
                                   <div>
-                                    <span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="select_img"></span>
+                                    <span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="update_profile"></span>
                                     <div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div>
                                     
                                   </div>
@@ -141,15 +142,17 @@
                     </div>
                      <div class="col-lg-2"></div>
                     <!-- update profile picture -->    
-                       <a href="<?php echo site_url('member_tb/profile');?>"  id="change_pro"  name="changeprofile" class="btn btn-primary  animated bounce"> <?=$this->lang->line("changepic");?></a>
+                       <input type="submit" id="change_pro"  name="changeprofile" class="btn btn-primary  animated bounce" value="<?=$this->lang->line("changepic");?>"> 
                           <!-- end update profile picture -->            
                                    
                     </div>
+                    </form>
               </div>
 
 
+
               <div class="well bs-component   col-sm-6 col-md-4 col-lg-8">
-                                      <form class="form-horizontal " id="profile" method="post" enctype="multipart/form-data">
+                                      <form class="form-horizontal" name="update_profile" id="profile" action="<?php echo site_url('member_tb/profile'); ?>" method="post" enctype="multipart/form-data">
                                         <fieldset >
                                          
                                               
@@ -172,6 +175,8 @@
                                                      document.getElementById("txt3").value = "<?php echo $rs['email']; ?>";
                                                      document.getElementById("txt4").value = "<?php echo $rs['license']; ?>";
                                                      document.getElementById("txt5").value = "<?php echo $rs['address']; ?>";
+                                                     document.getElementById("txt6").value = "<?php echo $rs['province']; ?>";
+                                                     document.getElementById("txt7").value = "<?php echo $rs['postcode']; ?>";
                                                 
                                                     
                                                      
@@ -195,7 +200,7 @@
                                               <label for="inputlname" class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("l_name");?></label>
                                               <div class="col-lg-6">
                                                 
-                                                <input type="text2" class="form-control animated fadeInDown" name="lastname" id="txt2" value="<?php echo $rs['l_name']; ?>">
+                                                <input type="text" class="form-control animated fadeInDown" name="lastname" id="txt2" value="<?php echo $rs['l_name']; ?>">
                                                 <span id="lname" style="font-size:16pt"><?php echo $rs['l_name']; ?></span>
                                                 
                                               </div>
@@ -210,7 +215,7 @@
                                             <div class="form-group">
                                               <label for="inputlicense" class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("license");?></label>
                                               <div class="col-lg-5">
-                                                <input type="text3" class="form-control animated fadeInDown" name="license" id="txt4" value="<?php echo $rs['license']; ?>" >
+                                                <input type="text" class="form-control animated fadeInDown" name="license" id="txt4" value="<?php echo $rs['license']; ?>" >
                                                 <span id="license" style="font-size:16pt;"><?php echo $rs['license']; ?></span>
                                               </div>
                                             </div>
@@ -219,15 +224,15 @@
                                               <label for="inputadress" class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("address_d");?></label>
                                               <div class="col-lg-6">
 
-                                                <input type="text4" name="address"  id="txt5" class="form-control animated fadeInDown" value="<?php echo $rs['address']; ?>">
+                                                <input type="text" name="address"  id="txt5" class="form-control animated fadeInDown" value="<?php echo $rs['address']; ?>">
                                                 <span id="addr" style="font-size:16pt"><?php echo $rs['address']; ?></span>
                                               </div>
                                             </div>
                                             <div class="form-group">
                                               <label for="inputadress" class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("province");?></label>
                                               <div class="col-lg-4">
-                                                <input type="text5" class="form-control animated fadeInDown" name="province" id="txt6" value="">
-                                                <span id="province" style="font-size:16pt"></span>
+                                                <input type="text" class="form-control animated fadeInDown" name="province" id="txt6" value="<?php echo $rs['province']; ?>">
+                                                <span id="province" style="font-size:16pt"><?php echo $rs['province']; ?></span>
                                               </div>
                                             </div>
 
@@ -235,16 +240,16 @@
                                               <label for="inputladdress" class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("postcode");?></label>
                                               <div class="col-lg-4">
 
-                                                <input type="text6" class="form-control animated fadeInDown" id="txt7" name="postcode" value="">
-                                                <span id="postcode" style="font-size:16pt"></span>
+                                                <input type="text" class="form-control animated fadeInDown" id="txt7" name="postcode" value="<?php echo $rs['postcode']; ?>">
+                                                <span id="postcode" style="font-size:16pt"><?php echo $rs['postcode']; ?></span>
                                               </div>
                                             </div>
 
                                            <div class="form-group">
                                             <div class="col-lg-10 col-lg-offset-2 ">
-                                               <a href="<?php echo site_url('member_tb/profile');?>"><input type="submit" class="btn btn-primary animated bounce" id="btn_s" name="btsave"  value="<?=$this->lang->line("save");?>" /></a>
+                                               <input type="submit" class="btn btn-primary animated bounce" id="btn_s" name="btsave"  value="<?=$this->lang->line("save");?>" />
                                                  <span id="savable"></span>
-                                                <a href="<?php echo site_url('member_tb/profile');?>"><input  type="submit" class="btn btn-default animated pulse" id="btn_c"  value="<?=$this->lang->line("cancel");?>" /></a>
+                                                <input  type="submit" class="btn btn-default animated pulse" id="btn_c"  value="<?=$this->lang->line("cancel");?>" />
                                                 <span id="cancel_e"></span>
                                                 
                                                 
@@ -259,7 +264,7 @@
                                    </div>
                   </fieldset>
 
-              </form>
+              
             </div>
                     
 

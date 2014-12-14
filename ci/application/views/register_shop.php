@@ -419,11 +419,11 @@ $("#regshop").validate({
   rules: {
     shopname_en: {
       required: true,
-      regex: /^([a-zA-Z0-9]|[-_])+$/
+      regex: /^([a-zA-Z0-9\s]|[-_])+$/
     },
     shopname_th: {
       required: true,
-      regex: /^([ก-๙0-9]|[-_])+$/
+      regex: /^([ก-๙0-9\s]|[-_])+$/
     },
     urlname: {
       required: true,
@@ -432,12 +432,12 @@ $("#regshop").validate({
     },
     shopdetail_en: {
       required: true,
-      regex: /^([a-zA-Z0-9]|[-_])+$/
+      regex: /^([a-zA-Z0-9\s]|[-_])+$/
       
     },
     shopdetail_th: {
       required: true,
-      regex: /^([ก-๙0-9]|[-_])+$/
+      regex: /^([ก-๙0-9\s]|[-_])+$/
     },
     fanpageshop: {
       required: true,

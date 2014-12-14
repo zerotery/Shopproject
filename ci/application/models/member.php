@@ -123,6 +123,23 @@
 
     	}
 
+    	public function get_picture($memID){
+   			$sql="SELECT profile_pic FROM member WHERE memberID='$memID';";
+   			$query=$this->db->query($sql)->result();
+   			foreach($query as $row){
+					
+					$picname=$row->profile_pic;
+					
+
+					
+					
+			}
+			$data=array('picname' => $picname);
+			return $data;
+
+   		}
+
+
 
 
 
