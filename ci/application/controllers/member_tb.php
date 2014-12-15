@@ -583,7 +583,7 @@
 
                 }
 
-                public function profile(){
+                public function profile($error=NULL){
                   
                   $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
                   $this->lang->load($lang,$lang);
@@ -599,6 +599,7 @@
                        $rs=$this->member->member_detail();
                        $pic=$this->member->get_picture($id);
                        $picname=$pic['picname'];
+
                        $this->session->set_userdata('namepic',$picname);
                        //$data['rs']= $rs->result_array();
                        $data['namepicture']=$picname;
@@ -608,6 +609,7 @@
                       }
                       else{
                         $data['rs']=$rs->row_array();
+                        $data['error']=$error;
                         $fname=$this->input->post('firstname');
                         $lname=$this->input->post('lastname');
                         $address=$this->input->post('address');
@@ -625,15 +627,17 @@
                         'email' => "$email",
                         
                         );
+                        if($fname!=NULL&&$fname!=NULL&&$lname!=NULL&&$address!=NULL&&$province!=NULL&&$postcode!=NULL&&$perid!=NULL&&$email!=NULL){
                         $this->member->updatecustomer($up);
-                          
+                        redirect('member_tb/profile','refresh');
+                        }  
                         
                         
                        
                         }
                        
                         $this->load->view('profile',$data);
-                        //
+                      
                       }
                       
 
@@ -643,7 +647,7 @@
 
                  public function changeprofile(){
                   $np=$this->session->userdata('namepic');
-                  $config['file_names'] =$np;
+                  
                   $config['upload_path'] ='./asset/temp/';
                   $config['allowed_types'] = 'gif|jpg|png';
                   $config['max_size'] = '0';
@@ -657,25 +661,49 @@
                     //0 loop 3 4 loop 2
                     
                           if($_FILES['update_profile']['error']==4){
-                          //$picname="defaulfuse.png";
-                          //$this->session->set_userdata('picture_name',"$picname");
-                      
-                          //$set=1;
+                          redirect('member_tb/profile','refresh');
                           }else if($_FILES['update_profile']['error']==0){
-                          $set=null;
+                          
                       
-                          //$error="error";
+                          $error="error";
                       
-                          //$this->reg($error);
+                          $this->profile($error);
                           }
 
                     }else{
-                    $data=array('upload_data' =>$this->upload->data());
+                      $data=array('upload_data' =>$this->upload->data());
                       
-                     $picname=$data['upload_data']['file_name']; 
+                      $picname=$data['upload_data']['file_name']; 
                       //$this->session->set_userdata('picture_name',"$picname");
+                      $memID=$this->session->userdata('memberid');
+                      $numsave=$memID%1000;
+                      $pic=$this->session->userdata('namepic');
+                      $config['image_library']='gd2';
+                       
+                      
+                       if($picname=="defaulfuse.png"){
+                       $config['source_image']='./asset/img/'.$picname;
+                       }else{
+                       $config['source_image']='./asset/temp/'.$picname;
+                       }
+                       
+                       
+                       $config['width']=180;
+                       $config['height']=180;
+                       $config['new_image']='./uploads/profiles/'.$numsave.'/'.$pic;
+                       $this->image_lib->clear();
+                       $this->image_lib->initialize($config);
+                       $this->image_lib->resize();
+                       if(!$this->image_lib->resize()){
+                        echo $this->image_lib->display_errors();
+                       }else{
+                          
+                          redirect('member_tb/profile','refresh');
+                          
+                         //$this->session->unset_userdata('picturesp_name');
+                       }
                       //$set=1;
-                    echo "$picname";
+                    //echo "$picname";
                     }
                  }
 
