@@ -94,6 +94,46 @@
 		}	
 
 
+		public function productType(){
+			$lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+			
+			$this->lang->load($lang,$lang);
+			if($lang=="english"){
+                    $this->session->set_userdata('langmyshop',1);
+            }
+            else if($lang=="thailand"){
+                    $this->session->set_userdata('langmyshop',2);
+            }
+
+			if($this->session->userdata('loginname')==""){
+				$this->index();
+			}else{
+			
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('productType',$data);
+			}
+			
+		}	
+
+
+
+
+		public function changeproductType($type){
+			$this->session->set_userdata('lang',$type);
+			redirect('backshop/productType', 'refresh');
+		}	
+
+
+
 
 
 	}

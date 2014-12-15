@@ -3,6 +3,7 @@
 
 <title>TB Shop|Back Office's</title>
 <meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
 <style>
@@ -47,7 +48,7 @@ body {
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown"><?=$this->lang->line("product");?><b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="#"><?=$this->lang->line("product_type");?></a></li>
+          <li><a href="<?php echo site_url('backshop/productType');?>"><?=$this->lang->line("product_type");?></a></li>
           <li><a href="#"><?=$this->lang->line("product_management");?></a></li>
           <li><a href="#"><?=$this->lang->line("option");?></a></li>
         </ul>

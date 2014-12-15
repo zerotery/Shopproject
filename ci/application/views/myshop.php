@@ -5,7 +5,7 @@
 <title>TB Shop|My shop's</title>
 
 <meta charset="UTF-8">
-
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
 <style>
@@ -14,7 +14,7 @@ body {
   font-size: 15px;
   line-height: 1.42857143;
   brackgound:#000000; 
-  background:url("<?php echo logo_pic;?>bg.jpg") no-repeat center center fixed;
+  background:url("<?php echo logo_pic;?>bg_myshop.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -70,7 +70,7 @@ body {
 
 <div class="box">
 <div class="container">
-<div class="well bs-component" style="background-color:#CCFFCC;">
+<div class="well bs-component transboxshop" style="background-color:#CCFFCC;">
    
       <form class="form-horizontal">
         

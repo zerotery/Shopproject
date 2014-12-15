@@ -702,7 +702,7 @@
                           unlink($hit);
                           }
                           
-                          redirect('member_tb/profile','refresh');
+                           redirect('member_tb/profile','refresh');
                           
                          //$this->session->unset_userdata('picturesp_name');
                        }
