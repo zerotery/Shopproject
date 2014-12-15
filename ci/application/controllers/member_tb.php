@@ -697,6 +697,10 @@
                        if(!$this->image_lib->resize()){
                         echo $this->image_lib->display_errors();
                        }else{
+                          if($picname!="defaulfuse.png"){
+                          $hit='./asset/temp/'.$picname;
+                          unlink($hit);
+                          }
                           
                           redirect('member_tb/profile','refresh');
                           
