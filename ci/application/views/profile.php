@@ -140,7 +140,7 @@
 
                      
                     </div>
-                     <div class="col-lg-2"></div>
+                     <div class="col-lg-2"><?php if($error=="error"){ echo $this->lang->line("error_picshop");}  ?></div>
                     <!-- update profile picture -->    
                        <input type="submit" id="change_pro"  name="changeprofile" class="btn btn-primary  animated bounce" value="<?=$this->lang->line("changepic");?>"> 
                           <!-- end update profile picture -->            
@@ -249,7 +249,7 @@
                                             <div class="col-lg-10 col-lg-offset-2 ">
                                                <input type="submit" class="btn btn-primary animated bounce" id="btn_s" name="btsave"  value="<?=$this->lang->line("save");?>" />
                                                  <span id="savable"></span>
-                                                <input  type="submit" class="btn btn-default animated pulse" id="btn_c"  value="<?=$this->lang->line("cancel");?>" />
+                                                <input  type="reset" class="btn btn-default animated pulse" id="btn_c"  value="<?=$this->lang->line("cancel");?>" />
                                                 <span id="cancel_e"></span>
                                                 
                                                 
@@ -310,7 +310,80 @@
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
+<script>
+  $("#profile").validate({
+  rules: {
+    firstname: {
+      required: true
+    },
+    lastname: {
+      required: true
+    },
+    license: {
+      required: true,
+      number: true,
+      rangelength: [13, 13]
+    },
+    email: {
+      required: true,
+      email: true
+    },
+    address: {
+      required: true
 
+    },
+    province: {
+      required: true
+
+    },
+    postcode: {
+      required: true,
+      number: true,
+      rangelength: [5, 5]
+
+    }
+   
+    
+
+  },
+  messages: {
+    firstname: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    },
+    lastname: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+    },
+    license: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      number: "<?php echo "<font color='red'>".$this->lang->line("error_number")."</font>"; ?>",
+      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_license")."</font>"; ?>"
+
+    },
+    email: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      email: "<?php echo "<font color='red'>".$this->lang->line("error_email")."</font>"; ?>"
+    },
+    address: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+
+    },
+    province: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
+
+    },
+    postcode: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      number: "<?php echo "<font color='red'>".$this->lang->line("error_number")."</font>"; ?>",
+      rangelength: "<?php echo "<font color='red'>".$this->lang->line("error_postcode")."</font>"; ?>"
+    }
+    
+
+  }
+
+
+});
+</script>
 
 </body>
 
