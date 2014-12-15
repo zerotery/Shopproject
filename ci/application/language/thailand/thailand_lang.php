@@ -139,6 +139,11 @@
  	$lang['warning2']="ขออภัยในความไม่สะดวก";
 
  	$lang['back']="กลับสู่หน้าหลัก";
+ 	$lang['product_name_type']="ชื่อประเภทสินค้า";
+ 	$lang['action']="การกระทำ";
+ 	$lang['modify']="แก้ไข";
+
+
 
 
 

@@ -1234,6 +1234,11 @@ a.bg-danger:hover {
   margin: 45px 0 10px;
   border-bottom: 0px solid #eee;
 }
+.page-header-bp {
+  padding-bottom: 5px;
+  margin: 5px 0 10px;
+  border-bottom: 2.5px solid #eee;
+}
 ul,
 ol {
   margin-top: 0;
@@ -6162,6 +6167,14 @@ div.transboxregs
  
   background-color: #7ABA7A;
   border: 0px solid black;
+  opacity:0.9;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+div.transboxshop
+{
+ 
+  background-color: #F4A460;
+  border: 1px solid black;
   opacity:0.9;
   filter:alpha(opacity=60); /* For IE8 and earlier */
 }

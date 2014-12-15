@@ -132,6 +132,13 @@
  	$lang['warning2']="Sorry,for the inconvenience.";
  	$lang['back']="Back to homepage";
 
+ 	$lang['product_name_type']="Product type name ";
+ 	$lang['action']="Action";
+ 	$lang['modify']="modify";
+
+
+
+
 
 
 
