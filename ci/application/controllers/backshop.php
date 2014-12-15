@@ -39,6 +39,7 @@
 			$data['myshop'] = $this->shop->showshop();
 			//print_r($data['myshop'][0]);
 			//echo "<br>".count($data['myshop']);
+			
 			$this->load->view('myshop',$data);
 			
 			}
