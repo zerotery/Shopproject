@@ -90,38 +90,24 @@ body {
         
 
         <?php
-          if($this->session->userdata('shop_status')=="f"){
+      
         
-        
-        echo '<tr class=\"warning\"><td align=\"center\"></td>';//echo "true username and password";
-        echo '<td>';
-        echo '<font color=\"red\"><h6>'.$this->lang->line("noshop").'</h6></font></td>';
-        echo '</tr>';
-
-      }else{
-        //print_r($myshopname);
-        $j=1; 
-           for($i=0; $i<count($myshopname); $i++){
+           $j=1; 
+           for($i=0; $i<count($myshop); $i++){
             echo '<tr class="info">';
             echo '<td>'.$j.'</td>';
             echo '<td>';
-            print_r($myshopname[$i]['shopname']);
+            echo $myshop[$i]['shop_name'];
             echo '</td>';
-            $shopname["$i"]=$myshopname[$i]['shopname'];
-            $num=$i;
+            
+            $num=$myshop[$i]['s_ID'];
             echo '<td>'.anchor(site_url('backshop/gobackshop/').'/?shopid='.$num.'','go backshop').'</td>';
-            echo '<td>'.'url shop'.'</td>';
+            echo '<td>'.$myshop[$i]['s_url'].'</td>';
             $j++;
             echo "</tr>";
            }
-           for($i=0;$i<count($shopname);$i++){
-              $data[$i]=$shopname[$i];
-          $this->session->set_userdata($data);
-
-
-           }
-          }
            
+         
         ?>
          </tr>       
     </tbody>
