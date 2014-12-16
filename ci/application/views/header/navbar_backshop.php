@@ -12,7 +12,7 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li>
-        <a href="#"><?=$this->lang->line("store");?></a>
+        <a href="<?php echo site_url('backshop/gobackshop');?>"><?=$this->lang->line("store");?></a>
       </li>
 
       <li>
@@ -23,7 +23,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown"><?=$this->lang->line("product");?><b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="<?php echo site_url('backshop/productType');?>"><?=$this->lang->line("product_type");?></a></li>
-          <li><a href="#"><?=$this->lang->line("product_management");?></a></li>
+          <li><a href="<?php echo site_url('backshop/productManage');?>"><?=$this->lang->line("product_management");?></a></li>
           <li><a href="#"><?=$this->lang->line("option");?></a></li>
         </ul>
       </li>

@@ -9,21 +9,16 @@
 	
 		            }
                 public function index() {
-                      
-                       $this->load->view('register',$data);
-
-		            }
-                public function changelangreg($type){
-                  $this->session->set_userdata('lang',$type);
-                  redirect('member_tb/reg', 'refresh');
-      
-
-
 
                 }
+
+
+                
                 public function reg($error=null){
-                   $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                  
+                   $lang=$this->load_language->lang();
                    $this->lang->load($lang,$lang);
+
                    $data['error']=$error;
                    $this->load->view('register',$data);
                  
@@ -32,17 +27,8 @@
                 public function autoload(){
 
                   $name=$this->session->flashdata('username');
-                  
-
-
-                  $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                  $lang=$this->load_language->lang();
                   $this->lang->load($lang,$lang);
-                  if($lang=="english"){
-                    $this->session->set_userdata('langreg',1);
-                  }
-                  else if($lang=="thailand"){
-                    $this->session->set_userdata('langreg',2);
-                  }
 
                   $memberID=$this->member->get_memID($name);
                   $picname=$memberID['picname'];
@@ -89,28 +75,16 @@
                   //$this->session->set_userdata('picname',"$picname");
                   //$this->active_member($memberID);
                   }
+
               public function loading(){
-                 $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
-                  $this->lang->load($lang,$lang);
-                  if($lang=="english"){
-                    $this->session->set_userdata('langreg',1);
-                  }
-                  else if($lang=="thailand"){
-                    $this->session->set_userdata('langreg',2);
-                  }
+                $lang=$this->load_language->lang();
+                $this->lang->load($lang,$lang);
                 $this->load->view('loading');
 
                  
-                  }
+              }
 
-               
-
-
-
-
-
-
-                public function checkusername(){
+               public function checkusername(){
 
                   $username = trim(strtolower($_POST['username']));
                   //echo "$username";
@@ -255,20 +229,11 @@
                 
                 public function regshop($error=null){
                   
-                  $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                  $lang=$this->load_language->lang();
                   $this->lang->load($lang,$lang);
-                  if($lang=="english"){
-                    $this->session->set_userdata('langreg',1);
-                  }
-                  else if($lang=="thailand"){
-                    $this->session->set_userdata('langreg',2);
-                  }
+                  $this->login_system->checklogin();
 
-
-
-                  if($this->session->userdata('loginname')==""){
-                        $this->logout();
-                      }else{
+                  
                       $data['user']=$this->session->userdata('loginname');
                       $data['userid']=$this->session->userdata('memberid'); 
                       $data['cate']=$this->member->type_category();
@@ -277,7 +242,7 @@
 
                       $this->load->view('register_shop',$data);
                       
-                      }
+                      
 
 
 
@@ -460,7 +425,7 @@
                       $r3=$this->shop->inputdetailth($inputshop_detailth);
 
                     if($r1=="success"&&$r2=="success"&&$r2=="success"){
-                                      echo "$r1<br>$r2<br>$r3";
+                                      //echo "$r1<br>$r2<br>$r3";
                                       $numsave=$s_id%1000;
                                       $flgCreate = mkdir("./uploads/shops/".$numsave);
                     }else{
@@ -555,43 +520,19 @@
 
               }
 
+                
 
-
-
-
-
-
-
-
-
-
-
-
-               public function logout(){
-                  $this->session->unset_userdata('loginname');
-                  $this->session->sess_destroy();
-                  redirect('main/login');
-
-                }
-
-                public function changelangshopreg($type){
-                  $this->session->set_userdata('lang',$type);
-                  redirect('member_tb/regshop', 'refresh');
-      
-
-
-
+                public function logout(){
+                  $this->login_system->logout();
                 }
 
                 public function profile($error=NULL){
                   
-                  $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                  $lang=$this->load_language->lang();
                   $this->lang->load($lang,$lang);
+                  $this->login_system->checklogin();
 
-                  if($this->session->userdata('loginname')==""){
-                        $this->login();
-                      }
-                      else{
+                  
                       $data['user']=$this->session->userdata('loginname');
                       $data['userid']=$this->session->userdata('memberid');
                       $id=$this->session->userdata('memberid');
@@ -638,11 +579,11 @@
                        
                         $this->load->view('profile',$data);
                       
-                      }
-                      
+                    
 
                       
-                      }
+                      
+                    }
                             
 
                  public function changeprofile(){
@@ -717,14 +658,8 @@
 
                          
 
-                 public function changelangprofile($type){
-                          $this->session->set_userdata('lang',$type);
-                          redirect('member_tb/profile', 'refresh');
-              
+                
 
-
-
-                }
 
 
 

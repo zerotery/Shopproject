@@ -77,7 +77,7 @@
 
 
     	public function type_category(){
-    		$tlang=$this->session->userdata('langreg');
+    		$tlang=$this->session->userdata('langdata');
     		$sql="SELECT * FROM shop_category WHERE shop_category_ID=shop_category_parent_ID AND lang_ID='$tlang';";
     		$query=$this->db->query($sql)->result();
     		return $query;
