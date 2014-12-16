@@ -19,19 +19,11 @@
 		}
 
 		public function myshop(){
-			$lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
-			
-			$this->lang->load($lang,$lang);
-			if($lang=="english"){
-                    $this->session->set_userdata('langmyshop',1);
-            }
-            else if($lang=="thailand"){
-                    $this->session->set_userdata('langmyshop',2);
-            }
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
 
-			if($this->session->userdata('loginname')==""){
-				$this->index();
-			}else{
+			$this->login_system->checklogin();
+
 			$data['user']=$this->session->userdata('loginname');
 			$data['userid']=$this->session->userdata('memberid');	
 			
@@ -42,32 +34,22 @@
 			
 			$this->load->view('myshop',$data);
 			
-			}
+			
 		}
 
 		public function logout(){
-			$this->session->unset_userdata('loginname');
-			$this->session->sess_destroy();
-			$this->index();
+
+			$this->login_system->logout();
 
 		}
 
 		public function gobackshop(){
 
-			$lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
-			
-			$this->lang->load($lang,$lang);
-			if($lang=="english"){
-                    $this->session->set_userdata('langmyshop',1);
-            }
-            else if($lang=="thailand"){
-                    $this->session->set_userdata('langmyshop',2);
-            }
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
 
-			if($this->session->userdata('loginname')==""){
-				$this->index();
-			}else{
-			
+			$this->login_system->checklogin();
+
 			$data['user']=$this->session->userdata('loginname');
 			$id=$this->input->get('shopid');
 			if($id!=NULL){
@@ -79,35 +61,17 @@
 			
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('backshop',$data);
-			}
+			
 		}
 
 		
-		public function changemyshop($type){
-			$this->session->set_userdata('lang',$type);
-			redirect('backshop/myshop', 'refresh');
-			
-		}
-		public function changebackshop($type){
-			$this->session->set_userdata('lang',$type);
-			redirect('backshop/gobackshop', 'refresh');
-		}	
-
+		
 
 		public function productType(){
-			$lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
-			
-			$this->lang->load($lang,$lang);
-			if($lang=="english"){
-                    $this->session->set_userdata('langmyshop',1);
-            }
-            else if($lang=="thailand"){
-                    $this->session->set_userdata('langmyshop',2);
-            }
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
 
-			if($this->session->userdata('loginname')==""){
-				$this->index();
-			}else{
+			$this->login_system->checklogin();
 			
 			$data['user']=$this->session->userdata('loginname');
 			$id=$this->input->get('shopid');
@@ -120,17 +84,14 @@
 			
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('productType',$data);
-			}
+			
 			
 		}	
 
 
 
 
-		public function changeproductType($type){
-			$this->session->set_userdata('lang',$type);
-			redirect('backshop/productType', 'refresh');
-		}	
+		
 
 
 

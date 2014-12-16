@@ -47,45 +47,7 @@
 
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#" align="left">
-    <img src="<?php echo logo_pic;?>logo2.png" width="100px" height="20px" >
-    </a>
-  </div>
-  <div class="navbar-collapse collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav">
-      
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown">MENU<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">MENU 1</a></li>
-          <li><a href="#">MENU 2</a></li>
-          <li><a href="#">MENU 3</a></li>
-          <li class="divider"></li>
-          <li class="dropdown-header"><font color="white">BACK SHOP</font></li>
-          <li><a href="#">MENU 4</a></li>
-          <li><a href="#">MENU 5</a></li>
-        </ul>
-      </li>
-    </ul>
-    
-    <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown">Language<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="<?php echo site_url('member_tb/changelangreg/english');?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0">English</a></li>
-          <li><a href="<?php echo site_url('member_tb/changelangreg/thailand');?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0">Thai</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</div>
+<?php echo $this->load->view('header/navbar_nlog')?>
 
 <div class="container">
 
@@ -245,7 +207,7 @@
     </div>
 </div>
 
- 
+ <?php echo $this->load->view('footer/footer')?>
                       
 
 
@@ -255,23 +217,7 @@
 
 
 
-<footer>
 
-   
-    <div class="powered-main" style="background-color: #FF4000">
-    <div id="powered">
-       
-          <div style="font-size:11px; padding-bottom: 30px;color: #eee;" align="center">
-              <a href="#" style="color: greenyellow" ><?=$this->lang->line("footer");?></a>
-                        <?=$this->lang->line("footer1");?><b><?=$this->lang->line("footer2");?></b><?=$this->lang->line("footer3");?><a href="#" style="color: lawngreen"><?=$this->lang->line("footer4");?></a>
-			
-		</div>
-    
-    </div>
-
-</div>
-       
-</footer>
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
