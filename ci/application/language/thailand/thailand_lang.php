@@ -142,6 +142,24 @@
  	$lang['product_name_type']="ชื่อประเภทสินค้า";
  	$lang['action']="การกระทำ";
  	$lang['modify']="แก้ไข";
+ 	$lang['p_type']="ประเภทสินค้า";
+
+ 	$lang['ptype_select']="เลือกประเภทสินค้า:";
+ 	$lang['addtype']="เพิ่ม";
+
+ 	$lang['product_pic']="รูปสินค้า";
+ 	$lang['product_name']="ชื่อสินค้า ";
+ 	$lang['product_detail']="รายละเอียดสินค้า ";
+
+ 	$lang['p_price']="ราคา ";
+ 	$lang['p_quantity']="จำนวนสินค้า ";
+ 	$lang['p_status']="สถานะสินค้า ";
+ 	$lang['pro_type']="ประเภทสินค้า ";
+ 	$lang['monetary']="บาท";
+
+
+
+
 
 
 

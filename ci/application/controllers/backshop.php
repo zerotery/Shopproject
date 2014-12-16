@@ -1,6 +1,6 @@
 <?php
 	
-	class backshop extends CI_controller{
+	class backshop extends CI_controller {
 		function __construct(){
 			parent::__construct();
 			$this->load->model('member','member');
@@ -93,11 +93,97 @@
 
 		
 
+		public function addproductType(){
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('addproductType',$data);
+			
+			
+		}
+		
+
+		public function modifyproductType(){
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('modifyproductType',$data);
+			
+			
+		}
+		
+
+		public function productManage(){
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('productManage',$data);
+			
+			
+		}
+		
+
+
+		public function addproduct(){
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('addproduct',$data);
+			
+			
+		}
+		
 
 
 
-
-	}
+}
 
 
 
