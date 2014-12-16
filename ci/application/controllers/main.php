@@ -35,6 +35,15 @@
 
 		}
 
+
+		public function chenge_lang($type){
+			$this->load_language->change_lang($type);
+			$page = $this->session->userdata('address');
+			header("Refresh: 0; url=$page");
+			//redirect($page, 'refresh');
+ 			
+		}
+
 		
 
 

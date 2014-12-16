@@ -28,6 +28,22 @@ class Login_system {
     	}
     	
     }
+    public function checklogin(){
+        $CI =& get_instance();
+        if($CI->session->userdata('loginname')==""){
+        $this->logout();
+        }
+                    
+    }
+
+    public function logout(){
+
+                  $CI =& get_instance();
+                  $CI->session->unset_userdata('loginname');
+                  $CI->session->sess_destroy();
+                  redirect('main/login');
+
+    }
 
 
 

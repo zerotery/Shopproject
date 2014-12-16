@@ -6,7 +6,7 @@
 		}
 		public function showshop(){
 			$memberid=$this->session->userdata('memberid');
-			$lang=$this->session->userdata('langmyshop');
+			$lang=$this->session->userdata('langdata');
 			//$sql="SELECT s_ID,  FROM member WHERE username='$chuser' AND password='$chpass';";
 			
 			$sql="SELECT shop.s_ID,shop.memberID,shop.s_url,shop_detail.shop_name,shop_detail.lang_ID FROM shop,shop_detail WHERE shop.s_ID=shop_detail.s_ID AND shop_detail.lang_ID='$lang' AND shop.memberID='$memberid';";
@@ -17,7 +17,7 @@
 
 		public function getshop($s_id){
 			$memberid=$this->session->userdata('memberid');
-			$lang=$this->session->userdata('langmyshop');
+			$lang=$this->session->userdata('langdata');
 			//$sql="SELECT s_ID,  FROM member WHERE username='$chuser' AND password='$chpass';";
 			
 			$sql="SELECT shop.s_ID,shop.memberID,shop.s_url,shop_detail.shop_name,shop_detail.lang_ID FROM shop,shop_detail WHERE shop.s_ID=shop_detail.s_ID AND shop_detail.lang_ID='$lang' AND shop.memberID='$memberid' AND shop.s_ID='$s_id';";
