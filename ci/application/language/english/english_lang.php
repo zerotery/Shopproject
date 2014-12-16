@@ -135,6 +135,20 @@
  	$lang['product_name_type']="Product type name ";
  	$lang['action']="Action";
  	$lang['modify']="modify";
+ 	$lang['p_type']="Product type";
+
+ 	$lang['ptype_select']="Choose product type:";
+ 	$lang['addtype']="add";
+ 	
+ 	$lang['product_pic']="Product image";
+ 	$lang['product_name']="Product name :";
+ 	$lang['product_detail']="Product detail :";
+ 	$lang['p_price']="Price ";
+ 	$lang['p_quantity']="Quantity ";
+ 	$lang['p_status']="Product status ";
+ 	$lang['pro_type']="Product type ";
+ 	$lang['monetary']="Bath";
+
 
 
 

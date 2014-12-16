@@ -146,7 +146,7 @@
                   </div>
                   
                   <div class="form-group">
-                    <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("s_type");?></label>
+                    <label  class="col-lg-2 control-label"><?=$this->lang->line("s_type");?></label>
                     <div class="col-lg-3">
                     <select name="category" class="form-control">
                     <?php 

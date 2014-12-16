@@ -49,7 +49,7 @@ body {
         <a class="dropdown-toggle" data-toggle="dropdown"><?=$this->lang->line("product");?><b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="<?php echo site_url('backshop/productType');?>"><?=$this->lang->line("product_type");?></a></li>
-          <li><a href="#"><?=$this->lang->line("product_management");?></a></li>
+          <li><a href="<?php echo site_url('backshop/productManage');?>"><?=$this->lang->line("product_management");?></a></li>
           <li><a href="#"><?=$this->lang->line("option");?></a></li>
         </ul>
       </li>
@@ -114,13 +114,15 @@ body {
 </div>
 
 
-<div class="container" style="background-color:#CCFFCC;">
+<div class="container" style="background-color:#eee">
 <br>
 <div class="page-header">
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
-          <a href="#"><?=$this->lang->line("home");?></a>
-          
+           <ol class="breadcrumb" style="background-color:#696969;">
+              <li><a href="<?php echo site_url('backshop/gobackshop');?>" style="color: white"><?=$this->lang->line("home");?></a></li>
+             
+          </ol>
             
           <!--<div class="col-lg-4 col-md-5 col-sm-6">
               <h6>What the ?</h6>
