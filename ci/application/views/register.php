@@ -70,7 +70,7 @@
           <div class="col-lg-12">
             
              <div class="well bs-component transboxreg " >
-              <form class="form-horizontal" id="regform" name="regform" action="<?php echo site_url('member_tb/submit_data'); ?>" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" id="regform" name="regform" action="<?php echo site_url('member_tb/test_pic'); ?>" method="post" enctype="multipart/form-data">
                 <fieldset >
 
                  <div class="page-header">
@@ -96,7 +96,7 @@
                       </div>
                     </div>
                     <div class="col-lg-4">
-                      <font color="white"><?php if($error=="error"){echo $this->lang->line("error_pic");}?></font>
+                      <font color="white"><?php if($error=="error"){echo $this->lang->line("error_picshop");}else{echo $this->lang->line("error_picmin");}?></font>
                     </div>
                   </div> 
 

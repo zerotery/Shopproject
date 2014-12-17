@@ -84,6 +84,7 @@
 
 	
 	$lang['error_picshop']="Picture have full-size!!!";
+	$lang['error_picmin']="Picture have min-size!!!";
 
     $lang['sreg_account']="Open shop Online";
 	$lang['spersonal']="Shop Detail";
