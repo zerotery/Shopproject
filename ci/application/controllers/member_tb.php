@@ -93,13 +93,23 @@
         
                 }
 
-                public function submit_data(){
+                public function test_pic(){
 
+                  $filename = "./asset/temp";
+                    
+                  if (file_exists($filename)) {
+                    $do=1;                
+                  }else {
+                    mkdir("./asset/temp");
+                    $do=1;                  
+                  }
+
+                  if($do==1){
                   $config['upload_path'] ='./asset/temp/';
                   $config['allowed_types'] = 'gif|jpg|png';
                   $config['max_size'] = '0';
-                  $config['max_width']  = '1024';
-                  $config['max_height']  = '768';
+                  $config['max_width']  = '1600';
+                  $config['max_height']  = '1200';
                   $this->upload->initialize($config);
                   
                   
@@ -123,12 +133,87 @@
                     }else{
                       $data=array('upload_data' =>$this->upload->data());
                       
-                      $picname=$data['upload_data']['file_name']; 
+                      $picnameold=$data['upload_data']['file_name']; 
+                       $width=$data['upload_data']['image_width'];
+                       $height=$data['upload_data']['image_height'];
+                      
+                      $temp = explode(".",$data['upload_data']['file_name']);
+                      $picname = "mem_profile" . '.' .end($temp);
                       $this->session->set_userdata('picture_name',"$picname");
+                      rename ("./asset/temp/".$picnameold, "./asset/temp/".$picname);
                       $set=1;
-                    
+
+
+                      echo $width." ".$height;
                     }
 
+                    $do=0;
+                  }else{
+                    echo "error";
+                  }
+
+                }
+
+                public function submit_data(){
+
+                  $filename = "./asset/temp";
+                    
+                  if (file_exists($filename)) {
+                    $do=1;                
+                  }else {
+                    mkdir("./asset/temp");
+                    $do=1;                  
+                  }
+
+                  if($do==1){
+                  $config['upload_path'] ='./asset/temp/';
+                  $config['allowed_types'] = 'gif|jpg|png';
+                  $config['max_size'] = '0';
+                  $config['max_width']  = '1600';
+                  $config['max_height']  = '1200';
+                  $this->upload->initialize($config);
+                  
+                  
+                  if(!$this->upload->do_upload('imgpro')){
+                    $data=array('error'=>$this->upload->display_errors());
+                    //0 loop 3 4 loop 2
+                    
+                          if($_FILES['imgpro']['error']==4){
+                          $picname="defaulfuse.png";
+                          $this->session->set_userdata('picture_name',"$picname");
+                      
+                          $set=1;
+                          }else if($_FILES['imgpro']['error']==0){
+                          $set=null;
+                      
+                          $error="error";
+                      
+                          $this->reg($error);
+                          }
+
+                    }else{
+                      $data=array('upload_data' =>$this->upload->data());
+                      
+                      $picnameold=$data['upload_data']['file_name']; 
+                      $width=$data['upload_data']['image_width'];
+                      $height=$data['upload_data']['image_height'];
+                      $temp = explode(".",$data['upload_data']['file_name']);
+                      $picname = "mem_profile" . '.' .end($temp);
+                      $this->session->set_userdata('picture_name',"$picname");
+                      rename ("./asset/temp/".$picnameold, "./asset/temp/".$picname);
+                      if($width>=180&&$height>=180){
+                      $set=1;
+                      }
+                      else{
+                      $error="min";
+                      $this->reg($error);
+                      }
+                    }
+
+                    $do=0;
+                  }else{
+                    echo "error";
+                  }
 
                       if($set==1){
                       $fname=$this->input->post('firstname');
@@ -182,7 +267,7 @@
                   
                   $expected = md5($this->input->get('memberid').private_key);
                   if ($expected != $this->input->get('token')) {
-                     $lang=$this->session->userdata('lang')==null?"english":$this->session->userdata('lang');
+                     $lang=$this->load_language->lang();
                      $this->lang->load($lang,$lang);
                     
                     
@@ -193,8 +278,17 @@
                    
                    $datapic=$this->session->userdata('datapic');
                    $numsave=$idmem%1000;
-                   $flgCreate = mkdir("./uploads/profiles/".$numsave);
-                    if($flgCreate)
+                   $filename = "./uploads/profiles/".$numsave;
+
+                   if (file_exists($filename)) {
+                      $s=1;
+                   }else {
+                      mkdir("./uploads/profiles/".$numsave);
+                      $s=1;
+                   }
+
+                  
+                    if($s==1)
                      {
                        $config['image_library']='gd2';
                        if($datapic=="defaulfuse.png"){
@@ -219,8 +313,9 @@
                           
                          //$this->session->unset_userdata('picname');
                        }
+                       $s=0;
                      }else{
-
+                          $this->load->view('activateFail');
                      }
                 }
               }    
@@ -247,9 +342,31 @@
 
 
                 }
+                public function test(){
+                  $filename = "./asset/temp";
+
+                  if (file_exists($filename)) {
+                           echo "have";           
+                  }else {
+                    mkdir("./asset/temp");
+                          echo "create na";               
+                  } 
+
+                }
+                
 
                 public function submit_shop(){
                   //profile shop
+                  $filename = "./asset/temp";
+                    
+                  if (file_exists($filename)) {
+                    $do=1;                 
+                  }else {
+                    mkdir("./asset/temp");
+                    $do=1;                  
+                  }
+
+                  if($do==1){
                   $config['upload_path'] ='./asset/temp/';
                   $config['allowed_types'] = 'gif|jpg|png';
                   $config['max_size'] = '0';
@@ -278,9 +395,20 @@
                     }else{
                       $data=array('upload_data' =>$this->upload->data());
                       
-                      $picname=$data['upload_data']['file_name']; 
+                      $picnameold=$data['upload_data']['file_name']; 
+                      $width=$data['upload_data']['image_width'];
+                      $height=$data['upload_data']['image_height'];
+                      $temp = explode(".",$data['upload_data']['file_name']);
+                      $picname = "profile" . '.' .end($temp);
                       $this->session->set_userdata('picturesp_name',"$picname");
+                      rename ("./asset/temp/".$picnameold, "./asset/temp/".$picname);
+                      if($width>=180&&$height>=180){
                       $set1=1;
+                      }
+                      else{
+                      $error1="min";
+                      $this->regshop($error1);
+                      }
                     
                     }
 
@@ -307,9 +435,20 @@
                     }else{
                       $data=array('upload_data' =>$this->upload->data());
                       
-                      $picname=$data['upload_data']['file_name']; 
+                      $picnameold=$data['upload_data']['file_name']; 
+                      $width=$data['upload_data']['image_width'];
+                      $height=$data['upload_data']['image_height'];
+                      $temp = explode(".",$data['upload_data']['file_name']);
+                      $picname = "bg" . '.' .end($temp);
                       $this->session->set_userdata('picturesbg_name',"$picname");
+                      rename ("./asset/temp/".$picnameold, "./asset/temp/".$picname);
+                      if($width>=1366&&$height>=768){
                       $set2=1;
+                      }
+                      else{
+                      $error2="min";
+                      $this->regshop($error2);
+                      }
                     
                     }
 
@@ -338,11 +477,30 @@
                     }else{
                       $data=array('upload_data' =>$this->upload->data());
                       
-                      $picname=$data['upload_data']['file_name']; 
+                      $picnameold=$data['upload_data']['file_name'];
+                      $width=$data['upload_data']['image_width'];
+                      $height=$data['upload_data']['image_height']; 
+                      $temp = explode(".",$data['upload_data']['file_name']);
+                      $picname = "cover" . '.' .end($temp);
                       $this->session->set_userdata('picturesc_name',"$picname");
+                      rename ("./asset/temp/".$picnameold, "./asset/temp/".$picname);
+                      if($width>=600&&$height>=240){
                       $set3=1;
+                      }
+                      else{
+                      $error3="min";
+                      $this->regshop($error3);
+                      }
                     
                     }
+                    $do=0;
+
+                  }else{
+                    echo "error";
+                  }
+                 
+
+                  
 
 
 
@@ -395,6 +553,12 @@
 
                       $result=$this->shop->inputshop($inputshop);
                       $s_id=$result['sid'];
+                      $profile=$result['spro'];
+                      $bg=$result['sbg'];
+                      $cover=$result['scover'];
+                       $this->session->unset_userdata('picturesp_name');
+                       $this->session->unset_userdata('picturesc_name');
+                       $this->session->unset_userdata('picturesbg_name');
                       //echo $s_id;
                       $input_shop_cate=array(
                         's_ID' => "$s_id",
@@ -427,81 +591,87 @@
                     if($r1=="success"&&$r2=="success"&&$r2=="success"){
                                       //echo "$r1<br>$r2<br>$r3";
                                       $numsave=$s_id%1000;
-                                      $flgCreate = mkdir("./uploads/shops/".$numsave);
+                                      $filename = "./uploads/shops/".$numsave;
+
+                                      if (file_exists($filename)) {
+                                      $s=1;
+                                      }else {
+                                      mkdir("./uploads/shops/".$numsave);
+                                      $s=1;
+                                      }
+
+
+                                      
                     }else{
                                   echo "have problem";
                     }
-                      if($flgCreate){
-                       $config['image_library']='gd2';
-                       if($profile=="Avatar.png"){
-                       $config['source_image']='./asset/img/'.$profile;
-                       }else{
-                       $config['source_image']='./asset/temp/'.$profile;
-                       }
-                       $config['width']=180;
-                       $config['height']=180;
-                       $config['new_image']='./uploads/shops/'.$numsave.'/'.$profile;
-                       $this->image_lib->clear();
-                       $this->image_lib->initialize($config);
-                       $this->image_lib->resize();
-                       if(!$this->image_lib->resize()){
-                        echo $this->image_lib->display_errors();
-                       }else{
-                          if($profile!="Avatar.png"){
-                          $hit='./asset/temp/'.$profile;
-                          unlink($hit);}
-                          
-                          
-                         $this->session->unset_userdata('picturesp_name');
-                       }
 
-                       $config['image_library']='gd2';
-                       if($cover=="pic_cover.jpg"){
-                       $config['source_image']='./asset/img/'.$cover;
-                       }else{
-                       $config['source_image']='./asset/temp/'.$cover;
-                       }
-                       $config['width']=600;
-                       $config['height']=240;
-                       $config['new_image']='./uploads/shops/'.$numsave.'/'.$cover;
-                       $this->image_lib->clear();
-                       $this->image_lib->initialize($config);
-                       $this->image_lib->resize();
-                       if(!$this->image_lib->resize()){
-                        echo $this->image_lib->display_errors();
-                       }else{
-                          if($cover!="pic_cover.jpg"){
-                          $hit='./asset/temp/'.$bg;
-                          unlink($hit);
-                          }
-                          
-                         $this->session->unset_userdata('picturesc_name');
-                       }
+                      if($s==1){
+                                $config['image_library']='gd2';
+                                if($profile=="Avatar.png"){
+                                    $config['source_image']='./asset/img/'.$profile;
+                                }else{
+                                    $config['source_image']='./asset/temp/'.$profile;
+                                }
+                                $config['width']=180;
+                                $config['height']=180;
+                                $config['new_image']='./uploads/shops/'.$numsave.'/'.$profile;
+                                $this->image_lib->clear();
+                                $this->image_lib->initialize($config);
+                                $this->image_lib->resize();
+                                    if(!$this->image_lib->resize()){
+                                        echo $this->image_lib->display_errors();
+                                    }else{
+                                        if($profile!="Avatar.png"){
+                                          $hit='./asset/temp/'.$profile;
+                                          unlink($hit);}
+                                    }
 
-                      $config['image_library']='gd2';
-                       if($bg=="bg_shop.jpg"){
-                       $config['source_image']='./asset/img/'.$bg;
-                       }else{
-                       $config['source_image']='./asset/temp/'.$bg;
-                       }
-                       $config['width']=1366;
-                       $config['height']=768;
-                       $config['new_image']='./uploads/shops/'.$numsave.'/'.$bg;
-                       $this->image_lib->clear();
-                       $this->image_lib->initialize($config);
-                       $this->image_lib->resize();
-                       if(!$this->image_lib->resize()){
-                        echo $this->image_lib->display_errors();
-                       }else{
-                          if($bg!="bg_shop.jpg"){
-                          $hit='./asset/temp/'.$bg;
-                          unlink($hit);
-                          }
-                          
-                         $this->session->unset_userdata('picturesbg_name');
-                       }
+                                 $config['image_library']='gd2';
+                                  if($bg=="bg_shop.jpg"){
+                                    $config['source_image']='./asset/img/'.$bg;
+                                  }else{
+                                    $config['source_image']='./asset/temp/'.$bg;
+                                  }
+                                $config['width']=1366;
+                                $config['height']=768;
+                                $config['new_image']='./uploads/shops/'.$numsave.'/'.$bg;
+                                $this->image_lib->clear();
+                                $this->image_lib->initialize($config);
+                                  $this->image_lib->resize();
+                                  if(!$this->image_lib->resize()){
+                                    echo $this->image_lib->display_errors();
+                                  }else{
+                                    if($bg!="bg_shop.jpg"){
+                                    $hit='./asset/temp/'.$bg;
+                                    unlink($hit);
+                                    }
+                                  }   
 
-                      
+                                $config['image_library']='gd2';
+                                if($cover=="pic_cover.jpg"){
+                                    $config['source_image']='./asset/img/'.$cover;
+                                }else{
+                                    $config['source_image']='./asset/temp/'.$cover;
+                                }
+                               $config['width']=600;
+                               $config['height']=240;
+                               $config['new_image']='./uploads/shops/'.$numsave.'/'.$cover;
+                               $this->image_lib->clear();
+                               $this->image_lib->initialize($config);
+                               $this->image_lib->resize();
+                                if(!$this->image_lib->resize()){
+                                    echo $this->image_lib->display_errors();
+                                }else{
+                                    if($cover!="pic_cover.jpg"){
+                                        $hit='./asset/temp/'.$cover;
+                                        unlink($hit);
+                                    }
+                                }
+
+                               
+
+                      $s=0;
                       redirect('member_tb/loading');
 
                       }else{
@@ -511,14 +681,7 @@
                       }else{
                         echo "have problem!!!";
                       }
-
-
-                  
-                
-
-
-
-              }
+                }
 
                 
 
@@ -546,7 +709,7 @@
                        $data['namepicture']=$picname;
 
                       if($rs->num_rows()==0){
-                        redirect('member_tb/test');
+                        //redirect('member_tb/test');
                       }
                       else{
                         $data['rs']=$rs->row_array();
@@ -588,7 +751,13 @@
 
                  public function changeprofile(){
                   $np=$this->session->userdata('namepic');
-                  
+                  if (file_exists($filename)) {
+                    $do=1;                 
+                  }else {
+                    mkdir("./asset/temp");
+                    $do=1;                  
+                  }
+                  if($do==1){
                   $config['upload_path'] ='./asset/temp/';
                   $config['allowed_types'] = 'gif|jpg|png';
                   $config['max_size'] = '0';
@@ -615,10 +784,24 @@
                       $data=array('upload_data' =>$this->upload->data());
                       
                       $picname=$data['upload_data']['file_name']; 
+                      $width=$data['upload_data']['image_width'];
+                      $height=$data['upload_data']['image_height'];
                       //$this->session->set_userdata('picture_name',"$picname");
                       $memID=$this->session->userdata('memberid');
                       $numsave=$memID%1000;
                       $pic=$this->session->userdata('namepic');
+                      if($width>=180&&$height>=180){
+                      $set=1;
+                      }
+                      else{
+                      $error="min";
+                      $this->profile($error);
+                      }
+                      
+
+
+
+                      if($set==1){
                       $config['image_library']='gd2';
                        
                       
@@ -650,11 +833,14 @@
                       //$set=1;
                     //echo "$picname";
                     }
+                  }
+                    $do=0;
+                  }
                  }
 
-                 public function test(){
-                  echo "fail";
-                 }
+                 
+
+
 
                          
 
