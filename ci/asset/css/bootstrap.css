@@ -1239,6 +1239,12 @@ a.bg-danger:hover {
   margin: 45px 0 10px;
   border-bottom: 0px solid #eee;
 }
+.page-header-f {
+  padding-bottom: 5px;
+  margin: 15px 0 10px;
+  border-bottom: 0px solid #eee;
+}
+
 .page-header-bp {
   padding-bottom: 5px;
   margin: 5px 0 10px;
@@ -9684,3 +9690,6 @@ Licensed under the MIT license
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
 }
+
+/***************Photo Gallery***************************/
+
