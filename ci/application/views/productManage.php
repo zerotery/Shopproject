@@ -107,7 +107,26 @@ body {
                       <!-- On cells (`td` or `th`) -->
                       <tr style="color:black">
                         <td class="warning"><label ><input class="checkbox" type="checkbox" name="check1" ></label></td>
-                        <td class="warning" style="font-size:11pt" >เสื้อผ้าผู้ชาย</td>
+                        <td class="warning" style="font-size:11pt" >
+                            <div class="row">
+                              <div class="col-lg-1"></div>
+                                <div class="col-sm-6 col-md-4 col-lg-8" align="center">
+                                   <div class="form-group animated fadeInUp">
+                                     <div class="col-lg-12 thumbnail">
+                                        
+                                             <img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:160px;width:200px;" >
+                                          
+                                      </div>
+                                    </div>         
+                              </div>
+
+                             
+                            </div>
+
+
+
+
+                        </td>
                         <td class="warning" style="font-size:11pt" >เสื้อผ้าผู้ชาย</td>
                         <td class="warning" style="font-size:11pt" >250</td>
                         <td class="warning" style="font-size:11pt" >5</td>
@@ -117,7 +136,24 @@ body {
                       </tr>
                       <tr style="color:black">
                         <td class="warning"><label ><input class="checkbox" type="checkbox" name="check2" ></label></td>
-                        <td class="warning" style="font-size:11pt" >เสื้อผ้าผู้หญิง</td>
+                        <td class="warning" style="font-size:11pt" >
+                          <div class="row">
+                              <div class="col-lg-1"></div>
+                                <div class="col-sm-6 col-md-4 col-lg-8" align="center">
+                                   <div class="form-group animated fadeInUp">
+                                     <div class="col-lg-12 thumbnail">
+                                        
+                                             <img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:160px;width:200px;" >
+                                          
+                                      </div>
+                                    </div>         
+                              </div>
+
+                             
+                            </div>
+
+                          
+                        </td>
                         <td class="warning" style="font-size:11pt" >เสื้อผ้าผู้ชาย</td>
                         <td class="warning" style="font-size:11pt" >200</td>
                         <td class="warning" style="font-size:11pt" >5</td>

@@ -30,8 +30,10 @@ body {
 
 
 <div class="container" style="background-color:#eee">
+
 <br>
-<div class="page-header">
+
+<div class="page-header-s">
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
            <ol class="breadcrumb" style="background-color:#696969;">
@@ -203,6 +205,13 @@ body {
           </div>
         </div>
 </div>
+<div class="row">
+          <div class="col-lg-12  ">
+             <div class="page-header-f">
+                      
+                    </div>
+                    </div>
+                    </div>
 </div>
     <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
