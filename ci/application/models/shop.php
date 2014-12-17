@@ -29,13 +29,16 @@
 		public function inputshop($data){
 			if($this->db->insert('shop',$data)){
 				$memid=$data['memberID'];
-    			$sql="SELECT s_ID FROM shop WHERE memberID='$memid';";
+    			$sql="SELECT * FROM shop WHERE memberID='$memid';";
    				$query=$this->db->query($sql)->result();
    				foreach($query as $row){
 					$shopid=$row->s_ID;
+					$shoppro=$row->shop_pic;
+					$shopbg=$row->shop_pic_bg;
+					$shopcover=$row->shop_pic_header;
 					
 				}
-			$data=array('sid' => $shopid);
+			$data=array('sid' => $shopid,'spro'=>$shoppro,'sbg'=>$shopbg,'scover'=>$shopcover);
 			return $data;
 
 
