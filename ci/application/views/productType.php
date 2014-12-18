@@ -73,7 +73,7 @@ body {
 
                                               <div class="col-md-2">
 
-                                                 <h2><a href="<?php echo site_url('backshop/addproductType');?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a><div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick=""></div></h2>
+                                                 <h2><a href="<?php echo site_url('backshop/addproductType');?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a><div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick="document.forms[0].submit();"></div></h2>
                                                  
                                               </div>
                                               <div>
@@ -84,7 +84,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="ckb">
+          <form id="ckb" action="<?php echo site_url('backshop/remove_productType');?>" method="post" >
             
 
              <div class="table-responsive">
@@ -93,27 +93,46 @@ body {
                       <tr class="active">
                          <th class="info">
                             
-                                <label ><input class="checkbox" type="checkbox" name="checkall" onclick="checkedAll();" ></label>
+                                <label ><input class="checkbox" type="checkbox" name="checkall" onclick="checkedAll();" value="deleteall"></label>
                             
                          </th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("product_name_type");?></font></th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("action");?></font></th>
                          </tr>
+
+                         <?php
+      
+        
+                            $j=1; 
+                            for($i=0; $i<count($ptype); $i++){
+                                  echo '<tr style="color:black">';
+                                  echo '<td class="warning"><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$ptype[$i]['grouplang'].'"></label></td>';
+                                  echo '<td class="warning" style="font-size:11pt;" >';
+                                  echo $ptype[$i]['product_category_name'];
+                                  echo '</td>';
+            
+                                  $num=$ptype[$i]['grouplang'];
+                                  echo '<td class="warning" style="font-size:15pt" >'.anchor(site_url('backshop/modifyproductType/').'/?grouplang='.$num.'',$this->lang->line("modify")).'</td>';
+                                  
+                                  $j++;
+                                  echo "</tr>";
+                            }
+                          ?>
                      
 
                       <!-- On cells (`td` or `th`) -->
-                      <tr style="color:black">
+                      <!--<tr style="color:black">
                         <td class="warning"><label ><input class="checkbox" type="checkbox" name="check1" ></label></td>
                         <td class="warning" style="font-size:11pt;" >เสื้อผ้าผู้ชาย</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyproductType'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
+                        <td class="warning" style="font-size:15pt" >[ <a href="<?php// echo site_url('backshop/modifyproductType'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
                         
                       </tr>
                       <tr  style="color:black">
                         <td class="warning"><label ><input class="checkbox" type="checkbox" name="check2" ></label></td>
                         <td class="warning" style="font-size:11pt" >เสื้อผ้าผู้หญิง</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyproductType'); ?>" style="color:black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
+                        <td class="warning" style="font-size:15pt" >[ <a href="<?php //echo site_url('backshop/modifyproductType'); ?>" style="color:black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
                         
-                      </tr>
+                      </tr>-->
                   </table>
                 </div>
                 </form>
