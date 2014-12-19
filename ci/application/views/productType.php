@@ -77,8 +77,7 @@ body {
                                                  <h2><a href="<?php echo site_url('backshop/addproductType');?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a>
                                                  <div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick=""></div></h2>
 
-                                                 <h2><a href="<?php echo site_url('backshop/addproductType');?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a><div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick="document.forms[0].submit();"></div></h2>
-
+                                                
                                                  
                                               </div>
                                               <div>
