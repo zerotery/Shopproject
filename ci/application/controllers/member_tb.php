@@ -701,6 +701,10 @@
                   $lang=$this->load_language->lang();
                   $this->lang->load($lang,$lang);
                   $this->login_system->checklogin();
+                  if($this->session->userdata('rf')==1){
+                    redirect('member_tb/profile','refresh');
+                    $this->session->unset_userdata('rf');
+                  }
 
                   
                       $data['user']=$this->session->userdata('loginname');
@@ -835,6 +839,7 @@
                           }
                           
                            redirect('member_tb/profile','refresh');
+                           $this->session->set_userdata('rf',1);
                           
                          //$this->session->unset_userdata('picturesp_name');
                        }
