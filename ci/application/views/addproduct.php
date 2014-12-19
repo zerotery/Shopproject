@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
+
 <style>
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -78,10 +79,10 @@ body {
                                <div class="form-group col-lg-12">
                                      
                                          <ul class="nav nav-tabs nav-justified" id="myTab1">
-                                            <li class="active"><a href="#home">Home</a></li>
+                                            <li class="active"><a href="#home"><?=$this->lang->line("product_information1");?></a></li>
                                             
-                                            <li><a href="#messages" data-easein="fadeInDown">Messages</a></li>
-                                            <li><a href="#settings" data-easein="fadeInUp">Settings</a></li>
+                                            <li><a href="#messages" data-easein="fadeInDown"><?=$this->lang->line("product_information2");?></a></li>
+                                            <li><a href="#settings" data-easein="fadeInUp"><?=$this->lang->line("product_gallery");?></a></li>
                                           
                                         </ul>
 
@@ -163,8 +164,8 @@ body {
                                                   <div class="form-group"></div>
 
                                                       <div class="form-group">
-                                                            <label  class="col-lg-2 control-label animated fadeInLeft"><?=$this->lang->line("p_price");?></label>
-                                                            <div class="col-lg-2">
+                                                            <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("p_price");?></label>
+                                                            <div class="col-lg-2 col-sm-5">
                                                               <input type="text" id="p_price" class="form-control animated fadeInDown" name="product_price"  value="">
                                                             </div>
                                                             <div class="col-lg-2" ><label style="font-size:15pt;"><?=$this->lang->line("monetary");?></label></div>
@@ -172,15 +173,15 @@ body {
                                                       </div>
                                                             
                                                           <div class="form-group">
-                                                            <label  class="col-lg-2 control-label animated fadeInLeft"><?=$this->lang->line("p_quantity");?></label>
-                                                            <div class="col-lg-2">
+                                                            <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("p_quantity");?></label>
+                                                            <div class="col-lg-2 col-sm-5">
                                                               <input type="text" class="form-control animated fadeInDown" name="product_quantity" value="">
                                                             </div>
                                                             </div>
 
                                                           <div class="form-group ">
-                                                          <label  class="col-lg-2 control-label animated fadeInLeft"><?=$this->lang->line("p_status");?></label>
-                                                          <div class="col-lg-3">
+                                                          <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("p_status");?></label>
+                                                          <div class="col-lg-3 col-sm-5">
                                                             
                                                              <select class="form-control animated fadeInDown">
                                                                   <option value="one">One</option>
@@ -192,8 +193,8 @@ body {
                                                         </div>
                                                         </div>
                                                           <div class="form-group ">
-                                                          <label  class="col-lg-2 control-label animated fadeInLeft"><?=$this->lang->line("pro_type");?></label>
-                                                          <div class="col-lg-4">
+                                                          <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("pro_type");?></label>
+                                                          <div class="col-lg-4 col-sm-5">
                                                             
                                                              <select class="form-control animated fadeInDown">
                                                                   <option value="one">One</option>
@@ -210,16 +211,85 @@ body {
 
                                             </div>
 
+
+
+
+
                                             <div class="tab-pane" id="settings">
 
+                                                   <hr width="100%">
+                                                        <div class="bs-docs-section clearfix">
+
+                                                          
+                                                                <div class="row">
+                                                                <div class="col-lg-1"></div>
+                                                                  <div class="col-lg-10" style="border-style:solid;border-width:0px;">
+                                                                
+
+                                                                     <div class="table-responsive">
+
+                                                                                 
+                                                                          <table class="table" id="table_gallery">
+                                                                            <!-- On rows -->
+                                                                              <tr class="active">
+                                                                                 <th class="info">
+                                                                                    
+                                                                                        
+                                                                                 <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("gallery_pic");?></font></center> 
+                                                                                    
+                                                                                 </th>
+
+                                                                                  <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("gallery_name");?></font></th>
+                                                                                  
+                                                                                  <th class="info" style="color:darkgreen"><div id="add_row" class=" btn glyphicon glyphicon-plus animated right in rotateIn"  ></div></th>
+                                                                                 </tr>
 
 
-                                            </div>
+                                                                              <!-- On cells (`td` or `th`) -->
+                                                                              
+                                                                           <!--   <tr  style="color:black">
+                                                                                <td class="warning">   </td>
+                                                                                <td class="warning" style="font-size:11pt" >pic2.png</td>
+                                                                                <td class="warning" style="font-size:11pt;" >19/12/2014</td>
+                                                                                <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyproductType'); ?>" style="color:black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
+                                                                                
+                                                                              </tr> -->
+
+
+                                                                          </table>
+
+                                                                        </div>
+
+                                                                
+                                                                        
+
+                                                                  </div>
+                                                                  
+                                                                </div>
+                                                            </div>
+
+
+                                            
+                                          </div>
+
+
+
+
+
+
+
                                         </div>
                                       
 
                                       
                                 </div>
+                           </fieldset>
+                </form>
+
+
+
+                                                          </div>
+                                            
 
                                
 
@@ -237,6 +307,7 @@ body {
                                   <div class="col-md-1 ">
 
                                           <h4><input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"  value="<?=$this->lang->line("addtype");?>" /></h4>
+
                                            
                                    </div >
                                      <div class="col-md-1 "  >
@@ -249,21 +320,8 @@ body {
 
                                  
 
-                    </fieldset>
-                </form>
-
-       <script type="text/javascript">
-                checked=false;
-                  function checkedAll (ckb) {var aa= document.getElementById('ckb'); if (checked == false)
-                    {
-                    checked = true
-                    }
-                    else {
-                    checked = false
-                    }
-                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
-                    }
-        </script>
+                 
+    
        
          
           </div>
@@ -272,10 +330,36 @@ body {
 </div>
 </div>
 </div>
+
+<div class="row">
+          <div class="col-lg-12  ">
+             <div class="page-header-ff">
+                      
+                    </div>
+                    </div>
+                    </div>
+
+
    <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+    <script type="text/javascript">
 
+            $(document).ready(function(){
+ 
+               $('#add_row').click(function(){
+                                                                                         
+                  var tr = $('<tr style="color:black" id="firstTr" class="animated fadeInDown"><td class="warning"><div class="row"><div class="col-lg-1"></div> <div class="col-sm-6 col-md-4 col-lg-8" align="center"><div class="form-group animated fadeInDown"><div class="col-lg-12"><div class="fileinput fileinput-new" data-provides="fileinput"><div class="fileinput-new " ><img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:180px;width:180px;" ></div><div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div><div><span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="update_profile"></span><div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div></div></div></div></div></div></div></td><td class="warning" style="font-size:11pt;" >pic1.jpg</td><td class="warning" style="font-size:15pt;color:red" ><h1><div id="remove_row" class=" btn glyphicon glyphicon-minus animated rubberBand" ></div></h1></td></tr>');
+                                                                                         
+                      $('#table_gallery').append(tr);
+                             });
+                              }) 
+        </script>
+ 
+    
+
+  
+    
     
     </body>
     

@@ -105,49 +105,49 @@
                   <div class="page-header">
                   <h3 id="formpersonal"><?=$this->lang->line("personal");?></h3>
                   </div>
-                  <div class="form-group">
-                    <label for="inputfname" class="col-lg-2 control-label"><?=$this->lang->line("f_name");?></label>
-                    <div class="col-lg-6">
+                  <div class="form-group" align="center">
+                    <label for="inputfname" class="col-lg-2  col-sm-2 control-label"><?=$this->lang->line("f_name");?></label>
+                    <div class="col-lg-6 col-xs-6 col-sm-5">
                       <input type="text" id="fname" class="form-control" name="firstname"  value="">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("l_name");?></label>
-                    <div class="col-lg-6">
+                  <div class="form-group" align="center">
+                    <label for="inputlname" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("l_name");?></label>
+                    <div class="col-lg-6 col-sm-5">
                       <input type="text" class="form-control" name="lastname" value="">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputemail" class="col-lg-2 control-label"><?=$this->lang->line("email");?></label>
-                    <div class="col-lg-6">
+                  <div class="form-group" align="center">
+                    <label for="inputemail" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("email");?></label>
+                    <div class="col-lg-6 col-sm-5">
                       <input type="email" id="email" class="form-control" name="email" value="">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputlicense" class="col-lg-2 control-label"><?=$this->lang->line("license");?></label>
-                    <div class="col-lg-5">
+                  <div class="form-group" align="center">
+                    <label for="inputlicense" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("license");?></label>
+                    <div class="col-lg-5 col-sm-5">
                       <input type="text" class="form-control" name="license" value="">
                     </div>
                   </div>
                   <div class="page-header">
                   <h3 id="formaddress"><?=$this->lang->line("address");?></h3>
                   </div>
-                  <div class="form-group">
-                    <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("address_d");?></label>
-                    <div class="col-lg-5">
+                  <div class="form-group" align="center">
+                    <label for="inputadress" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("address_d");?></label>
+                    <div class="col-lg-5 col-sm-5">
                       <textarea name="address" rows="5" cols="60" class="form-control"></textarea>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("province");?></label>
-                    <div class="col-lg-4">
+                  <div class="form-group" align="center">
+                    <label for="inputadress" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("province");?></label>
+                    <div class="col-lg-4 col-sm-5">
                       <input type="text" class="form-control" name="province" value="">
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <label for="inputlname" class="col-lg-2 control-label"><?=$this->lang->line("postcode");?></label>
-                    <div class="col-lg-4">
+                  <div class="form-group" align="center">
+                    <label for="inputlname" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("postcode");?></label>
+                    <div class="col-lg-4 col-sm-5">
                       <input type="text" class="form-control" name="postcode" value="">
                     </div>
                   </div>
@@ -155,9 +155,9 @@
                   <div class="page-header">
                   <h3 id="formusername"><?=$this->lang->line("user_pass");?></h3>
                   </div>
-                  <div class="form-group">
-                    <label for="inputusername" class="col-lg-2 control-label"><?=$this->lang->line("username");?></label>
-                    <div class="col-lg-4">
+                  <div class="form-group" align="center">
+                    <label for="inputusername" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("username");?></label>
+                    <div class="col-lg-4 col-sm-5">
                       <input type="text" class="form-control" name="username" value="" id="username">
                       
                     </div>
@@ -168,22 +168,24 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <label for="inputpassword" class="col-lg-2 control-label"><?=$this->lang->line("password");?></label>
-                    <div class="col-lg-4">
+                  <div class="form-group" align="center">
+                    <label for="inputpassword" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("password");?></label>
+                    <div class="col-lg-4 col-sm-5">
                       <input type="password" id="password" name="password" value="" class="form-control">
                     </div>
                   </div>
 
-                   <div class="form-group">
-                    <label for="inputpasswordre" class="col-lg-2 control-label"><?=$this->lang->line("password_c");?></label>
-                    <div class="col-lg-4">
+                   <div class="form-group" align="center">
+                    <label for="inputpasswordre" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("password_c");?></label>
+                    <div class="col-lg-4 col-sm-5">
                       <input type="password" name="passwordre" value="" class="form-control">
                     </div>
                   </div>
-                  <div class="col-lg-2"></div>
-                  <div class="form-group">
-                  <div class="col-lg-4">
+                  <div class="col-sm-2"></div>
+
+                  <div class="form-group" >
+
+                  <div class="col-lg-4 col-sm-5">
                       <button type="submit" class="btn btn-primary" id="btu_submit"><?=$this->lang->line("submit");?></button>
                       <button class="btn btn-default" type="reset" id="btu_reset" ><?=$this->lang->line("cancel");?></button>
                       
