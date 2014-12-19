@@ -84,7 +84,7 @@
 
                      
                     </div>
-                     <div class="col-lg-2"><?php if($error=="error"){ echo $this->lang->line("error_picshop");}else{echo $this->lang->line("error_picmin");}  ?></div>
+                     <div class="col-lg-2"><?php if($error=="error"){ echo $this->lang->line("error_picshop");}else  if($error=="min"){echo $this->lang->line("error_picmin");}  ?></div>
                     <!-- update profile picture -->    
                        <input type="submit" id="change_pro"  name="changeprofile" class="btn btn-primary  animated bounce" value="<?=$this->lang->line("changepic");?>"> 
                           <!-- end update profile picture -->            
