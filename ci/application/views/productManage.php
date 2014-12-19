@@ -95,7 +95,7 @@ body {
                                 <label ><input class="checkbox" type="checkbox" name="checkall" onclick="checkedAll();" ></label>
                             
                          </th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("product_pic");?></font></th>
+                         <th class="info"> <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("product_pic");?></font> </center></th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("product_name_type");?></font></th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("p_price");?></font></th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("p_quantity");?></font></th>
@@ -184,6 +184,13 @@ body {
 </div>
 </div>
 </div>
+<div class="row">
+          <div class="col-lg-12  ">
+             <div class="page-header-ff">
+                      
+                    </div>
+                    </div>
+                    </div>
     <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>

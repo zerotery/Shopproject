@@ -2435,5 +2435,13 @@ $(function() {
      });
 
  });
+//////////////////////////////add gallery///////////////////////
 
 
+
+/*$(function(){
+  $("#add_row").click(function(){
+    $("#table_gallery").append($("#firstTr").clone());
+  });
+      
+});*/

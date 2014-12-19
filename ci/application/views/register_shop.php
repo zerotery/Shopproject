@@ -53,45 +53,51 @@
                   <h3 id="formpersonal"><?=$this->lang->line("spersonal");?></h3>
                   </div>
                  
-                  <div class="form-group">
-                    <label for="inputsname" class="col-lg-2 control-label"><?=$this->lang->line("s_name");?></label>
+                  <div class="form-group" align="center">
+                    <label for="inputsname" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("s_name");?></label>
                     
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 col-sm-5">
                       <input type="text" id="shopname_en" class="form-control " name="shopname_en"  data-toggle="popover" data-trigger="hover " data-placement="bottom" data-content="<?=$this->lang->line("note");?>">
 
                     </div>
+                    <div class="col-lg-1 col-sm-1 ">
                     <label for="inputslang"  class="col-lg-0.7 control-label" ><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
-                   
+                   </div>
 
                   </div>
                  
-                  <div class="form-group">
-                    <label for="inputsname" class="col-lg-2 control-label"></label>
+                  <div class="form-group" align="center">
+                    <label for="inputsname" class="col-lg-2 col-sm-2 control-label"></label>
                     
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 col-sm-5">
                       <input type="text" id="shopname_th" class="form-control" name="shopname_th" value="">
                     </div>
+                    <div class="col-lg-1 col-sm-1 ">
                     <label for="inputlang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
-
+                   </div>
                   </div>
 
 
-                  <div class="form-group">
-                    <label for="inputurl" class="col-lg-2 control-label"><?=$this->lang->line("url_name");?></label>
-                    <div class="col-lg-2.5">
-                      <label for="inputurl" class="col-lg-2 control-label">www.myaday.net/Project/TBShop/</label>
+                  <div class="form-group" align="center">
+                    <label for="inputurl" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("url_name");?></label>
+                    <div class="row col-md-9 col-sm-9">
+                    <div class="col-md-1 col-sm-4">
+
+                      <label for="inputurl" class="col-lg-3 control-label">www.myaday.net/Project/TBShop/</label>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-md-2"></div>
+                    <div class="col-lg-3 col-sm-3">
                       <input type="text" class="form-control" name="urlname" value="">
                     </div>
-                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-1 col-sm-5">
                       <label for="inputcom" class="col-lg-0.6 control-label"></label>
                     </div>
                   </div>
                   
-                  <div class="form-group">
-                    <label  class="col-lg-2 control-label"><?=$this->lang->line("s_type");?></label>
-                    <div class="col-lg-3">
+                  <div class="form-group" align="center">
+                    <label  class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("s_type");?></label>
+                    <div class="col-lg-3 col-sm-5">
                     <select name="category" class="form-control">
                     <?php 
 
@@ -104,25 +110,28 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <label for="inputadress" class="col-lg-2 control-label"><?=$this->lang->line("shop_detail");?></label>
-                    <div class="col-lg-5">
+                  <div class="form-group" align="center">
+                    <label class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("shop_detail");?></label>
+                    <div class="col-lg-5 col-sm-5">
                       <textarea rows="3" cols="60" class="form-control" id="sde" name="shopdetail_en" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("dnote");?>"></textarea>
                     </div>
+                    <div class="col-lg-1 col-sm-1 ">
                     <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
+                    </div>
                   </div>
 
-                  <div class="form-group">
-                    <label for="inputadress" class="col-lg-2 control-label"></label>
-                    <div class="col-lg-5">
+                  <div class="form-group" align="center">
+                    <label  class="col-lg-2 col-sm-2 control-label"></label>
+                    <div class="col-lg-5 col-sm-5">
                       <textarea rows="3" cols="60" class="form-control" name="shopdetail_th"></textarea>
                     </div>
+                    <div class="col-lg-1 col-sm-1 ">
                     <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
-
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputusername" class="col-lg-2 control-label"><?=$this->lang->line("s_fanpage");?></label>
-                    <div class="col-lg-4">
+                  <div class="form-group" align="center">
+                    <label  class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("s_fanpage");?></label>
+                    <div class="col-lg-4 col-sm-5">
                       <input type="text" class="form-control" name="fanpageshop" id="fp" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("fnote");?>" >
                     </div>
                   </div>
@@ -130,7 +139,7 @@
 
                   <div class="page-header  ">
 
-                  <h3 id="formusername" ><?=$this->lang->line("decorate");?>
+                  <h3  ><?=$this->lang->line("decorate");?>
                    <div id="ck" class=" btn glyphicon glyphicon-chevron-down" data-toggle="popover" data-trigger="hover " data-placement="right" data-content="<?=$this->lang->line("decnote");?>" >
                   </h3>
                   </div>
@@ -139,7 +148,7 @@
 
                   
                   <div class="form-group animated fadeInDown">
-                    <label for="inputlname" class="col-lg-2 control-label" name="theme"><?=$this->lang->line("theme");?></label>
+                    <label class="col-lg-2 control-label" name="theme"><?=$this->lang->line("theme");?></label>
                     <!-- Choose theme -->
                    
                     <div class="col-lg-6">

@@ -158,6 +158,14 @@
  	$lang['monetary']="บาท";
 
 
+ 	$lang['gallery_pic']="รูปแกลลอรี่";
+ 	$lang['gallery_name']="ชื่อไฟล์";
+ 	$lang['gallery_date']="วันที่ัพโหลด";
+ 	$lang['product_information1']="ทั่วไป";
+ 	$lang['product_information2']="ข้อมูล";
+ 	$lang['product_gallery']="แกลลอรี่";
+
+
 
 
 

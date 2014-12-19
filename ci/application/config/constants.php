@@ -46,6 +46,7 @@ define("logo_pic","http://localhost/Shopproject/ci/asset/img/");
 define("upload","http://localhost/Shopproject/ci/uploads/profiles/");
 define("private_key","Tbshop2014");
 
+define("JS_upload","http://localhost/Shopproject/ci/asset/js/uploadGallery/");
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

@@ -73,7 +73,8 @@ body {
 
                                               <div class="col-md-2">
 
-                                                 <h2><a href="<?php echo site_url('backshop/addproductType');?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a><div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick=""></div></h2>
+                                                 <h2><a href="<?php echo site_url('backshop/addproductType');?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a>
+                                                 <div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick=""></div></h2>
                                                  
                                               </div>
                                               <div>
@@ -137,6 +138,13 @@ body {
 </div>
 </div>
 </div>
+<div class="row">
+          <div class="col-lg-12  ">
+             <div class="page-header-ff">
+                      
+                    </div>
+                    </div>
+                    </div>
     <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>

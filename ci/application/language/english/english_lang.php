@@ -150,7 +150,12 @@
  	$lang['pro_type']="Product type ";
  	$lang['monetary']="Bath";
 
-
+ 	$lang['gallery_pic']="Gallery image";
+ 	$lang['gallery_name']="File name";
+ 	$lang['gallery_date']="Upload Date";
+ 	$lang['product_information1']="General";
+ 	$lang['product_information2']="Info";
+ 	$lang['product_gallery']="Gallery";
 
 
 
