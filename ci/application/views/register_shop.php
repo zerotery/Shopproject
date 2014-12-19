@@ -256,7 +256,7 @@
                       </div>
                     </div>
                     <div class="col-lg-4">
-                    <font color="white"><?php if($error=="error1"){echo $this->lang->line("error_picshop");}else{echo $this->lang->line("error_picmin");}?></font>
+                    <font color="white"><?php if($error=="error1"){echo $this->lang->line("error_picshop");}else if($error=="min"){echo $this->lang->line("error_picmin");}?></font>
                     </div>
                   </div> 
                    
@@ -278,7 +278,7 @@
                       </div>
                     </div>
                     <div class="col-lg-4">
-                    <font color="white"><?php if($error=="error2"){echo $this->lang->line("error_picshop");}else{echo $this->lang->line("error_picmin");}?></font>
+                    <font color="white"><?php if($error=="error2"){echo $this->lang->line("error_picshop");}else  if($error=="min"){echo $this->lang->line("error_picmin");}?></font>
                     </div>
                   </div>
 
@@ -297,7 +297,7 @@
                       </div>
                     </div>
                     <div class="col-lg-2">
-                      <font color="white"><?php if($error=="error3"){echo $this->lang->line("error_picshop");}else{echo $this->lang->line("error_picmin");}?></font>
+                      <font color="white"><?php if($error=="error3"){echo $this->lang->line("error_picshop");}else  if($error=="min"){echo $this->lang->line("error_picmin");}?></font>
                     </div>
                   </div>
 

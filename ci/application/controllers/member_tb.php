@@ -144,7 +144,7 @@
                       $set=1;
 
 
-                      echo $width." ".$height;
+                      //echo $width." ".$height;
                     }
 
                     $do=0;
@@ -155,7 +155,7 @@
                 }
 
                 public function submit_data(){
-
+                  $c=0;
                   $filename = "./asset/temp";
                     
                   if (file_exists($filename)) {
@@ -192,6 +192,7 @@
                           }
 
                     }else{
+                      $c=1;
                       $data=array('upload_data' =>$this->upload->data());
                       
                       $picnameold=$data['upload_data']['file_name']; 
@@ -201,6 +202,7 @@
                       $picname = "mem_profile" . '.' .end($temp);
                       $this->session->set_userdata('picture_name',"$picname");
                       rename ("./asset/temp/".$picnameold, "./asset/temp/".$picname);
+                      
                       if($width>=180&&$height>=180){
                       $set=1;
                       }
@@ -208,6 +210,7 @@
                       $error="min";
                       $this->reg($error);
                       }
+
                     }
 
                     $do=0;
@@ -256,7 +259,7 @@
                       $this->session->set_flashdata('username', "$username");
                       redirect('member_tb/autoload');
                       
-
+                      $set=0;
                     }
                   }
 
@@ -587,6 +590,10 @@
                       $r1=$this->shop->inputcate($input_shop_cate);
                       $r2=$this->shop->inputdetailen($inputshop_detailen);
                       $r3=$this->shop->inputdetailth($inputshop_detailth);
+                      $set1=0;
+                      $set2=0;
+                      $set3=0;
+                    
 
                     if($r1=="success"&&$r2=="success"&&$r2=="success"){
                                       //echo "$r1<br>$r2<br>$r3";
@@ -751,6 +758,7 @@
 
                  public function changeprofile(){
                   $np=$this->session->userdata('namepic');
+                  $filename = "./asset/temp";
                   if (file_exists($filename)) {
                     $do=1;                 
                   }else {
@@ -832,6 +840,7 @@
                        }
                       //$set=1;
                     //echo "$picname";
+                       $set=0;
                     }
                     $do=0;
                   }
