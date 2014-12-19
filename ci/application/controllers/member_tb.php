@@ -155,7 +155,7 @@
                 }
 
                 public function submit_data(){
-                  $c=0;
+                  
                   $filename = "./asset/temp";
                     
                   if (file_exists($filename)) {
@@ -192,7 +192,7 @@
                           }
 
                     }else{
-                      $c=1;
+                     
                       $data=array('upload_data' =>$this->upload->data());
                       
                       $picnameold=$data['upload_data']['file_name']; 
