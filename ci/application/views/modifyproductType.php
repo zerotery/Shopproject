@@ -79,19 +79,20 @@ body {
                                              </div>
                                              </div>
 
-                <form class="form-horizontal" name="product_type_select" id="profile" action="<?php echo site_url('backshop/productType'); ?>"  method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" name="product_type_select" id="profile" action="<?php echo site_url('backshop/modify_cate'); ?>"  method="post" enctype="multipart/form-data">
                     <fieldset >
 
                                <div class="form-group ">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("ptype_select");?></label>
                                               <div class="col-lg-6">
                                                 
-                                                 <select class="form-control animated pulse">
-                                                      <option value="one">One</option>
-                                                      <option value="two">Two</option>
-                                                      <option value="three">Three</option>
-                                                      <option value="four">Four</option>
-                                                      <option value="five">Five</option>
+                                                 <select name="mod_cate" class="form-control animated pulse">
+                                                        <?php 
+
+                                                        foreach( $catep as $value){ 
+                                                        echo "<option value=\"$value->shop_group_lang\">".$value->shop_name_type."</option>";}
+                                                        ?>
+
                                                  </select>
                                             </div>
 
