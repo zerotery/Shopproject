@@ -93,6 +93,7 @@
 		}	
 
 		public function add_cate(){
+			
 
 			$cate_p=$this->input->post('parent_category');
 			$idset=$this->session->userdata('id');
@@ -139,12 +140,14 @@
 			$status=$this->shop->insert_pcate($inputcate_en,$inputcate_th);
 			//echo "<br>$cate_p"." ".$s_ID." ".$dateadd;
 			if($status==1){
-				redirect('backshop/productType','refresh');
-			}else{
-				redirect('backshop/addproductType','refresh');
+
+				redirect('backshop/productType');
 			}
+
+		
 		}
 
+		
 
 
 		
@@ -283,16 +286,19 @@
                          //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
                          //in your case, it would echo whatever $row['Report ID'] is equivalent to.
     				}
-    				print_r($data);
+    				//print_r($data);
     				for($j=1; $j<=count($data);$j++){
     					
     					
     					$del=array('grouplang' => $data[$j]);
     					$this->shop->remove_pcate($del);
     				}
+    				
     				redirect('backshop/productType','refresh');
     				//echo "$i"." ".count($data)."<br>";
     		
+			}else{
+				redirect('backshop/productType','refresh');
 			}
 			//echo "hello"." ".$test." ".$test2;
 		}
