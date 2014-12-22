@@ -66,6 +66,7 @@
                       <div class="col-lg-1"></div>
                         <div class="col-sm-6 col-md-4 col-lg-8" align="center">
                            <div class="form-group animated fadeInUp">
+                             <div class="col-lg-12"><span class="fileinput-filename"></span></div>
                              <div class="col-lg-12">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                   <div class="fileinput-new " >

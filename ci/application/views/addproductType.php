@@ -97,27 +97,19 @@ body {
 
                                 <div class="form-group ">
                                    <div class="col-lg-1">
-                                     <input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"  value="<?=$this->lang->line("save");?>" />
+                                   
+                                     <input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"   value="<?=$this->lang->line("save");?>" />
                                    </div>
                                    <div class="col-lg-1">
-                                     <input type="submit" class="btn btn-danger animated swing" id="btn_cancel" name="cancel"  value="<?=$this->lang->line("cancel");?>"/>
+                                     <a class="btn btn-danger animated swing" href="<?php echo site_url('backshop/productType');?>"><?=$this->lang->line("cancel");?></a>
+                                     <!--<input type="reset" class="btn btn-danger animated swing" id="btn_cancel1" name="cancel"  value="<?=$this->lang->line("cancel");?>"/>-->
+                                     
                                 </div>
                                 </div>  
 
                     </fieldset>
                 </form>
-       <script type="text/javascript">
-                checked=false;
-                  function checkedAll (ckb) {var aa= document.getElementById('ckb'); if (checked == false)
-                    {
-                    checked = true
-                    }
-                    else {
-                    checked = false
-                    }
-                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
-                    }
-        </script>
+       
        
          
           </div>
