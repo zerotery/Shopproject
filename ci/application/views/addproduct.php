@@ -311,7 +311,7 @@ body {
                                            
                                    </div >
                                      <div class="col-md-1 "  >
-                                         <h4><input  type="submit" class="btn btn-danger animated swing" id="btn_cancel" name="cancel"  onclick="<?php redirect('backshop/productType','refresh');) ?>" value="<?=$this->lang->line("cancel");?>"/></h4>
+                                         <h4><input  type="submit" class="btn btn-danger animated swing" id="btn_cancel" name="cancel"   value="<?=$this->lang->line("cancel");?>"/></h4>
                                      </div>
                                            
                                 </div>
