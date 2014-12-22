@@ -65,7 +65,7 @@ body {
                  <div class="page-header-bp ">
                                               <div class="row">
                                               <div class="col-md-10 ">
-                                                 <h3><?=$this->lang->line("p_type");?></h3>
+                                                 <h3><?=$this->lang->line("gallery_modify");?></h3>
                                               </div>
 
                                             
@@ -83,33 +83,53 @@ body {
                     <fieldset >
 
                                <div class="form-group ">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("ptype_select");?></label>
-                                              <div class="col-lg-6">
-                                                
-                                                 <select name="parent_category" class="form-control animated pulse" id="spt" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("cproduct-type");?>">
-                                                     <?php 
+                                      <div class="row">
+                                              
+                                                <div class="col-sm-6  col-lg-8" align="center">
+                                                   <div class="form-group animated fadeInUp">
+                                                     <div class="col-lg-4">
+                                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                          <div class="fileinput-new " >
+                                                            <img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:160px;width:180px;" >
+                                                          </div>
+                                                          <div class="fileinput-preview fileinput-exists thumbnail" style="width: 160px; height: 200px;"></div>
+                                                          <div>
+                                                            <span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="update_profile"></span>
+                                                            <div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div>
+                                                            
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>         
+                                                </div>
 
-                                                        foreach( $catep as $value){ 
-                                                        echo "<option value=\"$value->shop_group_lang\">".$value->shop_name_type."</option>";}
-                                                        ?>
-                                                 </select>
-                                            </div>
+                     
+                                      </div>
+                                </div>
 
                                 <div class="form-group ">
-                                   <div class="col-lg-1">
-                                   
-                                     <input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"   value="<?=$this->lang->line("save");?>" />
+                                   <div class="col-lg-1 col-sm-1 ">
+                                     <input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"  value="<?=$this->lang->line("save");?>" />
                                    </div>
-                                   <div class="col-lg-1">
-                                     <a class="btn btn-danger animated swing" href="<?php echo site_url('backshop/productType');?>"><?=$this->lang->line("cancel");?></a>
-                                     <!--<input type="reset" class="btn btn-danger animated swing" id="btn_cancel1" name="cancel"  value="<?=$this->lang->line("cancel");?>"/>-->
-                                     
+                                   <div class="col-lg-1 col-sm-1">
+                                      <a class="btn btn-danger animated swing" href="<?php echo site_url('backshop/modifyproduct');?>"><?=$this->lang->line("cancel");?></a>
                                 </div>
                                 </div>  
 
                     </fieldset>
                 </form>
-       
+       <script type="text/javascript">
+                checked=false;
+                  function checkedAll (ckb) {var aa= document.getElementById('ckb'); if (checked == false)
+                    {
+                    checked = true
+                    }
+                    else {
+                    checked = false
+                    }
+                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
+                    }
+        </script>
        
          
           </div>
