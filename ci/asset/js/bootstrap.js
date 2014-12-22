@@ -1670,7 +1670,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 }(jQuery);
 
-$('#sne').popover();
+$('#shopname_en').popover();
+$('#shopname_th').popover();
 $('#sde').popover();
 $('#fp').popover();
 $('#ck').popover();
@@ -1678,6 +1679,15 @@ $('#profilepop').popover();
 $('#bgpop').popover();
 $('#coverpop').popover();
 $('#propop').popover();
+$('#sdt').popover();
+$('#p_name_th').popover();
+$('#p_name_en').popover();
+$('#pro_dth').popover();
+$('#pro_den').popover();
+$('#ptc').popover();
+$('#add_row').popover();
+$('#spt').popover();
+
 ///////////////////////////////////////////////////////////////////////////
 ////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -2435,13 +2445,3 @@ $(function() {
      });
 
  });
-//////////////////////////////add gallery///////////////////////
-
-
-
-/*$(function(){
-  $("#add_row").click(function(){
-    $("#table_gallery").append($("#firstTr").clone());
-  });
-      
-});*/
