@@ -239,11 +239,18 @@ body {
                                                                                     
                                                                                  </th>
 
-                                                                                  <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("gallery_name");?></font></th>
+                                                                                  <th class="info"></th>
                                                                                   
                                                                                   <th class="info" style="color:darkgreen"><div id="add_row" class=" btn glyphicon glyphicon-plus animated right in rotateIn"  ></div></th>
                                                                                  </tr>
+                                                                                <tr style="color:black" id="firstTr" class="animated fadeInDown">
+                                                                                <td class="warning"><div class="row"><div class="col-lg-1"></div> <div class="col-sm-6 col-md-4 col-lg-8" align="center"><div class="form-group animated fadeInDown"><div class="col-lg-12"><div class="fileinput fileinput-new" data-provides="fileinput"><div class="fileinput-new " ><img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:180px;width:180px;" ></div><div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div><div><span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="update_profile"></span><div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div></div></div></div></div></div></div></td>
+                                                                                <td class="warning" style="font-size:11pt;" ></td>
+                                                                                <td class="warning" style="font-size:15pt;color:red" ></td>
+                                                                                <td><a class="deleteRow"></a>
 
+            </td>      
+                                                                                </tr>
 
                                                                               <!-- On cells (`td` or `th`) -->
                                                                               
@@ -357,37 +364,41 @@ body {
         </script> -->
 
         <script type="text/javascript">
-  
+
 $(document).ready(function () {
-    var counter = 0;
+    var counter = 1;
 
     $("#add_row").on("click", function () {
 
         counter = $('#table_gallery tr').length - 2;
-
+        alert(counter);
         var newRow = $('<tr style="color:black" id="firstTr" class="animated fadeInDown">');
         var cols = "";
 
-        cols += '<td class="warning"><div class="row"><div class="col-lg-1"></div> <div class="col-sm-6 col-md-4 col-lg-8" align="center"><div class="form-group animated fadeInDown"><div class="col-lg-12"><div class="fileinput fileinput-new" data-provides="fileinput"><div class="fileinput-new " ><img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:180px;width:180px;" ></div><div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div><div><span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="update_profile"></span><div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div></div></div></div></div></div></div></td>';
-        cols += '<td class="warning" style="font-size:11pt;" >pic1.jpg</td>';
+        cols += '<td class="warning"><div class="row"><div class="col-lg-1"></div> <div class="col-sm-6 col-md-4 col-lg-8" align="center"><div class="form-group animated fadeInDown"><div class="col-lg-12"><div class="fileinput fileinput-new" data-provides="fileinput"><div class="fileinput-new " ><img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:180px;width:180px;" ></div><div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div><div><span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="pic_gallery' + counter + '"></span><div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div></div></div></div></div></div></div></td>';
+        cols += '<td class="warning" style="font-size:11pt;" ></td>';
 
         cols += '<td class="warning" style="font-size:15pt;color:red" ><h1><div id="remove_row" class=" btn glyphicon glyphicon-minus animated rubberBand" ></div></h1></td>';
         newRow.append(cols);
         if (counter == 4) $('#add_row').attr('disabled', true).prop('value', "You've reached the limit");
+        $("table.order-list").append(newRow);
+
+       
         $(".table").append(newRow);
         counter++;
     });
 
+     $(".table").on("click", "#remove_row", function (event) {
+        $(this).closest("tr").remove();
+        
+        
+        counter -= 1
+        $('#add_row').attr('disabled', false).prop('value', "Add Row");
+    });
     
 
 
-    $("#remove_row").on("click", function (event) {
-        $(this).closest("tr").remove();
-        
-        counter-= 1;
-        $('#remove_row').attr('disabled', false).prop('value', "Add Row");
-    });
-
+   
 
 });
 
