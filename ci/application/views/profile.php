@@ -84,12 +84,15 @@
 
                      
                     </div>
-                     <div class="col-lg-2"><?php if($error=="error"){ echo $this->lang->line("error_picshop");}else  if($error=="min"){echo $this->lang->line("error_picmin");}  ?></div>
+                     <div class="col-lg-2"></div>
+
                     <!-- update profile picture -->    
                        <input type="submit" id="change_pro"  name="changeprofile" class="btn btn-primary  animated bounce" value="<?=$this->lang->line("changepic");?>"> 
                           <!-- end update profile picture -->            
                                    
                     </div>
+                     <div class="col-lg-2"></div>
+                    <B><div class="col-lg-9" style="color:#FF0000">  <?php if($error=="error"){ echo $this->lang->line("error_picshop");}else if($error=="min"){echo $this->lang->line("error_picmin");}?></div></B>
                     </form>
               </div>
 

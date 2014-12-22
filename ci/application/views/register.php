@@ -96,7 +96,7 @@
                       </div>
                     </div>
                     <div class="col-lg-4">
-                      <font color="white"><?php if($error=="error"){echo $this->lang->line("error_picshop");}else if($error=="min"){echo $this->lang->line("error_picmin");}?></font>
+                      <B><font color="#FF0000"><?php if($error=="error"){echo $this->lang->line("error_picshop");}else if($error=="min"){echo $this->lang->line("error_picmin");}?></font></B>
                     </div>
                   </div> 
 

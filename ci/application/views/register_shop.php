@@ -57,11 +57,11 @@
                     <label for="inputsname" class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("s_name");?></label>
                     
                     <div class="col-lg-5 col-sm-5">
-                      <input type="text" id="shopname_en" class="form-control " name="shopname_en"  data-toggle="popover" data-trigger="hover " data-placement="bottom" data-content="<?=$this->lang->line("note");?>">
+                      <input type="text" id="shopname_en" class="form-control " name="shopname_en"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("note");?>">
 
                     </div>
                     <div class="col-lg-1 col-sm-1 ">
-                    <label for="inputslang"  class="col-lg-0.7 control-label" ><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
+                    <label   class="col-lg-0.7 control-label" ><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
                    </div>
 
                   </div>
@@ -70,10 +70,10 @@
                     <label for="inputsname" class="col-lg-2 col-sm-2 control-label"></label>
                     
                     <div class="col-lg-5 col-sm-5">
-                      <input type="text" id="shopname_th" class="form-control" name="shopname_th" value="">
+                      <input type="text" id="shopname_th" class="form-control" name="shopname_th" data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("note2");?>">
                     </div>
                     <div class="col-lg-1 col-sm-1 ">
-                    <label for="inputlang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
+                    <label  class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
                    </div>
                   </div>
 
@@ -113,7 +113,7 @@
                   <div class="form-group" align="center">
                     <label class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("shop_detail");?></label>
                     <div class="col-lg-5 col-sm-5">
-                      <textarea rows="3" cols="60" class="form-control" id="sde" name="shopdetail_en" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("dnote");?>"></textarea>
+                      <textarea rows="3" cols="60" class="form-control" id="sde" name="shopdetail_en" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("dnote");?>"></textarea>
                     </div>
                     <div class="col-lg-1 col-sm-1 ">
                     <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
@@ -123,10 +123,10 @@
                   <div class="form-group" align="center">
                     <label  class="col-lg-2 col-sm-2 control-label"></label>
                     <div class="col-lg-5 col-sm-5">
-                      <textarea rows="3" cols="60" class="form-control" name="shopdetail_th"></textarea>
+                      <textarea rows="3" cols="60" class="form-control" name="shopdetail_th" id="sdt" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("dnote2");?>"></textarea>
                     </div>
                     <div class="col-lg-1 col-sm-1 ">
-                    <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
+                    <label  class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
                     </div>
                   </div>
                   <div class="form-group" align="center">
@@ -256,7 +256,7 @@
                       </div>
                     </div>
                     <div class="col-lg-4">
-                    <font color="white"><?php if($error=="error1"){echo $this->lang->line("error_picshop");}else if($error=="min"){echo $this->lang->line("error_picmin");}?></font>
+                    <B><font color="#FF0000"><?php if($error=="error1"){echo $this->lang->line("error_picshop");}else if($error=="min"){echo $this->lang->line("error_picmin");}?></font></B>
                     </div>
                   </div> 
                    
@@ -278,7 +278,7 @@
                       </div>
                     </div>
                     <div class="col-lg-4">
-                    <font color="white"><?php if($error=="error2"){echo $this->lang->line("error_picshop");}else  if($error=="min"){echo $this->lang->line("error_picmin");}?></font>
+                    <B><font color="#FF0000"><?php if($error=="error2"){echo $this->lang->line("error_picshop");}else if($error=="min"){echo $this->lang->line("error_picmin");}?></font></B>
                     </div>
                   </div>
 
@@ -296,11 +296,11 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-2">
-                      <font color="white"><?php if($error=="error3"){echo $this->lang->line("error_picshop");}else  if($error=="min"){echo $this->lang->line("error_picmin");}?></font>
+                   <div class="col-lg-3">
+                      <B><font color="#FF0000"><?php if($error=="error3"){echo $this->lang->line("error_picshop");}else  if($error=="min"){echo $this->lang->line("error_picmin");}?></font></B>
                     </div>
                   </div>
-
+                    
 
                   
                   <div class="col-lg-10 col-lg-offset-2">

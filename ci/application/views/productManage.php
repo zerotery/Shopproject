@@ -131,7 +131,7 @@ body {
                         <td class="warning" style="font-size:11pt" >250</td>
                         <td class="warning" style="font-size:11pt" >5</td>
                         <td class="warning" style="font-size:11pt" >มีสินค้า have stock</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyproductType'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
+                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyproduct'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
                         
                       </tr>
                       <tr style="color:black">
@@ -158,7 +158,7 @@ body {
                         <td class="warning" style="font-size:11pt" >200</td>
                         <td class="warning" style="font-size:11pt" >5</td>
                         <td class="warning" style="font-size:11pt" >สินค้าหมด out of stock</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyproductType'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
+                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyproduct'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
                         
                       </tr>
                   </table>

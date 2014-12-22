@@ -83,8 +83,8 @@
 	$lang['error_shopnameth']="Please input Thai language.if no English name input - !!!";
 
 	
-	$lang['error_picshop']="Picture have full-size!!!";
-	$lang['error_picmin']="Picture have min-size!!!";
+	$lang['error_picshop']="The picture is too large!!!";
+	$lang['error_picmin']="The picture is too small!!!";
 
     $lang['sreg_account']="Open shop Online";
 	$lang['spersonal']="Shop Detail";
@@ -108,7 +108,9 @@
  	$lang['submit']="Submit";
  	$lang['cancel']="Cancel";
  	$lang['note']="If you don't have a shop name in english.You must fill Dashes( - ) in the blank.";
- 	$lang['dnote']="If you don't have a detail shop in english.You must fill Dashes( - ) in the blank.";
+ 	$lang['dnote']="If you don't have a shop detail in english.You must fill Dashes( - ) in the blank.";
+ 	$lang['note2']="If you don't have a shop name in thai.You must fill Dashes( - ) in the blank.";
+ 	$lang['dnote2']="If you don't have a shop detail in thai.You must fill Dashes( - ) in the blank.";
  	$lang['fnote']="If you don't a detail shop.You must fill Dashes ( - ) in the blank.";
  	$lang['decnote']="Press this button for decorate your shop.";
  	$lang['profile_size']="picture should be size 1024 x 768(width x height)pixel.Recommend 180 x 180 pixel";
@@ -136,10 +138,11 @@
  	$lang['product_name_type']="Product type name ";
  	$lang['action']="Action";
  	$lang['modify']="modify";
- 	$lang['p_type']="Product type";
+ 	$lang['p_type']="Product Category";
 
  	$lang['ptype_select']="Choose product type:";
  	$lang['addtype']="add";
+ 	$lang['cproduct-type']="Don't choose the same product type with product type you have already chosen.";
  	
  	$lang['product_pic']="Product image";
  	$lang['product_name']="Product name :";
@@ -156,6 +159,14 @@
  	$lang['product_information1']="General";
  	$lang['product_information2']="Info";
  	$lang['product_gallery']="Gallery";
+ 	$lang['product_pop-en']="If you don't have a product name in english.You must fill Dashes( - ) in the blank.";
+ 	$lang['product_pop-th']="If you don't have a product name in thai.You must fill Dashes( - ) in the blank.";
+ 	$lang['pnote']="If you don't have a product detail in thai.You must fill Dashes( - ) in the blank.";
+ 	$lang['pnote2']="If you don't have a product detail in thai.You must fill Dashes( - ) in the blank.";
+ 	$lang['product-type_p']="If you don't have a product type to choose. Please go to Category page for add product categories.";
+ 	$lang['product-glim']="More picture you can add up to 6.";
+
+ 	$lang['product_modify']="Product modify";
 
 
 
