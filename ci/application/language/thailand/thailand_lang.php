@@ -176,6 +176,7 @@
 
 
  	$lang['product_modify']="แก้ไขสินค้า";
+ 	$lang['gallery_modify']="แก้ไขรูปสินค้า";
 
 
 

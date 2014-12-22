@@ -65,7 +65,7 @@ body {
                  <div class="page-header-bp ">
                                               <div class="row">
                                               <div class="col-md-10 ">
-                                                 <h3><?=$this->lang->line("p_type");?></h3>
+                                                 <h3><?=$this->lang->line("gallery_modify");?></h3>
                                               </div>
 
                                             
@@ -112,7 +112,7 @@ body {
                                      <input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"  value="<?=$this->lang->line("save");?>" />
                                    </div>
                                    <div class="col-lg-1 col-sm-1">
-                                     <input type="submit" class="btn btn-danger animated swing" id="btn_cancel" name="cancel"  value="<?=$this->lang->line("cancel");?>"/>
+                                      <a class="btn btn-danger animated swing" href="<?php echo site_url('backshop/modifyproduct');?>"><?=$this->lang->line("cancel");?></a>
                                 </div>
                                 </div>  
 

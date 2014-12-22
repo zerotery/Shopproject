@@ -167,7 +167,7 @@
  	$lang['product-glim']="More picture you can add up to 6.";
 
  	$lang['product_modify']="Product modify";
-
+ 	$lang['gallery_modify']="Modify product image";
 
 
 

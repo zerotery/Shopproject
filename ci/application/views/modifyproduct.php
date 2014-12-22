@@ -329,7 +329,7 @@ body {
                                            
                                    </div >
                                      <div class="col-md-1 "  >
-                                         <h4><input type="submit" class="btn btn-danger animated swing" id="btn_cancel" name="cancel"  onclick="" value="<?=$this->lang->line("cancel");?>"/></h4>
+                                         <h4><a class="btn btn-danger animated swing" href="<?php echo site_url('backshop/productManage');?>"><?=$this->lang->line("cancel");?></a></h4>
                                      </div>
                                            
                                 </div>
