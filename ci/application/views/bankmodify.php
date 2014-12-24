@@ -88,6 +88,7 @@ body {
 
 
              <div class="form-group " align="center">
+             
                     <label  class="col-lg-2  col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("bank_select");?></label>
                     <div class="col-lg-2 col-xs-2 col-sm-2" style="color:black">
                      
@@ -187,7 +188,7 @@ body {
             var check = false;
             return this.optional(element) || regexp.test(value);
             },
-            "<?php echo "<font color='red'>".$this->lang->line("error_a_uc")."</font>";?>"
+            "<?php echo "<font color='red' class='animated rubberBand'>".$this->lang->line("error_a_uc")."</font>";?>"
             );
 
       $("#bank_choose").validate({
@@ -206,13 +207,13 @@ body {
   },
   messages: {
     bank_branch: {
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_b_empty")."</font>";?>"
+      required: "<?php echo "<font color='red' size='2pt' class='animated rubberBand'>".$this->lang->line("error_b_empty")."</font>";?>"
     },
     bank_account: {
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_a_empty")."</font>";?>"
+      required: "<?php echo "<font color='red' size='2pt' class='animated rubberBand'>".$this->lang->line("error_a_empty")."</font>";?>"
     },
     account_name: {
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_n_empty")."</font>";?>"
+      required: "<?php echo "<font color='red' size='2pt' class='animated rubberBand'>".$this->lang->line("error_n_empty")."</font>";?>"
     }
   }
 });

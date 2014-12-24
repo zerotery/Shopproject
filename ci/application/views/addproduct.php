@@ -92,7 +92,7 @@ body {
                                               <div class="row">
                                                         <div class="form-group">
                                                          
-                                                           
+                                                           <div class="col-md-12"></div>
                                                               <div class="col-md-3" align="center">
                                                                  <div class="form-group animated fadeInUp">
                                                                    <div class="col-lg-12">
@@ -110,6 +110,8 @@ body {
                                                                     </div>
                                                                   </div>         
                                                             </div>
+
+
 
                                                            
                                                           
@@ -135,15 +137,16 @@ body {
                                                       
 
                                                       <div class="form-group col-lg-8">
+
                                                                       <label  class="col-lg-3 col-sm-4 control-label"><?=$this->lang->line("product_detail");?></label>
                                                                       <div class="col-lg-6 col-xs-6 col-sm-5">
                                                                         <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_dth" name="pro_dth" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote2");?>"></textarea>
                                                                       </div>
                                                                       <label for="inputslang" class="col-lg-1 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="35" height="25" border="0"></label>
                                                       </div>
-
+                                                        <div class="col-md-3"></div>
                                                       <div class="form-group col-lg-8">
-                                                                     <div class="col-lg-3 col-sm-4"></div>
+                                                                     <div class="col-md-3 col-sm-4"></div>
                                                                      <div class="col-lg-6 col-xs-6 col-sm-5">
                                                                         <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_den" name="pro_den" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote");?>"></textarea>
                                                                       </div>
@@ -423,7 +426,7 @@ $("#addproduct").validate({
       
     },
     p_quantity: {
-      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      required: "<?php echo "<font color='red' >".$this->lang->line("error_empty")."</font>";?>",
       regex: "<?php echo "<font color='red'>".$this->lang->line("error_quantity")."</font>";?>"
       
     }
