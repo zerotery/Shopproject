@@ -421,58 +421,8 @@
 
                       //echo $width." ".$height;
                     }
-                    $s_id=$this->session->userdata('id');
-                   	date_default_timezone_set("Asia/Bangkok");
-                   	$date = date('Y-m-d');
-                   
-                   			$numsave=$s_id%1000;
-                                      $filename = "./uploads/products/".$date;
 
-                                      if (file_exists($filename)) {
-                                      $c_gallrery=1;
-                                      }else {
-                                      mkdir("./uploads/products/".$date);
-                                      $c_gallrery=1;
-                                      }
-									  $filename1 = "./uploads/products/".$date."/".$numsave;
-                                      if (file_exists($filename1)) {
-                                      $c_gallrery1=1;
-                                      }else {
-                                      mkdir("./uploads/products/".$date."/".$numsave);
-                                      $c_gallrery1=1;
-                                      }
-
-                    if($c_gallrery==1 && $c_gallrery1==1){
-
-								$config['image_library']='gd2';
-                                if($productmain_pic=="item.png"){
-                                    $config['source_image']='./asset/img/'.$productmain_pic;
-                                }else{
-                                    $config['source_image']='./asset/temp/'.$productmain_pic;
-                                }
-                                $config['width']=500;
-                                $config['height']=500;
-                                $config['new_image']='./uploads/products/'.$date.'/'.$numsave.'/'.$productmain_pic;
-                                $this->image_lib->clear();
-                                $this->image_lib->initialize($config);
-                                $this->image_lib->resize();
-                                    if(!$this->image_lib->resize()){
-                                        echo $this->image_lib->display_errors();
-                                    }else{
-                                        if($productmain_pic!="item.png"){
-                                          $hit='./asset/temp/'.$productmain_pic;
-                                          unlink($hit);}
-                                    }
-
-                    }
-
-
-
-                    
-                  
-
-                  
-				  $cols=$this->session->userdata('numberrow');
+                    $cols=$this->session->userdata('numberrow');
 				  $config['upload_path'] ='./asset/temp/';
                   $config['allowed_types'] = 'gif|jpg|png';
                   $config['max_size'] = '0';
@@ -535,55 +485,8 @@
                   $error="min";
                   $this->addproduct($error);
                   }
-                   //echo "success"." ".print_r($product_picarray)."<br>";
-                   $s_id=$this->session->userdata('id');
-                   date_default_timezone_set("Asia/Bangkok");
-                   $date = date('Y-m-d');
+                    //move
                    
-                   			$numsave=$s_id%1000;
-                                      $filename = "./uploads/products/".$date;
-
-                                      if (file_exists($filename)) {
-                                      $c_gallrery=1;
-                                      }else {
-                                      mkdir("./uploads/products/".$date);
-                                      $c_gallrery=1;
-                                      }
-									  $filename1 = "./uploads/products/".$date."/".$numsave;
-                                      if (file_exists($filename1)) {
-                                      $c_gallrery1=1;
-                                      }else {
-                                      mkdir("./uploads/products/".$date."/".$numsave);
-                                      $c_gallrery1=1;
-                                      }
-
-                    if($c_gallrery==1 && $c_gallrery1==1){
-
-
-                    			
-                    			for($i=0;$i<count($product_picarray);$i++){
-                    			$config['image_library']='gd2';
-                                if($product_picarray[$i]=="item.png"){
-                                    $config['source_image']='./asset/img/'.$product_picarray[$i];
-                                }else{
-                                    $config['source_image']='./asset/temp/'.$product_picarray[$i];
-                                }
-                                $config['width']=500;
-                                $config['height']=500;
-                                $config['new_image']='./uploads/products/'.$date.'/'.$numsave.'/'.$product_picarray[$i];
-                                $this->image_lib->clear();
-                                $this->image_lib->initialize($config);
-                                $this->image_lib->resize();
-                                    if(!$this->image_lib->resize()){
-                                        echo $this->image_lib->display_errors();
-                                    }else{
-                                        if($product_picarray[$i]!="item.png"){
-                                          $hit='./asset/temp/'.$product_picarray[$i];
-                                          unlink($hit);}
-                                    }
-                                }
-                    }                  
-                   $this->session->unset_userdata('numberrow');
                   
 
 
@@ -703,6 +606,82 @@
               	  }else{
               	  $ap5=1;
               	  }
+              	  	//resize picture
+              	   $s_id=$this->session->userdata('id');
+                   	date_default_timezone_set("Asia/Bangkok");
+                   	$date = date('Y-m-d');
+                   
+                   			$numsave=$s_id%1000;
+                   			$numproduct=$p_id%1000;
+                   			//echo "$numproduct";
+                                      $filename = "./uploads/products/".$date;
+
+                                      if (file_exists($filename)) {
+                                      $c_gallrery=1;
+                                      }else {
+                                      mkdir("./uploads/products/".$date);
+                                      $c_gallrery=1;
+                                      }
+									  $filename1 = "./uploads/products/".$date."/".$numsave;
+                                      if (file_exists($filename1)) {
+                                      $c_gallrery1=1;
+                                      }else {
+                                      mkdir("./uploads/products/".$date."/".$numsave);
+                                      $c_gallrery1=1;
+                                      }
+                                      $filename2 = "./uploads/products/".$date."/".$numsave."/".$numproduct;
+                                      if (file_exists($filename2)) {
+                                      $c_gallrery2=1;
+                                      }else {
+                                      mkdir("./uploads/products/".$date."/".$numsave."/".$numproduct);
+                                      $c_gallrery2=1;
+                                      }
+
+                    if($c_gallrery==1 && $c_gallrery1==1 && $c_gallrery2==1){
+
+								$config['image_library']='gd2';
+                                if($productmain_pic=="item.png"){
+                                    $config['source_image']='./asset/img/'.$productmain_pic;
+                                }else{
+                                    $config['source_image']='./asset/temp/'.$productmain_pic;
+                                }
+                                $config['width']=500;
+                                $config['height']=500;
+                                $config['new_image']='./uploads/products/'.$date.'/'.$numsave.'/'.$numproduct.'/'.$productmain_pic;
+                                $this->image_lib->clear();
+                                $this->image_lib->initialize($config);
+                                $this->image_lib->resize();
+                                    if(!$this->image_lib->resize()){
+                                        echo $this->image_lib->display_errors();
+                                    }else{
+                                        if($productmain_pic!="item.png"){
+                                          $hit='./asset/temp/'.$productmain_pic;
+                                          unlink($hit);}
+                                    }
+
+                               	for($i=0;$i<count($product_picarray);$i++){
+                    			$config['image_library']='gd2';
+                                if($product_picarray[$i]=="item.png"){
+                                    $config['source_image']='./asset/img/'.$product_picarray[$i];
+                                }else{
+                                    $config['source_image']='./asset/temp/'.$product_picarray[$i];
+                                }
+                                $config['width']=500;
+                                $config['height']=500;
+                                $config['new_image']='./uploads/products/'.$date.'/'.$numsave.'/'.$numproduct.'/'.$product_picarray[$i];
+                                $this->image_lib->clear();
+                                $this->image_lib->initialize($config);
+                                $this->image_lib->resize();
+                                    if(!$this->image_lib->resize()){
+                                        echo $this->image_lib->display_errors();
+                                    }else{
+                                        if($product_picarray[$i]!="item.png"){
+                                          $hit='./asset/temp/'.$product_picarray[$i];
+                                          unlink($hit);}
+                                    }
+                                }    
+                    			$this->session->unset_userdata('numberrow');
+                    }
 
               	  if($ap1==1&&$ap2==1&&$ap3==1&&$ap4==1&&$ap5==1){
               	  	redirect('backshop/productManage','refresh');
@@ -740,6 +719,7 @@
 			
 			
 		}
+
 		public function modify_gallery(){
 			$lang=$this->load_language->lang();
             $this->lang->load($lang,$lang);
