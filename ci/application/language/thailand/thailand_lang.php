@@ -160,7 +160,7 @@
  	$lang['cproduct-type']="ห้ามเลือกประเภทสินค้าซ้ำกันกับที่เคยเลือกไว้แล้ว";
 
  	$lang['product_pic']="รูปสินค้า";
- 	$lang['product_name']="ชื่อสินค้า ";
+ 	$lang['product_name']="ชื่อสินค้า :";
  	$lang['product_detail']="รายละเอียดสินค้า ";
 
  	$lang['p_price']="ราคา ";
@@ -186,6 +186,58 @@
 
  	$lang['product_modify']="แก้ไขสินค้า";
  	$lang['gallery_modify']="แก้ไขรูปสินค้า";
+ 	$lang['product-del']="ถ้าลบรูปแกลอลี่แล้วจะไม่สามารถเพิ่มได้ในหน้านี้";
+
+
+ 	$lang['sale_command']="คำสั่งซื้อ";
+ 	$lang['sale_command_l']="รายการคำสั่งซื้อ";
+ 	$lang['sale_order_num']="รหัสคำสั่งซื้อ";
+ 	$lang['customer']="ชื่อลูกค้า";
+ 	$lang['order_status']="สถานะคำสั่งซื้อ";
+ 	$lang['order_price']="ราคารวม";
+ 	$lang['add_date']="วันที่เพิ่ม";
+ 	$lang['modify_date']="วันที่แก้ไข";
+ 	$lang['order_search']="ค้นหา";
+ 	$lang['see']="ดู";
+ 	$lang['filter']="ตัวกรอง";
+ 	$lang['complete_payment']="ชำระเงินแล้ว";
+ 	$lang['wait_payment']="รอการชำระเงิน";
+
+
+ 	$lang['detail_order']="รายละเอียด";
+ 	$lang['ordercode']="รหัสสั่งซื้อ :";
+ 	$lang['customer_show']="ชื่อลูกค้า";
+ 	$lang['order_sprice']="ราคารวม :";
+ 	$lang['ip_cusorder']="หมายเลข ip :";
+ 	$lang['adddates']="วันที่เพิ่ม :";
+ 	$lang['modidates']="วันที่แก้ไข :";
+ 	$lang['product_order']="สินค้า";
+
+ 	$lang['product_code']="รหัสสินค้า";
+ 	$lang['product_price']="ราคาสินค้า:หน่วย";
+ 	$lang['product_name_s']="ชื่อสินค้า";
+ 	$lang['order_detail']="รายละเอียด";
+ 	$lang['your_name']="ชื่อบัญชี";
+
+ 	$lang['bank_choose']="เลือกธนาคาร";
+ 	$lang['bank_select']="ชื่อธนาคาร";
+ 	$lang['bank_branch']="สาขา";
+ 	$lang['bank_account']="เลขบัญชี";
+ 	$lang['account_type']="ประเภทบัญชี";
+ 	$lang['bank_add']="เพิ่มธนาคาร";
+ 	$lang['acc_type1']="ออมทรัพย์";
+ 	$lang['acc_type2']="กระแสรายวัน";
+ 	$lang['error_b_empty']="กรุณาใส่สาขาของคุณ";
+ 	$lang['error_a_empty']="กรุณาใส่เลขบัญชีของคุณ";
+ 	$lang['error_n_empty']="กรุณาใส่ชื่อบัญชีของคุณ";
+ 	$lang['error_a_uc']="กรุณากรอกเลขบัญชีให้ครบถ้วน";
+ 	
+
+
+
+
+
+
 
 
 

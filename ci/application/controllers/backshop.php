@@ -742,6 +742,86 @@
 		}
                   
 
+		public function orderManage(){
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('orderManage',$data);
+			
+			
+		}
+
+		public function modifyorder(){
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('modifyorder',$data);
+			
+			
+		}
+
+		public function bankManage(){
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('bankManage',$data);
+			
+			
+		}
+
+		public function bankmodify(){
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('bankmodify',$data);
+			
+			
+		}
+
 	
 		
 
