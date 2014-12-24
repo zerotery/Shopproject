@@ -158,12 +158,76 @@
 
 		}
 
+		public function insert_product($data){
+			if($this->db->insert('product',$data)){
+    			 return 1;
+    		}else{
+    			 return 0;
+    		}
+		}
+
 		public function remove_pcate($del){
 			$this->db->delete('product_category',$del);
 		}
 
 
+		public function get_p_ID($s_ID){
+			
+			$sql="SELECT p_ID FROM product WHERE s_ID='$s_ID';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
 
+		}
+
+		public function insertcatep($insert_productcateP_en,$insert_productcateP_th){
+			if($this->db->insert('product_category_detail',$insert_productcateP_en)){
+    			$s=1;
+    		}else{
+    			$s=0;
+    		}
+    		if($this->db->insert('product_category_detail',$insert_productcateP_th)){
+    			 $s1=1;
+    		}else{
+    			$s1=0;
+    		}
+
+    		if($s==1&&$s1==1){
+    			return 1;
+    		}
+    		else{
+    			return 0;
+    		}
+		}
+
+		public function insert_product_detail($insert_product_datail_en,$insert_product_datail_th){
+			if($this->db->insert('product_detail',$insert_product_datail_en)){
+    			$s=1;
+    		}else{
+    			$s=0;
+    		}
+    		if($this->db->insert('product_detail',$insert_product_datail_th)){
+    			 $s1=1;
+    		}else{
+    			$s1=0;
+    		}
+
+    		if($s==1&&$s1==1){
+    			return 1;
+    		}
+    		else{
+    			return 0;
+    		}
+		}
+
+		public function insert_gallery($data){
+
+			if($this->db->insert('product_gallery',$data)){
+				return 1;
+			}else{
+				return 0;
+			}
+
+		}
 
 
 
