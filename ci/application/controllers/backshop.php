@@ -318,10 +318,30 @@
 			$this->session->set_userdata('id',$id);
 			}
 			$idset=$this->session->userdata('id');
-			
+			$result=null;
+			$namepic=null;
 			$shop=$this->shop->getshop($idset);
-			
+			//print_r($shop);
+			$s_id=$shop[0]['s_ID'];
+			$p_id=$this->shop->getall_pid($s_id);
+
+			for($i=0;$i<count($p_id);$i++){
+
+				$result[$i]=$this->shop->dataproduct($p_id[$i]['p_ID']);
+				$namepic[$i]=$this->shop->get_gallery($p_id[$i]['p_ID']);
+
+			}
+			//print_r($result[0][0]) ;
+			//echo "<br>";
+			//print_r($result[1][0]);
+			//echo "<br>";
+			//print_r($namepic[1]);
+
+			//echo count($result);
+			$data['shopid']=$s_id;
 			$data['nameshop']=$shop[0]['shop_name'];
+			$data['dataproduct']=$result;
+			$data['namepic']=$namepic;
 			$this->load->view('productManage',$data);
 			
 			
@@ -607,13 +627,22 @@
               	  $ap5=1;
               	  }
               	  	//resize picture
-              	   $s_id=$this->session->userdata('id');
+              	   	$s_id=$this->session->userdata('id');
                    	date_default_timezone_set("Asia/Bangkok");
                    	$date = date('Y-m-d');
                    
                    			$numsave=$s_id%1000;
                    			$numproduct=$p_id%1000;
                    			//echo "$numproduct";
+                   					  $filename0 = "./uploads/products";
+
+                                      if (file_exists($filename0)) {
+                                      
+                                      }else {
+                                      mkdir("./uploads/products");
+                                      
+                                      }
+
                                       $filename = "./uploads/products/".$date;
 
                                       if (file_exists($filename)) {
