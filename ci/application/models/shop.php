@@ -179,6 +179,34 @@
 
 		}
 
+		public function getall_pid($s_id){
+			$sql="SELECT p_ID FROM product WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function dataproduct($p_id){
+			$lang=$this->session->userdata('langdata');
+
+			$sql="SELECT product.p_ID,product.p_price,product.p_update_date,product.p_quantity,product_detail.product_name,product_detail.product_status FROM product,product_detail WHERE product.p_ID=product_detail.p_ID AND product.p_ID='$p_id' AND product_detail.lang_ID='$lang';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_gallery($p_id){
+			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' AND pic_name='main_product.jpg';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+			/*if(empty($query)){
+				return "item.png";
+			}else{
+				return "main_product.jpg";
+			}*/
+			
+
+		}
+
+
 		public function insertcatep($insert_productcateP_en,$insert_productcateP_th){
 			if($this->db->insert('product_category_detail',$insert_productcateP_en)){
     			$s=1;

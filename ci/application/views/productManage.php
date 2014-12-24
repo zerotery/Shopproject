@@ -102,65 +102,38 @@ body {
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("p_status");?></font></th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("action");?></font></th>
                          </tr>
-                     
 
-                      <!-- On cells (`td` or `th`) -->
-                      <tr style="color:black">
-                        <td class="warning"><label ><input class="checkbox" type="checkbox" name="check1" ></label></td>
-                        <td class="warning" style="font-size:11pt" >
-                            <div class="row">
-                              <div class="col-lg-1"></div>
-                                <div class="col-sm-6 col-md-4 col-lg-8" align="center">
-                                   <div class="form-group animated fadeInUp">
-                                     <div class="col-lg-12 thumbnail">
-                                        
-                                             <img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:160px;width:200px;" >
-                                          
-                                      </div>
-                                    </div>         
-                              </div>
+                         <?php
+                               for($i=0; $i<count($dataproduct); $i++){
+                                echo '<tr style="color:black">';
+                                echo '<td class="warning"><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$dataproduct[$i][0]['p_ID'].'"></label></td>';
+                                echo '<td class="warning" style="font-size:11pt" >';
+                                echo '<div class="row">';
+                                echo '<div class="col-lg-1"></div>';
+                                echo '<div class="col-sm-6 col-md-4 col-lg-8" align="center">';
+                                echo '<div class="form-group animated fadeInUp">';
+                                echo '<div class="col-lg-12 thumbnail">';
+                                if($namepic[$i]==NULL){
+                                  $name_main="item.png";
+                                }
+                                else{
+                                  $name_main="main_product.jpg";
+                                }
+                                echo '<img src="'.product.$dataproduct[$i][0]['p_update_date'].'/'.$shopid.'/'.$dataproduct[$i][0]['p_ID'].'/'.$name_main.'" class="img-responsive" style="height:160px;width:200px;">';
+                                echo '</div></div></div>';
+                                echo '</div>';
+                                echo '</td>';
+                                echo '<td class="warning" style="font-size:11pt" >'.$dataproduct[$i][0]['product_name'].'</td>';
+                                echo '<td class="warning" style="font-size:11pt" >'.$dataproduct[$i][0]['p_price'].'</td>';
+                                echo '<td class="warning" style="font-size:11pt" >'.$dataproduct[$i][0]['p_quantity'].'</td>';
+                                echo '<td class="warning" style="font-size:11pt" >'.$dataproduct[$i][0]['product_status'].'</td>';
+                                echo '<td class="warning" style="font-size:15pt" >['. anchor(site_url('backshop/modifyproduct').'/?p_id='.$dataproduct[$i][0]['p_ID'].'',$this->lang->line("modify")).']</td>';
+                                echo '</tr>';
+                               }       
 
-                             
-                            </div>
-
-
-
-
-                        </td>
-                        <td class="warning" style="font-size:11pt" >เสื้อผ้าผู้ชาย</td>
-                        <td class="warning" style="font-size:11pt" >250</td>
-                        <td class="warning" style="font-size:11pt" >5</td>
-                        <td class="warning" style="font-size:11pt" >มีสินค้า have stock</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyproduct'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
-                        
-                      </tr>
-                      <tr style="color:black">
-                        <td class="warning"><label ><input class="checkbox" type="checkbox" name="check2" ></label></td>
-                        <td class="warning" style="font-size:11pt" >
-                          <div class="row">
-                              <div class="col-lg-1"></div>
-                                <div class="col-sm-6 col-md-4 col-lg-8" align="center">
-                                   <div class="form-group animated fadeInUp">
-                                     <div class="col-lg-12 thumbnail">
-                                        
-                                             <img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:160px;width:200px;" >
-                                          
-                                      </div>
-                                    </div>         
-                              </div>
-
-                             
-                            </div>
-
-                          
-                        </td>
-                        <td class="warning" style="font-size:11pt" >เสื้อผ้าผู้ชาย</td>
-                        <td class="warning" style="font-size:11pt" >200</td>
-                        <td class="warning" style="font-size:11pt" >5</td>
-                        <td class="warning" style="font-size:11pt" >สินค้าหมด out of stock</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyproduct'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
-                        
-                      </tr>
+                         
+                         ?>
+                    
                   </table>
                 </div>
                 </form>

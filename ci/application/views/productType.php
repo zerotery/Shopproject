@@ -107,7 +107,7 @@ body {
                          <?php
       
         
-                            $j=1; 
+                            
                             for($i=0; $i<count($ptype); $i++){
                                   echo '<tr style="color:black">';
                                   echo '<td class="warning"><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$ptype[$i]['grouplang'].'"></label></td>';
@@ -118,7 +118,7 @@ body {
                                   $num=$ptype[$i]['grouplang'];
                                   echo '<td class="warning" style="font-size:15pt" >'.anchor(site_url('backshop/modifyproductType/').'/?grouplang='.$num.'',$this->lang->line("modify")).'</td>';
                                   
-                                  $j++;
+                                 
                                   echo "</tr>";
                             }
                           ?>
