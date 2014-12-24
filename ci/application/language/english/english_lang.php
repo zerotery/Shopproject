@@ -20,7 +20,7 @@
 	$lang['product_management']="Category Management";
 	$lang['option']="Option";
 	$lang['sell']="Sell";
-	$lang['order_buy']="Order Buy";
+	$lang['order_buy']="Order";
 	$lang['bank']="Bank";
 	$lang['report']="Report";
 	$lang['selling']="Selling";
@@ -168,6 +168,56 @@
 
  	$lang['product_modify']="Product modify";
  	$lang['gallery_modify']="Modify product image";
+ 	$lang['product-del']="If you delete gallery image.You can't add gallery image in this page.";
+
+ 	$lang['sale_command']="order";
+ 	$lang['sale_command_l']="order List";
+ 	$lang['sale_order_num']="order code";
+ 	$lang['customer']="customer";
+ 	$lang['order_status']="order status";
+ 	$lang['order_price']="total price";
+ 	$lang['add_date']="order date";
+ 	$lang['modify_date']="modify date";
+ 	$lang['order_search']="Search";
+ 	$lang['see']="watch";
+ 	$lang['filter']="Filter";
+ 	$lang['complete_payment']="already payment";
+ 	$lang['wait_payment']="waiting payment";
+
+ 	$lang['detail_order']="Detail";
+ 	$lang['ordercode']="order code :";
+ 	$lang['customer_show']="customer :";
+ 	$lang['order_sprice']="total price :";
+ 	$lang['ip_cusorder']="ip address :";
+ 	$lang['adddates']="order date :";
+ 	$lang['modidates']="modify date :";
+ 	$lang['product_order']="product";
+
+
+ 	$lang['product_code']="product code";
+ 	$lang['product_price']="price per unit";
+ 	$lang['product_name_s']="product name";
+ 	$lang['order_detail']="detail";
+ 	$lang['your_name']="account name";
+
+
+ 	$lang['bank_choose']="choose bank";
+ 	$lang['bank_select']="bank name";
+ 	$lang['bank_branch']="branch name";
+ 	$lang['bank_account']="bank account";
+ 	$lang['account_type']="account type";
+ 	$lang['bank_add']="add bank";
+ 	$lang['acc_type1']="Savings account";
+ 	$lang['acc_type2']="Current account";
+ 	$lang['error_b_empty']="Please enter your bank branch name.";
+ 	$lang['error_a_empty']="Please enter your bank account number.";
+ 	$lang['error_n_empty']="Please enter your account name.";
+ 	$lang['error_a_uc']="Bank account number is not complete.";
+
+
+
+
+ 	
 
 
 

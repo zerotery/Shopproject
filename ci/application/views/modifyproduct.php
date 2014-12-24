@@ -240,13 +240,13 @@ body {
                                                                                  <th class="info">
                                                                                     
                                                                                         
-                                                                                 <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("gallery_pic");?></font></center> 
+                                                                                 <font color="#FFFFFF"size="4pt"><?=$this->lang->line("gallery_pic");?></font>
                                                                                     
                                                                                  </th>
 
                                                                                   <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("gallery_name");?></font></th>
                                                                                   
-                                                                                  <th class="info" style="color:darkgreen"><div id="add_row" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-glim");?>"  ></div></th>
+                                                                                  <th class="info" style="color:darkgreen"><div id="add_row" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-del");?>"  ></div></th>
                                                                                  </tr>
 
 
@@ -254,7 +254,24 @@ body {
                                                                               
                                                                             <tr  style="color:black">
                                                                                 <td class="warning"><label ><input class="checkbox" type="checkbox" name="check1" value="check1"></label></td>
-                                                                                <td class="warning" style="font-size:11pt" >pic2.png</td>
+                                                                                <td class="warning" style="font-size:11pt" >
+                                                                                  <div class="row">
+                                                                                        <div class="col-lg-1"></div>
+                                                                                          <div class="col-sm-6 col-md-4 col-lg-8" align="center">
+                                                                                             <div class="form-group animated fadeInUp">
+                                                                                               <div class="col-lg-12 thumbnail" style="height:170px;width:200px;">
+                                                                                                  
+                                                                                                       <img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:160px;width:200px;" >
+                                                                                                    
+                                                                                                </div>
+                                                                                              </div>         
+                                                                                        </div>
+
+                                                                                       
+                                                                                      </div>
+
+
+                                                                                </td>
                                                                                 <td class="warning" style="font-size:11pt;" >19/12/2014</td>
                                                                                 <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modify_gallery'); ?>" style="color:black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
                                                                                 
