@@ -422,7 +422,7 @@
                       //echo $width." ".$height;
                     }
 
-                    $cols=$this->session->userdata('numberrow');
+                  $cols=$this->session->userdata('numberrow');
 				  $config['upload_path'] ='./asset/temp/';
                   $config['allowed_types'] = 'gif|jpg|png';
                   $config['max_size'] = '0';

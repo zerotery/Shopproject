@@ -173,7 +173,7 @@
 
 		public function get_p_ID($s_ID){
 			
-			$sql="SELECT p_ID FROM product WHERE s_ID='$s_ID';";
+			$sql="SELECT p_ID FROM product WHERE s_ID='$s_ID' ORDER BY p_ID DESC LIMIT 1;";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 
