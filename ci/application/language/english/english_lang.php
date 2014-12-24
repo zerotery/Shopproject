@@ -78,9 +78,13 @@
 	$lang['error_charusername']="username must be 6-8 character!!!";
 	$lang['error_haveusername']="this username have in system.Please input again.!!!";
 	$lang['error_emptyshop']="Please input your information!!!";
-
 	$lang['error_shopnameen']="Please input English language.if no English name input - !!!";
-	$lang['error_shopnameth']="Please input Thai language.if no English name input - !!!";
+	$lang['error_shopnameth']="Please input Thai language.if no Thai name input - !!!";
+
+	$lang['error_pnameen']="Please input English language.if no English language input - !!!";
+	$lang['error_pnameth']="Please input Thai language.if no Thai language input - !!!";
+	$lang['error_price']="Price must be number or decimal!!!";
+	$lang['error_quantity']="Quantity must be number!!!";
 
 	
 	$lang['error_picshop']="The picture is too large!!!";
@@ -116,6 +120,10 @@
  	$lang['profile_size']="picture should be size 1024 x 768(width x height)pixel.Recommend 180 x 180 pixel";
  	$lang['bg_size']="picture should be size bigger than 1366x768(width x height)pixel.";
  	$lang['cover_size']="picture should be size bigger than 600x240 (width x height)pixel.";
+ 	
+ 	$lang['p_status1']="Have stock";
+ 	$lang['p_status2']="Out of stock";
+
 
 
  	$lang['greet']="Hi";

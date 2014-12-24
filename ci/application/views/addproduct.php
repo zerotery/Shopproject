@@ -73,7 +73,7 @@ body {
                                              </div>
                                              </div>
      
-                <form class="form-horizontal" name="product_type_select" id="profile"   method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" id="addproduct"  name="addproduct" action="<?php echo site_url('backshop/add_product');?>"   method="post"  enctype="multipart/form-data">
                     <fieldset >
 
                                <div class="form-group col-lg-12">
@@ -102,9 +102,9 @@ body {
                                                                         </div>
                                                                         <div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div>
                                                                         <div>
-                                                                          <span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="update_profile"></span>
+                                                                          <span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="mainproduct" id="mainproduct"></span>
                                                                           <div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div>
-                                                                          
+                                                                           <?php if($error=="error"){ echo $this->lang->line("error_picshop");}else if($error=="min"){echo $this->lang->line("error_picmin");}?>
                                                                         </div>
                                                                       </div>
                                                                     </div>
@@ -119,7 +119,7 @@ body {
                                                             <label  class="col-md-3 col-sm-4 control-label animated fadeInLeft"><?=$this->lang->line("product_name");?></label>
                                                             <div class="col-sm-5"></div>
                                                             <div class="col-lg-6 col-xs-6 col-sm-5" >
-                                                              <input type="text" id="p_name_th" class="form-control animated fadeInLeft" name="product_name_th"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product_pop-th");?>">
+                                                              <input type="text" id="p_name_th" class="form-control animated fadeInLeft" name="p_name_th"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product_pop-th");?>">
                                                             </div>
                                                             <div class="col-lg-1"><img src="<?php echo logo_pic;?>flag-th.jpg" width="35" height="25" border="0"></div>
                                                             </div>
@@ -128,7 +128,7 @@ body {
                                                         <div class="form-group col-lg-8">
                                                         <div class="col-lg-3 col-sm-4"></div>
                                                         <div class="col-md-6 col-xs-6 col-sm-5">
-                                                            <input type="text" id="p_name_en" class="form-control animated fadeInLeft" name="product_name_en"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product_pop-en");?>">
+                                                            <input type="text" id="p_name_en" class="form-control animated fadeInLeft" name="p_name_en"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product_pop-en");?>">
                                                             </div>
                                                             <div class="col-lg-1 "><img src="<?php echo logo_pic;?>flag-en.jpg" width="35" height="25" border="0"></div>
                                                            </div>
@@ -137,7 +137,7 @@ body {
                                                       <div class="form-group col-lg-8">
                                                                       <label  class="col-lg-3 col-sm-4 control-label"><?=$this->lang->line("product_detail");?></label>
                                                                       <div class="col-lg-6 col-xs-6 col-sm-5">
-                                                                        <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_dth" name="shopdetail_th" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote2");?>"></textarea>
+                                                                        <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_dth" name="pro_dth" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote2");?>"></textarea>
                                                                       </div>
                                                                       <label for="inputslang" class="col-lg-1 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="35" height="25" border="0"></label>
                                                       </div>
@@ -145,7 +145,7 @@ body {
                                                       <div class="form-group col-lg-8">
                                                                      <div class="col-lg-3 col-sm-4"></div>
                                                                      <div class="col-lg-6 col-xs-6 col-sm-5">
-                                                                        <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_den" name="shopdetail_en" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote");?>"></textarea>
+                                                                        <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_den" name="pro_den" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote");?>"></textarea>
                                                                       </div>
                                                                       <label for="inputslang" class="col-lg-1 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="35" height="25" border="0"></label>
                                                       </div>
@@ -166,7 +166,7 @@ body {
                                                       <div class="form-group">
                                                             <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("p_price");?></label>
                                                             <div class="col-lg-2 col-sm-5">
-                                                              <input type="text" id="p_price" class="form-control animated fadeInDown" name="product_price"  value="">
+                                                              <input type="text" id="p_price" class="form-control animated fadeInDown" name="p_price"  value="">
                                                             </div>
                                                             <div class="col-lg-2" ><label style="font-size:15pt;"><?=$this->lang->line("monetary");?></label></div>
 
@@ -175,7 +175,7 @@ body {
                                                           <div class="form-group">
                                                             <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("p_quantity");?></label>
                                                             <div class="col-lg-2 col-sm-5">
-                                                              <input type="text" class="form-control animated fadeInDown" name="product_quantity" value="">
+                                                              <input type="text" class="form-control animated fadeInDown" name="p_quantity" value="">
                                                             </div>
                                                             </div>
 
@@ -183,12 +183,10 @@ body {
                                                           <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("p_status");?></label>
                                                           <div class="col-lg-3 col-sm-5">
                                                             
-                                                             <select class="form-control animated fadeInDown">
-                                                                  <option value="one">One</option>
-                                                                  <option value="two">Two</option>
-                                                                  <option value="three">Three</option>
-                                                                  <option value="four">Four</option>
-                                                                  <option value="five">Five</option>
+                                                             <select class="form-control animated fadeInDown" name="p_status">
+                                                                  <option value="1"><?=$this->lang->line("p_status1");?></option>
+                                                                  <option value="2"><?=$this->lang->line("p_status2");?></option>
+                                                                  
                                                              </select>
                                                         </div>
                                                         </div>
@@ -196,12 +194,13 @@ body {
                                                           <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft" ><?=$this->lang->line("pro_type");?></label>
                                                           <div class="col-lg-4 col-sm-5">
                                                             
-                                                             <select class="form-control animated fadeInDown" id="ptc" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-type_p");?>">
-                                                                  <option value="one">One</option>
-                                                                  <option value="two">Two</option>
-                                                                  <option value="three">Three</option>
-                                                                  <option value="four">Four</option>
-                                                                  <option value="five">Five</option>
+                                                             <select class="form-control animated fadeInDown" id="ptc" name="p_cate" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-type_p");?>">
+                                                                   <?php
+
+                                                                    for($i=0; $i<count($category_p); $i++){ 
+                                                                    echo "<option value=". $category_p[$i]['grouplang'].">".$category_p[$i]['product_category_name']."</option>";}
+                                                                    
+                                                                    ?>
                                                              </select>
                                                         </div>
                                                         </div>
@@ -244,12 +243,10 @@ body {
                                                                                   <th class="info" style="color:darkgreen"><div id="add_row" class=" btn glyphicon glyphicon-plus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-glim");?>"  ></div></th>
                                                                                  </tr>
                                                                                 <tr style="color:black" id="firstTr" class="animated fadeInDown">
-                                                                                <td class="warning"><div class="row"><div class="col-lg-1"></div> <div class="col-sm-6 col-md-4 col-lg-8" align="center"><div class="form-group animated fadeInDown"><div class="col-lg-12"><div class="fileinput fileinput-new" data-provides="fileinput"><div class="fileinput-new " ><img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:180px;width:180px;" ></div><div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div><div><span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="update_profile"></span><div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div></div></div></div></div></div></div></td>
+                                                                                <td class="warning"><div class="row"><div class="col-lg-1"></div> <div class="col-sm-6 col-md-4 col-lg-8" align="center"><div class="form-group animated fadeInDown"><div class="col-lg-12"><div class="fileinput fileinput-new" data-provides="fileinput"><div class="fileinput-new " ><img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:180px;width:180px;" ></div><div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div><div><span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="pic_gallery0"></span><div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div></div></div></div></div></div></div></td>
                                                                                 <td class="warning" style="font-size:11pt;" ></td>
                                                                                 <td class="warning" style="font-size:15pt;color:red" ></td>
-                                                                                <td><a class="deleteRow"></a>
-
-            </td>      
+                                                                                <td><a class="deleteRow"></a></td>      
                                                                                 </tr>
 
                                                                               <!-- On cells (`td` or `th`) -->
@@ -314,7 +311,7 @@ body {
                                   <div class="col-md-1 ">
 
                                           <h4><input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"  value="<?=$this->lang->line("addtype");?>" /></h4>
-
+                                         
                                            
                                    </div >
                                      <div class="col-md-1 "  >
@@ -342,14 +339,104 @@ body {
           <div class="col-lg-12  ">
              <div class="page-header-ff">
                       
-                    </div>
+                  </div>
                     </div>
                     </div>
 
 
    <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
+    
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+    <script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
+    <script>
+
+    $('#btn_add').click(function() {
+    $('#addproduct').submit();
+    });
+
+      $.validator.addMethod(
+       "regex",
+        function(value, element, regexp) {
+        var check = false;
+        return this.optional(element) || regexp.test(value);
+        },
+        "Please check your input."
+        );
+
+
+$("#addproduct").validate({
+  rules: {
+    p_name_en: {
+      required: true,
+      regex: /^([a-zA-Z0-9\s]|[-_])+$/
+    },
+    p_name_th: {
+      required: true,
+      regex: /^([ก-๙0-9\s]|[-_])+$/
+    },
+   
+    pro_den: {
+      required: true,
+      regex: /^([a-zA-Z0-9\s]|[-_])+$/
+      
+    },
+    pro_dth: {
+      required: true,
+      regex: /^([ก-๙0-9\s]|[-_])+$/
+    },
+    p_price: {
+      required: true,
+      regex: /^([0-9]|[.])+$/
+    },
+    p_quantity: {
+      required: true,
+      regex: /^([0-9])+$/
+    }
+
+  },
+  messages: {
+    p_name_en: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_emptyshop")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_pnameen")."</font>";?>"
+      
+    },
+    p_name_th: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_emptyshop")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_pnameth")."</font>";?>"
+      
+    },
+    
+    pro_den: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_pnameen")."</font>";?>"
+      
+    },
+    pro_dth: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_pnameth")."</font>";?>"
+      
+    },
+    p_price: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_price")."</font>";?>"
+      
+    },
+    p_quantity: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_quantity")."</font>";?>"
+      
+    }
+
+   
+  }
+
+
+});
+
+
+
+</script>
     <!--<script type="text/javascript">
 
             $(document).ready(function(){
@@ -364,15 +451,15 @@ body {
         </script> -->
 
         <script type="text/javascript">
-
+var sumcol;
 $(document).ready(function () {
     var counter = 1;
-
+    var sumcol = 1;
     $("#add_row").on("click", function () {
 
 
-        counter = $('#table_gallery tr').length - 2;
-        alert(counter);
+        //counter = $('#table_gallery tr').length - 2;
+        
 
         var newRow = $('<tr style="color:black" id="firstTr" class="animated fadeInDown">');
         var cols = "";
@@ -383,13 +470,59 @@ $(document).ready(function () {
         cols += '<td class="warning" style="font-size:15pt;color:red" ><h1><div id="remove_row" class=" btn glyphicon glyphicon-minus animated rubberBand" ></div></h1></td>';
         newRow.append(cols);
 
-        if (counter == 4) $('#add_row').attr('disabled', true).prop('value', "You've reached the limit");
+        if (counter == 5) $('#add_row').attr('disabled', true).prop('value', "You've reached the limit");
         $("table.order-list").append(newRow);
 
        
         $(".table").append(newRow);
         counter++;
+        sumcol = counter;
+
+        jQuery.ajax({
+        type: "POST",
+        url: "<?php echo site_url();?>backshop/cols/",
+        data: 'cols='+ sumcol,
+        cache: false,
+        success: function(response){
+        if(response == 1){
+   
+  
+        }else{
+  
+        }
+
+        }
+
+
     });
+
+       
+        
+  
+        
+    });
+
+   
+
+        jQuery.ajax({
+        type: "POST",
+        url: "<?php echo site_url();?>backshop/cols/",
+        data: 'cols='+ sumcol,
+        cache: false,
+        success: function(response){
+        if(response == 1){
+   
+  
+        }else{
+  
+        }
+
+        }
+
+
+    });
+
+    
 
      $(".table").on("click", "#remove_row", function (event) {
         $(this).closest("tr").remove();
