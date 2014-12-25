@@ -72,7 +72,8 @@ body {
 
                                               <div class="col-md-2">
 
-                                                 <h2><a href="<?php echo site_url('backshop/addproduct');?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a><div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick=""></div></h2>
+                                                 <h2><a href="<?php echo site_url('backshop/addproduct');?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a>
+                                                 <div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick="document.getElementById('ckb').submit();"></div></h2>
                                                  
                                               </div>
                                               <div>
@@ -83,7 +84,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="ckb">
+          <form id="ckb" action="<?php echo site_url('backshop/remove_product');?>" method="post">
             
 
              <div class="table-responsive">
