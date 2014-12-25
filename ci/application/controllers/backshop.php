@@ -374,6 +374,143 @@
 			
 		}
 
+		public function remove_product(){
+			$test=$this->input->post('checkall');
+			$test2=$this->input->post('check1');
+			if(!empty($this->input->post('check_list'))) {
+				$i = 0;
+    				foreach($this->input->post('check_list') as $check) {
+    				$i++;	
+
+            		 $data[$i]=$check; //echoes the value set in the HTML form for each checked checkbox.
+                         //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
+                         //in your case, it would echo whatever $row['Report ID'] is equivalent to.
+    				}
+    				
+    				for($j=1; $j<=count($data);$j++){ 
+     					
+    					
+    					//echo $data[$j].'<br>';
+    					$d[$j]=$this->shop->data_del($data[$j]);
+    					}
+    						//echo count($d);
+    						//print_r($d);
+    						for($j=1; $j<=count($d);$j++){
+    						$filename[$j] = "./uploads/products".'/'.$d[$j][0]['p_create_date'].'/'.$d[$j][0]['s_ID'].'/'.$d[$j][0]['p_ID'];
+                    		$filename1[$j]= "./uploads/products".'/'.$d[$j][0]['p_update_date'].'/'.$d[$j][0]['s_ID'].'/'.$d[$j][0]['p_ID'];
+      						}
+    					for($i=1;$i<=count($filename);$i++){
+    						if (file_exists($filename[$i])) {
+    							$files = glob($filename[$i].'/'.'*');
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+								rmdir($filename[$i]);
+
+    						}
+    						else{
+
+    							if (file_exists($filename1[$i])) {
+    							$files = glob($filename1[$i].'/'.'*');
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+								rmdir($filename1[$i]);
+
+    						}	
+    							
+    						}
+
+    						
+    					}
+
+    				for($j=1; $j<=count($data);$j++){
+    					
+    					
+    					$del=array('p_ID' => $data[$j]);
+    					$s=$this->shop->remove_product($del);
+    					if($s==0){
+    						$e=1;
+    						break;
+    					}else{
+    						$e=0;
+    					}
+    				}
+    				if($e==1){
+    					$s1=0;
+    				}else{
+    					$s1=1;
+    				} // delete product;
+    				
+    				for($j=1; $j<=count($data);$j++){
+    					
+    					
+    					$del=array('p_ID' => $data[$j]);
+    					$s=$this->shop->remove_product_cate_detail($del);
+    					if($s==0){
+    						$e=1;
+    						break;
+    					}else{
+    						$e=0;
+    					}
+    				}
+    				if($e==1){
+    					$s2=0;
+    				}else{
+    					$s2=1;
+    				}
+
+    				for($j=1; $j<=count($data);$j++){
+    					
+    					
+    					$del=array('p_ID' => $data[$j]);
+    					$s=$this->shop->remove_product_detail($del);
+    					if($s==0){
+    						$e=1;
+    						break;
+    					}else{
+    						$e=0;
+    					}
+    				}
+    				if($e==1){
+    					$s3=0;
+    				}else{
+    					$s3=1;
+    				}
+
+    				for($j=1; $j<=count($data);$j++){
+    					
+    					
+    					$del=array('p_ID' => $data[$j]);
+    					$s=$this->shop->remove_product_gallery($del);
+    					if($s==0){
+    						$e=1;
+    						break;
+    					}else{
+    						$e=0;
+    					}
+    				}
+    				if($e==1){
+    					$s4=0;
+    				}else{
+    					$s4=1;
+    				}
+
+    				if($s1==1&&$s2==1&&$s3==1&&$s4==1){
+    					
+    					
+    					redirect('backshop/productManage','refresh');
+    					
+    				}
+			}else{
+				
+				redirect('backshop/productManage','refresh');
+			}
+
+		}
+
 
 
 

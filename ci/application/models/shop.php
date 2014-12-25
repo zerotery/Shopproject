@@ -170,6 +170,43 @@
 			$this->db->delete('product_category',$del);
 		}
 
+		public function remove_product($del){
+			if($this->db->delete('product',$del)){
+				return 1;
+			}else{
+				return 0;
+			}
+
+		}
+
+		public function remove_product_cate_detail($del){
+			if($this->db->delete('product_category_detail',$del)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+		public function remove_product_detail($del){
+			if($this->db->delete('product_detail',$del)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+		public function remove_product_gallery($del){
+			if($this->db->delete('product_gallery',$del)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
+		public function data_del($data){
+			$sql="SELECT * FROM product WHERE p_ID='$data';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 
 		public function get_p_ID($s_ID){
 			
