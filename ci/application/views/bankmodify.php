@@ -82,7 +82,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="bank_choose" class="form-horizontal"  method="post" enctype="multipart/form-data" >
+          <form id="bank_choose" name="bankchoose" class="form-horizontal"  method="post" enctype="multipart/form-data" >
             
 
 
@@ -92,13 +92,14 @@ body {
                     <label  class="col-lg-2  col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("bank_select");?></label>
                     <div class="col-lg-2 col-xs-2 col-sm-2" style="color:black">
                      
-                       <select  name="order_status" style="width:250px;height:30px" class=" animated fadeInDown" id="bank_select">
-                        <option><?=$this->lang->line("wait_payment");?></option>
-                        <option><?=$this->lang->line("complete_payment");?></option>
-                        <option><?=$this->lang->line("wait_payment");?></option>
-                        <option><?=$this->lang->line("complete_payment");?></option>
-                        <option><?=$this->lang->line("wait_payment");?></option>
-                        <option><?=$this->lang->line("complete_payment");?></option>
+                       <select  name="bank_selected" style="width:250px;height:30px" class=" animated fadeInDown"  id="bank_select">
+                        <option><?=$this->lang->line("ktb");?></option>
+                        <option><?=$this->lang->line("scb");?></option>
+                        <option><?=$this->lang->line("bkb");?></option>
+                        <option><?=$this->lang->line("tmb");?></option>
+                        <option><?=$this->lang->line("krungsri");?></option>
+                        <option><?=$this->lang->line("kbank");?></option>
+                        <option><?=$this->lang->line("uob");?></option>
                                                 
                       </select>
                                                 
@@ -129,7 +130,7 @@ body {
                    
                     <div class="col-lg-2 col-xs-2 col-sm-2" style="color:black">
                      
-                       <select  name="order_status" style="width:250px;height:30px" class=" animated fadeInDown" id="acc_type">
+                       <select  name="acc_t" style="width:250px;height:30px" class=" animated fadeInDown" id="acc_type">
                         <option><?=$this->lang->line("acc_type1");?></option>
                         <option><?=$this->lang->line("acc_type2");?></option>
                         

@@ -150,7 +150,7 @@
  	$lang['warning2']="ขออภัยในความไม่สะดวก";
 
  	$lang['back']="กลับสู่หน้าหลัก";
- 	$lang['product_name_type']="ชื่อประเภทสินค้า";
+ 	$lang['product_name_type']="ชื่อสินค้า";
  	$lang['action']="การกระทำ";
  	$lang['modify']="แก้ไข";
  	$lang['p_type']="ประเภทสินค้า";
@@ -162,6 +162,8 @@
  	$lang['product_pic']="รูปสินค้า";
  	$lang['product_name']="ชื่อสินค้า :";
  	$lang['product_detail']="รายละเอียดสินค้า ";
+ 	
+
 
  	$lang['p_price']="ราคา ";
  	$lang['p_quantity']="จำนวนสินค้า ";
@@ -189,9 +191,9 @@
  	$lang['product-del']="ถ้าลบรูปแกลอลี่แล้วจะไม่สามารถเพิ่มได้ในหน้านี้";
 
 
- 	$lang['sale_command']="คำสั่งซื้อ";
- 	$lang['sale_command_l']="รายการคำสั่งซื้อ";
- 	$lang['sale_order_num']="รหัสคำสั่งซื้อ";
+ 	$lang['sell_command']="คำสั่งซื้อ";
+ 	$lang['sell_command_l']="รายการคำสั่งซื้อ";
+ 	$lang['sell_order_num']="รหัสคำสั่งซื้อ";
  	$lang['customer']="ชื่อลูกค้า";
  	$lang['order_status']="สถานะคำสั่งซื้อ";
  	$lang['order_price']="ราคารวม";
@@ -220,6 +222,13 @@
  	$lang['your_name']="ชื่อบัญชี";
 
  	$lang['bank_choose']="เลือกธนาคาร";
+ 	$lang['bkb']="ธ.กรุงเทพ จำกัด (มหาชน)"; 
+ 	$lang['ktb']="ธ.กรุงไทย จำกัด (มหาชน)"; 
+ 	$lang['krungsri']="ธ.กรุงศรีอยุธยา จำกัด (มหาชน)"; 
+ 	$lang['kbank']="ธ.กสิกรไทย จำกัด (มหาชน)"; 
+ 	$lang['tmb']="ธ.ทหารไทย จำกัด (มหาชน)"; 
+ 	$lang['scb']="ธ.ไทยพาณิชย์ จำกัด (มหาชน)"; 
+ 	$lang['uob']="ธ.ยูโอบี จำกัด (มหาชน)"; 
  	$lang['bank_select']="ชื่อธนาคาร";
  	$lang['bank_branch']="สาขา";
  	$lang['bank_account']="เลขบัญชี";
@@ -231,7 +240,21 @@
  	$lang['error_a_empty']="กรุณาใส่เลขบัญชีของคุณ";
  	$lang['error_n_empty']="กรุณาใส่ชื่อบัญชีของคุณ";
  	$lang['error_a_uc']="กรุณากรอกเลขบัญชีให้ครบถ้วน";
- 	
+
+ 	$lang['sell_report']="การขาย";
+ 	$lang['selling_report']="รายงานการขาย";
+ 	$lang['order_start']="วันที่เริ่มต้น";
+ 	$lang['order_end']="วันสิ้นสุด";
+ 	$lang['order_redetail']="รายละเอียด";
+
+ 	$lang['payment_report']="รายงานการชำระเงิน";
+ 	$lang['payment_date']="วันที่ชำระเงิน";
+ 	$lang['payment_time']="เวลาที่ชำระเงิน";
+ 	$lang['payment_bank']="ธนาคารที่โอนเงิน";
+ 	$lang['payment_price']="จำนวนเงิน";
+ 	$lang['payment_pic']="หลักฐานการชำระเงิน";
+ 	$lang['payment_detail']="รายละเอียดเพิ่มเติม";
+
 
 
 

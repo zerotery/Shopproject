@@ -79,7 +79,7 @@ body {
                                              </div>
                                              </div>
 
-                <form class="form-horizontal" name="product_type_select" id="profile" action="<?php echo site_url('backshop/add_cate'); ?>"  method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" name="editgallery" id="edit_g" action=""  method="post" enctype="multipart/form-data">
                     <fieldset >
 
                                <div class="form-group ">
@@ -118,18 +118,7 @@ body {
 
                     </fieldset>
                 </form>
-       <script type="text/javascript">
-                checked=false;
-                  function checkedAll (ckb) {var aa= document.getElementById('ckb'); if (checked == false)
-                    {
-                    checked = true
-                    }
-                    else {
-                    checked = false
-                    }
-                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
-                    }
-        </script>
+       
        
          
           </div>

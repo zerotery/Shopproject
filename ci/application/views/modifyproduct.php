@@ -246,7 +246,7 @@ body {
 
                                                                                   <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("gallery_name");?></font></th>
                                                                                   
-                                                                                  <th class="info" style="color:darkgreen"><div id="add_row" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-del");?>"  ></div></th>
+                                                                                  <th class="info" style="color:darkgreen"><div  id="add_row" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-del");?>"  ></div></th>
                                                                                  </tr>
 
 
@@ -307,18 +307,7 @@ body {
                                 </div>
                            </fieldset>
                 </form>
-                 <script type="text/javascript">
-                checked=false;
-                  function checkedAll (profile) {var aa= document.getElementById('profile'); if (checked == false)
-                    {
-                    checked = true
-                    }
-                    else {
-                    checked = false
-                    }
-                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
-                    }
-        </script>
+               
 
 
 
@@ -378,7 +367,18 @@ body {
    <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-
+  <script type="text/javascript">
+                checked=false;
+                  function checkedAll (profile) {var aa= document.getElementById('profile'); if (checked == false)
+                    {
+                    checked = true
+                    }
+                    else {
+                    checked = false
+                    }
+                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
+                    }
+        </script>
     
 
   
