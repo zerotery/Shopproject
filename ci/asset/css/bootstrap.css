@@ -5488,6 +5488,8 @@ button.close {
 .modal-backdrop.in {
   filter: alpha(opacity=50);
   opacity: .5;
+  
+
 }
 .modal-header {
   min-height: 16.42857143px;
@@ -5686,6 +5688,7 @@ button.close {
 }
 .popover-content {
   padding: 9px 14px;
+
   
 }
 
@@ -9705,4 +9708,5 @@ Licensed under the MIT license
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
 }
+
 

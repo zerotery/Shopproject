@@ -82,7 +82,7 @@ body {
                                             <li class="active"><a href="#home"><?=$this->lang->line("product_information1");?></a></li>
                                             
                                             <li><a href="#messages" data-easein="fadeInDown"><?=$this->lang->line("product_information2");?></a></li>
-                                            <li><a href="#settings" data-easein="fadeInUp"><?=$this->lang->line("product_gallery");?></a></li>
+                                            
                                           
                                         </ul>
 
@@ -215,83 +215,6 @@ body {
 
 
 
-
-                                            <div class="tab-pane" id="settings">
-
-                                                   <hr width="100%">
-                                                        <div class="bs-docs-section clearfix">
-
-                                                          
-                                                                <div class="row">
-                                                                <div class="col-lg-1"></div>
-                                                                  <div class="col-lg-10" style="border-style:solid;border-width:0px;">
-                                                                
-
-                                                                     <div class="table-responsive">
-
-                                                                        <form id="del" name="del" action="<?php echo site_url('backshop/test');?>" method="post">
-                                                                          <table class="table" id="table_gallery">
-                                                                            <!-- On rows -->
-                                                                              <tr class="active">
-                                                                                 <th class="info">
-                            
-                                                                                          <label ><input class="checkbox" type="checkbox" name="checkall" onclick="checkedAll();" value="deleteall"></label>
-                                                                                      
-                                                                                   </th>
-                                                                                 <th class="info">
-                                                                                    
-                                                                                        
-                                                                                 <font color="#FFFFFF"size="4pt"><?=$this->lang->line("gallery_pic");?></font>
-                                                                                    
-                                                                                 </th>
-
-                                                                                  <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("gallery_name");?></font></th>
-                                                                                  
-                                                                                  <th class="info" style="color:darkgreen"><div id="del_row" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-del");?>"  ></div></th>
-                                                                                 </tr>
-                                                                                 <?php
-                                                                                  for($i=0; $i<count($get_gallery); $i++){
-                                                                                    echo '<tr style="color:black">';
-                                                                                    echo '<td class="warning"><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$get_gallery[$i]['gallery_product_ID'].'"></label></td>';
-                                                                                    echo '<td class="warning" style="font-size:11pt" >';
-                                                                                    echo '<div class="row">';
-                                                                                    echo '<div class="col-lg-1"></div>';
-                                                                                    echo '<div class="col-sm-6 col-md-4 col-lg-8" align="center">';
-                                                                                    echo '<div class="form-group animated fadeInUp">';
-                                                                                    echo '<div class="col-lg-12 thumbnail">';
-                                                                                    echo '<img src="'.product.$data_p[0]['p_update_date'].'/'.$s_id.'/'.$data_p[0]['p_ID'].'/'.$get_gallery[$i]['pic_name'].'" class="img-responsive" style="height:160px;width:200px;">';
-                                                                                    echo '</div></div></div>';
-                                                                                    echo '</div>';
-                                                                                    echo '</td>';
-                                                                                    echo '<td class="warning" style="font-size:11pt;" >'.$get_gallery[$i]['pic_name'].'</td>';
-                                                                                    echo '<td class="warning" style="font-size:15pt" >['. anchor(site_url('backshop/modify_gallery').'/?pg_id='.$get_gallery[$i]['gallery_product_ID'].'',$this->lang->line("modify")).']</td>';
-                                                                                    echo '</tr>';
-                                                                                    }       
-                                                                                  ?>
-
-                                                                          </table>
-                                                                          </form>
-
-                                                                        </div>
-
-                                                                
-                                                                        
-
-                                                                  </div>
-                                                                  
-                                                                </div>
-                                                            </div>
-
-
-                                            
-                                          </div>
-
-
-
-
-
-
-
                                         </div>
                                       
 
@@ -299,7 +222,7 @@ body {
                                 </div>
                            </fieldset>
                 </form>
-                
+
 
 
 
@@ -359,20 +282,8 @@ body {
    <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-     <script type="text/javascript">
 
 
-                checked=false;
-                  function checkedAll (del) {var aa= document.getElementById('mod_product'); if (checked == false)
-                    {
-                    checked = true
-                    }
-                    else {
-                    checked = false
-                    }
-                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
-                    }
-        </script>
      <script>
 
 
@@ -381,6 +292,7 @@ body {
                       });
 
       </script>
+
     
 
   

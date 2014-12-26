@@ -43,7 +43,7 @@ body {
 
          <ol class="breadcrumb" style="background-color:#777;">
               <li><a href="<?php echo site_url('backshop/gobackshop');?>" style="color: white"><?=$this->lang->line("home");?></a></li>
-              <li><a href="<?php echo site_url('backshop/orderManage');?>" style="color: white"><?=$this->lang->line("sale_command");?></a></li>
+              <li><a href="<?php echo site_url('backshop/orderManage');?>" style="color: white"><?=$this->lang->line("sell_command");?></a></li>
           </ol>
           
           
@@ -110,15 +110,15 @@ body {
                                                <div class="form-group ">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("ordercode");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft">A111</label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="ordercode" >A111</label>
                                                 
                                                 
                                               </div>
                                             </div>
                                             <div class="form-group">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("customer_show");?></label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" ><?=$this->lang->line("customer_show");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-8 control-label animated fadeInLeft">นายธนากร พรพรรณนุกูล</label>
+                                              <label  class="col-lg-8 control-label animated fadeInLeft" id="customer_show">นายธนากร พรพรรณนุกูล</label>
                                                 
                                                 
                                               </div>
@@ -126,27 +126,27 @@ body {
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("order_sprice");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft">3000</label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="order_price">3000</label>
                                               </div>
                                             </div>
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("ip_cusorder");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft">192.168.1.1</label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="ip_cusorder" >192.168.1.1</label>
                                               </div>
                                             </div>
                                            
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("adddates");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft">22/12/2014</label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="adddate">22/12/2014</label>
                                               </div>
                                             </div>
 
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("modidates");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft">23/12/2014</label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="modidate">23/12/2014</label>
 
                                               </div>
                                             </div>
@@ -157,7 +157,7 @@ body {
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("email");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-5 control-label animated fadeInLeft">bas@hotmail.com</label>
+                                              <label  class="col-lg-5 control-label animated fadeInLeft" id="oc_email">bas@hotmail.com</label>
 
                                                </div>
                                             </div>

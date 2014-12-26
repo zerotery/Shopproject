@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap-datetimepicker.css">
 <style>
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -41,7 +42,7 @@ body {
 
           <ol class="breadcrumb" style="background-color:#777;">
               <li><a href="<?php echo site_url('backshop/gobackshop');?>" style="color: white"><?=$this->lang->line("home");?></a></li>
-              <li><a href="<?php echo site_url('backshop/orderManage');?>" style="color: white"><?=$this->lang->line("sale_command");?></a></li>
+              <li><a href="<?php echo site_url('backshop/orderManage');?>" style="color: white"><?=$this->lang->line("sell_command");?></a></li>
               
           </ol>
           
@@ -63,21 +64,21 @@ body {
                   </div>
                  <div class="row">
                   <div class="form-group animated fadeInLeft" >
-                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("sale_order_num");?></label>
+                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("sell_order_num");?></label>
                     <div class="col-lg-2  col-sm-1">
-                      <input type="text" id="fname" class="form-control" name="ordercode" style="width:84px;height:25px" >
+                      <input type="text" id="ocode" class="form-control" name="ordercode" style="width:84px;height:25px" >
                     </div>
 
                   
                     <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("customer");?></label>
                     <div class="col-lg-1 col-sm-1">
-                      <input type="text" id="fname" class="form-control" name="customer" style="width:150px;height:25px" >
+                      <input type="text" id="cname" class="form-control" name="customer" style="width:150px;height:25px" >
                     </div>
                   
                   
                     <label  class=" col-lg-2 col-sm-3 control-label"><?=$this->lang->line("order_status");?></label>
                     <div class="col-lg-1 col-xs-2 col-sm-3" style="color:black">
-                       <select  name="order_status" style="width:120px;height:25px">
+                       <select  name="order_status" id="order_stat" style="width:135px;height:25px">
                         <option><?=$this->lang->line("wait_payment");?></option>
                         <option><?=$this->lang->line("complete_payment");?></option>
                     
@@ -90,14 +91,21 @@ body {
                  
                    <div class="form-group animated fadeInLeft" >
                     <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("add_date");?></label>
-                    <div class="col-lg-1  col-sm-1">
-                      <input type="text" id="fname" class="form-control" name="add_date" style="width:115px;height:25px" >
+                    <div class="col-lg-1  col-sm-1 input-group date" id='datetimepicker1'>
+                      <input type="text" id="add_date" class="form-control" name="adddate" style="width:150px;height:25px"  >
+                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
+                    </span> 
                     
                   </div>
-                  
-                    <label  class="col-lg-2  col-sm-3 control-label"><?=$this->lang->line("modify_date");?></label>
-                    <div class="col-lg-3  col-sm-3">
-                      <input type="text" id="fname" class="form-control" name="modify_date" style="width:115px;height:25px" >
+                   <div class="form-group"></div>
+                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("modify_date");?></label>
+                    <div class="col-lg-1  col-sm-3 input-group date" id='datetimepicker2'>
+                     
+                      <input type="text" id="modify_date" class="form-control" name="modifydate" style="width:150px;height:25px"  >
+                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
+                    </span>
+
+                    </div>
                     </div>
                   
                  
@@ -106,7 +114,7 @@ body {
                           <button type="submit" class="btn btn-primary" style="width:70px;height:32px;"><?=$this->lang->line("order_search");?></button>
                           </div>
                         </div>
-                        </div>
+                 
                   
                   
 
@@ -123,7 +131,7 @@ body {
                  <div class="page-header-bp ">
                                               <div class="row">
                                               <div class="col-md-10 ">
-                                                 <h3><?=$this->lang->line("sale_command_l");?></h3>
+                                                 <h3><?=$this->lang->line("sell_command_l");?></h3>
                                               </div>
 
                                             
@@ -192,18 +200,7 @@ body {
                 </div>
                 </form>
 
-       <script type="text/javascript">
-                checked=false;
-                  function checkedAll (cko) {var aa= document.getElementById('cko'); if (checked == false)
-                    {
-                    checked = true
-                    }
-                    else {
-                    checked = false
-                    }
-                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
-                    }
-        </script>
+       
        
          
           </div>
@@ -225,6 +222,26 @@ body {
     <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+    <script src="<?php echo JS_URL;?>moment.js"></script>
+    <script src="<?php echo JS_URL;?>bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript">
+                checked=false;
+                  function checkedAll (cko) {var aa= document.getElementById('cko'); if (checked == false)
+                    {
+                    checked = true
+                    }
+                    else {
+                    checked = false
+                    }
+                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
+                    }
+        </script>
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({pickTime: false});
+                $('#datetimepicker2').datetimepicker({pickTime: false});
+            });
+        </script>
     
     </body>
     

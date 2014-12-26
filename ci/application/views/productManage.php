@@ -102,6 +102,7 @@ body {
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("p_quantity");?></font></th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("p_status");?></font></th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("action");?></font></th>
+
                          </tr>
 
                          <?php
@@ -128,7 +129,8 @@ body {
                                 echo '<td class="warning" style="font-size:11pt" >'.$dataproduct[$i][0]['p_price'].'</td>';
                                 echo '<td class="warning" style="font-size:11pt" >'.$dataproduct[$i][0]['p_quantity'].'</td>';
                                 echo '<td class="warning" style="font-size:11pt" >'.$dataproduct[$i][0]['product_status'].'</td>';
-                                echo '<td class="warning" style="font-size:15pt" >['. anchor(site_url('backshop/modifyproduct').'/?p_id='.$dataproduct[$i][0]['p_ID'].'',$this->lang->line("modify")).']</td>';
+
+                                echo '<td class="warning" style="font-size:15pt" >['. anchor(site_url('backshop/modifyproduct').'/?p_id='.$dataproduct[$i][0]['p_ID'].'',$this->lang->line("modify")).']['. anchor(site_url('backshop/edit_gallery').'/?p_id='.$dataproduct[$i][0]['p_ID'].'',$this->lang->line("modi_product_gallery")).']</td>';
                                 echo '</tr>';
                                }       
 
@@ -138,18 +140,7 @@ body {
                   </table>
                 </div>
                 </form>
-       <script type="text/javascript">
-                checked=false;
-                  function checkedAll (ckb) {var aa= document.getElementById('ckb'); if (checked == false)
-                    {
-                    checked = true
-                    }
-                    else {
-                    checked = false
-                    }
-                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
-                    }
-        </script>
+      
        
          
           </div>
@@ -168,7 +159,18 @@ body {
     <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-    
+     <script type="text/javascript">
+                checked=false;
+                  function checkedAll (ckb) {var aa= document.getElementById('ckb'); if (checked == false)
+                    {
+                    checked = true
+                    }
+                    else {
+                    checked = false
+                    }
+                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
+                    }
+        </script>
     </body>
     
     

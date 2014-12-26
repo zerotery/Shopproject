@@ -143,7 +143,7 @@
  	$lang['warning2']="Sorry,for the inconvenience.";
  	$lang['back']="Back to homepage";
 
- 	$lang['product_name_type']="Product type name ";
+ 	$lang['product_name_type']="Product name ";
  	$lang['action']="Action";
  	$lang['modify']="modify";
  	$lang['p_type']="Product Category";
@@ -154,6 +154,8 @@
  	
  	$lang['product_pic']="Product image";
  	$lang['product_name']="Product name :";
+ 	$lang['modi_product_gallery']="gallery";
+ 	$lang['modi_product_gallery2']="Modify gallery";
  	$lang['product_detail']="Product detail :";
  	$lang['p_price']="Price ";
  	$lang['p_quantity']="Quantity ";
@@ -178,9 +180,9 @@
  	$lang['gallery_modify']="Modify product image";
  	$lang['product-del']="If you delete gallery image.You can't add gallery image in this page.";
 
- 	$lang['sale_command']="order";
- 	$lang['sale_command_l']="order List";
- 	$lang['sale_order_num']="order code";
+ 	$lang['sell_command']="order";
+ 	$lang['sell_command_l']="order List";
+ 	$lang['sell_order_num']="order code";
  	$lang['customer']="customer";
  	$lang['order_status']="order status";
  	$lang['order_price']="total price";
@@ -193,6 +195,13 @@
  	$lang['wait_payment']="waiting payment";
 
  	$lang['detail_order']="Detail";
+ 	$lang['bkb']="Bangkok Bank (Bangkokbank) PCL."; 
+ 	$lang['ktb']="Krungthai Bank (KTB) PCL."; 
+ 	$lang['krungsri']="Bank of Ayudhya (Krungsri) PCL."; 
+ 	$lang['kbank']="Kasikorn BANK (Kbank) PCL.";  
+ 	$lang['tmb']="TMB Bank PCL."; 
+ 	$lang['scb']="The Siam Commercial Bank (SCB) PCL."; 
+ 	$lang['uob']="United Overseas Bank (UOB) PCL.";
  	$lang['ordercode']="order code :";
  	$lang['customer_show']="customer :";
  	$lang['order_sprice']="total price :";
@@ -221,6 +230,23 @@
  	$lang['error_a_empty']="Please enter your bank account number.";
  	$lang['error_n_empty']="Please enter your account name.";
  	$lang['error_a_uc']="Bank account number is not complete.";
+
+
+
+ 	$lang['sell_report']="selling";
+ 	$lang['selling_report']="Sales Report";
+ 	$lang['order_start']="start date";
+ 	$lang['order_end']="end date";
+ 	$lang['order_redetail']="detail";
+
+
+ 	$lang['payment_report']="Payment report";
+ 	$lang['payment_date']="payment date";
+ 	$lang['payment_time']="payment time";
+ 	$lang['payment_bank']="bank transfer";
+ 	$lang['payment_price']="payment amount";
+ 	$lang['payment_pic']="evidence of payment";
+ 	$lang['payment_detail']="other detail";
 
 
 

@@ -39,8 +39,8 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown"><?=$this->lang->line("report");?><b class="caret"></b></a>
         <ul class="dropdown-menu">
-        <li><a href="#"><?=$this->lang->line("selling");?></a></li>
-        <li><a href="#"><?=$this->lang->line("payment");?></a></li>
+        <li><a href="<?php echo site_url('backshop/sellreport');?>"><?=$this->lang->line("selling");?></a></li>
+        <li><a href="<?php echo site_url('backshop/paymentreport');?>"><?=$this->lang->line("payment");?></a></li>
         <li><a href="#"><?=$this->lang->line("mem_shop");?></a></li>
         </ul>
       </li>

@@ -88,7 +88,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="ckb" action="<?php echo site_url('backshop/remove_productType');?>" method="post" >
+          <form id="ckb" name="bankmanage"  method="post" >
             
 
              <div class="table-responsive animated FadeInDown">
@@ -132,18 +132,7 @@ body {
                   </table>
                 </div>
                 </form>
-       <script type="text/javascript">
-                checked=false;
-                  function checkedAll (ckb) {var aa= document.getElementById('ckb'); if (checked == false)
-                    {
-                    checked = true
-                    }
-                    else {
-                    checked = false
-                    }
-                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
-                    }
-        </script>
+      
        
          
           </div>
@@ -162,6 +151,18 @@ body {
     <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+     <script type="text/javascript">
+                checked=false;
+                  function checkedAll (ckb) {var aa= document.getElementById('ckb'); if (checked == false)
+                    {
+                    checked = true
+                    }
+                    else {
+                    checked = false
+                    }
+                    for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
+                    }
+        </script>
     
     </body>
     
