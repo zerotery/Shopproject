@@ -331,13 +331,7 @@
 				$namepic[$i]=$this->shop->get_gallery($p_id[$i]['p_ID']);
 
 			}
-			//print_r($result[0][0]) ;
-			//echo "<br>";
-			//print_r($result[1][0]);
-			//echo "<br>";
-			//print_r($namepic[1]);
-
-			//echo count($result);
+			
 			$data['shopid']=$s_id;
 			$data['nameshop']=$shop[0]['shop_name'];
 			$data['dataproduct']=$result;
@@ -872,19 +866,51 @@
 			$this->login_system->checklogin();
 			
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
+			
+			$p_id=$this->input->get('p_id');
+			if($p_id!=NULL){
+			$this->session->set_userdata('p_id',$p_id);
 			}
+
+			$p_id=$this->session->userdata('p_id');
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
-			
+			//echo "$p_id";
+			$result=$this->shop->dataproduct($p_id);
+			$namepic=$this->shop->get_gallery($p_id);
+			$s_ID=$shop[0]['s_ID'];
+			$datatype=$this->shop->get_ptype($s_ID);
+			$datadetail=$this->shop->get_product_detail($p_id);
+			$get_gallery=$this->shop->get_pgallery($p_id);
+			print_r($get_gallery);
+			echo count($get_gallery).'<br>';
+			$data['category_p']=$datatype;
+			$data['data_p']=$result;
+			$data['data_pn']=$namepic;
+			$data['s_id']=$s_ID;
+			$data['detail']=$datadetail;
+			$data['get_gallery']=$get_gallery;
+			print_r($result);
+			//echo '<br>';
+			//print_r($namepic);
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('modifyproduct',$data);
 			
 			
 		}
+
+		public function test(){
+			$test=$this->input->post('checkall');
+			echo "$test";
+		}
+
+		public function test2(){
+			$test=$this->input->post('checkall');
+			echo "test2";
+		}
+
+
 
 		public function modify_gallery(){
 			$lang=$this->load_language->lang();

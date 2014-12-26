@@ -230,6 +230,18 @@
 			return $query;
 		}
 
+		public function get_product_detail($p_id){
+			$sql="SELECT product_name,product_detail,lang_ID FROM product_detail WHERE p_ID='$p_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_pgallery($p_id){
+			$sql="SELECT * FROM product_gallery WHERE p_ID='$p_id' AND pic_name!='main_product.jpg';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 		public function get_gallery($p_id){
 			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' AND pic_name='main_product.jpg';";
 			$query=$this->db->query($sql)->result_array();
