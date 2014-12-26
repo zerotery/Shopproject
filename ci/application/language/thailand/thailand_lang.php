@@ -162,6 +162,8 @@
  	$lang['product_pic']="รูปสินค้า";
  	$lang['product_name']="ชื่อสินค้า :";
  	$lang['product_detail']="รายละเอียดสินค้า ";
+ 	$lang['modi_product_gallery']="แกลลอลี่";
+ 	$lang['modi_product_gallery2']="แก้ไข แกลลอลี่";
  	
 
 

@@ -44,6 +44,8 @@ define("BI","https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/");
 
 define("logo_pic","http://localhost/Shopproject/ci/asset/img/");
 define("upload","http://localhost/Shopproject/ci/uploads/profiles/");
+define("product","http://localhost/Shopproject/ci/uploads/products/");
+
 define("private_key","Tbshop2014");
 
 define("JS_upload","http://localhost/Shopproject/ci/asset/js/uploadGallery/");

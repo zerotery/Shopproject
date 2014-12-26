@@ -154,6 +154,8 @@
  	
  	$lang['product_pic']="Product image";
  	$lang['product_name']="Product name :";
+ 	$lang['modi_product_gallery']="gallery";
+ 	$lang['modi_product_gallery2']="Modify gallery";
  	$lang['product_detail']="Product detail :";
  	$lang['p_price']="Price ";
  	$lang['p_quantity']="Quantity ";

@@ -318,10 +318,24 @@
 			$this->session->set_userdata('id',$id);
 			}
 			$idset=$this->session->userdata('id');
-			
+			$result=null;
+			$namepic=null;
 			$shop=$this->shop->getshop($idset);
+			//print_r($shop);
+			$s_id=$shop[0]['s_ID'];
+			$p_id=$this->shop->getall_pid($s_id);
+
+			for($i=0;$i<count($p_id);$i++){
+
+				$result[$i]=$this->shop->dataproduct($p_id[$i]['p_ID']);
+				$namepic[$i]=$this->shop->get_gallery($p_id[$i]['p_ID']);
+
+			}
 			
+			$data['shopid']=$s_id;
 			$data['nameshop']=$shop[0]['shop_name'];
+			$data['dataproduct']=$result;
+			$data['namepic']=$namepic;
 			$this->load->view('productManage',$data);
 			
 			
@@ -352,6 +366,143 @@
 			$this->load->view('addproduct',$data);
 			
 			
+		}
+
+		public function remove_product(){
+			$test=$this->input->post('checkall');
+			$test2=$this->input->post('check1');
+			if(!empty($this->input->post('check_list'))) {
+				$i = 0;
+    				foreach($this->input->post('check_list') as $check) {
+    				$i++;	
+
+            		 $data[$i]=$check; //echoes the value set in the HTML form for each checked checkbox.
+                         //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
+                         //in your case, it would echo whatever $row['Report ID'] is equivalent to.
+    				}
+    				
+    				for($j=1; $j<=count($data);$j++){ 
+     					
+    					
+    					//echo $data[$j].'<br>';
+    					$d[$j]=$this->shop->data_del($data[$j]);
+    					}
+    						//echo count($d);
+    						//print_r($d);
+    						for($j=1; $j<=count($d);$j++){
+    						$filename[$j] = "./uploads/products".'/'.$d[$j][0]['p_create_date'].'/'.$d[$j][0]['s_ID'].'/'.$d[$j][0]['p_ID'];
+                    		$filename1[$j]= "./uploads/products".'/'.$d[$j][0]['p_update_date'].'/'.$d[$j][0]['s_ID'].'/'.$d[$j][0]['p_ID'];
+      						}
+    					for($i=1;$i<=count($filename);$i++){
+    						if (file_exists($filename[$i])) {
+    							$files = glob($filename[$i].'/'.'*');
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+								rmdir($filename[$i]);
+
+    						}
+    						else{
+
+    							if (file_exists($filename1[$i])) {
+    							$files = glob($filename1[$i].'/'.'*');
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+								rmdir($filename1[$i]);
+
+    						}	
+    							
+    						}
+
+    						
+    					}
+
+    				for($j=1; $j<=count($data);$j++){
+    					
+    					
+    					$del=array('p_ID' => $data[$j]);
+    					$s=$this->shop->remove_product($del);
+    					if($s==0){
+    						$e=1;
+    						break;
+    					}else{
+    						$e=0;
+    					}
+    				}
+    				if($e==1){
+    					$s1=0;
+    				}else{
+    					$s1=1;
+    				} // delete product;
+    				
+    				for($j=1; $j<=count($data);$j++){
+    					
+    					
+    					$del=array('p_ID' => $data[$j]);
+    					$s=$this->shop->remove_product_cate_detail($del);
+    					if($s==0){
+    						$e=1;
+    						break;
+    					}else{
+    						$e=0;
+    					}
+    				}
+    				if($e==1){
+    					$s2=0;
+    				}else{
+    					$s2=1;
+    				}
+
+    				for($j=1; $j<=count($data);$j++){
+    					
+    					
+    					$del=array('p_ID' => $data[$j]);
+    					$s=$this->shop->remove_product_detail($del);
+    					if($s==0){
+    						$e=1;
+    						break;
+    					}else{
+    						$e=0;
+    					}
+    				}
+    				if($e==1){
+    					$s3=0;
+    				}else{
+    					$s3=1;
+    				}
+
+    				for($j=1; $j<=count($data);$j++){
+    					
+    					
+    					$del=array('p_ID' => $data[$j]);
+    					$s=$this->shop->remove_product_gallery($del);
+    					if($s==0){
+    						$e=1;
+    						break;
+    					}else{
+    						$e=0;
+    					}
+    				}
+    				if($e==1){
+    					$s4=0;
+    				}else{
+    					$s4=1;
+    				}
+
+    				if($s1==1&&$s2==1&&$s3==1&&$s4==1){
+    					
+    					
+    					redirect('backshop/productManage','refresh');
+    					
+    				}
+			}else{
+				
+				redirect('backshop/productManage','refresh');
+			}
+
 		}
 
 
@@ -607,13 +758,22 @@
               	  $ap5=1;
               	  }
               	  	//resize picture
-              	   $s_id=$this->session->userdata('id');
+              	   	$s_id=$this->session->userdata('id');
                    	date_default_timezone_set("Asia/Bangkok");
                    	$date = date('Y-m-d');
                    
                    			$numsave=$s_id%1000;
                    			$numproduct=$p_id%1000;
                    			//echo "$numproduct";
+                   					  $filename0 = "./uploads/products";
+
+                                      if (file_exists($filename0)) {
+                                      
+                                      }else {
+                                      mkdir("./uploads/products");
+                                      
+                                      }
+
                                       $filename = "./uploads/products/".$date;
 
                                       if (file_exists($filename)) {
@@ -706,19 +866,51 @@
 			$this->login_system->checklogin();
 			
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
+			
+			$p_id=$this->input->get('p_id');
+			if($p_id!=NULL){
+			$this->session->set_userdata('p_id',$p_id);
 			}
+
+			$p_id=$this->session->userdata('p_id');
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
-			
+			//echo "$p_id";
+			$result=$this->shop->dataproduct($p_id);
+			$namepic=$this->shop->get_gallery($p_id);
+			$s_ID=$shop[0]['s_ID'];
+			$datatype=$this->shop->get_ptype($s_ID);
+			$datadetail=$this->shop->get_product_detail($p_id);
+			$get_gallery=$this->shop->get_pgallery($p_id);
+			print_r($get_gallery);
+			echo count($get_gallery).'<br>';
+			$data['category_p']=$datatype;
+			$data['data_p']=$result;
+			$data['data_pn']=$namepic;
+			$data['s_id']=$s_ID;
+			$data['detail']=$datadetail;
+			$data['get_gallery']=$get_gallery;
+			print_r($result);
+			//echo '<br>';
+			//print_r($namepic);
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('modifyproduct',$data);
 			
 			
 		}
+
+		public function test(){
+			$test=$this->input->post('checkall');
+			echo "$test";
+		}
+
+		public function test2(){
+			$test=$this->input->post('checkall');
+			echo "test2";
+		}
+
+
 
 		public function modify_gallery(){
 			$lang=$this->load_language->lang();
@@ -859,6 +1051,26 @@
 			
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('payment_report',$data);
+			
+			
+		}
+
+		public function edit_gallery(){
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('edit_gallery',$data);
 			
 			
 		}

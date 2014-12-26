@@ -170,6 +170,43 @@
 			$this->db->delete('product_category',$del);
 		}
 
+		public function remove_product($del){
+			if($this->db->delete('product',$del)){
+				return 1;
+			}else{
+				return 0;
+			}
+
+		}
+
+		public function remove_product_cate_detail($del){
+			if($this->db->delete('product_category_detail',$del)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+		public function remove_product_detail($del){
+			if($this->db->delete('product_detail',$del)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+		public function remove_product_gallery($del){
+			if($this->db->delete('product_gallery',$del)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
+		public function data_del($data){
+			$sql="SELECT * FROM product WHERE p_ID='$data';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 
 		public function get_p_ID($s_ID){
 			
@@ -178,6 +215,46 @@
 			return $query;
 
 		}
+
+		public function getall_pid($s_id){
+			$sql="SELECT p_ID FROM product WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function dataproduct($p_id){
+			$lang=$this->session->userdata('langdata');
+
+			$sql="SELECT product.p_ID,product.p_price,product.p_update_date,product.p_quantity,product_detail.product_name,product_detail.product_status FROM product,product_detail WHERE product.p_ID=product_detail.p_ID AND product.p_ID='$p_id' AND product_detail.lang_ID='$lang';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_product_detail($p_id){
+			$sql="SELECT product_name,product_detail,lang_ID FROM product_detail WHERE p_ID='$p_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_pgallery($p_id){
+			$sql="SELECT * FROM product_gallery WHERE p_ID='$p_id' AND pic_name!='main_product.jpg';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_gallery($p_id){
+			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' AND pic_name='main_product.jpg';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+			/*if(empty($query)){
+				return "item.png";
+			}else{
+				return "main_product.jpg";
+			}*/
+			
+
+		}
+
 
 		public function insertcatep($insert_productcateP_en,$insert_productcateP_th){
 			if($this->db->insert('product_category_detail',$insert_productcateP_en)){
