@@ -41,7 +41,7 @@
         <ul class="dropdown-menu">
         <li><a href="<?php echo site_url('backshop/sellreport');?>"><?=$this->lang->line("selling");?></a></li>
         <li><a href="<?php echo site_url('backshop/paymentreport');?>"><?=$this->lang->line("payment");?></a></li>
-        <li><a href="#"><?=$this->lang->line("mem_shop");?></a></li>
+        <li><a href="<?php echo site_url('backshop/memberreport');?>"><?=$this->lang->line("mem_shop");?></a></li>
         </ul>
       </li>
 

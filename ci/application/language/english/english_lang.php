@@ -11,7 +11,7 @@
 	$lang['footer4']="";
 	$lang['noshop']="You have no shop";
 	$lang['viewshop']="My shop";
-	$lang['home']="home";	
+	$lang['home']="Home";	
 	$lang['shop_name']="Shop name";
 	$lang['seeshop']="Go shop";
 	$lang['store']="back office";
@@ -247,6 +247,11 @@
  	$lang['payment_price']="payment amount";
  	$lang['payment_pic']="evidence of payment";
  	$lang['payment_detail']="other detail";
+
+ 	$lang['member_report']="Shop Member";
+ 	$lang['member_id']="member ID";
+ 	$lang['member_email']="e-mail";
+ 	$lang['member_list']="Member List";s
 
 
 

@@ -138,13 +138,12 @@ body {
                         <td class="warning" style="font-size:11pt" >22/12/2014</td>
                         <td class="warning" style="font-size:11pt" >13:20</td>
                         <td class="warning" style="font-size:11pt" >
-
                             <div class="row">
                               <div class="col-lg-1"></div>
                                 <div class="col-sm-6 col-md-4 col-lg-8" align="center">
                                    <div class="form-group animated fadeInUp">
                                      <div class="col-lg-12 thumbnail">
-                                         
+                                        
                                              <img src="<?php echo logo_pic;?>item.png" class="img-responsive " data-toggle="modal" data-target="#myModal1"  style="height:120px;width:130px;" >
                               
                                       </div>
@@ -249,10 +248,10 @@ body {
                                     <div class="modal-content " >
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" >&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">THEME 1</h4>
+                                        <h4 class="modal-title" id="myModalLabel"></h4>
                                       </div>
                                       <div class="modal-body">
-                                          <img src="<?php echo logo_pic;?>theme1.png" class="thumbnail img-responsive"  data-toggle="modal" data-target="#myModal" >
+                                          <img src="<?php echo logo_pic;?>item.png" class="thumbnail img-responsive"  data-toggle="modal" data-target="#myModal" >
 
                                       </div>
                                       <div class="modal-footer">
@@ -270,10 +269,10 @@ body {
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">THEME 2</h4>
+                                        <h4 class="modal-title" id="myModalLabel"></h4>
                                       </div>
                                       <div class="modal-body">
-                                         <img src="<?php echo logo_pic;?>theme2.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" >
+                                         <img src="<?php echo logo_pic;?>item.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" >
 
                                       </div>
                                       <div class="modal-footer">
@@ -289,11 +288,10 @@ body {
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
     <script src="<?php echo JS_URL;?>moment.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap-datetimepicker.js"></script>
-    
     <script type="text/javascript">
 
     </script>
-
+   
 
     <script type="text/javascript">
             $(function () {
