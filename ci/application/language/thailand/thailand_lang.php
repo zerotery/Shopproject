@@ -258,6 +258,16 @@
  	$lang['payment_detail']="รายละเอียดเพิ่มเติม";
 
 
+ 	$lang['member_report']="สมาชิกร้าน";
+ 	$lang['member_id']="ID สมาชิก";
+ 	$lang['member_email']="e-mail";
+ 	$lang['member_list']="รายชื่อลูกค้า";
+
+
+
+ 	
+
+
 
 
 
