@@ -42,7 +42,7 @@ body {
 
          <ol class="breadcrumb" style="background-color:#777;">
               <li><a href="<?php echo site_url('backshop/gobackshop');?>" style="color: white"><?=$this->lang->line("home");?></a></li>
-              <li><a href="<?php echo site_url('backshop/productType');?>" style="color: white"><?=$this->lang->line("product_type");?></a></li>
+              <li><a href="<?php echo site_url('backshop/productManage');?>" style="color: white"><?=$this->lang->line("product_management");?></a></li>
               
           </ol>
           
@@ -82,14 +82,18 @@ body {
                 <form class="form-horizontal" name="editgallery" id="edit_g" action=""  method="post" enctype="multipart/form-data">
                     <fieldset >
 
+                               
                                <div class="form-group ">
+
                                       <div class="row">
+                                          <div class="col-lg-5 "></div>
+
                                               
-                                                <div class="col-sm-6  col-lg-8" align="center">
+                                                <div class="col-sm-6  col-lg-7" align="center">
                                                    <div class="form-group animated fadeInUp">
                                                      <div class="col-lg-4">
                                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                          <div class="fileinput-new " >
+                                                          <div class="fileinput-new thumbnail " >
                                                             <img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="height:160px;width:180px;" >
                                                           </div>
                                                           <div class="fileinput-preview fileinput-exists thumbnail" style="width: 160px; height: 200px;"></div>
@@ -102,20 +106,18 @@ body {
                                                       </div>
                                                     </div>         
                                                 </div>
-
-                     
-                                      </div>
-                                </div>
-
-                                <div class="form-group ">
-                                   <div class="col-lg-1 col-sm-1 ">
-                                     <input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"  value="<?=$this->lang->line("save");?>" />
+                                               
                                    </div>
-                                   <div class="col-lg-1 col-sm-1">
-                                      <a class="btn btn-danger animated swing" href="<?php echo site_url('backshop/modifyproduct');?>"><?=$this->lang->line("cancel");?></a>
-                                </div>
-                                </div>  
-
+                             </div>
+                                  <div class="col-lg-5"></div>
+                                 <div class=" col-lg-1 col-sm-1 ">
+                                                  <input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"  value="<?=$this->lang->line("save");?>" />
+                                                </div>
+                                           <div class="col-lg-1 col-sm-1">
+                                              <a class="btn btn-danger animated swing" href="<?php echo site_url('backshop/edit_gallery');?>"><?=$this->lang->line("cancel");?></a>
+                                        </div>
+  
+                     
                     </fieldset>
                 </form>
        

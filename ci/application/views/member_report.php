@@ -42,7 +42,7 @@ body {
 
           <ol class="breadcrumb" style="background-color:#777;">
               <li><a href="<?php echo site_url('backshop/gobackshop');?>" style="color: white"><?=$this->lang->line("home");?></a></li>
-              <li><a href="<?php echo site_url('backshop/sellreport');?>" style="color: white"><?=$this->lang->line("sell_report");?></a></li>
+              <li><a href="<?php echo site_url('backshop/sellreport');?>" style="color: white"><?=$this->lang->line("member_report");?></a></li>
               
           </ol>
           
@@ -54,7 +54,7 @@ body {
         </div>
          
       </div>
-<form class="form-horizontal" name="s_report" id="report_s"   method="post" enctype="multipart/form-data">
+<form class="form-horizontal" name="m_report" id="report_m"   method="post" enctype="multipart/form-data">
 <fieldset >
    
        <div class="page-header" >
@@ -62,41 +62,28 @@ body {
                   <h3 id="formpersonal"><?=$this->lang->line("filter");?></h3>
                   </div>
                  <div class="row">
-                  <div class="form-group animated fadeInLeft" >
-                    
-
-                    
                   
-                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("order_start");?></label>
-                    <div class="col-lg-1 col-sm-1 input-group date" id='datetimepicker1'>
-                      <input type="text" id="start_date" class="form-control" name="startdate" style="width:150px;height:25px"  >
-                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
-                    </span>
-                    </div>
-                    </div>
-                    <div class="form-group animated fadeInLeft " >
-                  
-                    <label  class=" col-lg-1 col-sm-2 control-label"><?=$this->lang->line("order_end");?></label>
-                    <div class="col-lg-1 col-xs-2 col-sm-1 input-group date" id='datetimepicker2' >
-                      <input type="text" id="end_date" class="form-control" name="enddate" style="width:150px;height:25px"  >
-                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
-                    </span>
-
-                    </div>
-                    </div>
                     <div class="form-group animated fadeInLeft" >
-                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("sell_order_num");?></label>
-                    <div class="col-lg-2  col-sm-2">
-                      <input type="text" id="ocode" class="form-control" name="ordercode" style="width:84px;height:25px" >
+                    <label  class="col-lg-1 col-sm-2 control-label"><?=$this->lang->line("member_id");?></label>
+                    <div class="col-lg-1  col-sm-2">
+                      <input type="text" id="m_id" class="form-control" name="mem_id" style="width:130px;height:25px" >
                     </div>
+                    
+
+                     
+                    <label  class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("mem_name");?></label>
+                    <div class="col-lg-3  col-sm-4">
+                      <input type="text" id="m_name" class="form-control" name="mem_name" style="width:130px;height:25px" >
                     </div>
+                
 
                   
                   
                   
-                         <div class="col-lg-5 col-sm-3">
+                         <div class="col-lg-3 col-sm-2">
                           <button type="submit" class="btn btn-primary animated fadeInLeft"  style="width:75px;height:32px;"><?=$this->lang->line("order_search");?></button>
                           </div>
+                              </div>
                         </div>
                      
 
@@ -116,7 +103,7 @@ body {
                  <div class="page-header-bp ">
                                               <div class="row">
                                               <div class="col-md-10 ">
-                                                 <h3><?=$this->lang->line("selling_report");?></h3>
+                                                 <h3><?=$this->lang->line("member_list");?></h3>
                                               </div>
 
                                             
@@ -142,12 +129,10 @@ body {
                     <!-- On rows -->
                       <tr class="active">
                          
-                         <th class="info"> <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_start");?></font> </center></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_end");?></font></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("sell_order_num");?></font></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("product_name_s");?></font></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_price");?></font></th>
-                         
+                         <th class="info"> <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_id");?></font> </center></th>
+                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("mem_name");?></font></th>
+                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_email");?></font></th>
+                        
                         
                          </tr>
                      
@@ -155,20 +140,17 @@ body {
                       <!-- On cells (`td` or `th`) -->
                       <tr style="color:black">
                        
-                        <td class="warning" style="font-size:11pt" align="center" >7/12/2014</td>
-                        <td class="warning" style="font-size:11pt" >22/12/2014</td>
-                        <td class="warning" style="font-size:11pt" >A12354</td>
-                        <td class="warning" style="font-size:11pt" >เสื้อยืด A2z Holloween</td>
-                        <td class="warning" style="font-size:11pt" >5000</td>
-                   
+                        <td class="warning" style="font-size:11pt" align="center" >1321</td>
+                        <td class="warning" style="font-size:11pt" >Thanakorn</td>
+                        <td class="warning" style="font-size:11pt" >bas-123@hotmail.com</td>
+                        
                         
                       </tr>
                       <tr style="color:black">
-                         <td class="warning" style="font-size:11pt" align="center" >11/12/2014</td>
-                        <td class="warning" style="font-size:11pt" >22/12/2014</td>
-                        <td class="warning" style="font-size:11pt" >A12354</td>
-                        <td class="warning" style="font-size:11pt" >กางเกงยีน levis</td>
-                        <td class="warning" style="font-size:11pt" >1000</td>
+                         <td class="warning" style="font-size:11pt" align="center" >654654</td>
+                        <td class="warning" style="font-size:11pt" >Udomake </td>
+                        <td class="warning" style="font-size:11pt" >asdasdadsasd@sdfsdfsdf.com</td>
+                       
                       </tr>
                   </table>
                 </div>
