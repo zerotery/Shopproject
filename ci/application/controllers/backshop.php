@@ -876,24 +876,18 @@
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
-			//echo "$p_id";
+			
 			$result=$this->shop->dataproduct($p_id);
 			$namepic=$this->shop->get_gallery($p_id);
 			$s_ID=$shop[0]['s_ID'];
 			$datatype=$this->shop->get_ptype($s_ID);
 			$datadetail=$this->shop->get_product_detail($p_id);
-			$get_gallery=$this->shop->get_pgallery($p_id);
-			print_r($get_gallery);
-			echo count($get_gallery).'<br>';
+			
 			$data['category_p']=$datatype;
 			$data['data_p']=$result;
 			$data['data_pn']=$namepic;
 			$data['s_id']=$s_ID;
 			$data['detail']=$datadetail;
-			$data['get_gallery']=$get_gallery;
-			print_r($result);
-			//echo '<br>';
-			//print_r($namepic);
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('modifyproduct',$data);
 			
@@ -906,8 +900,42 @@
 		}
 
 		public function test2(){
-			$test=$this->input->post('checkall');
-			echo "test2";
+			$p_price=$this->input->post('p_price');
+            $p_quantity=$this->input->post('p_quantity');
+            date_default_timezone_set("Asia/Bangkok");
+            $p_update_date=date('Y-m-d');
+			$p_id=$this->session->userdata('p_id');
+			$cateid=$this->input->post('p_cate');
+			$p_status=$this->input->post('p_status');
+			$product_detail_en=$this->input->post('pro_den');
+            $product_detail_th=$this->input->post('pro_dth');
+            $product_name_en=$this->input->post('p_name_en');
+            $product_name_th=$this->input->post('p_name_th');
+
+           //start update product
+           $dataup_product=array(
+           		'p_price' => $p_price,
+           		'p_quantity' => $p_quantity,
+           		'p_update_date' => $p_update_date
+
+
+           	);
+           $where_product=array('p_ID' => $p_id );
+           $s_product=$this->shop->update_product($dataup_product,$where_product);
+           echo "$s_product";
+           //start update
+		   /*$findidmod=$this->shop->get_idpcate($cateid);
+		   $get_idcatedetail=$this->shop->get_catedetail($p_id);
+		   $id_gd_en=$get_idcatedetail[0]['product_cat_detail_ID'];
+		   $id_gd_th=$get_idcatedetail[1]['product_cat_detail_ID'];
+		   $idupdate_en=$findidmod[0]['product_category_ID'];
+		   $idupdate_th=$findidmod[1]['product_category_ID'];
+		   $test=$this->shop->update_cate_datail($idupdate_en,$id_gd_en);
+		   $test2=$this->shop->update_cate_datail($idupdate_th,$id_gd_th);
+		   echo "$test"." ".$test2;*/
+		   //end update cate.
+
+			//echo "$p_id"." ".$p_price." ".$p_quantity." ".$p_update_date." ".$cateid." ".$p_status." ".$product_detail_en." ".$product_detail_th." ".$product_name_en." ". $product_name_th;
 		}
 
 
@@ -1061,14 +1089,25 @@
 
 			$this->login_system->checklogin();
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
+			
+			$p_id=$this->input->get('p_id');
+			if($p_id!=NULL){
+			$this->session->set_userdata('p_id',$p_id);
 			}
+
+			$p_id=$this->session->userdata('p_id');
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
-			
+			//echo "$p_id";
+			$result=$this->shop->dataproduct($p_id);
+			$s_ID=$shop[0]['s_ID'];
+			$get_gallery=$this->shop->get_pgallery($p_id);
+			$data['data_p']=$result;
+			$data['s_id']=$s_ID;
+			$data['get_gallery']=$get_gallery;
+			//echo '<br>';
+			//print_r($namepic);
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('edit_gallery',$data);
 			

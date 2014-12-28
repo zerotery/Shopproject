@@ -306,7 +306,27 @@
 
 		}
 
+		public function get_catedetail($p_id){
+			$sql="SELECT product_cat_detail_ID FROM product_category_detail WHERE p_ID='$p_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
 
+		public function update_cate_datail($idupdate_en,$id_gd_en){
+			if($this->db->update('product_category_detail',array('product_category_ID' => $idupdate_en),array('product_cat_detail_ID' => $id_gd_en ))){
+				return 1;
+			}else{
+				return 0;
+			}
+
+		}
+		public function update_product($dataup_product,$where_product){
+			if($this->db->update('product',$dataup_product,$where_product)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
 
 
 
