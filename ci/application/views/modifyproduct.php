@@ -19,7 +19,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   }
-  </style>
+</style>
 
 
 </head>
@@ -74,26 +74,20 @@ body {
                                              </div>
      
                 <form class="form-horizontal" name="mod_product" id="mod_product" action="<?php echo site_url('backshop/test2');?>"   method="post" enctype="multipart/form-data">
-                    <fieldset >
-
-                               <div class="form-group col-lg-12">
-                                     
-                                         <ul class="nav nav-tabs nav-justified" id="myTab1">
+                  <fieldset>
+                    <div class="form-group col-lg-12">
+                        <ul class="nav nav-tabs nav-justified" id="myTab1">
                                             <li class="active"><a href="#home"><?=$this->lang->line("product_information1");?></a></li>
                                             
                                             <li><a href="#messages" data-easein="fadeInDown"><?=$this->lang->line("product_information2");?></a></li>
                                             
-                                          
-                                        </ul>
-
-                                        <div class="tab-content" id="tab-content1">
-                                            <div class="tab-pane active" id="home">
-                                             <div class="form-group"></div>
-                                              <div class="row">
-                                                        <div class="form-group">
-                                                         
-                                                           
-                                                              <div class="col-md-3" align="center">
+                        </ul>
+                        <div class="tab-content" id="tab-content1">
+                            <div class="tab-pane active" id="home">
+                              <div class="form-group"></div>
+                              <div class="row">
+                                <div class="form-group">
+                                     <div class="col-md-3" align="center">
                                                                  <div class="form-group animated fadeInUp">
                                                                    <div class="col-lg-12">
                                                                       <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -128,7 +122,7 @@ body {
                                                         <div class="form-group col-lg-8">
                                                         <div class="col-lg-3 col-sm-4"></div>
                                                         <div class="col-md-6 col-xs-6 col-sm-5">
-                                                            <input type="text" id="p_name_en" class="form-control animated fadeInLeft" name="product_name_en" value="<?php echo $detail[0]['product_name']; ?>"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product_pop-en");?>">
+                                                            <input type="text" id="p_name_en" class="form-control animated fadeInLeft" name="p_name_en" value="<?php echo $detail[0]['product_name']; ?>"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product_pop-en");?>">
                                                             </div>
                                                             <div class="col-lg-1 "><img src="<?php echo logo_pic;?>flag-en.jpg" width="35" height="25" border="0"></div>
                                                            </div>
@@ -149,37 +143,28 @@ body {
                                                                       </div>
                                                                       <label for="inputslang" class="col-lg-1 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="35" height="25" border="0"></label>
                                                       </div>
+                                </div>
+                              </div>
+                            </div>
 
-                                                 </div>
-                                                                </div>
-                                                           
-                                                            </div>
-                                                            
-                                                          
-
-                                     
-
-
-                                            <div class="tab-pane" id="messages">
-                                                  <div class="form-group"></div>
+                            <div class="tab-pane" id="messages">
+                              <div class="form-group"></div>
 
                                                       <div class="form-group">
                                                             <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("p_price");?></label>
                                                             <div class="col-lg-2 col-sm-5">
-                                                              <input type="text" id="p_price" class="form-control animated fadeInDown" name="product_price"  value="<?php echo $data_p[0]['p_price']; ?>">
+                                                              <input type="text" id="p_price" class="form-control animated fadeInDown" name="p_price"  value="<?php echo $data_p[0]['p_price']; ?>">
                                                             </div>
                                                             <div class="col-lg-2" ><label style="font-size:15pt;"><?=$this->lang->line("monetary");?></label></div>
 
                                                       </div>
-                                                            
-                                                          <div class="form-group">
+                                                      <div class="form-group">
                                                             <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("p_quantity");?></label>
                                                             <div class="col-lg-2 col-sm-5">
-                                                              <input type="text" class="form-control animated fadeInDown" name="product_quantity"  value="<?php echo $data_p[0]['p_quantity']; ?>">
+                                                              <input type="text" class="form-control animated fadeInDown" name="p_quantity"  value="<?php echo $data_p[0]['p_quantity']; ?>">
                                                             </div>
-                                                            </div>
-
-                                                          <div class="form-group ">
+                                                      </div>
+                                                       <div class="form-group ">
                                                           <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft"><?=$this->lang->line("p_status");?></label>
                                                           <div class="col-lg-3 col-sm-5">
                                                             
@@ -189,14 +174,14 @@ body {
                                                                   <option value="2"><?=$this->lang->line("p_status2");?></option>
                                                                   
                                                              </select>
-                                                             </select>
+                                                             
                                                         </div>
                                                         </div>
-                                                          <div class="form-group ">
+                                                        <div class="form-group ">
                                                           <label  class="col-lg-2 col-sm-2 control-label animated fadeInLeft" ><?=$this->lang->line("pro_type");?></label>
                                                           <div class="col-lg-4 col-sm-5">
                                                             
-                                                             <select class="form-control animated fadeInDown" id="ptc" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-type_p");?>">
+                                                             <select class="form-control animated fadeInDown" id="ptc" name="p_cate" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-type_p");?>">
                                                                    <?php
 
                                                                     for($i=0; $i<count($category_p); $i++){ 
@@ -207,38 +192,18 @@ body {
                                                         </div>
                                                         </div>
 
-                                              
+                            </div>
 
 
-                                            </div>
+                        </div>
 
+                    </div>
 
-
-
-                                        </div>
-                                      
-
-                                      
-                                </div>
-                           </fieldset>
+                  </fieldset>
                 </form>
-
-
-
-
-
-                                                          </div>
-                                            
-
-                               
-
-
-
-
-
-
-                                  <div class="col-lg-9"></div>
-                                  <div class="form-group" align="center">
+              </div>
+                          <div class="col-lg-9"></div>
+                          <div class="form-group" align="center">
 
 
                                    <div class="row" >
@@ -268,7 +233,7 @@ body {
         </div>
 </div>
 </div>
-</div>
+
 
 <div class="row">
           <div class="col-lg-12  ">
@@ -276,10 +241,11 @@ body {
                       
                     </div>
                     </div>
-                    </div>
+</div>
 
 
-   <?php echo $this->load->view('footer/footer')?>
+    <?php echo $this->load->view('footer/footer')?>
+
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
 
@@ -298,7 +264,7 @@ body {
   
     
     
-    </body>
+  </body>
     
     
 
