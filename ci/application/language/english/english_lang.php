@@ -251,7 +251,7 @@
  	$lang['member_report']="Shop Member";
  	$lang['member_id']="member ID";
  	$lang['member_email']="e-mail";
- 	$lang['member_list']="Member List";s
+ 	$lang['member_list']="Member List";
 
 
 
