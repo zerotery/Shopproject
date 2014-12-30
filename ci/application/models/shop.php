@@ -255,6 +255,20 @@
 
 		}
 
+		public function get_gallery_all($p_id){
+			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' ;";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+			/*if(empty($query)){
+				return "item.png";
+			}else{
+				return "main_product.jpg";
+			}*/
+			
+
+		}
+
+
 
 		public function insertcatep($insert_productcateP_en,$insert_productcateP_th){
 			if($this->db->insert('product_category_detail',$insert_productcateP_en)){
