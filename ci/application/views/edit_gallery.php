@@ -73,7 +73,7 @@ body {
                                               <div class="col-md-2">
 
                                                  <h2>
-                                                 <div id="del_row" style="color:smoke" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-del");?>"  ></div></h2>
+                                                 <div id="del_row" style="color:smoke" onclick="document.getElementById('del_gallery').submit();" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-del");?>"  ></div></h2>
                                                                                  
                                               </div>
                                               <div>
@@ -84,7 +84,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="mod_product" action="<?php echo site_url('backshop/remove_product');?>" method="post">
+          <form id="del_gallery" action="<?php echo site_url('backshop/test3');?>" method="post"  enctype="multipart/form-data">
             
 
                <hr width="100%">
@@ -98,7 +98,7 @@ body {
 
                                                                      <div class="table-responsive">
 
-                                                                        <form id="del" name="del" action="<?php echo site_url('backshop/test');?>" method="post">
+                                                                        
                                                                           <table class="table" id="table_gallery">
                                                                             <!-- On rows -->
                                                                               <tr class="active">
@@ -139,7 +139,7 @@ body {
                                                                                   ?>
 
                                                                           </table>
-                                                                          </form>
+                                                                          
 
                                                                         </div>
 
@@ -174,7 +174,7 @@ body {
 
 
                 checked=false;
-                  function checkedAll (del) {var aa= document.getElementById('mod_product'); if (checked == false)
+                  function checkedAll (del) {var aa= document.getElementById('del_gallery'); if (checked == false)
 
                     {
                     checked = true

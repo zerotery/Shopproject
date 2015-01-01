@@ -334,6 +334,19 @@
 			}
 
 		}
+		public function get_pdetail($p_id){
+			$sql="SELECT product_detail_ID FROM product_detail WHERE p_ID='$p_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function update_product_detail($p_id,$update_product_datail){
+			if($this->db->update('product_detail',$update_product_datail,array('product_detail_ID' => $p_id))){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
 		public function update_product($dataup_product,$where_product){
 			if($this->db->update('product',$dataup_product,$where_product)){
 				return 1;

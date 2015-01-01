@@ -73,7 +73,7 @@ body {
                                              </div>
                                              </div>
      
-                <form class="form-horizontal" name="mod_product" id="mod_product" action="<?php echo site_url('backshop/test2');?>"   method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" name="mod_product" id="mod_product" action="<?php echo site_url('backshop/update_product');?>"   method="post" enctype="multipart/form-data">
                   <fieldset>
                     <div class="form-group col-lg-12">
                         <ul class="nav nav-tabs nav-justified" id="myTab1">
@@ -131,7 +131,7 @@ body {
                                                       <div class="form-group col-lg-8">
                                                                       <label  class="col-lg-3 col-sm-4 control-label"><?=$this->lang->line("product_detail");?></label>
                                                                       <div class="col-lg-6 col-xs-6 col-sm-5">
-                                                                        <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_dth" name="shopdetail_th"   data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote2");?>"><?php echo $detail[1]['product_detail']; ?></textarea>
+                                                                        <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_dth" name="pdetail_th"   data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote2");?>"><?php echo $detail[1]['product_detail']; ?></textarea>
                                                                       </div>
                                                                       <label for="inputslang" class="col-lg-1 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="35" height="25" border="0"></label>
                                                       </div>
@@ -139,7 +139,7 @@ body {
                                                       <div class="form-group col-lg-8">
                                                                      <div class="col-lg-3 col-sm-4"></div>
                                                                      <div class="col-lg-6 col-xs-6 col-sm-5">
-                                                                        <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_den" name="shopdetail_en" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote");?>"><?php echo $detail[0]['product_detail']; ?></textarea>
+                                                                        <textarea rows="3" cols="60" class="form-control animated fadeInLeft" id="pro_den" name="pdetail_en" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("pnote");?>"><?php echo $detail[0]['product_detail']; ?></textarea>
                                                                       </div>
                                                                       <label for="inputslang" class="col-lg-1 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="35" height="25" border="0"></label>
                                                       </div>
