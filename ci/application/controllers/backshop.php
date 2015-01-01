@@ -413,7 +413,7 @@
 								}
 								rmdir($filename1[$i]);
 
-    						}	
+    							}	
     							
     						}
 
@@ -866,9 +866,13 @@
 			$this->login_system->checklogin();
 			
 			$data['user']=$this->session->userdata('loginname');
-			if($this->session->userdata('rfp')==1){
+
+			if($this->session->userdata('p_rf')==1){
 				redirect('backshop/modifyproduct','refresh');
+				
+				$this->session->unset_userdata('p_rf');
 			}
+			
 			$p_id=$this->input->get('p_id');
 			if($p_id!=NULL){
 			$this->session->set_userdata('p_id',$p_id);
@@ -905,7 +909,7 @@
 			echo "$test";
 		}
 
-		public function test2(){
+		public function update_product(){
 			$p_price=$this->input->post('p_price');
             $p_quantity=$this->input->post('p_quantity');
             date_default_timezone_set("Asia/Bangkok");
@@ -913,8 +917,8 @@
 			$p_id=$this->session->userdata('p_id');
 			$cateid=$this->input->post('p_cate');
 			$p_status=$this->input->post('p_status');
-			$product_detail_en=$this->input->post('pro_den');
-            $product_detail_th=$this->input->post('pro_dth');
+			$product_detail_en=$this->input->post('pdetail_en');
+            $product_detail_th=$this->input->post('pdetail_th');
             $product_name_en=$this->input->post('p_name_en');
             $product_name_th=$this->input->post('p_name_th');
            
@@ -937,7 +941,51 @@
            $s_id=$this->session->userdata('id');
            $namepic=$this->shop->get_gallery_all($p_id);
            
-           
+           //start update
+		   $findidmod=$this->shop->get_idpcate($cateid);
+		   $get_idcatedetail=$this->shop->get_catedetail($p_id);
+		   $id_gd_en=$get_idcatedetail[0]['product_cat_detail_ID'];
+		   $id_gd_th=$get_idcatedetail[1]['product_cat_detail_ID'];
+		   $idupdate_en=$findidmod[0]['product_category_ID'];
+		   $idupdate_th=$findidmod[1]['product_category_ID'];
+		   $this->shop->update_cate_datail($idupdate_en,$id_gd_en);
+		   $this->shop->update_cate_datail($idupdate_th,$id_gd_th);
+		   
+		   //end update cate.
+
+		   if($p_status=="1"){
+                        $product_status_en="Have stock";
+                        $product_status_th="มีสินค้า";
+
+                  }else if($p_status=="2"){
+                  		$product_status_en="Out of stock";
+                        $product_status_th="สินค้าหมด";
+
+                  }
+            	  $update_product_datail_en=array(
+                        'product_detail' => "$product_detail_en",
+                        'product_name' => "$product_name_en",
+                        'product_status' => "$product_status_en",
+                        
+                        'lang_ID' => 1
+                        );
+                  $update_product_datail_th=array(
+                        'product_detail' => "$product_detail_th",
+                        'product_name' => "$product_name_th",
+                        'product_status' => "$product_status_th",
+                        
+                        'lang_ID' => 2
+                        );
+
+                
+                  $idproduct=$this->shop->get_pdetail($p_id);
+                  if($product_detail_en!=NULL&&$product_detail_th!=NULL&&$product_name_en!=NULL&&$product_name_th!=NULL){
+                  $result_update1=$this->shop->update_product_detail( $idproduct[0]['product_detail_ID'],$update_product_datail_en);       
+                  $result_update2=$this->shop->update_product_detail( $idproduct[1]['product_detail_ID'],$update_product_datail_th); 
+                  }
+
+
+           				
            					$numsave=$s_id%1000;
                    			$numproduct=$p_id%1000;
                    			//echo "$numproduct";
@@ -996,8 +1044,9 @@
                     	
                           if($_FILES['update_modproduct']['error']==4){
                           $productmain_pic=$namepic[0]['pic_name'];
+                          
                           //$this->session->set_userdata('picture_name',"$picname");
-                      
+                      	  $noup=1;
                           $set=1;
                           }else if($_FILES['update_modproduct']['error']==0){
                           $set=null;
@@ -1035,7 +1084,10 @@
                     					$config['image_library']='gd2';
                                 		
                                     	$config['source_image']='./asset/temp/'.$productmain_pic;
-                                		
+                                		if($noup==1){
+                                			$config['source_image']="./uploads/products/".$result[0]['p_update_date']."/".$s_id."/".$p_id."/".$productmain_pic;
+                                			$noup=0;
+                                		}
                                 		$config['width']=500;
                                 		$config['height']=500;
                                 		$config['new_image']="./uploads/products/".$result[0]['p_update_date']."/".$s_id."/".$p_id."/".$productmain_pic;
@@ -1045,36 +1097,27 @@
                                     	if(!$this->image_lib->resize()){
                                         	echo $this->image_lib->display_errors();
                                     	}else{
-                                        
+                                          if($noup==0){}else{
                                           $hit='./asset/temp/'.$productmain_pic;
                                           unlink($hit);
-                                          redirect('backshop/modifyproduct','refresh');
-                                          $this->session->set_userdata('rfp',1);
+                                      	  }
+                                      	  redirect('backshop/modifyproduct');
+                                          $this->session->set_userdata('p_rf',1);
+                                          
+                                          
+                                         
                                     	}
                     	}
 					}
+					//$this->session->set_userdata('rfp',1);
 
-
-
-           //start update
-		   /*$findidmod=$this->shop->get_idpcate($cateid);
-		   $get_idcatedetail=$this->shop->get_catedetail($p_id);
-		   $id_gd_en=$get_idcatedetail[0]['product_cat_detail_ID'];
-		   $id_gd_th=$get_idcatedetail[1]['product_cat_detail_ID'];
-		   $idupdate_en=$findidmod[0]['product_category_ID'];
-		   $idupdate_th=$findidmod[1]['product_category_ID'];
-		   $test=$this->shop->update_cate_datail($idupdate_en,$id_gd_en);
-		   $test2=$this->shop->update_cate_datail($idupdate_th,$id_gd_th);
-		   echo "$test"." ".$test2;*/
-		   //end update cate.
+           
 
 
 			//echo "$p_id"." ".$p_price." ".$p_quantity." ".$p_update_date." ".$cateid." ".$p_status." ".$product_detail_en." ".$product_detail_th." ".$product_name_en." ". $product_name_th;
 		}
 
-		public function test3(){
-			copy('image1.jpg', 'del/image1.jpg');
-		}
+		
 
 
 
@@ -1222,6 +1265,7 @@
 		}
 
 		public function edit_gallery(){
+
 			$lang=$this->load_language->lang();
             $this->lang->load($lang,$lang);
 
@@ -1250,6 +1294,22 @@
 			$this->load->view('edit_gallery',$data);
 			
 			
+		}
+
+		public function test3(){
+			
+			if(!empty($this->input->post('check_list'))) {
+				$i = 0;
+    				foreach($this->input->post('check_list') as $check) {
+    				$i++;	
+
+            		 $data[$i]=$check; //echoes the value set in the HTML form for each checked checkbox.
+                         //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
+                         //in your case, it would echo whatever $row['Report ID'] is equivalent to.
+    				}
+    		}
+    		
+    		print_r($data);
 		}
 
 		public function memberreport(){
