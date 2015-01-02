@@ -69,11 +69,12 @@ body {
 
                                             
 
-
                                               <div class="col-md-2">
 
                                                  <h2>
+                                                 <a href="<?php echo site_url('backshop/add_gallery/?num_g=').$number_g.'&p_id='.$data_p[0]['p_ID'];?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a>
                                                  <div id="del_row" style="color:smoke" onclick="document.getElementById('del_gallery').submit();" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-del");?>"  ></div></h2>
+                                       
                                                                                  
                                               </div>
                                               <div>
@@ -172,6 +173,15 @@ body {
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
     <script type="text/javascript">
 
+                $(document).ready(function(){
+                  var x=<?php echo $number_g;?>;
+                  //alert(x);
+                if (x!=6 ) {
+                    $("#add_type").show();
+                } else if(x==6) {
+                    $("#add_type").hide();
+                }
+                });
 
                 checked=false;
                   function checkedAll (del) {var aa= document.getElementById('del_gallery'); if (checked == false)

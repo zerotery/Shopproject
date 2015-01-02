@@ -1289,11 +1289,35 @@
 			$data['s_id']=$s_ID;
 			$data['get_gallery']=$get_gallery;
 			//echo '<br>';
-			//print_r($namepic);
+			//print_r($get_gallery);
+			$data['number_g']=count($get_gallery);
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('edit_gallery',$data);
 			
 			
+		}
+
+		public function add_gallery(){
+
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+
+			$this->login_system->checklogin();
+			
+			$data['user']=$this->session->userdata('loginname');
+			$id=$this->input->get('shopid');
+			if($id!=NULL){
+			$this->session->set_userdata('id',$id);
+			}
+			$idset=$this->session->userdata('id');
+			
+			$shop=$this->shop->getshop($idset);
+			
+			$data['nameshop']=$shop[0]['shop_name'];
+			$this->load->view('add_gallery',$data);
+
+
+
 		}
 
 		public function test3(){
