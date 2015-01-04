@@ -264,6 +264,40 @@
  	$lang['member_list']="รายชื่อลูกค้า";
 
 
+ 	$lang['store_setting']="ตั้งค่าร้านค้า";
+ 	$lang['url_name2']="URL ร้าน";
+ 	$lang['setting_information1']="ทั่วไป";
+ 	$lang['setting_information2']="ตกแต่ง";
+
+ 	$lang['edit_store']="แก้ไข การตั้งค่าร้านค้า";
+
+ 	$lang['data_management']="จัดการข้อมูล";
+ 	$lang['data_name']="ชื่อข้อมูล";
+
+ 	$lang['topic_management']="เลือกหัวข้อ";
+ 	$lang['sel_management']="หัวข้อ :";
+ 	$lang['de_management_th']="คำอธิบาย ภาษาไทย :";
+ 	$lang['de_management_en']="คำอธิบาย ภาษาอังกฤษ :";
+ 	$lang['ctopic-type']="ห้ามเลือกหัวข้อที่เคยเลือกไว้แล้ว";
+ 	$lang['t_home']="หน้าแรก";
+ 	$lang['t_hs']="วิธีการสั่งซื้อ";
+ 	$lang['t_pay']="แจ้งการชำระเงิน";
+ 	$lang['t_article']="บทความ";
+ 	$lang['t_aboutme']="เกี่ยวกับเรา";
+ 	$lang['t_contact']="ติดต่อเรา";
+
+ 	$lang['modify_management']="แก้ไขข้อมูล";
+
+
+
+
+
+
+ 	
+
+
+
+
 
  	
 

@@ -48,8 +48,8 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown"><?=$this->lang->line("system");?><b class="caret"></b></a>
         <ul class="dropdown-menu">
-        <li><a href="#"><?=$this->lang->line("setting");?></a></li>
-        <li><a href="#"><?=$this->lang->line("management");?></a></li>
+        <li><a href="<?php echo site_url('backshop/setting');?>"><?=$this->lang->line("setting");?></a></li>
+        <li><a href="<?php echo site_url('backshop/management');?>"><?=$this->lang->line("management");?></a></li>
         </ul>
       </li>
 

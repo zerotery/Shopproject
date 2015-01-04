@@ -43,7 +43,7 @@ body {
 
          <ol class="breadcrumb" style="background-color:#777;">
               <li><a href="<?php echo site_url('backshop/gobackshop');?>" style="color: white"><?=$this->lang->line("home");?></a></li>
-              <li><a href="<?php echo site_url('backshop/productManage');?>" style="color: white"><?=$this->lang->line("product_management");?></a></li>
+              <li><a href="<?php echo site_url('backshop/productManage');?>" class="animated fadeInRight" style="color: white"><?=$this->lang->line("product_management");?></a></li>
               
           </ol>
           
