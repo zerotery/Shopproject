@@ -79,7 +79,7 @@ body {
                                              </div>
                                              </div>
 
-                <form class="form-horizontal" name="editgallery" id="edit_g" action=""  method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" name="editgallery" id="edit_g" action="<?php echo site_url('backshop/process_add');?>"  method="post" enctype="multipart/form-data">
                     <fieldset >
 
                                
@@ -98,9 +98,9 @@ body {
                                                           </div>
                                                           <div class="fileinput-preview fileinput-exists thumbnail" style="width: 160px; height: 200px;"></div>
                                                           <div>
-                                                            <span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="update_profile"></span>
+                                                            <span class="btn btn-success btn-file "><span class="fileinput-new "><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists "><?=$this->lang->line("change_pic");?></span><input type="file" name="addp_gallery"></span>
                                                             <div  class="btn btn-default fileinput-exists " data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></div>
-                                                            
+                                                            <?php if($error=="error"){ echo $this->lang->line("error_picshop");}else if($error=="min"){echo $this->lang->line("error_picmin");}?>
                                                           </div>
                                                         </div>
                                                       </div>
