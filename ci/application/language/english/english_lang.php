@@ -254,6 +254,30 @@
  	$lang['member_email']="e-mail";
  	$lang['member_list']="Member List";
 
+ 	$lang['store_setting']="Store Setting";
+ 	$lang['url_name2']="Store URL";
+ 	$lang['setting_information1']="general";
+ 	$lang['setting_information2']="decorate";
+
+ 	$lang['edit_store']="Edit store";
+
+ 	$lang['data_management']="Data Management";
+ 	$lang['data_name']="data name";
+
+ 	$lang['topic_management']="Topic selection";
+ 	$lang['sel_management']="Topic :";
+ 	$lang['de_management_th']="THAI explain :";
+ 	$lang['de_management_en']="ENGLISH explain :";
+ 	$lang['ctopic-type']="Don't choose the same topic with topic you have already chosen.";
+ 	$lang['t_home']="Home";
+ 	$lang['t_hs']="How to buy";
+ 	$lang['t_pay']="Payment notify";
+ 	$lang['t_article']="Article";
+ 	$lang['t_aboutme']="About us";
+ 	$lang['t_contact']="Contact us";
+
+ 	$lang['modify_management']="Edit information";
+
 
 
 

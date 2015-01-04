@@ -12,7 +12,7 @@ body {
   font-size: 15px;
   line-height: 1.42857143;
   brackgound:#000000; 
-  background:url("<?php echo logo_pic;?>bg.jpg") no-repeat center center fixed;
+  background:url("<?php echo logo_pic;?>bg_backshop.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -27,16 +27,22 @@ body {
 
 <?php echo $this->load->view('header/navbar_backshop')?>
 
-
-
-<div class="container" style="background-color:#eee">
+<div class="row">
+          <div class="col-lg-12  ">
+             <div class="page-header-s">
+                      
+                    </div>
+                    </div>
+                    </div>
+ 
+<div class="container transbox" style="background-color:#777">
 
 <br>
 
-<div class="page-header-s">
+<div class="page-header-bnb">
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
-           <ol class="breadcrumb" style="background-color:#696969;">
+           <ol class="breadcrumb animated fadeInRight" style="background-color:#777;">
               <li><a href="<?php echo site_url('backshop/gobackshop');?>" style="color: white"><?=$this->lang->line("home");?></a></li>
              
           </ol>
@@ -53,35 +59,35 @@ body {
         <div class="row">
           <div class="col-lg-12">
              <div class="panel panel-default">
-           <div class="panel-heading" style="background-color:green;"><h4><?=$this->lang->line("overview");?></h4></div>
+           <div class="panel-heading" style="background-color:#CC3300;"><h4><b><?=$this->lang->line("overview");?></b></h4></div>
         
               
             <table class="table table-striped table-hover " style="font-size: larger"   width=100% height=20%>
-            <tbody><tr class="success">
+            <tbody style="color:black"><tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("sell_t");?></td>
               <td>4,359,050.00 ฿</td>
             </tr>
-            <tr class="success">
+            <tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("sell_y");?></td>
               <td>3,558,100.00 ฿</td>
             </tr>
-            <tr class="success">
+            <tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("order_t");?></td>
               <td>449</td>
             </tr>
-            <tr class="success">
+            <tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("num_m");?></td>
               <td>687</td>
             </tr>
-            <tr class="success">
+            <tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("mem_w");?></td>
               <td>0</td>
             </tr>
-            <tr class="success">
+            <tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("ally");?></td>
               <td>13</td>
             </tr>
-            <tr class="success">
+            <tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("ally_w");?></td>
               <td>1</td>
             </tr>
@@ -96,106 +102,41 @@ body {
           
             <table class="table table-striped table-hover " border=1  width=100% height=20% >
             <thead>
-                <tr style="background-color:green;">
-                <td class="right"><font color="black"><?=$this->lang->line("order");?></font></td>
+                <tr style="background-color:#CC3300;">
+                <td class="right"><font ><?=$this->lang->line("order");?></font></td>
                 <td class="left"><?=$this->lang->line("mem_name");?></td>
                 <td class="left"><?=$this->lang->line("mem_status");?></td>
                 <td class="left"><?=$this->lang->line("date");?></td>
                 <td class="right"><?=$this->lang->line("total_price");?></td>
-                <td class="right"><?=$this->lang->line("action_v");?></td>
+              
               </tr>
             </thead>
             <tbody>
-              <tr class="success">
+              <tr class="warning animated fadeInDown" style="color:black">
                 <td class="right">599</td>
                 <td class="left">Pattamas Promduang</td>
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">09/11/2014</td>
                 <td class="right">5,600.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-                  </td>
+               
               </tr>
-              <tr class="success">
+              <tr class="warning animated fadeInDown" style="color:black">
                 <td class="right">598</td>
                 <td class="left">อรสาต์ วีระจิตต์</td>
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">08/11/2014</td>
                 <td class="right">16,800.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-                  </td>
+               
               </tr>
-              <tr class="success">
+              <tr class="warning animated fadeInDown" style="color:black">
                 <td class="right">597</td>
                 <td class="left">ดรุณี สุริยันรัตกร</td>
                 <td class="left">รอการชำระเงิน</td>
                 <td class="left">06/11/2014</td>
                 <td class="right">38,400.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-                  </td>
+                
               </tr>
-              <tr class="success">
-                <td class="right">596</td>
-                <td class="left">วิชิต วิริยธำรงกุล</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">03/11/2014</td>
-                <td class="right">11,800.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-                  </td>
-              </tr>
-              <tr class="success">
-                <td class="right">595</td>
-                <td class="left">วิชิต วิริยธำรงกุล</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">03/11/2014</td>
-                <td class="right">10,000.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-                  </td>
-              </tr>
-                <tr class="success">
-                <td class="right">593</td>
-                <td class="left">ฐิตาภรณ์ ศิริศรี</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">28/10/2014</td>
-                <td class="right">14,200.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-              </td>
-              </tr>
-              <tr class="success">
-                <td class="right">592</td>
-                <td class="left">ฐิตาภรณ์ ศิริศรี</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">28/10/2014</td>
-                <td class="right">16,400.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-                  </td>
-              </tr>
-              <tr class="success">
-                <td class="right">591</td>
-                <td class="left">อรวรรณ บุญรัตน์</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">21/10/2014</td>
-                <td class="right">1,900.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-                  </td>
-              </tr>
-              <tr class="success"> 
-                <td class="right">589</td>
-                <td class="left">นุสรา ดวดไธสง</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">18/10/2014</td>
-                <td class="right">3,600.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-                  </td>
-              </tr>
-              <tr class="success">
-                <td class="right">587</td>
-                <td class="left">ฉวีวรรณ แหวนวิเศษ</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">17/10/2014</td>
-                <td class="right">8,400.00 ฿</td>
-                <td class="right">                  [ <a href="#" style="color: maroon"><?=$this->lang->line("view");?></a> ]
-                  </td>
-              </tr>
+          
               </tbody>
           </table>
        
@@ -205,15 +146,21 @@ body {
           </div>
         </div>
 </div>
+
+</div>
+</div>
 <div class="row">
           <div class="col-lg-12  ">
-             <div class="page-header-f">
+             <div class="page-header-ff">
                       
                     </div>
                     </div>
+
                     </div>
-</div>
+
+
     <?php echo $this->load->view('footer/footer')?>
+
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
     

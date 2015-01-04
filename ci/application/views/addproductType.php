@@ -42,7 +42,7 @@ body {
 
          <ol class="breadcrumb" style="background-color:#777;">
               <li><a href="<?php echo site_url('backshop/gobackshop');?>" style="color: white"><?=$this->lang->line("home");?></a></li>
-              <li><a href="<?php echo site_url('backshop/productType');?>" style="color: white"><?=$this->lang->line("product_type");?></a></li>
+              <li><a href="<?php echo site_url('backshop/productType');?>" class="animated fadeInRight" style="color: white"><?=$this->lang->line("product_type");?></a></li>
               
           </ol>
           
@@ -105,7 +105,7 @@ body {
                                      <!--<input type="reset" class="btn btn-danger animated swing" id="btn_cancel1" name="cancel"  value="<?=$this->lang->line("cancel");?>"/>-->
                                      
                                 </div>
-                                </div>  
+                                </div>  </div>
 
                     </fieldset>
                 </form>

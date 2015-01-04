@@ -7,6 +7,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap-datetimepicker.css">
+<link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>jackbox.min.css">
+<style type="text/css">.cj-tween{-webkit-transition-property:none !important;}</style>
 <style>
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -42,7 +44,7 @@ body {
 
           <ol class="breadcrumb" style="background-color:#777;">
               <li><a href="<?php echo site_url('backshop/gobackshop');?>" style="color: white"><?=$this->lang->line("home");?></a></li>
-              <li><a href="<?php echo site_url('backshop/paymentreport');?>" style="color: white"><?=$this->lang->line("payment");?></a></li>
+              <li><a href="<?php echo site_url('backshop/paymentreport');?>" class="animated fadeInRight" style="color: white"><?=$this->lang->line("payment");?></a></li>
               
           </ol>
           
@@ -144,8 +146,15 @@ body {
                                    <div class="form-group animated fadeInUp">
                                      <div class="col-lg-12 thumbnail">
                                         
-                                             <img src="<?php echo logo_pic;?>item.png" class="img-responsive " data-toggle="modal" data-target="#myModal1"  style="height:120px;width:130px;" >
-                              
+                                           <a class="jackbox" data-group="images" data-thumbnail="<?php echo logo_pic;?>item.png"  href="<?php echo logo_pic;?>item.png"><!-- end opening tag -->
+
+                                                      <!-- thumbnail -->
+                                                      <div class="jackbox-hover jackbox-hover-black jackbox-hover-magnify " ></div><img src="<?php echo logo_pic;?>item.png" width="180" height="150" alt="responsive lightbox">
+                                                      
+                                              </a>
+                                                  
+                                                  
+                                             
                                       </div>
                                        
                                     </div>    
@@ -180,8 +189,13 @@ body {
                                    <div class="form-group animated fadeInUp" >
                                      <div class="col-lg-12 thumbnail"  >
                                         
-                                             <img src="<?php echo logo_pic;?>item.png" class="img-responsive" data-toggle="modal" data-target="#myModal2" data-toggle="modal" data-target="#myModal2"style="height:120px;width:130px;" >
+                                             <a class="jackbox" data-group="images" data-thumbnail="<?php echo logo_pic;?>item.png"  href="<?php echo logo_pic;?>item.png"><!-- end opening tag -->
 
+                                                      <!-- thumbnail -->
+                                                      <div class="jackbox-hover jackbox-hover-black jackbox-hover-magnify " ></div><img src="<?php echo logo_pic;?>item.png" width="180" height="150" alt="responsive lightbox">
+                                                      
+                                              </a>
+                                                  
 
 
                                           
@@ -242,48 +256,8 @@ body {
 
 
     <?php echo $this->load->view('footer/footer')?>
-  <!-- Modal  1-->
-                                <div  class="modal   animated pulse" data-easein="pulse" data-easeout="rollOut"  id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog " >
-                                    <div class="modal-content " >
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" >&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel"></h4>
-                                      </div>
-                                      <div class="modal-body">
-                                          <img src="<?php echo logo_pic;?>item.png" class="thumbnail img-responsive"  data-toggle="modal" data-target="#myModal" >
-
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                      
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                 <!-- Modal 2 -->
-                                <div class="modal animated pulse" data-easein="pulse" data-easeout="rollOut" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                
-                                  <div class="modal-dialog">
-                                    
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel"></h4>
-                                      </div>
-                                      <div class="modal-body">
-                                         <img src="<?php echo logo_pic;?>item.png" class="thumbnail img-responsive" data-toggle="modal" data-target="#myModal" >
-
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        
-                                      </div>
-
-
-                                    </div>
-                                   </div>
-                                </div>
+  
+                               
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
     <script src="<?php echo JS_URL;?>moment.js"></script>
@@ -298,7 +272,24 @@ body {
          
                 $('#datetimepicker2').datetimepicker({pickTime: false});
             });
-        </script>
+    </script>
+
+
+
+     <script src="<?php echo JS_URL;?>jackbox-packed.min.js"></script>
+
+     <script type="text/javascript">
+    
+      jQuery(document).ready(function() {
+        
+       
+        jQuery(".jackbox[data-group]").jackBox("init");
+
+
+
+      });
+    
+    </script>
 
    
 
