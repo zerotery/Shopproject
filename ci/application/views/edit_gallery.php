@@ -69,11 +69,12 @@ body {
 
                                             
 
-
                                               <div class="col-md-2">
 
                                                  <h2>
-                                                 <div id="del_row" style="color:smoke" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-del");?>"  ></div></h2>
+                                                 <a href="<?php echo site_url('backshop/add_gallery/?num_g=').$number_g.'&p_id='.$data_p[0]['p_ID'];?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a>
+                                                 <div id="del_row" style="color:smoke" onclick="document.getElementById('del_gallery').submit();" class=" btn glyphicon glyphicon-minus animated right in rotateIn" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("product-del");?>"  ></div></h2>
+                                       
                                                                                  
                                               </div>
                                               <div>
@@ -84,7 +85,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="mod_product" action="<?php echo site_url('backshop/remove_product');?>" method="post">
+          <form id="del_gallery" action="<?php echo site_url('backshop/test3');?>" method="post"  enctype="multipart/form-data">
             
 
                <hr width="100%">
@@ -98,7 +99,7 @@ body {
 
                                                                      <div class="table-responsive">
 
-                                                                        <form id="del" name="del" action="<?php echo site_url('backshop/test');?>" method="post">
+                                                                        
                                                                           <table class="table" id="table_gallery">
                                                                             <!-- On rows -->
                                                                               <tr class="active">
@@ -139,7 +140,7 @@ body {
                                                                                   ?>
 
                                                                           </table>
-                                                                          </form>
+                                                                          
 
                                                                         </div>
 
@@ -172,9 +173,18 @@ body {
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
     <script type="text/javascript">
 
+                $(document).ready(function(){
+                  var x=<?php echo $number_g;?>;
+                  //alert(x);
+                if (x!=6 ) {
+                    $("#add_type").show();
+                } else if(x==6) {
+                    $("#add_type").hide();
+                }
+                });
 
                 checked=false;
-                  function checkedAll (del) {var aa= document.getElementById('mod_product'); if (checked == false)
+                  function checkedAll (del) {var aa= document.getElementById('del_gallery'); if (checked == false)
 
                     {
                     checked = true

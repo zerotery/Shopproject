@@ -177,6 +177,7 @@
  	$lang['product-glim']="More picture you can add up to 6.";
 
  	$lang['product_modify']="Product modify";
+ 	$lang['galleryadd_modify']="Add Product image";
  	$lang['gallery_modify']="Modify product image";
  	$lang['product-del']="If you delete gallery image.You can't add gallery image in this page.";
 
@@ -276,6 +277,9 @@
  	$lang['t_contact']="Contact us";
 
  	$lang['modify_management']="Edit information";
+
+
+
 
  	
 

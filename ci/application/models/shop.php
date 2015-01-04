@@ -255,6 +255,20 @@
 
 		}
 
+		public function get_gallery_all($p_id){
+			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' ;";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+			/*if(empty($query)){
+				return "item.png";
+			}else{
+				return "main_product.jpg";
+			}*/
+			
+
+		}
+
+
 
 		public function insertcatep($insert_productcateP_en,$insert_productcateP_th){
 			if($this->db->insert('product_category_detail',$insert_productcateP_en)){
@@ -319,6 +333,19 @@
 				return 0;
 			}
 
+		}
+		public function get_pdetail($p_id){
+			$sql="SELECT product_detail_ID FROM product_detail WHERE p_ID='$p_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function update_product_detail($p_id,$update_product_datail){
+			if($this->db->update('product_detail',$update_product_datail,array('product_detail_ID' => $p_id))){
+				return 1;
+			}else{
+				return 0;
+			}
 		}
 		public function update_product($dataup_product,$where_product){
 			if($this->db->update('product',$dataup_product,$where_product)){
