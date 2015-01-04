@@ -165,6 +165,13 @@
     			 return 0;
     		}
 		}
+		public function add_gallery($insert_g){
+			if($this->db->insert('product_gallery',$insert_g)){
+    			 return 1;
+    		}else{
+    			 return 0;
+    		}
+		}
 
 		public function remove_pcate($del){
 			$this->db->delete('product_category',$del);
@@ -226,6 +233,12 @@
 			$lang=$this->session->userdata('langdata');
 
 			$sql="SELECT product.p_ID,product.p_price,product.p_update_date,product.p_quantity,product_detail.product_name,product_detail.product_status FROM product,product_detail WHERE product.p_ID=product_detail.p_ID AND product.p_ID='$p_id' AND product_detail.lang_ID='$lang';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_product($p_id){
+			$sql="SELECT p_update_date FROM product WHERE p_ID='$p_id';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
