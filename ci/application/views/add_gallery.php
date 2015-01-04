@@ -65,7 +65,7 @@ body {
                  <div class="page-header-bp ">
                                               <div class="row">
                                               <div class="col-md-10 ">
-                                                 <h3><?=$this->lang->line("gallery_modify");?></h3>
+                                                 <h3><?=$this->lang->line("galleryadd_modify");?></h3>
                                               </div>
 
                                             

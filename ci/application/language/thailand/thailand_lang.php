@@ -173,6 +173,7 @@
  	$lang['pro_type']="ประเภทสินค้า ";
  	$lang['monetary']="บาท";
 
+ 	$lang['galleryadd_modify']="เพิ่มรูปภาพสินค้า";
 
  	$lang['gallery_pic']="รูปแกลลอรี่";
  	$lang['gallery_name']="ชื่อไฟล์";
