@@ -158,6 +158,12 @@
 
 		}
 
+		
+
+		public function update_gallery($update_g,$where_g){
+			$this->db->update('product_gallery',$update_g,$where_g);
+		}
+
 		public function insert_product($data){
 			if($this->db->insert('product',$data)){
     			 return 1;
@@ -200,6 +206,9 @@
 				return 0;
 			}
 		}
+		public function remove_gallery($del){
+			$this->db->delete('product_gallery',$del);
+		}
 		public function remove_product_gallery($del){
 			if($this->db->delete('product_gallery',$del)){
 				return 1;
@@ -236,7 +245,11 @@
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
-
+        public function get_gdetail($data){
+        	$sql="SELECT product.p_update_date,product_gallery.pic_name FROM product,product_gallery WHERE product.p_ID=product_gallery.p_ID AND product_gallery.gallery_product_ID='$data';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+        }
 		public function get_product($p_id){
 			$sql="SELECT p_update_date FROM product WHERE p_ID='$p_id';";
 			$query=$this->db->query($sql)->result_array();

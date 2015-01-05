@@ -1121,17 +1121,19 @@
 
 
 
-		public function modify_gallery(){
+		public function modify_gallery($error=NULL){
 			$lang=$this->load_language->lang();
             $this->lang->load($lang,$lang);
 
 			$this->login_system->checklogin();
 			
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
+			$id_g=$this->input->get('pg_id');
+			$data['error']=$error;
+			if($id_g!=NULL){
+			$this->session->set_userdata('pg_id',$id_g);
 			}
+
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
@@ -1141,6 +1143,141 @@
 			
 			
 		}
+		public function process_modify(){
+			$p_id=$this->session->userdata('p_id');
+			$s_id=$this->session->userdata('id');
+			$id_g=$this->session->userdata('pg_id');
+			
+			$gallery=$this->shop->get_gdetail($id_g);
+			$update=$gallery[0]['p_update_date'];
+			$name_pic=$gallery[0]['pic_name'];
+			
+			$filename = "./asset/temp";
+                    
+                  if (file_exists($filename)) {
+                    $do=1;                
+                  }else {
+                    mkdir("./asset/temp");
+                    $do=1;                  
+                  }
+
+                 if($do==1){
+
+                  $config['upload_path'] ='./asset/temp/';
+                  $config['allowed_types'] = 'gif|jpg|png';
+                  $config['max_size'] = '0';
+                  $config['max_width']  = '0';
+                  $config['max_height']  = '0';
+                  $this->upload->initialize($config);
+                  
+                  
+                 if(!$this->upload->do_upload('modify_gallery')){
+                       if($_FILES['modify_gallery']['error']==4){
+                          $product_pic="item.png";
+                       		$set=1;
+                          }else if($_FILES['modify_gallery']['error']==0){
+                          	$set=null;
+                      		$error="error";
+                      
+                          $this->modify_gallery($error);
+                          }
+
+                    }else{
+                      $data=array('upload_data' =>$this->upload->data());
+                      
+                      $picnameold=$data['upload_data']['file_name']; 
+                       $width=$data['upload_data']['image_width'];
+                       $height=$data['upload_data']['image_height'];
+                       $temp = explode(".",$data['upload_data']['file_name']);
+                       $namepic = explode(".",$name_pic);
+                       $product_pic = $namepic[0] . '.' .end($temp);
+                     	rename ("./asset/temp/".$picnameold, "./asset/temp/".$product_pic);
+                      
+                      if($width>=500&&$height>=500){
+
+                      $set=1;
+                      }
+                      else{
+                      $error="min";
+                      $this->modify_gallery($error);
+                      }
+
+
+                      //echo $width." ".$height;
+                    }
+                    $where_g=array('gallery_product_ID' => "$id_g"  );
+                    $update_g=array(
+                        'pic_name' => "$product_pic",
+                        
+                        
+                        );
+                    $this->shop->update_gallery($update_g,$where_g);
+                }
+                
+                if($set==1){
+                		$numsave=$s_id%1000;
+                   		$numproduct=$p_id%1000;
+                   			//echo "$numproduct";
+                   					  $filename0 = "./uploads/products";
+
+                                      if (file_exists($filename0)) {
+                                      
+                                      }else {
+                                      mkdir("./uploads/products");
+                                      
+                                      }
+
+                                      $filename = "./uploads/products/".$update;
+
+                                      if (file_exists($filename)) {
+                                      $c_gallrery=1;
+                                      }else {
+                                      mkdir("./uploads/products/".$update);
+                                      $c_gallrery=1;
+                                      }
+									  $filename1 = "./uploads/products/".$update."/".$numsave;
+                                      if (file_exists($filename1)) {
+                                      $c_gallrery1=1;
+                                      }else {
+                                      mkdir("./uploads/products/".$update."/".$numsave);
+                                      $c_gallrery1=1;
+                                      }
+                                      $filename2 = "./uploads/products/".$update."/".$numsave."/".$numproduct;
+                                      if (file_exists($filename2)) {
+                                      $c_gallrery2=1;
+                                      }else {
+                                      mkdir("./uploads/products/".$update."/".$numsave."/".$numproduct);
+                                      $c_gallrery2=1;
+                                      }
+
+                    if($c_gallrery==1 && $c_gallrery1==1 && $c_gallrery2==1){
+
+								$config['image_library']='gd2';
+                                if($product_pic=="item.png"){
+                                    $config['source_image']='./asset/img/'.$product_pic;
+                                }else{
+                                    $config['source_image']='./asset/temp/'.$product_pic;
+                                }
+                                $config['width']=500;
+                                $config['height']=500;
+                                $config['new_image']='./uploads/products/'.$update.'/'.$numsave.'/'.$numproduct.'/'.$product_pic;
+                                $this->image_lib->clear();
+                                $this->image_lib->initialize($config);
+                                $this->image_lib->resize();
+                                    if(!$this->image_lib->resize()){
+                                        echo $this->image_lib->display_errors();
+                                    }else{
+                                        if($product_pic!="item.png"){
+                                          $hit='./asset/temp/'.$product_pic;
+                                          unlink($hit);}
+                                          redirect('backshop/edit_gallery');
+                                          $this->session->set_userdata('p_rf',1);
+                                    }
+                    }
+                }
+						
+
+			}
                   
 
 		public function orderManage(){
@@ -1310,11 +1447,8 @@
             $this->lang->load($lang,$lang);
 
 			$this->login_system->checklogin();
-
-			
-
-			$data['error']=$error;
 			$data['user']=$this->session->userdata('loginname');
+			$data['error']=$error;
 			$n_g=$this->input->get('num_g');
 			$p_id=$this->input->get('p_id');
 
@@ -1455,7 +1589,7 @@
                                 }
                                 $config['width']=500;
                                 $config['height']=500;
-                                $config['new_image']='./uploads/products/'.$oldupdate.'/'.$numsave.'/'.$numproduct.'/'.$productmain_pic;
+                                $config['new_image']='./uploads/products/'.$oldupdate.'/'.$numsave.'/'.$numproduct.'/'.$product_pic;
                                 $this->image_lib->clear();
                                 $this->image_lib->initialize($config);
                                 $this->image_lib->resize();
@@ -1473,8 +1607,9 @@
                 }
 		}
 
-		public function test3(){
-			
+		public function delete_gallery(){
+			$p_id=$this->session->userdata('p_id');
+			$s_id=$this->session->userdata('id');
 			if(!empty($this->input->post('check_list'))) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
@@ -1484,9 +1619,38 @@
                          //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
                          //in your case, it would echo whatever $row['Report ID'] is equivalent to.
     				}
+    				for($j=1; $j<=count($data);$j++){
+    					$gallery[$j]=$this->shop->get_gdetail($data[$j]);
+    				}
+    				
+    				for($j=1; $j<=count($data);$j++){
+    					
+    					if($gallery[$j][0]['pic_name']=="item.png"){
+    					$del=array('gallery_product_ID' => $data[$j]);
+    					$this->shop->remove_gallery($del);
+    					}else{
+    						$filename = "./uploads/products".'/'.$gallery[$j][0]['p_update_date'].'/'.$s_id.'/'.$p_id;
+    						$files = glob($filename.'/'.$gallery[$j][0]['pic_name']);
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+    						$del=array('gallery_product_ID' => $data[$j]);
+    						$this->shop->remove_gallery($del);
+    					}
+    					
+    				}
+    				
+    				
+    				redirect('backshop/edit_gallery','refresh');
+	
+    		}else{
+    			redirect('backshop/edit_gallery','refresh');
     		}
+
+
     		
-    		print_r($data);
+    		
 		}
 
 		public function memberreport(){
