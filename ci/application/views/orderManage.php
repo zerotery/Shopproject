@@ -170,32 +170,29 @@ body {
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("modify_date");?></font></th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("action");?></font></th>
                          </tr>
-                     
 
-                      <!-- On cells (`td` or `th`) -->
-                      <tr style="color:black">
-                        <td class="warning"><label ><input class="checkbox" type="checkbox" name="check1" ></label></td>
-                        <td class="warning" style="font-size:11pt" align="center" >#1255a</td>
-                        <td class="warning" style="font-size:11pt" >นายอุดมเอก แต้จิ๊ว</td>
-                        <td class="warning" style="font-size:11pt" >ชำระเงินแล้ว</td>
-                        <td class="warning" style="font-size:11pt" >5000</td>
-                        <td class="warning" style="font-size:11pt" >22/12/2014</td>
-                        <td class="warning" style="font-size:11pt" >7/12/2014</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyorder'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
-                        
-                      </tr>
-                      <tr style="color:black">
-                        <td class="warning"><label ><input class="checkbox" type="checkbox" name="check2" ></label></td>
-                        <td class="warning" style="font-size:11pt" align="center" >#1256a
-                        </td>
-                        <td class="warning" style="font-size:11pt" >นายธนากร พรพรรณนุกูล</td>
-                        <td class="warning" style="font-size:11pt" >รอการชำระเงิน</td>
-                        <td class="warning" style="font-size:11pt" >5000</td>
-                        <td class="warning" style="font-size:11pt" >22/12/2014</td>
-                        <td class="warning" style="font-size:11pt" >21/12/2014</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modifyorder'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
-                        
-                      </tr>
+                          <?php
+                               for($i=0; $i<count($result); $i++){
+                                echo '<tr style="color:black">';
+                                echo '<td class="warning"><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$result[$i]['order_ID'].'"></label></td>';
+                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['order_ID'].'</td>';
+                                
+                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['f_name']." ".$result[$i]['l_name'].'</td>';
+                                if($result[$i]['order_status']==0){
+                                  echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("wait_payment").'</td>';
+                                }else{
+                                  echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("complete_payment").'</td>';
+                                }
+                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['order_sum_price'].'</td>';
+                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['order_date'].'</td>';
+                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['order_update_date'].'</td>';
+                                echo '<td class="warning" style="font-size:15pt" >['. anchor(site_url('backshop/modifyorder').'/?o_id='.$result[$i]['order_ID'].'',$this->lang->line("modify")).']</td>';
+                                echo '</tr>';
+                               }       
+
+                         
+                         ?>
+                     
                   </table>
                 </div>
                 </form>

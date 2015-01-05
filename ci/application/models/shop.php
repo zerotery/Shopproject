@@ -381,8 +381,54 @@
 			}
 		}
 
+		public function update_order($update_order,$where_order){
+			if($this->db->update('order',$update_order,$where_order)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
 
+		public function order_detail(){
+			$sql="SELECT order.order_ID,order.order_status,order.order_sum_price,order.order_date,order.order_update_date,member.f_name,member.l_name FROM member,`order` WHERE order.memberID=member.memberID;";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+		public function get_allorder($o_id){
+			$sql="SELECT * FROM member,`order` WHERE order.memberID=member.memberID AND order_ID='$o_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
 
+		public function get_product_order($o_id){
+			$sql="SELECT p_ID,product_order_quantity,product_order_description FROM order_product WHERE order_ID='$o_id';";
+			$query=$this->db->query($sql)->result_array();
+			
+			for($i=0;$i<count($query);$i++){
+			$p_id[$i]=$query[$i]['p_ID'];
+			$quantity[$i]=$query[$i]['product_order_quantity'];
+			$description[$i]=$query[$i]['product_order_description'];
+
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT * FROM product_detail WHERE  p_ID='$p_id[$i]' AND lang_ID='$lang';";
+
+			$query[$i]=$this->db->query($sql)->result_array();
+			
+			$sql="SELECT * FROM product WHERE  p_ID='$p_id[$i]';";
+
+			$query1[$i]=$this->db->query($sql)->result_array();
+			}
+			if(!empty($query)&&!empty($query1)&&!empty($quantity)&&!empty($description)){
+			$result=array('name' => $query,
+						  'price'=> $query1,
+						  'quantity'=>$quantity,
+						  'description'=>$description );
+			}else{
+				$result=NULL;
+			}
+			return $result;
+
+		}
 
 
 

@@ -72,7 +72,7 @@ body {
                                              </div>
                                              </div>
      
-                <form class="form-horizontal" name="product_type_select" id="modifyorder"   method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" name="product_type_select" id="modifyorder" action="<?php echo site_url('backshop/update_order');?>"  method="post" enctype="multipart/form-data">
                     <fieldset >
 
                                <div class="form-group col-lg-12">
@@ -110,7 +110,7 @@ body {
                                                <div class="form-group ">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("ordercode");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="ordercode" >A111</label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="ordercode" ><?php echo $result[0]['order_ID']; ?></label>
                                                 
                                                 
                                               </div>
@@ -118,7 +118,7 @@ body {
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft" ><?=$this->lang->line("customer_show");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-8 control-label animated fadeInLeft" id="customer_show">นายธนากร พรพรรณนุกูล</label>
+                                              <label  class="col-lg-8 control-label animated fadeInLeft" id="customer_show"><?php echo $result[0]['f_name']." ".$result[0]['l_name']; ?></label>
                                                 
                                                 
                                               </div>
@@ -126,27 +126,27 @@ body {
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("order_sprice");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="order_price">3000</label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="order_price"><?php echo $result[0]['order_sum_price']; ?></label>
                                               </div>
                                             </div>
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("ip_cusorder");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="ip_cusorder" >192.168.1.1</label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="ip_cusorder" ><?php echo $result[0]['member_ip']; ?></label>
                                               </div>
                                             </div>
                                            
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("adddates");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="adddate">22/12/2014</label>
+                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="adddate"><?php echo $result[0]['order_date']; ?></label>
                                               </div>
                                             </div>
 
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("modidates");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="modidate">23/12/2014</label>
+                                              <label  class="col-lg-5 control-label animated fadeInLeft" id="modidate"><?php echo $result[0]['order_update_date']; ?></label>
 
                                               </div>
                                             </div>
@@ -157,7 +157,7 @@ body {
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("email");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-5 control-label animated fadeInLeft" id="oc_email">bas@hotmail.com</label>
+                                              <label  class="col-lg-5 control-label animated fadeInLeft" id="oc_email"><?php echo $result[0]['email']; ?></label>
 
                                                </div>
                                             </div>
@@ -167,8 +167,8 @@ body {
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("order_status");?></label>
                                               <div class="col-lg-5" style="color:black">
                                                   <select  name="order_status" style="width:130px;height:25px" class=" animated fadeInDown" id="ostat">
-                                                    <option><?=$this->lang->line("wait_payment");?></option>
-                                                    <option><?=$this->lang->line("complete_payment");?></option>
+                                                    <option value="0"><?=$this->lang->line("wait_payment");?></option>
+                                                    <option value="1"><?=$this->lang->line("complete_payment");?></option>
                                                 
                                                   </select>
                                                 
@@ -212,30 +212,27 @@ body {
                                                                     <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_detail");?></font></th>
                                                                     
                                                                    </tr>
+
+                                                                 <?php
+                                                                  for($i=0; $i<count($product_order['name']); $i++){
+                                                                  echo '<tr style="color:black">';
+                                                                  echo '<td class="warning" style="font-size:11pt" >'.$product_order['name'][$i][0]['p_ID'].'</td>';
+                                                                  echo '<td class="warning" style="font-size:11pt" >'.$product_order['name'][$i][0]['product_name'].'</td>';
+                                
+                                                                  echo '<td class="warning" style="font-size:11pt" >'.$product_order['quantity'][$i].'</td>';
+                                                                  
+                                                                  echo '<td class="warning" style="font-size:11pt" >'.$product_order['price'][$i][0]['p_price'].'</td>';
+                                                                  
+                                                                  echo '<td class="warning" style="font-size:11pt" >'.($product_order['quantity'][$i])*($product_order['price'][$i][0]['p_price']).'</td>';
+                                                                
+                                                                  echo '<td class="warning" style="font-size:11pt" >'.$product_order['description'][$i].'</td>';
+                                                                  
+                                                             
+                                                                  echo '</tr>';
+                                                                  }       
+                                                                 ?>
                                                                
 
-                                                                <!-- On cells (`td` or `th`) -->
-                                                                <tr style="color:black">
-                                                                 
-                                                                  <td class="warning" style="font-size:11pt" align="center" >#1255a</td>
-                                                                  <td class="warning" style="font-size:11pt" >ดสื้อยืด</td>
-                                                                  <td class="warning" style="font-size:11pt" >5</td>
-                                                                  <td class="warning" style="font-size:11pt" >1000</td>
-                                                                  <td class="warning" style="font-size:11pt" >5000</td>
-                                                                  <td class="warning" style="font-size:11pt" > size เสื้อ m=3ตัว s=2ตัว ส่งมาเร็วๆนะคับ</td>
-                                                                 
-                                                                </tr>
-                                                                <tr style="color:black">
-                                                               
-                                                                  <td class="warning" style="font-size:11pt" align="center" >#1256a
-                                                                  </td>
-                                                                  <td class="warning" style="font-size:11pt" >เสื้อjacket</td>
-                                                                  <td class="warning" style="font-size:11pt" >1</td>
-                                                                  <td class="warning" style="font-size:11pt" >5000</td>
-                                                                  <td class="warning" style="font-size:11pt" >5000</td>
-                                                                  <td class="warning" style="font-size:11pt" >jacket size m 1ตัวครับ</td>
-                                                                 
-                                                                </tr>
                                                             </table>
                                                           </div>
                                                           </form>
@@ -326,7 +323,12 @@ body {
    <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-   
+   <script>
+
+    $('#btn_add').click(function() {
+    $('#modifyorder').submit();
+    });
+    </script>
 
   
     
