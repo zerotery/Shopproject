@@ -1286,15 +1286,20 @@
 
 			$this->login_system->checklogin();
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
-			}
+			
+			//if($id!=NULL){
+			//$this->session->set_userdata('id',$id);
+			//}
+			
+
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
 			
 			$data['nameshop']=$shop[0]['shop_name'];
+			$data_order=$this->shop->order_detail();
+			$data['result']=$data_order;
+			
 			$this->load->view('orderManage',$data);
 			
 			
@@ -1306,18 +1311,44 @@
 
 			$this->login_system->checklogin();
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
+			$o_id=$this->input->get('o_id');
+			if($o_id!=NULL){
+			$this->session->set_userdata('o_id',$o_id);
 			}
+			$o_id=$this->session->userdata('o_id');
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
+			$data_order=$this->shop->get_allorder($o_id);
+			$data_product=$this->shop->get_product_order($o_id);
+			
+			$data['result']=$data_order;
+			
+			$data['product_order']=$data_product;
 			
 			$data['nameshop']=$shop[0]['shop_name'];
+			
 			$this->load->view('modifyorder',$data);
 			
 			
+		}
+
+		public function update_order(){
+			$o_id=$this->session->userdata('o_id');
+			$status_order=$this->input->post('order_status');
+			$where_order=array('order_ID' => "$o_id"  );
+                    $update_order=array(
+                        'order_status' => "$status_order",
+                        
+                        
+                        );
+                    $s=$this->shop->update_order($update_order,$where_order);
+			if($s==1){
+				
+				redirect('backshop/orderManage');
+			}else{
+				redirect('backshop/modifyorder');
+			}
 		}
 
 		public function bankManage(){
@@ -1408,11 +1439,7 @@
 
 			$this->login_system->checklogin();
 
-			if($this->session->userdata('p_rf')==1){
-				redirect('backshop/modifyproduct','refresh');
-				
-				$this->session->unset_userdata('p_rf');
-			}
+			
 			
 			$data['user']=$this->session->userdata('loginname');
 			
@@ -1600,7 +1627,7 @@
                                           $hit='./asset/temp/'.$product_pic;
                                           unlink($hit);}
                                           redirect('backshop/edit_gallery');
-                                          $this->session->set_userdata('p_rf',1);
+                                          
                                     }
                     }
 
