@@ -82,7 +82,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="bank_choose" name="bankchoose" class="form-horizontal"  method="post" enctype="multipart/form-data" >
+          <form id="bank_choose" name="bankchoose" class="form-horizontal" action="<?php echo site_url('backshop/process_addbank');?>" method="post" enctype="multipart/form-data" >
             
 
 
@@ -93,13 +93,13 @@ body {
                     <div class="col-lg-2 col-xs-2 col-sm-2" style="color:black">
                      
                        <select  name="bank_selected" style="width:250px;height:30px" class=" animated fadeInDown"  id="bank_select">
-                        <option><?=$this->lang->line("ktb");?></option>
-                        <option><?=$this->lang->line("scb");?></option>
-                        <option><?=$this->lang->line("bkb");?></option>
-                        <option><?=$this->lang->line("tmb");?></option>
-                        <option><?=$this->lang->line("krungsri");?></option>
-                        <option><?=$this->lang->line("kbank");?></option>
-                        <option><?=$this->lang->line("uob");?></option>
+                        <option value="1"><?=$this->lang->line("ktb");?></option>
+                        <option value="2"><?=$this->lang->line("scb");?></option>
+                        <option value="3"><?=$this->lang->line("bkb");?></option>
+                        <option value="4"><?=$this->lang->line("tmb");?></option>
+                        <option value="5"><?=$this->lang->line("krungsri");?></option>
+                        <option value="6"><?=$this->lang->line("kbank");?></option>
+                        <option value="7"><?=$this->lang->line("uob");?></option>
                                                 
                       </select>
                                                 
@@ -131,8 +131,8 @@ body {
                     <div class="col-lg-2 col-xs-2 col-sm-2" style="color:black">
                      
                        <select  name="acc_t" style="width:250px;height:30px" class=" animated fadeInDown" id="acc_type">
-                        <option><?=$this->lang->line("acc_type1");?></option>
-                        <option><?=$this->lang->line("acc_type2");?></option>
+                        <option value="1"><?=$this->lang->line("acc_type1");?></option>
+                        <option value="2"><?=$this->lang->line("acc_type2");?></option>
                         
                                                 
                       </select>
@@ -148,7 +148,7 @@ body {
                   <div class="form-group animated fadeInUp" >
 
                   <div class="col-lg-4 col-sm-5">
-                      <button type="submit" class="btn btn-primary animated pulse" id="btu_submit"><?=$this->lang->line("bank_add");?></button>
+                      <button type="submit" class="btn btn-primary animated pulse" id="btu_submit" ><?=$this->lang->line("bank_add");?></button>
                       <a class="btn btn-danger animated swing" href="<?php echo site_url('backshop/bankManage');?>"><?=$this->lang->line("cancel");?></a>
                       
             </div>

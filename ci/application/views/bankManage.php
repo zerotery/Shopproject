@@ -75,7 +75,7 @@ body {
 
 
                                                  <h2><a href="<?php echo site_url('backshop/bankmodify');?>" style="color:white"><div id="add_type" class=" btn glyphicon glyphicon-plus animated right in rotateIn"></div></a>
-                                                 <div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick=""></div></h2>
+                                                 <div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick="document.getElementById('ckb').submit();"></div></h2>
 
                                                 
                                                  
@@ -88,7 +88,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="ckb" name="bankmanage"  method="post" >
+          <form id="ckb" name="bankmanage"  method="post" action="<?php echo site_url('backshop/delete_bank');?>" enctype="multipart/form-data" >
             
 
              <div class="table-responsive animated FadeInDown">
@@ -107,28 +107,42 @@ body {
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("account_type");?></font></th>
                          </tr>
 
-                      
-                     
+                      <?php
 
-                      <!-- On cells (`td` or `th`) -->
-                      <tr style="color:black">
-                        <td class="warning"><label ><input class="checkbox" type="checkbox" name="check1" ></label></td>
-                        <td class="warning" style="font-size:11pt;" >ธนาคารกรุงไทย</td>
-                        <td class="warning" style="font-size:11pt;" >นายธนากร พรพรรณนุกูล</td>
-                        <td class="warning" style="font-size:11pt" >นครราชสีมา</td>
-                        <td class="warning" style="font-size:11pt" >303-0-30503-3</td>
-                        <td class="warning" style="font-size:11pt" >ออมทรัพย์</td>
-                        
-                      </tr>
-                      <tr  style="color:black">
-                        <td class="warning"><label ><input class="checkbox" type="checkbox" name="check2" ></label></td>
-                        <td class="warning" style="font-size:11pt" >ธนาคารกรุงไทย</td>
-                        <td class="warning" style="font-size:11pt;" >นาย.... .....</td>
-                        <td class="warning" style="font-size:11pt" >นครราชสีมา</td>
-                        <td class="warning" style="font-size:11pt" >303-0-30503-3</td>
-                        <td class="warning" style="font-size:11pt" >กระแสรายวัน</td>
-                       
-                      </tr>
+                               for($i=0; $i<count($result); $i++){
+                                echo '<tr style="color:black">';
+                                echo '<td class="warning" ><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$result[$i]['bank_ID'].'"></label></td>';
+                                if($result[$i]['owner_bank_select']==1){
+                                echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("ktb").'</td>';
+                                }else if($result[$i]['owner_bank_select']==2){
+                                echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("scb").'</td>';
+                                }else if($result[$i]['owner_bank_select']==3){
+                                echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("bkb").'</td>';
+                                }else if($result[$i]['owner_bank_select']==4){
+                                echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("tmb").'</td>';
+                                }else if($result[$i]['owner_bank_select']==5){
+                                echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("krungsri").'</td>';
+                                }else if($result[$i]['owner_bank_select']==6){
+                                echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("kbank").'</td>';
+                                }else if($result[$i]['owner_bank_select']==7){
+                                echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("uob").'</td>';
+                                }
+
+                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['name_account'].'</td>';
+                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['bank_branch'].'</td>';
+                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['bank_account'].'</td>';
+                                if($result[$i]['bank_type']==1){
+                                  echo '<td class="warning status" style="font-size:11pt" >'.$this->lang->line("acc_type1").'</td>';
+                                }else{
+                                  echo '<td class="warning status" style="font-size:11pt" >'.$this->lang->line("acc_type2").'</td>';
+                                }
+                               
+                                echo '</tr>';
+                               }       
+
+                         
+                         ?>
+                      
                   </table>
                 </div>
                 </form>

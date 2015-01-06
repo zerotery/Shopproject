@@ -55,7 +55,7 @@ body {
          <div class="col-lg-8 col-md-7 col-sm-6">
          </div>
       </div>
-<form class="form-horizontal" name="product_type_select" id="cko"   method="post" enctype="multipart/form-data">
+<form class="form-horizontal" name="product_type_select" id="s_order" action="<?php echo site_url('backshop/search_order');?>"  method="post" enctype="multipart/form-data">
 <fieldset >
    
        <div class="page-header" >
@@ -111,9 +111,11 @@ body {
                  
                         
                          <div class="col-lg-2  col-md-5 col-sm-3">
-                          <button type="submit" class="btn btn-primary" style="width:70px;height:32px;"><?=$this->lang->line("order_search");?></button>
+                         <!-- <button type="submit" class="btn btn-primary" style="width:70px;height:32px;" onclick="document.getElementById('s_order').submit();"><?=$this->lang->line("order_search");?></button>-->
                           </div>
                         </div>
+      </fieldset>
+</form>
                  
                   
                   
@@ -139,7 +141,7 @@ body {
 
                                               <div class="col-md-2" style="color:smoke">
 
-                                                 <h2><div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick=""></div></h2>
+                                                 <h2><div id="del_type" class=" btn glyphicon glyphicon-minus animated rubberBand"  onclick="document.getElementById('order').submit();"></div></h2>
                                                  
                                               </div>
                                               <div>
@@ -150,11 +152,13 @@ body {
                                              </div>
                                              </div>
 
-          <form class="form-group " >
+          <form class="form-group " id="order" name="order" action="<?php echo site_url('backshop/delete_order');?>"   method="post"  enctype="multipart/form-data">
             
 
-             <div class="table-responsive animated fadeInDown">
-                  <table class="table">
+             <div class="table-responsive animated fadeInDown" id="users">
+             
+                  <table class="table" id="table">
+                  
                     <!-- On rows -->
                       <tr class="active">
                          <th class="info">
@@ -170,29 +174,56 @@ body {
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("modify_date");?></font></th>
                           <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("action");?></font></th>
                          </tr>
+                         <tr style="color:black">
+                           <td class="warning" ></td>
+                           <td class="warning" ><input class="search" id="orderid" placeholder="Search Order ID" /></td>
+                           <td class="warning" ><input class="search" id="name_member" placeholder="Search Name member" /></td>
+                           <td class="warning" ><select class="search" name="order_status" id="order_status" style="width:135px;height:25px">
+                        <option selected="selected" value=""></option>
+                        <option value="<?=$this->lang->line("wait_payment");?>"><?=$this->lang->line("wait_payment");?></option>
+                        <option value="<?=$this->lang->line("complete_payment");?>"><?=$this->lang->line("complete_payment");?></option>
+                        </select></td>
+                          <td class="warning" ><input class="search" id="sum_price" placeholder="Search Sum Price" /></td>
+                          <td class="warning" ><div class="col-lg-1  col-sm-1 input-group date" id='datetimepicker3'>
+                      <input type="text" id="add_date" class="form-control search" name="adddate" style="width:150px;height:25px" data-date-format="YYYY-MM-DD"  >
+                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
+                    </span> 
+                    
+                  </div></td>
+                          <td class="warning" ><div class="col-lg-1  col-sm-3 input-group date" id='datetimepicker4'>
+                     
+                      <input type="text" id="modify_date" class="form-control search" name="modifydate" style="width:150px;height:25px" data-date-format="YYYY-MM-DD" >
+                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
+                    </span>
 
+                    </div></td>
+                    <td class="warning" ></td>
+
+                         </tr>
+                          <tbody class="list">
                           <?php
+
                                for($i=0; $i<count($result); $i++){
                                 echo '<tr style="color:black">';
-                                echo '<td class="warning"><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$result[$i]['order_ID'].'"></label></td>';
-                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['order_ID'].'</td>';
+                                echo '<td class="warning" ><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$result[$i]['order_ID'].'"></label></td>';
+                                echo '<td class="warning order" style="font-size:11pt" >'.$result[$i]['order_ID'].'</td>';
                                 
-                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['f_name']." ".$result[$i]['l_name'].'</td>';
+                                echo '<td class="warning name_member" style="font-size:11pt" >'.$result[$i]['f_name']." ".$result[$i]['l_name'].'</td>';
                                 if($result[$i]['order_status']==0){
-                                  echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("wait_payment").'</td>';
+                                  echo '<td class="warning status" style="font-size:11pt" >'.$this->lang->line("wait_payment").'</td>';
                                 }else{
-                                  echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("complete_payment").'</td>';
+                                  echo '<td class="warning status" style="font-size:11pt" >'.$this->lang->line("complete_payment").'</td>';
                                 }
-                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['order_sum_price'].'</td>';
-                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['order_date'].'</td>';
-                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['order_update_date'].'</td>';
+                                echo '<td class="warning sumprice" style="font-size:11pt" >'.$result[$i]['order_sum_price'].'</td>';
+                                echo '<td class="warning orderdate" style="font-size:11pt" >'.$result[$i]['order_date'].'</td>';
+                                echo '<td class="warning update" style="font-size:11pt" >'.$result[$i]['order_update_date'].'</td>';
                                 echo '<td class="warning" style="font-size:15pt" >['. anchor(site_url('backshop/modifyorder').'/?o_id='.$result[$i]['order_ID'].'',$this->lang->line("modify")).']</td>';
                                 echo '</tr>';
                                }       
 
                          
                          ?>
-                     
+                        </tbody>
                   </table>
                 </div>
                 </form>
@@ -204,8 +235,7 @@ body {
           
         </div>
 </div>
-</fieldset>
-</form>
+
 </div>
 </div>
 
@@ -221,9 +251,84 @@ body {
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
     <script src="<?php echo JS_URL;?>moment.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap-datetimepicker.js"></script>
+    <script src="<?php echo JS_URL;?>list.js"></script>
+    <script>
+              var options = {
+              valueNames: [ 'order','name_member','status','sumprice','orderdate','update' ]
+              };
+
+              var userList = new List('users', options);
+
+              $('#orderid').keyup(function() {
+              var orderid = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+              userList.filter(function (item) {
+              if (item.values().order == orderid) {
+                return true;
+              } else {
+                return false;
+              }
+              });
+              });
+
+              $('#name_member').keyup(function() {
+              var name = document.getElementById('name_member').value;
+              userList.filter(function (item) {
+              if (item.values().name_member == name) {
+                return true;
+              } else {
+                return false;
+              }
+              });
+              });
+
+              $('#sum_price').keyup(function() {
+              var sprice = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+              userList.filter(function (item) {
+              if (item.values().sumprice == sprice) {
+                return true;
+              } else {
+                return false;
+              }
+              });
+              });
+
+              $('#add_date').keyup(function() {
+              var add_date = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+              userList.filter(function (item) {
+              if (item.values().orderdate == add_date) {
+                return true;
+              } else {
+                return false;
+              }
+              });
+              });
+
+               $('#modify_date').keyup(function() {
+              var modify_date = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+              userList.filter(function (item) {
+              if (item.values().update == modify_date) {
+                return true;
+              } else {
+                return false;
+              }
+              });
+              });
+
+              $('#order_status').change(function () {
+              var selection = this.value; 
+              userList.filter(function (item) {
+              if (item.values().status == selection) {
+                return true;
+              } else {
+                return false;
+              }
+            });
+
+            });
+    </script>
     <script type="text/javascript">
                 checked=false;
-                  function checkedAll (cko) {var aa= document.getElementById('cko'); if (checked == false)
+                  function checkedAll (order) {var aa= document.getElementById('order'); if (checked == false)
                     {
                     checked = true
                     }
@@ -233,11 +338,15 @@ body {
                     for (var i =0; i < aa.elements.length; i++){ aa.elements[i].checked = checked;}
                     }
         </script>
-<script type="text/javascript">
+        <script type="text/javascript">
             $(function () {
                 $('#datetimepicker1').datetimepicker({pickTime: false});
                 $('#datetimepicker2').datetimepicker({pickTime: false});
+                $('#datetimepicker3').datetimepicker({pickTime: false});
+                $('#datetimepicker4').datetimepicker({pickTime: false});
             });
+
+            
         </script>
     
     </body>
