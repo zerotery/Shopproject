@@ -171,6 +171,15 @@
     			 return 0;
     		}
 		}
+
+		public function insert_bank($data){
+			if($this->db->insert('shop_payment',$data)){
+    			 return 1;
+    		}else{
+    			 return 0;
+    		}
+		}
+
 		public function add_gallery($insert_g){
 			if($this->db->insert('product_gallery',$insert_g)){
     			 return 1;
@@ -216,6 +225,17 @@
 				return 0;
 			}
 		}
+		public function delete_order($data){
+			$this->db->delete('order',array('order_ID' => $data ));
+		}
+
+		public function delete_order_product($data){
+			$this->db->delete('order_product',array('order_ID' => $data ));
+		}
+
+		public function delete_bank($data){
+			$this->db->delete('shop_payment',array('bank_ID' => $data ));
+		}
 
 		public function data_del($data){
 			$sql="SELECT * FROM product WHERE p_ID='$data';";
@@ -234,6 +254,12 @@
 
 		public function getall_pid($s_id){
 			$sql="SELECT p_ID FROM product WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_bankdetail(){
+			$sql="SELECT * FROM shop_payment;";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
@@ -292,6 +318,13 @@
 			}*/
 			
 
+		}
+
+		public function get_success_order(){
+			
+			$sql="SELECT * FROM `order` WHERE order_status='1';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
 		}
 
 
