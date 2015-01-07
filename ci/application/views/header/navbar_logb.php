@@ -11,16 +11,12 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
+
       <li>
-        <a href="#">My Store</a>
+        <a href="<?php echo site_url('member_tb/regshop');?>"><span class="glyphicon glyphicon-plus" >&nbsp;<?=$this->lang->line("regshop");?></span></a>
       </li>
       
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown"><?=$this->lang->line("login");?><b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp<?php echo $user; ?></span></a></li>
-        </ul>
-      </li>
+     
     </ul>
     
     <ul class="nav navbar-nav navbar-right">
@@ -31,9 +27,21 @@
           <li><a href="<?php echo site_url('main/chenge_lang/thailand');?>" onclick="<?php $this->session->set_userdata('address',$_SERVER['PHP_SELF']);?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0">Thai</a></li>
         </ul>
       </li>
-      <li>
-        <a href="<?php echo site_url('backshop/logout');?>"><span class="glyphicon glyphicon-off" >&nbspLogout</span></a>
+
+       <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<?php echo $user; ?></span><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+
+           <li>
+             <a href="<?php echo site_url('member_tb/profile');?>"><span class="glyphicon glyphicon-cog" >&nbsp<?=$this->lang->line("pro_setting");?></span></a>
+          </li>
+        
+          <li>
+              <a href="<?php echo site_url('backshop/logout');?>"><span class="glyphicon glyphicon-off" >&nbsp;Logout</span></a>
+          </li>
+        </ul>
       </li>
+      
     </ul>
   </div>
 </div>

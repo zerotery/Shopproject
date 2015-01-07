@@ -92,7 +92,7 @@ body {
                    <div class="form-group animated fadeInLeft" >
                     <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("add_date");?></label>
                     <div class="col-lg-1  col-sm-1 input-group date" id='datetimepicker1'>
-                      <input type="text" id="add_date" class="form-control" name="adddate" style="width:150px;height:25px"  >
+                      <input type="text" id="add_date" class="form-control" name="adddate" style="width:150px;height:25px" data-date-format="YYYY-MM-DD"  >
                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
                     </span> 
                     
@@ -101,7 +101,7 @@ body {
                     <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("modify_date");?></label>
                     <div class="col-lg-1  col-sm-3 input-group date" id='datetimepicker2'>
                      
-                      <input type="text" id="modify_date" class="form-control" name="modifydate" style="width:150px;height:25px"  >
+                      <input type="text" id="modify_date" class="form-control" name="modifydate" style="width:150px;height:25px" data-date-format="YYYY-MM-DD"  >
                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
                     </span>
 
