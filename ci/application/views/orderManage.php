@@ -55,67 +55,7 @@ body {
          <div class="col-lg-8 col-md-7 col-sm-6">
          </div>
       </div>
-<form class="form-horizontal" name="product_type_select" id="s_order" action="<?php echo site_url('backshop/search_order');?>"  method="post" enctype="multipart/form-data">
-<fieldset >
-   
-       <div class="page-header" >
-               
-                  <h3 id="formpersonal"><?=$this->lang->line("filter");?></h3>
-                  </div>
-                 <div class="row">
-                  <div class="form-group animated fadeInLeft" >
-                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("sell_order_num");?></label>
-                    <div class="col-lg-2  col-sm-1">
-                      <input type="text" id="ocode" class="form-control" name="ordercode" style="width:84px;height:25px" >
-                    </div>
 
-                  
-                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("customer");?></label>
-                    <div class="col-lg-1 col-sm-1">
-                      <input type="text" id="cname" class="form-control" name="customer" style="width:150px;height:25px" >
-                    </div>
-                  
-                  
-                    <label  class=" col-lg-2 col-sm-3 control-label"><?=$this->lang->line("order_status");?></label>
-                    <div class="col-lg-1 col-xs-2 col-sm-3" style="color:black">
-                       <select  name="order_status" id="order_stat" style="width:135px;height:25px">
-                        <option><?=$this->lang->line("wait_payment");?></option>
-                        <option><?=$this->lang->line("complete_payment");?></option>
-                    
-                      </select>
-                    </div>
-                    </div>
-
-                  
-                  
-                 
-                   <div class="form-group animated fadeInLeft" >
-                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("add_date");?></label>
-                    <div class="col-lg-1  col-sm-1 input-group date" id='datetimepicker1'>
-                      <input type="text" id="add_date" class="form-control" name="adddate" style="width:150px;height:25px"  >
-                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
-                    </span> 
-                    
-                  </div>
-                   <div class="form-group"></div>
-                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("modify_date");?></label>
-                    <div class="col-lg-1  col-sm-3 input-group date" id='datetimepicker2'>
-                     
-                      <input type="text" id="modify_date" class="form-control" name="modifydate" style="width:150px;height:25px"  >
-                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
-                    </span>
-
-                    </div>
-                    </div>
-                  
-                 
-                        
-                         <div class="col-lg-2  col-md-5 col-sm-3">
-                         <!-- <button type="submit" class="btn btn-primary" style="width:70px;height:32px;" onclick="document.getElementById('s_order').submit();"><?=$this->lang->line("order_search");?></button>-->
-                          </div>
-                        </div>
-      </fieldset>
-</form>
                  
                   
                   

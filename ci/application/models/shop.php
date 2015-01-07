@@ -327,6 +327,25 @@
 			return $query;
 		}
 
+		public function get_payreport($idset){
+			$sql="SELECT * FROM tranfer_detail WHERE s_ID='$idset';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_memberOrder($idset){
+
+			$sql="SELECT memberID FROM `order` WHERE s_ID='$idset' AND order_status='1';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function getdatail_mem($memberID){
+			$sql="SELECT memberID,f_name,l_name,email FROM member WHERE memberID='$memberID';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 
 
 		public function insertcatep($insert_productcateP_en,$insert_productcateP_th){
