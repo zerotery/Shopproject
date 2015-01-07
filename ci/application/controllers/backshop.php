@@ -1433,15 +1433,15 @@
 
 			$this->login_system->checklogin();
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
-			}
+			
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
+
+			$result=$this->shop->get_payreport($idset);
 			
 			$data['nameshop']=$shop[0]['shop_name'];
+			$data['result']=$result;
 			$this->load->view('payment_report',$data);
 			
 			
@@ -1701,15 +1701,20 @@
 
 			$this->login_system->checklogin();
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
-			}
+			
+			
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
+			$get_memberID=$this->shop->get_memberOrder($idset);
+			for($i=0;$i<count($get_memberID);$i++){
+				$result[$i]=$this->shop->getdatail_mem($get_memberID[$i]['memberID']);
+			}
 			
+
 			$data['nameshop']=$shop[0]['shop_name'];
+			
+			$data['result']=$result;
 			$this->load->view('member_report',$data);
 			
 			

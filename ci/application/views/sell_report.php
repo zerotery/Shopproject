@@ -54,42 +54,7 @@ body {
         </div>
          
       </div>
-<form class="form-horizontal" name="s_report" id="report_s"   method="post" enctype="multipart/form-data">
-<fieldset >
-   
-       <div class="page-header" >
-               
-                  <h3 id="formpersonal"><?=$this->lang->line("filter");?></h3>
-                  </div>
-                 <div class="row">
-                  <div class="form-group animated fadeInLeft" >
-                    
 
-                    
-                  
-                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("order_start");?></label>
-                    
-                    </div>
-                    <div class="form-group animated fadeInLeft " >
-                  
-                    <label  class=" col-lg-1 col-sm-2 control-label"><?=$this->lang->line("order_end");?></label>
-                    
-                    </div>
-                    <div class="form-group animated fadeInLeft" >
-                    <label  class="col-lg-1  col-sm-2 control-label"><?=$this->lang->line("sell_order_num");?></label>
-                    <div class="col-lg-2  col-sm-2">
-                     
-                    </div>
-                    </div>
-
-                  
-                  
-                  
-                         <div class="col-lg-5 col-sm-3">
-                         
-                          </div>
-                        </div>
-                     
 
                   
                   
@@ -125,7 +90,7 @@ body {
                                              </div>
                                              </div>
 
-          <form class="form-group " >
+          
             
 
              <div class="table-responsive animated fadeInDown" id="users">
@@ -186,7 +151,7 @@ body {
                       </tbody>
                   </table>
                 </div>
-                </form>
+                
 
        
          
@@ -194,8 +159,7 @@ body {
           
         </div>
 </div>
-</fieldset>
-</form>
+
 </div>
 </div>
 
