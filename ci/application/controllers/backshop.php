@@ -1246,7 +1246,7 @@
 			$shop=$this->shop->getshop($idset);
 			
 			$data['nameshop']=$shop[0]['shop_name'];
-			$data_order=$this->shop->order_detail();
+			$data_order=$this->shop->order_detail($idset);
 			$data['result']=$data_order;
 			
 			$this->load->view('orderManage',$data);
@@ -1255,7 +1255,7 @@
 		}
 
 		public function delete_order(){
-
+			$s_id=$this->session->userdata('id');
 			if(!empty($this->input->post('check_list'))) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
@@ -1266,12 +1266,26 @@
                        
                      $i++; //in your case, it would echo whatever $row['Report ID'] is equivalent to.
     				}
+
+    				
     				
     				for($i=0;$i<count($data);$i++){
 						$this->shop->delete_order($data[$i]);
     					$this->shop->delete_order_product($data[$i]);
+    					$filename = "./uploads/orders".'/'.$s_id.'/'.$data[$i];
+    					if (file_exists($filename)) {
+    							$files = glob($filename.'/'.'*');
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+								rmdir($filename);
+
+    					}
     				}
-    				redirect('backshop/orderManage');
+					redirect('backshop/orderManage');
+		}else{
+			redirect('backshop/orderManage');
 		}
 	}
 
@@ -1292,6 +1306,8 @@
     					
     				}
     				redirect('backshop/bankManage');
+			}else{
+				redirect('backshop/bankManage');
 			}
 		}
 
@@ -1354,7 +1370,7 @@
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
-			$result=$this->shop->get_bankdetail();
+			$result=$this->shop->get_bankdetail($idset);
 			
 			$data['nameshop']=$shop[0]['shop_name'];
 			$data['result']=$result;
@@ -1418,7 +1434,7 @@
 			$shop=$this->shop->getshop($idset);
 			
 			$data['nameshop']=$shop[0]['shop_name'];
-			$result=$this->shop->get_success_order();
+			$result=$this->shop->get_success_order($idset);
 			
 			$data['result']=$result;
 			$this->load->view('sell_report',$data);
@@ -1707,38 +1723,491 @@
 			
 			$shop=$this->shop->getshop($idset);
 			$get_memberID=$this->shop->get_memberOrder($idset);
+			
 			for($i=0;$i<count($get_memberID);$i++){
 				$result[$i]=$this->shop->getdatail_mem($get_memberID[$i]['memberID']);
 			}
 			
 
 			$data['nameshop']=$shop[0]['shop_name'];
+			if(!empty($result)){
+				$data['result']=$result;
+			}else{
+				$data['result']=null;
+			}
 			
-			$data['result']=$result;
 			$this->load->view('member_report',$data);
 			
 			
 		}
 		
-		public function setting(){
+		public function setting($error=null){
 			$lang=$this->load_language->lang();
             $this->lang->load($lang,$lang);
 
 			$this->login_system->checklogin();
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
-			}
+			
+			
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
 			
+			$shopdetail=$this->shop->getshopdertail($idset);
+			$shopall=$this->shop->getshopfanpage($idset);
+			
+			$path_profile_pic=$idset.'/'.$shopall[0]['shop_pic'];
+			$path_header_pic=$idset.'/'.$shopall[0]['shop_pic_header'];
+			$path_bg_pic=$idset.'/'.$shopall[0]['shop_pic_bg'];
+
+
 			$data['nameshop']=$shop[0]['shop_name'];
+			
+			$temp = explode("/",$shop[0]['s_url']);
+			$data['url']=$temp[3];
+			$data['name_en']=$shopdetail[0]['shop_name'];
+			$data['name_th']=$shopdetail[1]['shop_name'];
+			$data['detail_en']=$shopdetail[0]['shop_detail_data'];
+			$data['detail_th']=$shopdetail[1]['shop_detail_data'];
+			$data['fanpage']=$shopall[0]['shop_fanpage'];
+			
+			$data['profile']=$path_profile_pic;
+			$data['header']=$path_header_pic;
+			$data['bg']=$path_bg_pic;
+
+			$data['cate']=$this->member->type_category();
+			$data['error']=$error;
 			$this->load->view('setting',$data);
 			
 			
 		}
+
+		public function process_update_setting(){
+				  $idset=$this->session->userdata('id');
+				  $shopall=$this->shop->getshopfanpage($idset);
+			 //profile shop
+                  $filename = "./asset/temp";
+                    
+                  if (file_exists($filename)) {
+                    $do=1;                 
+                  }else {
+                    mkdir("./asset/temp");
+                    $do=1;                  
+                  }
+
+                  if($do==1){
+                  $config['upload_path'] ='./asset/temp/';
+                  $config['allowed_types'] = 'gif|jpg|png';
+                  $config['max_size'] = '0';
+                  $config['max_width']  = '0';
+                  $config['max_height']  = '0';
+                  $this->upload->initialize($config);
+                  
+                  
+                  if(!$this->upload->do_upload('select_shopprofile')){
+                    $data=array('error'=>$this->upload->display_errors());
+                    if($_FILES['select_shopprofile']['error']==4){
+                          $pic_profile=$shopall[0]['shop_pic'];
+                          
+                      
+                          $set1=2;
+                          }else if($_FILES['select_shopprofile']['error']==0){
+                         
+                          $set1=null;
+                      
+                          $error1="error1";
+                      
+                          $this->setting($error1);
+                          }
+
+                    }else{
+                      $data=array('upload_data' =>$this->upload->data());
+                      
+                      $picnameold=$data['upload_data']['file_name']; 
+                      $width=$data['upload_data']['image_width'];
+                      $height=$data['upload_data']['image_height'];
+                      $temp = explode(".",$data['upload_data']['file_name']);
+                      $pic_profile = "profile" . '.' .end($temp);
+                     
+                      rename ("./asset/temp/".$picnameold, "./asset/temp/".$pic_profile);
+                      if($width>=180&&$height>=180){
+                      $set1=1;
+                      }
+                      else{
+                      $error1="min";
+                      $set1=null;
+                      $this->setting($error1);
+                      }
+                    
+                    }
+
+                    //background picture
+
+                  
+                  if(!$this->upload->do_upload('select_shopbg')){
+                    $data=array('error'=>$this->upload->display_errors());
+                    //0 loop 3 4 loop 2
+                    
+                          if($_FILES['select_shopbg']['error']==4){
+                          $pic_bg=$shopall[0]['shop_pic_bg'];
+                         
+                      
+                          $set2=2;
+                          }else if($_FILES['select_shopbg']['error']==0){
+                          $set2=null;
+                      
+                          $error2="error2";
+                      
+                          $this->setting($error2);
+                          }
+
+                    }else{
+                      $data=array('upload_data' =>$this->upload->data());
+                      
+                      $picnameold=$data['upload_data']['file_name']; 
+                      $width=$data['upload_data']['image_width'];
+                      $height=$data['upload_data']['image_height'];
+                      $temp = explode(".",$data['upload_data']['file_name']);
+                      $pic_bg = "bg" . '.' .end($temp);
+                      
+                      rename ("./asset/temp/".$picnameold, "./asset/temp/".$pic_bg);
+                      if($width>=1366&&$height>=768){
+                      $set2=1;
+                      }
+                      else{
+                      $error2="min";
+                      $set2=null;
+                      $this->setting($error2);
+                      }
+                    
+                    }
+
+                    //cover picture
+
+                 
+                  
+                  
+                  if(!$this->upload->do_upload('select_shopcover')){
+                    $data=array('error'=>$this->upload->display_errors());
+                    //0 loop 3 4 loop 2
+                    
+                          if($_FILES['select_shopcover']['error']==4){
+                          $pic_cover=$shopall[0]['shop_pic_header'];
+                          
+                      
+                          $set3=2;
+                          }else if($_FILES['select_shopcover']['error']==0){
+                          $set3=null;
+                      
+                          $error3="error3";
+                      
+                          $this->setting($error3);
+                          }
+
+                    }else{
+                      $data=array('upload_data' =>$this->upload->data());
+                      
+                      $picnameold=$data['upload_data']['file_name'];
+                      $width=$data['upload_data']['image_width'];
+                      $height=$data['upload_data']['image_height']; 
+                      $temp = explode(".",$data['upload_data']['file_name']);
+                      $pic_cover= "cover" . '.' .end($temp);
+                      
+                      rename ("./asset/temp/".$picnameold, "./asset/temp/".$pic_cover);
+                      if($width>=600&&$height>=240){
+                      $set3=1;
+                      }
+                      else{
+                      $error3="min";
+                       $set3=null;
+                      $this->setting($error3);
+                      }
+                    
+                    }
+                    
+
+
+                  
+
+                  }
+
+                  if($set1!=null&&$set2!=null&&$set3!=null){
+                  	
+                  	$shopname_en=$this->input->post('shopname_en');
+                      $shopname_th=$this->input->post('shopname_th');
+                      if($shopname_en=="-"){
+                        $shopname_en=$shopname_th;
+                      }else if($shopname_th=="-"){
+                        $shopname_th=$shopname_en;
+                      }else if($shopname_en=="-" && $shopname_th=="-"){
+                        $shopname_en="-";
+                        $shopname_th="-";
+                      }
+
+                      $URL="www.myaday.net/Project/TBShop/".$this->input->post('urlname');
+                      $category=$this->input->post('category');
+                      $shopdetail_en=$this->input->post('shopdetail_en');
+                      $shopdetail_th=$this->input->post('shopdetail_th');
+                      if($shopdetail_en=="-"){
+                        $shopdetail_en=$shopdetail_th;
+                      }else if($shopdetail_th=="-"){
+                        $shopdetail_th=$shopdetail_en;
+                      }else if($shopdetail_en=="-" && $shopdetail_th=="-"){
+                        $shopdetail_en="-";
+                        $shopdetail_th="-";
+                      }
+                      $fanpage=$this->input->post('fanpageshop');
+                      
+                      $profile=$pic_profile;
+
+                      $bg=$pic_bg;
+                      $cover=$pic_cover;
+                      //echo $shopname_en." ".$shopname_th." ".$URL." ".$category." ".$category." ".$shopdetail_en." ".$shopdetail_th."". $fanpage." ".$profile." ".$bg." " .$cover;
+                      $updateshop=array(
+                        
+                        'shop_pic_header' => "$cover",
+                        'shop_pic_bg' => "$bg",
+                        'shop_pic' => "$profile",
+                        
+                        's_url' => "$URL",
+                        
+                        'shop_fanpage' => "$fanpage"
+                        
+                      );
+
+                      $where_update=array('s_ID'=>"$idset");
+                      //print_r($where_update);
+                      if(!empty($updateshop)){
+                      $s1=$this->shop->update_shop($updateshop, $where_update);
+                      }
+
+                       $update_shop_cate=array(
+                        
+                        'shop_category_ID' => "$category"
+                        
+                      	);
+                        if(!empty($update_shop_cate)){
+                       $s2=$this->shop->update_cate($update_shop_cate, $where_update);
+                   		}
+
+                       $where_update_datail=array('s_ID'=>"$idset",'lang_ID' => 1);
+
+                       $updateshop_detailen=array(
+                        'shop_name' => "$shopname_en",
+                        'shop_detail_data' => "$shopdetail_en",
+                        );
+                       if(!empty( $updateshop_detailen)){
+                       $s3=$this->shop->update_detail_en($updateshop_detailen, $where_update_datail);
+                   		}
+                      $where_update_datail=array('s_ID'=>"$idset",'lang_ID' => 2);
+                      $updateshop_detailth=array(
+                        'shop_name' => "$shopname_th",
+                        'shop_detail_data' => "$shopdetail_th",
+                     
+                        
+                        
+                      );
+                      if(!empty( $updateshop_detailth)){
+                      $s4=$this->shop->update_detail_th($updateshop_detailth, $where_update_datail);
+                  	  }
+
+                  }
+
+                  	  
+
+
+					if($set1==1&&$set2==1&&$set3==1){
+
+									  $numsave=$idset%1000;
+                                      $filename = "./uploads/shops/".$numsave;
+
+                                      if (file_exists($filename)) {
+                                      $s=1;
+                                      }else {
+                                      mkdir("./uploads/shops/".$numsave);
+                                      $s=1;
+                                      }
+
+                                if($s==1){
+                                $hit='./uploads/shops/'.$numsave.'/'.$profile;
+                                unlink($hit);
+                                $config['image_library']='gd2';
+                                $config['source_image']='./asset/temp/'.$profile;
+                                $config['width']=180;
+                                $config['height']=180;
+                                $config['new_image']='./uploads/shops/'.$numsave.'/'.$profile;
+                                $this->image_lib->clear();
+                                $this->image_lib->initialize($config);
+                                $this->image_lib->resize();
+                                    if(!$this->image_lib->resize()){
+                                        echo $this->image_lib->display_errors();
+                                    }else{
+                                        
+                                          $hit='./asset/temp/'.$profile;
+                                          unlink($hit);
+                                    }
+                                 $hit='./uploads/shops/'.$numsave.'/'.$bg;
+                                 unlink($hit);
+                                 $config['image_library']='gd2';
+                                 $config['source_image']='./asset/temp/'.$bg;
+                                 $config['width']=1366;
+                               	 $config['height']=768;
+                              	 $config['new_image']='./uploads/shops/'.$numsave.'/'.$bg;
+                               	 $this->image_lib->clear();
+                                 $this->image_lib->initialize($config);
+                                  $this->image_lib->resize();
+                                  if(!$this->image_lib->resize()){
+                                    echo $this->image_lib->display_errors();
+                                  }else{
+                                    
+                                    $hit='./asset/temp/'.$bg;
+                                    unlink($hit);
+                                    
+                                  }   
+                                $hit='./uploads/shops/'.$numsave.'/'.$cover;
+                                unlink($hit);
+                                $config['image_library']='gd2';
+                                $config['source_image']='./asset/temp/'.$cover;
+                                $config['width']=600;
+                                $config['height']=240;
+                                $config['new_image']='./uploads/shops/'.$numsave.'/'.$cover;
+                                $this->image_lib->clear();
+                                $this->image_lib->initialize($config);
+                                $this->image_lib->resize();
+                                if(!$this->image_lib->resize()){
+                                    echo $this->image_lib->display_errors();
+                                }else{
+                                    
+                                        $hit='./asset/temp/'.$cover;
+                                        unlink($hit);
+                                    
+                                }
+
+                               
+
+                      $s=0;
+
+                      redirect('backshop/myshop');
+                      //echo $s1." ".$s2." ".$s3." ".$s4;
+                  	}
+                      
+
+
+                    }else if($set1==2&&$set2==2&&$set3==2){
+                      redirect('backshop/myshop');
+                    	//echo $s1." ".$s2." ".$s3." ".$s4;
+                    }else{
+                    	redirect('backshop/setting');
+                    	//echo "fail";
+                    }
+
+                      
+                      
+                    
+
+		}
+
+		public function delete_shop(){
+			
+			$s_id=$this->session->userdata('id');
+			$shopall=$this->shop->getshopfanpage($s_id);
+
+			
+    			$delete=array('s_ID'=>"$s_id");
+    			$h1=$this->shop->checkshop($s_id);
+    			if($h1==1){
+    				$filename= "./uploads/shops".'/'.$s_id;
+
+					if (file_exists($filename)) {
+    							$files = glob($filename.'/'.'*');
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+								rmdir($filename);
+
+    				}
+    				$this->shop->delete_shop($delete);
+    			}
+				$h2=$this->shop->checkshop_cate_detail($s_id);
+				if($h2==1){
+    				$this->shop->delete_cate_detail($delete);
+    			}
+    			$h3=$this->shop->checkshop_detail($s_id);
+    			if($h3==1){
+    				$this->shop->delete_shop_detail($delete);
+    			}
+    			$h4=$this->shop->checkshop_payment($s_id);
+    			if($h4==1){
+    				$this->shop->delete_shop_payment($delete);
+    			}
+    			$h5=$this->shop->checkshop_tranfer($s_id);
+    			if($h5==1){
+    				$this->shop->delete_shop_tranfer($delete);
+    			}
+    			$h6=$this->shop->checkproduct($s_id);
+    			if($h6==1){
+    				$d=$this->shop->data_del_1($s_id);
+    				for($i=0;$i<count($d);$i++){
+    			$filename = "./uploads/products".'/'.$d[$i]['p_create_date'].'/'.$d[$i]['s_ID'].'/'.$d[$i]['p_ID'];
+                $filename1= "./uploads/products".'/'.$d[$i]['p_update_date'].'/'.$d[$i]['s_ID'].'/'.$d[$i]['p_ID'];
+    			
+
+    						if (file_exists($filename)) {
+    							$files = glob($filename.'/'.'*');
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+								rmdir("./uploads/products".'/'.$d[$i]['p_create_date'].'/'.$d[$i]['s_ID']);
+
+    						}
+    						else{
+
+    							if (file_exists($filename1)) {
+    							$files = glob($filename1.'/'.'*');
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+								rmdir("./uploads/products".'/'.$d[$i]['p_update_date'].'/'.$d[$i]['s_ID']);
+
+    							}	
+    						}
+
+    						$this->shop->delete_product($d[$i]['p_ID']);
+    			}
+    		}
+    			$h7=$this->shop->checkproduct_cate($s_id);
+    			if($h7==1){
+    				$this->shop->delete_product_cate($delete);
+    			}
+    			
+    			$h9=$this->shop->checkorder($s_id);
+
+    			if($h9==1){
+    				$d=$this->shop->data_del_order($s_id);
+    				for($i=0;$i<count($d);$i++){
+    					$filename = "./uploads/orders".'/'.$d[$i]['s_ID'].'/'.$d[$i]['order_ID'];
+    					if (file_exists($filename)) {
+    							$files = glob($filename.'/'.'*');
+    							foreach($files as $file){ // iterate files
+  								if(is_file($file))
+    							unlink($file); // delete file
+								}
+								rmdir("./uploads/orders".'/'.$d[$i]['s_ID']);
+
+    				}
+    				$this->shop->delete_order_all($d[$i]['order_ID']);
+    				}
+    			}
+    			redirect('backshop/myshop');
+
+
+
+    		//echo $h1." ".$h2." ".$h3." ".$h4." ".$h4." ".$h5." ".$h6." ".$h7." ".$h8." ".$h9;
+			
+	}
 
 			
 
@@ -1803,11 +2272,7 @@
 			
 		}
 
-		public function test_alert(){
-			echo "success";
-
-
-		}
+		
 		
 
 

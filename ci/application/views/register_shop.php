@@ -266,7 +266,7 @@
                   
                   <div class="col-lg-10 col-lg-offset-2">
                       <button type="submit" class="btn btn-primary animated pulse"><?=$this->lang->line("submit");?></button>
-                      <button class="btn btn-default animated pulse" type="reset"><?=$this->lang->line("cancel");?></button>
+                      <a class="btn btn-danger animated swing" href="<?php echo site_url('backshop/myshop');?>"><?=$this->lang->line("cancel");?></a>
                       
                   </div>
             </span>

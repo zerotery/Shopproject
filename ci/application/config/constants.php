@@ -47,7 +47,7 @@ define("logo_pic","http://localhost/Shopproject/ci/asset/img/");
 define("order","http://localhost/Shopproject/ci/uploads/orders/");
 define("upload","http://localhost/Shopproject/ci/uploads/profiles/");
 define("product","http://localhost/Shopproject/ci/uploads/products/");
-
+define("shop","http://localhost/Shopproject/ci/uploads/shops/");
 
 define("private_key","Tbshop2014");
 
