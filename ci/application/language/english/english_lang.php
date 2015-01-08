@@ -311,8 +311,18 @@
 
 
 
+ 	
+ ///////////////////////////////////////////////////////////////
+ //////////////////////////////////THEME1//////////////////////
+ //////////////////////////////////////////////////////////////
 
 
+    $lang['add_to_cart']="Add to Cart";
+    $lang['view_product']="Detail";
+    $lang['view_all_product']="See all";
+    $lang['category']="Category";
+    $lang['cart']="Basket";
+    $lang['cart_count']="ea";
 
 
 

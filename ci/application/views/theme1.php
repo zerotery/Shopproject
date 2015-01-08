@@ -9,8 +9,9 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
-
 <link rel="stylesheet" type="text/css" href="<?php echo THEME1_URL;?>stylesheet.css">
+<link rel="stylesheet" type="text/css" href="<?php echo THEME1_URL;?>shortcodes.css">
+<link rel="stylesheet" type="text/css" href="<?php echo THEME1_URL;?>transition.css">
 
 
 
@@ -54,25 +55,51 @@ header {
 
 <?php echo $this->load->view('header/navbar_nlog')?>
 
+
+
+
+<div class="divider-all" >
 <div class="row">
           <div class="col-lg-12  ">
-             <div class="page-header-s">
-                     
+             <div class="page-header-show">
+                      
                     </div>
                     </div>
                     </div>
 
-<div class="divider-all" >
 
 
 <div class="bs-docs-section clearfix">
-        <div class="rowz">
+
+        <div class="row">
           <div class="col-lg-12">
                 <!-- Wrap all page content here -->
+
+              <div id="divider-left" class="padding-0" >
                 
+              </div>
+              <div  id="divider-right" >
+                  <div class="col-xs-4 col-sm-4 ">             
+                  <a ><ul class="nav nav-stacked affix-top " id="cart" >
+                           <h3 class="color cart-margin"><i class="glyphicon glyphicon-shopping-cart space"></i><?=$this->lang->line("cart");?>
+                           
+                           <li><label class="color">0</label><?=$this->lang->line("cart_count");?></li></h3>
+                                                                              
+                              
+                                                                                        
+
+
+                   </ul></a>                                                                                                       
+                  </div> 
+              </div>
+
+              <div id="divider-center"> 
+
+
                       <header>
                           
                       </header>
+
               <div class="divider-nav">
                  <div class="col-xs-12 padding-0">
                       <!-- Fixed navbar -->
@@ -99,7 +126,7 @@ header {
           
                       <!-- Begin page content -->
                <div class="page-header-shop padding-0">
-                    <div class="row">
+                    <div class="rowz">
                       <div class="col-lg-8 col-md-7 col-sm-6">
 
                       <ol class="breadcrumb-shop" >
@@ -138,16 +165,17 @@ header {
                     
                             
                        <ul class="nav nav-stacked affix-top" id="sidebar" >
-                        <h3><i class="glyphicon glyphicon-briefcase "></i> Toolbox</h3>
-                            <hr> 
-                                      <li><a href="javascript:;"><i class="glyphicon glyphicon-flash"></i> Alerts</a></li>
-                                      <li><a href="javascript:;"><i class="glyphicon glyphicon-link"></i> Links</a></li>
-                                      <li><a href="javascript:;"><i class="glyphicon glyphicon-list-alt"></i> Reports</a></li>
-                                      <li><a href="javascript:;"><i class="glyphicon glyphicon-book"></i> Books</a></li>
-                                      <li><a href="javascript:;"><i class="glyphicon glyphicon-briefcase"></i> Tools</a></li>
-                                      <li><a href="javascript:;"><i class="glyphicon glyphicon-time"></i> Real-time</a></li>
-                                      <li><a href="javascript:;"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
-                            <hr>
+                        <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
+                            
+                                      <li><a href="#"><i class="glyphicon glyphicon-flash"></i> Alerts</a></li>
+                                      <li><a href="#"><i class="glyphicon glyphicon-link"></i> Links</a></li>
+                                      <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Reports</a></li>
+                                      <li><a href="#"><i class="glyphicon glyphicon-book"></i> Books</a></li>
+                                      <li><a href="#"><i class="glyphicon glyphicon-briefcase"></i> Tools</a></li>
+                                      <li><a href="#"><i class="glyphicon glyphicon-time"></i> Real-time</a></li>
+                                      <li><a href="#"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
+
+
                                     </ul>
                                     
                                  
@@ -155,101 +183,151 @@ header {
                 </div> 
                                    
                                 
-                   <div class="col-xs-9  ">
-                                 <h2 id="sec0">Content</h2>
-                <div class="rowz">
-  <div class="col-xs-4 ">
-    <div class="inner">
-    <div class="thumbnail">
-      <img src="<?php echo logo_pic;?>item.png" alt="...">
-      <div class="name"><a href="#">iPod Classic</a></div>
-        <div class="price">$100.00</div>
-    </div>
-   </div>
-  </div>
-</div>
+     <div class="col-xs-9  ">
+            <div class="row">
+          <div class="col-lg-12  ">
+           <div class="page-header-s">
+                    
+                    </div>
+              </div>
+          </div>
 
-         
-       
-        
-        
-        
-        
-        <div class="abs" style="display: none;">
-        <div class="cart">
-        <a class="button1" title="Add to Cart" href="productdetail.html"><span>Add to Cart</span></a>
-        <a class="btn-detail ml10" title="Detail" href="productdetail.html"><span>Detail</span></a></div>        
-        </div>
+          <h2 id="sec0"><div id="divl" ><?=$this->lang->line("product");?></div> <div id="divr" ><a><?=$this->lang->line("view_all_product");?></a></div></h2>
+
+                <div class="row">
+                            <div class="col-xs-4 col-sm-4">
+                              <div class="box-product " >
+                                 <div class="inner" >
+                                  <div class="image thumbnailz "><a href="#"><img src="<?php echo logo_pic;?>item.png" ></a>
+                                  </div>
+                                  <div class="name"><a href="#">Golden ring one</a></div>
+                                  <div class="price">$199.99</div>
+                                  </div>
+                                  
+                                  <div  class="abs"  >
+                                  <div class="cart ">
+                                  <a class="button1 animated fadeInLeft " title="<?=$this->lang->line("add_to_cart");?>"  href="productdetail.html"><span></span></a>
+                                  <a class="btn-detail ml10 animated fadeInRight " title="<?=$this->lang->line("view_product");?>" href="productdetail.html"><span></span></a>
+                                  </div>        
+                              </div>
+                              </div>
+                              
+                            </div>
+                           <div class="col-xs-4  col-sm-4">
+                             <div class="box-product " >
+                                 <div class="inner" >
+                                  <div class="image thumbnailz "><a href="#"><img src="<?php echo logo_pic;?>item.png"></a>
+                                  </div>
+                                  <div class="name"><a href="#">Golden ring one</a></div>
+                                  <div class="price">$199.99</div>
+                                  </div>
+                                  
+                                  <div  class="abs"  >
+                                  <div class="cart ">
+                                  <a class="button1 animated fadeInLeft " title="<?=$this->lang->line("add_to_cart");?>" href="productdetail.html"><span ><?=$this->lang->line("add_to_cart");?></span></a>
+                                  <a class="btn-detail ml10 animated fadeInRight " title="<?=$this->lang->line("view_product");?>" href="productdetail.html"><span><?=$this->lang->line("view_product");?></span></a>
+                                  </div>        
+                              </div>
+                              </div>
+
+
+                            </div>
+                                 <div class="col-xs-4 col-sm-4">
+                                   <div class="box-product " >
+                                       <div class="inner" >
+                                        <div class="image thumbnailz "><a href="#"><img src="<?php echo logo_pic;?>item.png" ></a>
+                                        </div>
+                                        <div class="name"><a href="#">Golden ring one</a></div>
+                                        <div class="price">$199.99</div>
+                                        </div>
+                                        
+                                        <div  class="abs"  >
+                                        <div class="cart ">
+                                        <a class="button1 animated fadeInLeft " title="<?=$this->lang->line("add_to_cart");?>" href="productdetail.html"><span><?=$this->lang->line("add_to_cart");?></span></a>
+                                        <a class="btn-detail ml10 animated fadeInRight " title="<?=$this->lang->line("view_product");?>" href="productdetail.html"><span><?=$this->lang->line("view_product");?></span></a>
+                                        </div>        
+                                    </div>
+                                    </div>
+
+
+                                 </div>
+                </div>
     
                 
                 
               
               
-                <h2 id="sec1">Content</h2>
-                <p>
-                Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-                dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.
-                </p>
                 <div class="row">
-                  <div class="col-md-6">
-                    <div class="panel panel-default">
-                      <div class="panel-heading"><h3>Hello.</h3></div>
-                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                      Aliquam in felis sit amet augue.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="panel panel-default">
-                      <div class="panel-heading"><h3>Hello.</h3></div>
-                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                      Aliquam in felis sit amet augue.
-                      </div>
-                    </div>
-                  </div>  
+                                    <div class="col-xs-4 col-sm-4">
+                                      <div class="box-product " >
+                                         <div class="inner" >
+                                          <div class="image thumbnailz "><a href="#"><img src="<?php echo logo_pic;?>item.png" ></a>
+                                          </div>
+                                          <div class="name"><a href="#">Golden ring one</a></div>
+                                          <div class="price">$199.99</div>
+                                          </div>
+                                          
+                                          <div  class="abs"  >
+                                          <div class="cart ">
+                                          <a class="button1 animated fadeInLeft " title="<?=$this->lang->line("add_to_cart");?>" href="productdetail.html"><span><?=$this->lang->line("add_to_cart");?></span></a>
+                                          <a class="btn-detail ml10 animated fadeInRight " title="<?=$this->lang->line("view_product");?>" href="productdetail.html"><span><?=$this->lang->line("view_product");?></span></a>
+                                          </div>        
+                                      </div>
+                                      </div>
+                                      
+                                    </div>
+                                   <div class="col-xs-4  col-sm-4">
+                                     <div class="box-product " >
+                                         <div class="inner" >
+                                          <div class="image thumbnailz "><a href="#"><img src="<?php echo logo_pic;?>item.png" ></a>
+                                          </div>
+                                          <div class="name"><a href="#">Golden ring one</a></div>
+                                          <div class="price">$199.99</div>
+                                          </div>
+                                          
+                                          <div  class="abs"  >
+                                          <div class="cart ">
+                                          <a class="button1 animated fadeInLeft " title="<?=$this->lang->line("add_to_cart");?>" href="productdetail.html"><span ><?=$this->lang->line("add_to_cart");?></span></a>
+                                          <a class="btn-detail ml10 animated fadeInRight " title="<?=$this->lang->line("view_product");?>" href="productdetail.html"><span><?=$this->lang->line("view_product");?></span></a>
+                                          </div>        
+                                      </div>
+                                      </div>
+
+
+                                   </div>
+                                   <div class="col-xs-4 col-sm-4">
+                                     <div class="box-product " >
+                                         <div class="inner" >
+                                          <div class="image thumbnailz "><a href="#"><img src="<?php echo logo_pic;?>item.png" ></a>
+                                          </div>
+                                          <div class="name"><a href="#">Golden ring one</a></div>
+                                          <div class="price">$199.99</div>
+                                          </div>
+                                          
+                                          <div  class="abs"  >
+                                          <div class="cart ">
+                                          <a class="button1 animated fadeInLeft "title="<?=$this->lang->line("add_to_cart");?>" href="productdetail.html"><span><?=$this->lang->line("add_to_cart");?></span></a>
+                                          <a class="btn-detail ml10 animated fadeInRight " title="<?=$this->lang->line("view_product");?>" href="productdetail.html"><span><?=$this->lang->line("view_product");?></span></a>
+                                          </div>        
+                                      </div>
+                                      </div>
+
+
+                                   </div>
                 </div>
-              
-                <hr>
-              
-                <h2 id="sec2">Section 2</h2>
-                <p>
-                Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-                dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores 
-                eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
-                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!
-                </p>
-                <div class="row">
-                  <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
-                    <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
-                    <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
-                </div>
-              
-                <hr>
-              
-                <h2 id="sec3">Section 3</h2>
-            Images are responsive sed @mdo but sum are more fun peratis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-                dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores 
-                eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
-                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
-              
-                <h2 id="sec4">Section 4</h2>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-                dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores 
-                eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
-                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
-              
-                                                        
+                   <div class="row">
+          <div class="col-lg-12  ">
+           <div class="page-header-x">
+                    
+                    </div>
+             <div class="page-header">
+                    
+                    </div>
+                    </div>
+
+                    </div>                                     
                             
-                                  </div><!--/col-->             
+      </div><!--/col-->             
             
             </div>
           </div>       
@@ -264,22 +342,18 @@ header {
 
   
   </div>
+  </div> 
   </div>
   </div>  
   </div>              
 
-                     
+  
 
- 
-<div class="row">
-          <div class="col-lg-12  ">
-             <div class="page-header-ff">
-                    
-                    </div>
-                    </div>
 
-                    </div>
 
+<ul class="nav pull-right scroll-top">
+  <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+</ul>
 
  <?php echo $this->load->view('footer/footer')?>
                       
@@ -297,7 +371,6 @@ header {
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
 
 <script src="<?php echo JS_THEME1;?>scripts.js"></script>
-
 
 </body>
 
