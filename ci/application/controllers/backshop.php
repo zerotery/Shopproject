@@ -2220,28 +2220,51 @@
 			$this->login_system->checklogin();
 			$data['user']=$this->session->userdata('loginname');
 			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
-			}
+			
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
+			$result=$this->shop->get_datamanagement($idset);
 			
+			$data['result']=$result;
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('management',$data);
 			
 			
 		}
+
+		public function delete_management(){
+			if(!empty($this->input->post('check_list'))) {
+				$i = 0;
+    				foreach($this->input->post('check_list') as $check) {
+    					
+
+            		 $data[$i]=$check; //echoes the value set in the HTML form for each checked checkbox.
+                         //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
+                       
+                     $i++; //in your case, it would echo whatever $row['Report ID'] is equivalent to.
+    				}
+
+    				
+    				
+    				for($i=0;$i<count($data);$i++){
+						$this->shop->delete_management($data[$i]);
+    					
+    					
+    				}
+					redirect('backshop/management');
+		}else{
+			redirect('backshop/management');
+		}
+		}
+
 		public function topic_manage(){
 			$lang=$this->load_language->lang();
             $this->lang->load($lang,$lang);
 
 			$this->login_system->checklogin();
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
-			}
+
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
@@ -2252,26 +2275,90 @@
 			
 		}
 
+		public function insert_data_management(){
+			$type_management=$this->input->post('select_topic');
+			$datail_th=$this->input->post('area1');
+			$datail_en=$this->input->post('area2');
+			$s_id=$this->session->userdata('id');
+			
+			$insert_data_management_en=array(
+					'type_layout'=>$type_management,
+					'layout_detail'=>$datail_en,
+					'lang_ID'=>1,
+					's_ID'=>$s_id
+
+				);
+			$insert_data_management_th=array(
+					'type_layout'=>$type_management,
+					'layout_detail'=>$datail_th,
+					'lang_ID'=>2,
+					's_ID'=>$s_id
+
+				);
+
+			$s=$this->shop->insert_data_management($insert_data_management_en,$insert_data_management_th);
+			if($s==1){
+				redirect('backshop/management');
+			}else{
+				redirect('backshop/topic_manage');
+			}
+
+		}
+
+		
 		public function modify_manage(){
 			$lang=$this->load_language->lang();
             $this->lang->load($lang,$lang);
 
 			$this->login_system->checklogin();
 			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
+			$layout_type=$this->input->get('layout_type');
+			if($layout_type!=NULL){
+			$this->session->set_userdata('layout',$layout_type);
 			}
+			$type_layout=$this->session->userdata('layout');
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
-			
+			$result=$this->shop->get_datamanagement_show($type_layout);
+			//print_r($result);
+			$data['result']=$result;
 			$data['nameshop']=$shop[0]['shop_name'];
 			$this->load->view('modify_management',$data);
 			
 			
 		}
 
+		public function update_manage(){
+			$idset=$this->session->userdata('id');
+			$type_layout=$this->session->userdata('layout');
+			$id_man=$this->shop->get_idman($type_layout);
+			
+			$whereupdate_man_en=array('layout_shop_ID'=>$id_man[0]['layout_shop_ID']);
+			$whereupdate_man_th=array('layout_shop_ID'=>$id_man[1]['layout_shop_ID']);
+			
+			$type_management=$this->input->post('select_topic');
+			$datail_th=$this->input->post('area1');
+			$datail_en=$this->input->post('area2');
+
+			$insert_data_management_en=array(
+					'type_layout'=>$type_management,
+					'layout_detail'=>$datail_en
+
+				);
+			$insert_data_management_th=array(
+					'type_layout'=>$type_management,
+					'layout_detail'=>$datail_th
+
+				);
+
+			$s=$this->shop->update_management($insert_data_management_en,$insert_data_management_th,$whereupdate_man_en,$whereupdate_man_th);
+			if($s==1){
+				redirect('backshop/management');
+			}else{
+				redirect('backshop/modify_manage');
+			}
+		}
 		
 		
 

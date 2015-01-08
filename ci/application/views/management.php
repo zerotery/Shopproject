@@ -88,7 +88,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="ckb" action="" method="post" >
+          <form id="ckb" action="<?php echo site_url('backshop/delete_management')?>" method="post" >
             
 
              <div class="table-responsive">
@@ -105,20 +105,32 @@ body {
                          </tr>
 
                      
+                          <?php
 
+                               for($i=0; $i<count($result); $i++){
+                                echo '<tr style="color:black">';
+                                echo '<td class="warning" ><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$result[$i]['type_layout'].'"></label></td>';
+                               
+                                if($result[$i]['type_layout']==1){
+                                  echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("t_home").'</td>';
+                                }else if($result[$i]['type_layout']==2){
+                                  echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("t_hs").'</td>';
+                                }else if($result[$i]['type_layout']==3){
+                                  echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("t_pay").'</td>';
+                                }else if($result[$i]['type_layout']==4){
+                                  echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("t_aboutme").'</td>';
+                                }else if($result[$i]['type_layout']==4){
+                                  echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("t_contact").'</td>';
+                                }
+                                
+                                echo '<td class="warning" style="font-size:15pt" >['. anchor(site_url('backshop/modify_manage').'/?layout_type='.$result[$i]['type_layout'].'',$this->lang->line("modify")).']</td>';
+                                echo '</tr>';
+                               }       
+
+                         
+                         ?>
                       <!-- On cells (`td` or `th`) -->
-                      <tr style="color:black">
-                        <td class="warning"><label ><input class="checkbox" type="checkbox" name="check1" ></label></td>
-                        <td class="warning" style="font-size:11pt;" >หน้าแรก</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modify_manage'); ?>" style="color: black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
-                        
-                      </tr>
-                      <tr  style="color:black">
-                        <td class="warning"><label ><input class="checkbox" type="checkbox" name="check2" ></label></td>
-                        <td class="warning" style="font-size:11pt" >ติดต่อเรา</td>
-                        <td class="warning" style="font-size:15pt" >[ <a href="<?php echo site_url('backshop/modify_manage'); ?>" style="color:black;font-size:11pt"><?=$this->lang->line("modify");?></a> ]</td>
-                        
-                      </tr>
+                      
                   </table>
                 </div>
                 </form>
