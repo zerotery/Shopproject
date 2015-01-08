@@ -158,6 +158,12 @@
 
 		}
 
+		
+
+		public function update_gallery($update_g,$where_g){
+			$this->db->update('product_gallery',$update_g,$where_g);
+		}
+
 		public function insert_product($data){
 			if($this->db->insert('product',$data)){
     			 return 1;
@@ -165,6 +171,15 @@
     			 return 0;
     		}
 		}
+
+		public function insert_bank($data){
+			if($this->db->insert('shop_payment',$data)){
+    			 return 1;
+    		}else{
+    			 return 0;
+    		}
+		}
+
 		public function add_gallery($insert_g){
 			if($this->db->insert('product_gallery',$insert_g)){
     			 return 1;
@@ -200,12 +215,26 @@
 				return 0;
 			}
 		}
+		public function remove_gallery($del){
+			$this->db->delete('product_gallery',$del);
+		}
 		public function remove_product_gallery($del){
 			if($this->db->delete('product_gallery',$del)){
 				return 1;
 			}else{
 				return 0;
 			}
+		}
+		public function delete_order($data){
+			$this->db->delete('order',array('order_ID' => $data ));
+		}
+
+		public function delete_order_product($data){
+			$this->db->delete('order_product',array('order_ID' => $data ));
+		}
+
+		public function delete_bank($data){
+			$this->db->delete('shop_payment',array('bank_ID' => $data ));
 		}
 
 		public function data_del($data){
@@ -229,6 +258,12 @@
 			return $query;
 		}
 
+		public function get_bankdetail(){
+			$sql="SELECT * FROM shop_payment;";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 		public function dataproduct($p_id){
 			$lang=$this->session->userdata('langdata');
 
@@ -236,7 +271,11 @@
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
-
+        public function get_gdetail($data){
+        	$sql="SELECT product.p_update_date,product_gallery.pic_name FROM product,product_gallery WHERE product.p_ID=product_gallery.p_ID AND product_gallery.gallery_product_ID='$data';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+        }
 		public function get_product($p_id){
 			$sql="SELECT p_update_date FROM product WHERE p_ID='$p_id';";
 			$query=$this->db->query($sql)->result_array();
@@ -279,6 +318,32 @@
 			}*/
 			
 
+		}
+
+		public function get_success_order(){
+			
+			$sql="SELECT * FROM `order` WHERE order_status='1';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_payreport($idset){
+			$sql="SELECT * FROM tranfer_detail WHERE s_ID='$idset';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_memberOrder($idset){
+
+			$sql="SELECT memberID FROM `order` WHERE s_ID='$idset' AND order_status='1';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function getdatail_mem($memberID){
+			$sql="SELECT memberID,f_name,l_name,email FROM member WHERE memberID='$memberID';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
 		}
 
 
@@ -368,8 +433,54 @@
 			}
 		}
 
+		public function update_order($update_order,$where_order){
+			if($this->db->update('order',$update_order,$where_order)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
 
+		public function order_detail(){
+			$sql="SELECT order.order_ID,order.order_status,order.order_sum_price,order.order_date,order.order_update_date,member.f_name,member.l_name FROM member,`order` WHERE order.memberID=member.memberID;";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+		public function get_allorder($o_id){
+			$sql="SELECT * FROM member,`order` WHERE order.memberID=member.memberID AND order_ID='$o_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
 
+		public function get_product_order($o_id){
+			$sql="SELECT p_ID,product_order_quantity,product_order_description FROM order_product WHERE order_ID='$o_id';";
+			$query=$this->db->query($sql)->result_array();
+			
+			for($i=0;$i<count($query);$i++){
+			$p_id[$i]=$query[$i]['p_ID'];
+			$quantity[$i]=$query[$i]['product_order_quantity'];
+			$description[$i]=$query[$i]['product_order_description'];
+
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT * FROM product_detail WHERE  p_ID='$p_id[$i]' AND lang_ID='$lang';";
+
+			$query[$i]=$this->db->query($sql)->result_array();
+			
+			$sql="SELECT * FROM product WHERE  p_ID='$p_id[$i]';";
+
+			$query1[$i]=$this->db->query($sql)->result_array();
+			}
+			if(!empty($query)&&!empty($query1)&&!empty($quantity)&&!empty($description)){
+			$result=array('name' => $query,
+						  'price'=> $query1,
+						  'quantity'=>$quantity,
+						  'description'=>$description );
+			}else{
+				$result=NULL;
+			}
+			return $result;
+
+		}
 
 
 

@@ -44,6 +44,7 @@ define("JS_THEME1","http://localhost/Shopproject/ci/asset/js/theme1/");
 define("BI","https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/");
 
 define("logo_pic","http://localhost/Shopproject/ci/asset/img/");
+define("order","http://localhost/Shopproject/ci/uploads/orders/");
 define("upload","http://localhost/Shopproject/ci/uploads/profiles/");
 define("product","http://localhost/Shopproject/ci/uploads/products/");
 

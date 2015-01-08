@@ -85,7 +85,7 @@ body {
                                              </div>
                                              </div>
 
-          <form id="del_gallery" action="<?php echo site_url('backshop/test3');?>" method="post"  enctype="multipart/form-data">
+          <form id="del_gallery" action="<?php echo site_url('backshop/delete_gallery');?>" method="post"  enctype="multipart/form-data">
             
 
                <hr width="100%">

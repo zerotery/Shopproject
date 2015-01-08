@@ -54,46 +54,11 @@ body {
         </div>
          
       </div>
-<form class="form-horizontal" name="m_report" id="report_m"   method="post" enctype="multipart/form-data">
-<fieldset >
+
    
-       <div class="page-header" >
-               
-                  <h3 id="formpersonal"><?=$this->lang->line("filter");?></h3>
-                  </div>
-                 <div class="row">
-                  
-                    <div class="form-group animated fadeInLeft" >
-                    <label  class="col-lg-1 col-sm-2 control-label"><?=$this->lang->line("member_id");?></label>
-                    <div class="col-lg-1  col-sm-2">
-                      <input type="text" id="m_id" class="form-control" name="mem_id" style="width:130px;height:25px" >
-                    </div>
-                    
+       
 
-                     
-                    <label  class="col-lg-2 col-sm-2 control-label"><?=$this->lang->line("mem_name");?></label>
-                    <div class="col-lg-3  col-sm-4">
-                      <input type="text" id="m_name" class="form-control" name="mem_name" style="width:130px;height:25px" >
-                    </div>
-                
-
-                  
-                  
-                  
-                         <div class="col-lg-3 col-sm-2">
-                          <button type="submit" class="btn btn-primary animated fadeInLeft"  style="width:75px;height:32px;"><?=$this->lang->line("order_search");?></button>
-                          </div>
-                              </div>
-                        </div>
-                     
-
-                  
-                  
-
-
-    
-
-      <hr width="100%">
+                <hr width="100%">
   <div class="bs-docs-section clearfix">
 
   
@@ -121,40 +86,60 @@ body {
                                              </div>
                                              </div>
 
-          <form class="form-group " >
+         
             
 
-             <div class="table-responsive animated fadeInDown">
-                  <table class="table">
+             <div class="table-responsive animated fadeInDown" id="users">
+                  <table class="table" id="table">
                     <!-- On rows -->
                       <tr class="active">
                          
-                         <th class="info"> <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_id");?></font> </center></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("mem_name");?></font></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_email");?></font></th>
+                         <th class="info" style="width:10%"> <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_id");?></font> </center></th>
+                          <th class="info" style="width:10%"><center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("mem_name");?></font></center></th>
+                          <th class="info" style="width:10%"><center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_email");?></center></font></th>
                         
                         
                          </tr>
                      
-
+                     <tr style="color:black">
+                       
+                        <td class="warning" style="font-size:11pt" align="center" ><center>
+                      <input type="text" id="m_id" class="form-control" placeholder="<?=$this->lang->line("memid_search");?>" name="mem_id" style="width:130px;height:25px" >
+                       </center></td>
+                        <td class="warning" style="font-size:11pt" ><center> 
+                      <input type="text" id="m_name" class="form-control" name="mem_name" placeholder="<?=$this->lang->line("memname_search");?>" style="width:150px;height:25px" >
+                       </center></td>
+                        <td class="warning" style="font-size:11pt" ></td>
+                        
+                        
+                      </tr>
+                       <tbody class="list">
                       <!-- On cells (`td` or `th`) -->
-                      <tr style="color:black">
-                       
-                        <td class="warning" style="font-size:11pt" align="center" >1321</td>
-                        <td class="warning" style="font-size:11pt" >Thanakorn</td>
-                        <td class="warning" style="font-size:11pt" >bas-123@hotmail.com</td>
-                        
-                        
-                      </tr>
-                      <tr style="color:black">
-                         <td class="warning" style="font-size:11pt" align="center" >654654</td>
-                        <td class="warning" style="font-size:11pt" >Udomake </td>
-                        <td class="warning" style="font-size:11pt" >asdasdadsasd@sdfsdfsdf.com</td>
-                       
-                      </tr>
+                     
+
+                        <?php
+
+                               for($i=0; $i<count($result); $i++){
+                                echo '<tr style="color:black">';
+                                
+                                echo '<td class="warning memberid" style="font-size:11pt" align="center" >'.$result[$i][0]['memberID'].'</td>';
+                                
+                                echo '<td class="warning member_n" style="font-size:11pt" align="center"  >'.$result[$i][0]['f_name']." ".$result[$i][0]['l_name'].'</td>';
+                               
+                                echo '<td class="warning" style="font-size:11pt" align="center"  >'.$result[$i][0]['email'].'</td>';
+                                
+                                
+                                
+                                echo '</tr>';
+                               }       
+
+                         
+                         ?>
+                      
+                      </tbody>
                   </table>
                 </div>
-                </form>
+                
 
        
          
@@ -162,8 +147,7 @@ body {
           
         </div>
 </div>
-</fieldset>
-</form>
+
 </div>
 </div>
 
@@ -179,7 +163,37 @@ body {
     <script src="<?php echo JS_URL;?>bootstrap.js"></script>
     <script src="<?php echo JS_URL;?>moment.js"></script>
     <script src="<?php echo JS_URL;?>bootstrap-datetimepicker.js"></script>
+    <script src="<?php echo JS_URL;?>list.js"></script>
+    <script>
+              var options = {
+              valueNames: [ 'memberid','member_n']
+              };
 
+              var userList = new List('users', options);
+
+              $('#m_id').keyup(function() {
+              var m_id = document.getElementById('m_id').value;
+              userList.filter(function (item) {
+              if (item.values().memberid == m_id) {
+                return true;
+              } else {
+                return false;
+              }
+              });
+              });
+
+              $('#m_name').keyup(function() {
+              var m_name = document.getElementById('m_name').value;
+              userList.filter(function (item) {
+              if (item.values().member_n == m_name) {
+                return true;
+              } else {
+                return false;
+              }
+              });
+              });
+
+             </script>
     <script type="text/javascript">
         $(function () {
             $('#datetimepicker1').datetimepicker({pickTime: false});

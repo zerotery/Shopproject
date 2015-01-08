@@ -3063,6 +3063,55 @@ fieldset[disabled] .btn-danger.active {
   color: #d9534f;
   background-color: #fff;
 }
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+.btn-cluster {
+  color: #fff;
+  background-color: #FF0000;
+  border-color: #d43f3a;
+}
+.btn-cluster:hover,
+.btn-cluster:focus,
+.btn-cluster:active,
+.btn-cluster.active,
+.open > .dropdown-toggle.btn-cluster {
+  color: #fff;
+  background-color: #FF4500;
+  border-color: #ac2925;
+}
+.btn-cluster:active,
+.btn-cluster.active,
+.open > .dropdown-toggle.btn-cluster {
+  background-image: none;
+}
+.btn-cluster.disabled,
+.btn-cluster[disabled],
+fieldset[disabled] .btn-cluster,
+.btn-cluster.disabled:hover,
+.btn-cluster[disabled]:hover,
+fieldset[disabled] .btn-cluster:hover,
+.btn-cluster.disabled:focus,
+.btn-cluster[disabled]:focus,
+fieldset[disabled] .btn-cluster:focus,
+.btn-cluster.disabled:active,
+.btn-cluster[disabled]:active,
+fieldset[disabled] .btn-cluster:active,
+.btn-cluster.disabled.active,
+.btn-cluster[disabled].active,
+fieldset[disabled] .btn-cluster.active {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+.btn-cluster .badge {
+  color: #d9534f;
+  background-color: #fff;
+}
+/**********************/
+/**********************/
+/**********************/
+/**********************/
 .btn-link {
   font-weight: normal;
   color: #428bca;
