@@ -241,6 +241,10 @@
 			$this->db->delete('order',array('order_ID' => $data ));
 		}
 
+		public function delete_management($data){
+			$this->db->delete('layout_shop',array('type_layout' => $data ));
+		}
+
 		public function delete_order_product($data){
 			$this->db->delete('order_product',array('order_ID' => $data ));
 		}
@@ -276,6 +280,13 @@
 				return 1;
 			}
 			
+		}
+
+		public function get_idman($type_layout){
+
+			$sql="SELECT layout_shop_ID FROM layout_shop WHERE type_layout='$type_layout';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
 		}
 
 		public function delete_shop($delete){
@@ -515,6 +526,33 @@
     		}
 		}
 
+		public function insert_data_management($insert_data_management_en,$insert_data_management_th){
+			if($this->db->insert('layout_shop',$insert_data_management_en)){
+    			$s=1;
+    		}else{
+    			$s=0;
+    		}
+    		if($this->db->insert('layout_shop',$insert_data_management_th)){
+    			 $s1=1;
+    		}else{
+    			$s1=0;
+    		}
+
+    		if($s==1&&$s1==1){
+    			return 1;
+    		}
+    		else{
+    			return 0;
+    		}
+		}
+
+		public function get_datamanagement($idset){
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT * FROM layout_shop WHERE s_ID='$idset' AND lang_ID='$lang';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 		public function insert_product_detail($insert_product_datail_en,$insert_product_datail_th){
 			if($this->db->insert('product_detail',$insert_product_datail_en)){
     			$s=1;
@@ -522,6 +560,26 @@
     			$s=0;
     		}
     		if($this->db->insert('product_detail',$insert_product_datail_th)){
+    			 $s1=1;
+    		}else{
+    			$s1=0;
+    		}
+
+    		if($s==1&&$s1==1){
+    			return 1;
+    		}
+    		else{
+    			return 0;
+    		}
+		}
+
+		public function update_management($insert_data_management_en,$insert_data_management_th,$whereupdate_man_en,$whereupdate_man_th){
+			if($this->db->update('layout_shop',$insert_data_management_en,$whereupdate_man_en)){
+    			$s=1;
+    		}else{
+    			$s=0;
+    		}
+    		if($this->db->update('layout_shop',$insert_data_management_th,$whereupdate_man_th)){
     			 $s1=1;
     		}else{
     			$s1=0;
@@ -547,6 +605,12 @@
 
 		public function get_catedetail($p_id){
 			$sql="SELECT product_cat_detail_ID FROM product_category_detail WHERE p_ID='$p_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_datamanagement_show($type_layout){
+			$sql="SELECT * FROM layout_shop WHERE type_layout='$type_layout';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
