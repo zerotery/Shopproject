@@ -93,67 +93,7 @@
         
                 }
 
-                public function test_pic(){
-
-                  $filename = "./asset/temp";
-                    
-                  if (file_exists($filename)) {
-                    $do=1;                
-                  }else {
-                    mkdir("./asset/temp");
-                    $do=1;                  
-                  }
-
-                  if($do==1){
-                  $config['upload_path'] ='./asset/temp/';
-                  $config['allowed_types'] = 'gif|jpg|png';
-                  $config['max_size'] = '0';
-                  $config['max_width']  = '1600';
-                  $config['max_height']  = '1200';
-                  $this->upload->initialize($config);
-                  
-                  
-                  if(!$this->upload->do_upload('imgpro')){
-                    $data=array('error'=>$this->upload->display_errors());
-                    //0 loop 3 4 loop 2
-                    
-                          if($_FILES['imgpro']['error']==4){
-                          $picname="defaulfuse.png";
-                          $this->session->set_userdata('picture_name',"$picname");
-                      
-                          $set=1;
-                          }else if($_FILES['imgpro']['error']==0){
-                          $set=null;
-                      
-                          $error="error";
-                      
-                          $this->reg($error);
-                          }
-
-                    }else{
-                      $data=array('upload_data' =>$this->upload->data());
-                      
-                      $picnameold=$data['upload_data']['file_name']; 
-                       $width=$data['upload_data']['image_width'];
-                       $height=$data['upload_data']['image_height'];
-                      
-                      $temp = explode(".",$data['upload_data']['file_name']);
-                      $picname = "mem_profile" . '.' .end($temp);
-                      $this->session->set_userdata('picture_name',"$picname");
-                      rename ("./asset/temp/".$picnameold, "./asset/temp/".$picname);
-                      $set=1;
-
-
-                      //echo $width." ".$height;
-                    }
-
-                    $do=0;
-                  }else{
-                    echo "error";
-                  }
-
-                }
-
+               
                 public function submit_data(){
                   
                   $filename = "./asset/temp";
@@ -345,18 +285,6 @@
 
 
                 }
-                public function test(){
-                  $filename = "./asset/temp";
-
-                  if (file_exists($filename)) {
-                           echo "have";           
-                  }else {
-                    mkdir("./asset/temp");
-                          echo "create na";               
-                  } 
-
-                }
-                
 
                 public function submit_shop(){
                   //profile shop
@@ -549,6 +477,7 @@
                         'memberID' => "$idmember",
                         's_url' => "$URL",
                         'shop_create_date' => "$shopdate",
+                        'shop_fanpage' => "$fanpage"
                         
                       );
 
