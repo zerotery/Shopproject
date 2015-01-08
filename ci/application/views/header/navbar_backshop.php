@@ -11,12 +11,14 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li>
-        <a href="<?php echo site_url('backshop/gobackshop');?>"><?=$this->lang->line("store");?></a>
-      </li>
+      
 
       <li>
         <a href="#"><?php echo $nameshop;?></a>
+      </li>
+
+      <li>
+        <a href="<?php echo site_url('backshop/gobackshop');?>"><?=$this->lang->line("store");?></a>
       </li>
 
       <li class="dropdown">

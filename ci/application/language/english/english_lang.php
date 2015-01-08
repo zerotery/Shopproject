@@ -194,6 +194,11 @@
  	$lang['filter']="Filter";
  	$lang['complete_payment']="already payment";
  	$lang['wait_payment']="waiting payment";
+ 	$lang['order2_search']="Fill order ID";
+ 	$lang['cus_search']="Fill customer name";
+ 	$lang['price_search']="Fill total price";
+ 	$lang['date_search1']="Order date";
+ 	$lang['date_search2']="Payment date";
 
  	$lang['detail_order']="Detail";
  	$lang['bkb']="Bangkok Bank (Bangkokbank) PCL."; 
@@ -253,11 +258,15 @@
  	$lang['member_id']="member ID";
  	$lang['member_email']="e-mail";
  	$lang['member_list']="Member List";
+ 	$lang['memid_search']="Fill member ID";
+ 	$lang['memname_search']="Fill member name";
 
  	$lang['store_setting']="Store Setting";
  	$lang['url_name2']="Store URL";
  	$lang['setting_information1']="general";
  	$lang['setting_information2']="decorate";
+ 	$lang['del_shop']="Delete shop";
+ 	$lang['confirm_del']="Are you sure ? Do you want to delete this shop.";
 
  	$lang['edit_store']="Edit store";
 
@@ -279,8 +288,25 @@
  	$lang['modify_management']="Edit information";
 
 
+ 	////////////////navbar_log///////////////////////////
+
+ 	$lang['pro_setting']="Profile Setting";
+ 	////////////////////////////////////////////////////
+
+ 	////////////////navbar_nlog///////////////////////////
+
+ 	$lang['login_mem']="Login";
+ 	$lang['register']="Register";
 
 
+ 	////////////////////////////////////////////////////
+
+ 	////////////////navbar_logb///////////////////////////
+
+ 	$lang['regshop']="Open new shop";
+
+
+ 	////////////////////////////////////////////////////
  	
 
 

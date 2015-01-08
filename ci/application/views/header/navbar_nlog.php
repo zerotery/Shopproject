@@ -11,31 +11,21 @@
     </a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav">
-      
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown">MENU<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">MENU 1</a></li>
-          <li><a href="#">MENU 2</a></li>
-          <li><a href="#">MENU 3</a></li>
-          <li class="divider"></li>
-          <li class="dropdown-header"><font color="white">BACK SHOP</font></li>
-          <li><a href="#">MENU 4</a></li>
-          <li><a href="#">MENU 5</a></li>
-        </ul>
-      </li>
-    </ul>
+    
     
     <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown">Language<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="<?php echo site_url('main/chenge_lang/english');?>" onclick="<?php $this->session->set_userdata('address',$_SERVER['PHP_SELF']);?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0">English</a></li>
-          <li><a href="<?php echo site_url('main/chenge_lang/thailand');?>" onclick="<?php $this->session->set_userdata('address',$_SERVER['PHP_SELF']);?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0">Thai</a></li>
+      
+          <li><a href="<?php echo site_url('main/chenge_lang/english');?>" onclick="<?php $this->session->set_userdata('address',$_SERVER['PHP_SELF']);?>"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></a></li>
+          <li><a href="<?php echo site_url('main/chenge_lang/thailand');?>" onclick="<?php $this->session->set_userdata('address',$_SERVER['PHP_SELF']);?>"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></a></li>
+          <li>
+             <a href="<?php echo site_url('main');?>"><span class="glyphicon glyphicon-log-in" >&nbsp<?=$this->lang->line("login_mem");?></span></a>
+          </li>
+
+          <li>
+             <a href="<?php echo site_url('member_tb/reg');?>"><span class="glyphicon glyphicon-user" >&nbsp<?=$this->lang->line("register");?></span></a>
+          </li>
         </ul>
-      </li>
-    </ul>
+    
   </div>
 </div>
 <!--<?php //echo site_url('member_tb/changelangreg/english');?>-->

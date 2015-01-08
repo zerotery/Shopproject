@@ -94,21 +94,21 @@ body {
                     <!-- On rows -->
                       <tr class="active">
                          
-                         <th class="info"> <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_id");?></font> </center></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("mem_name");?></font></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_email");?></font></th>
+                         <th class="info" style="width:10%"> <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_id");?></font> </center></th>
+                          <th class="info" style="width:10%"><center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("mem_name");?></font></center></th>
+                          <th class="info" style="width:10%"><center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("member_email");?></center></font></th>
                         
                         
                          </tr>
                      
                      <tr style="color:black">
                        
-                        <td class="warning" style="font-size:11pt" align="center" >
-                      <input type="text" id="m_id" class="form-control" name="mem_id" style="width:130px;height:25px" >
-                    </td>
-                        <td class="warning" style="font-size:11pt" > 
-                      <input type="text" id="m_name" class="form-control" name="mem_name" style="width:130px;height:25px" >
-                    </td>
+                        <td class="warning" style="font-size:11pt" align="center" ><center>
+                      <input type="text" id="m_id" class="form-control" placeholder="<?=$this->lang->line("memid_search");?>" name="mem_id" style="width:130px;height:25px" >
+                       </center></td>
+                        <td class="warning" style="font-size:11pt" ><center> 
+                      <input type="text" id="m_name" class="form-control" name="mem_name" placeholder="<?=$this->lang->line("memname_search");?>" style="width:150px;height:25px" >
+                       </center></td>
                         <td class="warning" style="font-size:11pt" ></td>
                         
                         
@@ -124,9 +124,9 @@ body {
                                 
                                 echo '<td class="warning memberid" style="font-size:11pt" align="center" >'.$result[$i][0]['memberID'].'</td>';
                                 
-                                echo '<td class="warning member_n" style="font-size:11pt" >'.$result[$i][0]['f_name']." ".$result[$i][0]['l_name'].'</td>';
+                                echo '<td class="warning member_n" style="font-size:11pt" align="center"  >'.$result[$i][0]['f_name']." ".$result[$i][0]['l_name'].'</td>';
                                
-                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i][0]['email'].'</td>';
+                                echo '<td class="warning" style="font-size:11pt" align="center"  >'.$result[$i][0]['email'].'</td>';
                                 
                                 
                                 

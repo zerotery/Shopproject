@@ -98,11 +98,11 @@ body {
                     <!-- On rows -->
                       <tr class="active">
                          
-                         <th class="info"> <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_start");?></font> </center></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_end");?></font></th>
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("sell_order_num");?></font></th>
+                         <th class="info" style="width:10%"> <center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_start");?></font> </center></th>
+                          <th class="info" style="width:10%"><center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_end");?></font></center></th>
+                          <th class="info" style="width:10%"><center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("sell_order_num");?></font></center></th>
                           
-                          <th class="info"><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_price");?></font></th>
+                          <th class="info" style="width:10%"><center><font color="#FFFFFF"size="4pt"><?=$this->lang->line("order_price");?></font></center></th>
                          
                         
                          </tr>
@@ -114,13 +114,13 @@ body {
                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
                     </span>
                     </div></td>
-                        <td class="warning" style="font-size:11pt" ><div class="col-lg-1 col-xs-2 col-sm-1 input-group date" id='datetimepicker2' >
+                        <td class="warning" style="font-size:11pt" align="center" ><div class="col-lg-1 col-xs-2 col-sm-1 input-group date" id='datetimepicker2' >
                       <input type="text" id="end_date" class="form-control" name="enddate" style="width:150px;height:25px" data-date-format="YYYY-MM-DD" >
                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="width:10px;height:8px"></span>
                     </span>
 
                     </div></td>
-                        <td class="warning" style="font-size:11pt" > <input type="text" id="orderID" class="form-control" name="ordercode" style="width:84px;height:25px" ></td>
+                        <td class="warning" style="font-size:11pt" align="center" > <input type="text" id="orderID" class="form-control" name="ordercode" placeholder="<?=$this->lang->line("order_search");?>" style="width:140px;height:25px" ></td>
                         <td class="warning" style="font-size:11pt" ></td>
                         
                    
@@ -137,11 +137,11 @@ body {
                                 
                                 echo '<td class="warning date_order" style="font-size:11pt" align="center" >'.$result[$i]['order_date'].'</td>';
                                 
-                                echo '<td class="warning dateupdate_order" style="font-size:11pt" >'.$result[$i]['order_update_date'].'</td>';
+                                echo '<td class="warning dateupdate_order" style="font-size:11pt" align="center" >'.$result[$i]['order_update_date'].'</td>';
                                
-                                echo '<td class="warning orderid" style="font-size:11pt" >'.$result[$i]['order_ID'].'</td>';
+                                echo '<td class="warning orderid" style="font-size:11pt" align="center" >'.$result[$i]['order_ID'].'</td>';
                                 
-                                echo '<td class="warning" style="font-size:11pt" >'.$result[$i]['order_sum_price'].'</td>';
+                                echo '<td class="warning" style="font-size:11pt" align="center" >'.$result[$i]['order_sum_price'].'</td>';
                                 
                                 echo '</tr>';
                                }       

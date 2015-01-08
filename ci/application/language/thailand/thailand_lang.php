@@ -207,6 +207,11 @@
  	$lang['filter']="ตัวกรอง";
  	$lang['complete_payment']="ชำระเงินแล้ว";
  	$lang['wait_payment']="รอการชำระเงิน";
+ 	$lang['order2_search']="กรอกเลข ออเดอร์";
+ 	$lang['cus_search']="กรอกชื่อลูกค้า";
+ 	$lang['price_search']="กรอกราคารวม";
+ 	$lang['date_search1']="วันที่ออเดอร์";
+ 	$lang['date_search2']="วันที่ชำระเงิน";
 
 
  	$lang['detail_order']="รายละเอียด";
@@ -263,12 +268,19 @@
  	$lang['member_id']="ID สมาชิก";
  	$lang['member_email']="e-mail";
  	$lang['member_list']="รายชื่อลูกค้า";
+ 	$lang['memid_search']="กรอก ID สมาชิก";
+ 	$lang['memname_search']="กรอก ชื่อสมาชิก";
+
 
 
  	$lang['store_setting']="ตั้งค่าร้านค้า";
  	$lang['url_name2']="URL ร้าน";
  	$lang['setting_information1']="ทั่วไป";
  	$lang['setting_information2']="ตกแต่ง";
+ 	$lang['del_shop']="ลบร้านค้า";
+ 	$lang['confirm_del']="คุณแน่ใจใช่ไหม ว่าจะลบร้านค้านี้";
+
+
 
  	$lang['edit_store']="แก้ไข การตั้งค่าร้านค้า";
 
@@ -292,6 +304,27 @@
 
 
 
+ 	////////////////navbar_log///////////////////////////
+
+ 	$lang['pro_setting']="ตั้งค่าบัญชี";
+
+
+ 	////////////////////////////////////////////////////
+
+ 	////////////////navbar_nlog///////////////////////////
+
+ 	$lang['login_mem']="เข้าสู่ระบบ";
+ 	$lang['register']="สมัครสมาชิก";
+
+
+ 	////////////////////////////////////////////////////
+
+ 	////////////////navbar_logb///////////////////////////
+
+ 	$lang['regshop']="เปิดร้านค้าออนไลน์ใหม่";
+
+
+ 	////////////////////////////////////////////////////
 
 
  	

@@ -1740,45 +1740,9 @@
 			
 		}
 
-			public function addsetting(){
-			$lang=$this->load_language->lang();
-            $this->lang->load($lang,$lang);
+			
 
-			$this->login_system->checklogin();
-			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
-			}
-			$idset=$this->session->userdata('id');
-			
-			$shop=$this->shop->getshop($idset);
-			
-			$data['nameshop']=$shop[0]['shop_name'];
-			$this->load->view('addsetting',$data);
-			
-			
-		}
-
-		public function modifysetting(){
-			$lang=$this->load_language->lang();
-            $this->lang->load($lang,$lang);
-
-			$this->login_system->checklogin();
-			$data['user']=$this->session->userdata('loginname');
-			$id=$this->input->get('shopid');
-			if($id!=NULL){
-			$this->session->set_userdata('id',$id);
-			}
-			$idset=$this->session->userdata('id');
-			
-			$shop=$this->shop->getshop($idset);
-			
-			$data['nameshop']=$shop[0]['shop_name'];
-			$this->load->view('modifysetting',$data);
-			
-			
-		}
+		
 
 		public function management(){
 			$lang=$this->load_language->lang();
@@ -1839,6 +1803,11 @@
 			
 		}
 
+		public function test_alert(){
+			echo "success";
+
+
+		}
 		
 
 

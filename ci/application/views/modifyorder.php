@@ -109,7 +109,7 @@ body {
                                                                      
                                                <div class="form-group ">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("ordercode");?></label>
-                                              <div class="col-lg-5">
+                                              <div class="col-lg-6">
                                               <label  class="col-lg-3 control-label animated fadeInLeft" id="ordercode" ><?php echo $result[0]['order_ID']; ?></label>
                                                 
                                                 
@@ -117,7 +117,7 @@ body {
                                             </div>
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft" ><?=$this->lang->line("customer_show");?></label>
-                                              <div class="col-lg-5">
+                                              <div class="col-lg-6 ">
                                               <label  class="col-lg-8 control-label animated fadeInLeft" id="customer_show"><?php echo $result[0]['f_name']." ".$result[0]['l_name']; ?></label>
                                                 
                                                 
@@ -125,28 +125,28 @@ body {
                                             </div>
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("order_sprice");?></label>
-                                              <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="order_price"><?php echo $result[0]['order_sum_price']; ?></label>
+                                              <div class="col-lg-6">
+                                              <label  class="col-lg-4 control-label animated fadeInLeft" id="order_price"><?php echo $result[0]['order_sum_price']; ?></label>
                                               </div>
                                             </div>
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("ip_cusorder");?></label>
-                                              <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="ip_cusorder" ><?php echo $result[0]['member_ip']; ?></label>
+                                              <div class="col-lg-4">
+                                              <label  class="col-lg-7 control-label animated fadeInLeft" id="ip_cusorder" ><?php echo $result[0]['member_ip']; ?></label>
                                               </div>
                                             </div>
                                            
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("adddates");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-3 control-label animated fadeInLeft" id="adddate"><?php echo $result[0]['order_date']; ?></label>
+                                              <label  class="col-lg-6 control-label animated fadeInLeft" id="adddate"><?php echo $result[0]['order_date']; ?></label>
                                               </div>
                                             </div>
 
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("modidates");?></label>
                                               <div class="col-lg-5">
-                                              <label  class="col-lg-5 control-label animated fadeInLeft" id="modidate"><?php echo $result[0]['order_update_date']; ?></label>
+                                              <label  class="col-lg-6 control-label animated fadeInLeft" id="modidate"><?php echo $result[0]['order_update_date']; ?></label>
 
                                               </div>
                                             </div>
@@ -156,8 +156,8 @@ body {
                                      
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("email");?></label>
-                                              <div class="col-lg-5">
-                                              <label  class="col-lg-5 control-label animated fadeInLeft" id="oc_email"><?php echo $result[0]['email']; ?></label>
+                                              <div class="col-lg-6">
+                                              <label  class="col-lg-7 control-label animated fadeInLeft" id="oc_email"><?php echo $result[0]['email']; ?></label>
 
                                                </div>
                                             </div>
