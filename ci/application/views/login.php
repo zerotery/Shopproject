@@ -28,19 +28,20 @@
         <div class="modal-content" style="background-color: #336699;">
             
               <div class="modal-header" style="background-color:#58D3F7;">
-                  <h1 class="text-center" style="font-family:  cursive">Log in</h1>
+                  <h1 class="text-center" style="font-family:  cursive"><?=$this->lang->line("logged");?></h1>
               </div>
               <div class="modal-body" style="background-color: #58D3F7;">
                   <form class="form col-md-12 center-block" role="form" method="post" action="<?php echo site_url('main/login_check'); ?>">
                   <div class="form-group">
-                      <input type="text" class="form-control input-lg" placeholder="Username" name="username" required>
+                      <input type="text" class="form-control input-lg" placeholder="<?=$this->lang->line("userlog");?>" name="username" required>
                   </div>
                   <div class="form-group">
-                      <input type="password" class="form-control input-lg" placeholder="Password" name="password" required>
+                      <input type="password" class="form-control input-lg" placeholder="<?=$this->lang->line("passlog");?>" name="password" required>
                   </div>
                   <div class="form-group">
-                      <button class="btn btn-success btn-lg btn-block">Sign In</button>
-                      <span class="pull-right"><a href="#" style="color: white">Back to TB Shop</a></span>
+                      <button class="btn btn-success btn-lg btn-block"><?=$this->lang->line("logged2");?></button>
+                      <span class="pull-left"><a href="<?php echo site_url('member_tb/reg');?>" style="color: white"><?=$this->lang->line("reg_account");?></a></span>
+                      <span class="pull-right"><a href="<?php echo site_url('main');?> " style="color: white"><?=$this->lang->line("back_to_main");?></a></span>
                   </div>
                   </form>
               </div>

@@ -55,7 +55,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
             <h1><font style="color:#00CD00;"><?=$this->lang->line("reg_account");?></font></h1>
-            <p style="color:black;"><?=$this->lang->line("reg_s");?></p> <p><a href="<?php echo site_url('backshop');?> "><?=$this->lang->line("reg_login");?></a></p>
+            <p style="color:black;"><?=$this->lang->line("reg_s");?></p> <p><a href="<?php echo site_url('main/login');?> "><?=$this->lang->line("reg_login");?></a></p>
           </div>
           <!--<div class="col-lg-4 col-md-5 col-sm-6">
               <h6>What the ?</h6>
