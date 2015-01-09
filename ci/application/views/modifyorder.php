@@ -162,6 +162,14 @@ body {
                                                </div>
                                             </div>
 
+                                            <div class="form-group">
+                                              <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("shipping");?></label>
+                                              <div class="col-lg-6">
+                                              <label  class="col-lg-6 control-label animated fadeInLeft" id="shipping"><?php echo $data_shipping[0]['send_order_address']; ?></label>
+
+                                               </div>
+                                            </div>
+
                                             
                                             <div class="form-group">
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("order_status");?></label>

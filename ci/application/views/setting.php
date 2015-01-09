@@ -132,7 +132,7 @@ body {
                                                                     </div>
                                                                     <div class="col-md-2"></div>
                                                                     <div class="col-lg-3 col-sm-3">
-                                                                      <input type="text" class="form-control" name="urlname" value="<?php echo $url; ?>">
+                                                                      <input type="text" class="form-control" name="urlname" id="urlname" value="<?php echo $url; ?>">
                                                                     </div>
                                                                     </div>
                                                                     <div class="col-lg-1 col-sm-5">
@@ -178,7 +178,7 @@ body {
                                                                   <div class="form-group" align="center">
                                                                     <label  class="col-lg-3 col-sm-2 control-label"><?=$this->lang->line("s_fanpage");?></label>
                                                                     <div class="col-lg-4 col-sm-5">
-                                                                      <input type="text" class="form-control" name="fanpageshop"  value="<?php echo $fanpage; ?>" id="fp" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("fnote");?>" >
+                                                                      <input type="text" class="form-control" name="fanpageshop"  value="<?php echo $fanpage; ?>" id="fanpageshop" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("fnote");?>" >
                                                                     </div>
                                                                   </div>
 
@@ -301,7 +301,7 @@ body {
 
                                   <div class="col-md-1 ">
 
-                                          <h4><input type="submit" class="btn btn-primary animated swing" id="btn_add"  onclick="document.getElementById('setting').submit();" name="btnadd"  value="<?=$this->lang->line("save");?> " /></h4>
+                                          <h4><input type="submit" class="btn btn-primary animated swing" id="btn_add"  name="btnadd"  value="<?=$this->lang->line("save");?> " /></h4>
                                          
                                            
                                    </div >
@@ -337,16 +337,10 @@ body {
 
    <?php echo $this->load->view('footer/footer')?>
     <script src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
+     <script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
     
-    <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-    <script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
     <script>
-
-    $('#btn_add').click(function() {
-    $('#addsetting').submit();
-    });
-
-      $.validator.addMethod(
+     $.validator.addMethod(
        "regex",
         function(value, element, regexp) {
         var check = false;
@@ -356,8 +350,8 @@ body {
         );
 
 
-$("#addsetting").validate({
-  rules: {
+$("#setting").validate({
+  
    rules: {
     shopname_en: {
       required: true,
@@ -372,6 +366,7 @@ $("#addsetting").validate({
       regex: /^([a-zA-Z0-9])+$/,
       rangelength: [5, 15]
     },
+
     shopdetail_en: {
       required: true,
       regex: /^([a-zA-Z0-9\s]|[-_])+$/
@@ -416,14 +411,33 @@ $("#addsetting").validate({
       required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
     }
   }
+  
 
 
-}
+
 });
+
+var form = $( "#setting" );
+form.validate();
+$( "#btn_add" ).click(function() {
+  if(form.valid()==true){
+    
+    $('#setting').submit();
+  }else{
+
+  }
+  
+});
+
+
+    
+
 
 
 
 </script>
+    <script src="<?php echo JS_URL;?>bootstrap.js"></script>
+   
  <script>
 function del_shop() {
     var x;

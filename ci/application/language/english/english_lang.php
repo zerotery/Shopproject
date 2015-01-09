@@ -46,7 +46,8 @@
 	$lang['action_v']="Action";
 	$lang['view']="View";	
 //end backshop.php 
-
+	
+	$lang['shipping']="Shipping Adress";
 	//register.php
 	$lang['reg_account']="Register Account";
 	$lang['reg_s']="If you already have an account with us, please login at the";
