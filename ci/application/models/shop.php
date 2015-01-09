@@ -493,7 +493,13 @@
 
 		public function get_memberOrder($idset){
 
-			$sql="SELECT memberID FROM `order` WHERE s_ID='$idset' AND order_status='1';";
+			$sql="SELECT DISTINCT memberID FROM `order` WHERE s_ID='$idset' AND order_status='1';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_shipping($o_id){
+			$sql="SELECT * FROM order_shipping WHERE order_ID='$o_id';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}

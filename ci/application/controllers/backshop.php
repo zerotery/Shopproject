@@ -51,8 +51,23 @@
 			$idset=$this->session->userdata('id');
 			
 			$shop=$this->shop->getshop($idset);
-			
+			$result=$this->shop->get_success_order($idset);
 			$data['nameshop']=$shop[0]['shop_name'];
+			$result_1=$this->shop->get_memberOrder($idset);
+			$sumOrder=count($result);
+			$sumMember=count($result_1);
+			$sumPrice=0;
+			for($i=0;$i<count($result);$i++){
+				$Price=$result[$i]['order_sum_price'];
+				$sumPrice+=$Price;
+			}
+			$data_order=$this->shop->order_detail($idset);
+			$data['result_2']=$data_order;
+			$data['sumPrice']=$sumPrice;
+			$data['sumOrder']=$sumOrder;
+			$data['sumMember']=$sumMember;
+			
+			
 			$this->load->view('backshop',$data);
 			
 		}
@@ -1327,9 +1342,10 @@
 			$shop=$this->shop->getshop($idset);
 			$data_order=$this->shop->get_allorder($o_id);
 			$data_product=$this->shop->get_product_order($o_id);
-			
+			$data_shipping=$this->shop->get_shipping($o_id);
 			$data['result']=$data_order;
 			
+			$data['data_shipping']=$data_shipping;
 			$data['product_order']=$data_product;
 			
 			$data['nameshop']=$shop[0]['shop_name'];
