@@ -323,6 +323,7 @@
     $lang['category']="Category";
     $lang['cart']="Basket";
     $lang['cart_count']="ea";
+    $lang['mbox']="Message";
 
 
 

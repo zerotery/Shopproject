@@ -74,13 +74,15 @@ header {
         <div class="row">
           <div class="col-lg-12">
                 <!-- Wrap all page content here -->
-
+                <section>
               <div id="divider-left" class="padding-0" >
                 
-              </div>
+              </div></section>
+              <section>
+ 
               <div  id="divider-right" >
                   <div class="col-xs-4 col-sm-4 ">             
-                  <a ><ul class="nav nav-stacked affix-top " id="cart" >
+                  <a ><ul class="nav nav-stacked affix-top  " id="cart" >
                            <h3 class="color cart-margin"><i class="glyphicon glyphicon-shopping-cart space"></i><?=$this->lang->line("cart");?>
                            
                            <li><label class="color">0</label><?=$this->lang->line("cart_count");?></li></h3>
@@ -92,7 +94,8 @@ header {
                    </ul></a>                                                                                                       
                   </div> 
               </div>
-
+              </section>
+              <section>
               <div id="divider-center"> 
 
 
@@ -191,7 +194,20 @@ header {
                     </div>
               </div>
           </div>
+           <h2 id="sec0"><div id="divl" ><?=$this->lang->line("mbox");?></div> </h2>
 
+                <div class="row">
+                   
+                            <div class="col-xs-12 col-sm-12 mborder" >
+                            
+                              <label id="message"></label>
+
+                              
+                            </div>
+
+                          
+                            </div>
+                            <h2 class="h2space"></h2>
           <h2 id="sec0"><div id="divl" ><?=$this->lang->line("product");?></div> <div id="divr" ><a><?=$this->lang->line("view_all_product");?></a></div></h2>
 
                 <div class="row">
@@ -328,7 +344,15 @@ header {
                     </div>                                     
                             
       </div><!--/col-->             
-            
+            <div class="row">
+          <div class="col-lg-12  ">
+           
+             <div class="page-header-s">
+                    
+                    </div>
+                    </div>
+
+                    </div>  
             </div>
           </div>       
 
@@ -342,6 +366,7 @@ header {
 
   
   </div>
+  </section>
   </div> 
   </div>
   </div>  

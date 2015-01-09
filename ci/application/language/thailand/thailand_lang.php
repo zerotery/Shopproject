@@ -339,6 +339,8 @@
     $lang['category']="Category";
     $lang['cart']="สินค้าในตระกร้า";
     $lang['cart_count']="ชิ้น";
+    $lang['mbox']="ข้อความ";
+
 
 
 
