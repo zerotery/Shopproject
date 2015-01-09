@@ -65,32 +65,18 @@ body {
             <table class="table table-striped table-hover " style="font-size: larger"   width=100% height=20%>
             <tbody style="color:black"><tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("sell_t");?></td>
-              <td>4,359,050.00 ฿</td>
+              <td><?php echo $sumPrice; ?></td>
             </tr>
-            <tr class="warning animated fadeInDown">
-              <td><?=$this->lang->line("sell_y");?></td>
-              <td>3,558,100.00 ฿</td>
-            </tr>
+            
             <tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("order_t");?></td>
-              <td>449</td>
+              <td><?php echo $sumOrder; ?></td>
             </tr>
             <tr class="warning animated fadeInDown">
               <td><?=$this->lang->line("num_m");?></td>
-              <td>687</td>
+              <td><?php echo $sumMember; ?></td>
             </tr>
-            <tr class="warning animated fadeInDown">
-              <td><?=$this->lang->line("mem_w");?></td>
-              <td>0</td>
-            </tr>
-            <tr class="warning animated fadeInDown">
-              <td><?=$this->lang->line("ally");?></td>
-              <td>13</td>
-            </tr>
-            <tr class="warning animated fadeInDown">
-              <td><?=$this->lang->line("ally_w");?></td>
-              <td>1</td>
-            </tr>
+          
             
           </tbody>
           </table>
@@ -112,31 +98,30 @@ body {
               </tr>
             </thead>
             <tbody>
-              <tr class="warning animated fadeInDown" style="color:black">
-                <td class="right">599</td>
-                <td class="left">Pattamas Promduang</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">09/11/2014</td>
-                <td class="right">5,600.00 ฿</td>
-               
-              </tr>
-              <tr class="warning animated fadeInDown" style="color:black">
-                <td class="right">598</td>
-                <td class="left">อรสาต์ วีระจิตต์</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">08/11/2014</td>
-                <td class="right">16,800.00 ฿</td>
-               
-              </tr>
-              <tr class="warning animated fadeInDown" style="color:black">
-                <td class="right">597</td>
-                <td class="left">ดรุณี สุริยันรัตกร</td>
-                <td class="left">รอการชำระเงิน</td>
-                <td class="left">06/11/2014</td>
-                <td class="right">38,400.00 ฿</td>
-                
-              </tr>
-          
+              
+              <?php
+
+                               for($i=0; $i<count($result_2); $i++){
+                                echo ' <tr class="warning animated fadeInDown" style="color:black">';
+                               
+                                echo '<td class="right">'.$result_2[$i]['order_ID'].'</td>';
+                                
+                                echo '<td class="left">'.$result_2[$i]['f_name']." ".$result_2[$i]['l_name'].'</td>';
+                                if($result_2[$i]['order_status']==0){
+                                  echo '<td class="left">'.$this->lang->line("wait_payment").'</td>';
+                                }else{
+                                  echo '<td class="left">'.$this->lang->line("complete_payment").'</td>';
+                                }
+                                echo '<td class="left">'.$result_2[$i]['order_date'].'</td>';
+                                echo '<td class="right">'.$result_2[$i]['order_sum_price'].'</td>';
+                                
+                                
+                               
+                                echo '</tr>';
+                               }       
+
+                         
+                         ?>
               </tbody>
           </table>
        
