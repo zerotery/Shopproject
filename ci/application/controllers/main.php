@@ -8,15 +8,18 @@
 	
 		}
 		public function index(){
-
+			$lang=$this->load_language->lang();
+             $this->lang->load($lang,$lang);
 			$this->load->view('main');
 
 
 		}
 
 		public function login(){
+			 $lang=$this->load_language->lang();
+             $this->lang->load($lang,$lang);
 
-			$this->load->view('login');
+			 $this->load->view('login');
 
 
 

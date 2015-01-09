@@ -369,7 +369,7 @@ a.btn-detail span {
   margin-right: auto;
   margin-left: auto;
   margin-top: 0 !important;
-  width: 300px;
+  
   height: auto;
   float: right;
 
@@ -573,10 +573,11 @@ header .dropdown-menu {
 
 section {
   color: #ffffff;
-  min-height: 400px;
-  height: auto !important;
+  min-height: 0px;
+  height: 0px !important;
   height: 100%;
-  padding-top:100px;
+  padding-top:0px;
+
 }
 
 
@@ -678,6 +679,7 @@ section {
     position: fixed;
     top:100px;
     width:228px;
+    padding-right: 1000px ;
   }
 }
 #cart{
@@ -908,4 +910,17 @@ display:block;
 .cart-margin{
   margin-top: 50px;
   margin-left: 2px;
+}
+.mborder {
+
+  border: 5px solid #EE4000;
+  border-style: dotted;
+  margin-bottom: 10px;
+
+}
+.h2space {
+
+  
+  margin-bottom: 40px;
+
 }

@@ -69,6 +69,18 @@
 	$lang['profile_select']="Choose profile :";
 	$lang['btn_reg']="register";
 	//end register.php
+
+	$lang['logged']="Log in";
+	$lang['back_to_main']="Back to homepage";
+	$lang['userlog']="Username";
+	$lang['passlog']="Password";
+	$lang['logged2']="Sign in";
+
+
+
+
+
+
 	$lang['error_empty']="Please input your information!!!";
 	$lang['error_number']="Please input number!!!";
 	$lang['error_license']="License must be 13 number!!!";
@@ -324,6 +336,7 @@
     $lang['category']="Category";
     $lang['cart']="Basket";
     $lang['cart_count']="ea";
+    $lang['mbox']="Message";
 
 
 
