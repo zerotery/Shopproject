@@ -119,6 +119,7 @@ body {
                                            <label  class="col-lg-3 col-sm-3 control-label animated fadeInLeft"><?=$this->lang->line("de_management_en");?></label>
                                             <div class="col-lg-9 col-sm-9">
                                        
+
                                               
                                               <textarea id="elm2_en" name="area2"></textarea>
                                               

@@ -86,7 +86,7 @@ body {
                                               <label  class="col-lg-3 control-label animated fadeInLeft"><?=$this->lang->line("ptype_select");?></label>
                                               <div class="col-lg-6">
                                                 
-                                                 <select name="mod_cate" class="form-control animated pulse">
+                                                 <select name="mod_cate" class="form-control animated pulse" id="spt" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("cproduct-type");?>">
                                                         <?php 
 
                                                         foreach( $catep as $value){ 
