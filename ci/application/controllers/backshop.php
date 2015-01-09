@@ -263,9 +263,8 @@
 		}
 
 		public function remove_productType(){
-			$test=$this->input->post('checkall');
-			$test2=$this->input->post('check1');
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     				$i++;	
@@ -356,9 +355,8 @@
 		}
 
 		public function remove_product(){
-			$test=$this->input->post('checkall');
-			$test2=$this->input->post('check1');
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     				$i++;	
@@ -1271,7 +1269,9 @@
 
 		public function delete_order(){
 			$s_id=$this->session->userdata('id');
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
+
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     					
@@ -1305,7 +1305,8 @@
 	}
 
 		public function delete_bank(){
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     					
@@ -1684,7 +1685,8 @@
 		public function delete_gallery(){
 			$p_id=$this->session->userdata('p_id');
 			$s_id=$this->session->userdata('id');
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     				$i++;	
@@ -1746,6 +1748,7 @@
 			
 
 			$data['nameshop']=$shop[0]['shop_name'];
+
 			if(!empty($result)){
 				$data['result']=$result;
 			}else{
@@ -2250,7 +2253,8 @@
 		}
 
 		public function delete_management(){
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     					
