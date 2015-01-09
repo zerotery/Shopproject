@@ -26,6 +26,18 @@
 
 		}
 
+		public function getshopdertail($idset){
+			$sql="SELECT * FROM shop_detail WHERE s_ID='$idset';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function getshopfanpage($idset){
+			$sql="SELECT * FROM shop WHERE s_ID='$idset';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 		public function inputshop($data){
 			if($this->db->insert('shop',$data)){
 				$memid=$data['memberID'];
@@ -229,6 +241,10 @@
 			$this->db->delete('order',array('order_ID' => $data ));
 		}
 
+		public function delete_management($data){
+			$this->db->delete('layout_shop',array('type_layout' => $data ));
+		}
+
 		public function delete_order_product($data){
 			$this->db->delete('order_product',array('order_ID' => $data ));
 		}
@@ -237,11 +253,147 @@
 			$this->db->delete('shop_payment',array('bank_ID' => $data ));
 		}
 
+		public function delete_order_all($data){
+			$this->db->delete('order',array('order_ID' => $data ));
+			$this->db->delete('order_product',array('order_ID' => $data ));
+			$this->db->delete('order_shipping',array('order_ID' => $data ));
+		}
+
 		public function data_del($data){
 			$sql="SELECT * FROM product WHERE p_ID='$data';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
+
+		public function data_del_1($data){
+			$sql="SELECT * FROM product WHERE s_ID='$data';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function checkshop($s_id){
+			$sql="SELECT * FROM shop WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			if(empty($query)){
+				return 0;
+			}else{
+				return 1;
+			}
+			
+		}
+
+		public function get_idman($type_layout){
+
+			$sql="SELECT layout_shop_ID FROM layout_shop WHERE type_layout='$type_layout';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function delete_shop($delete){
+			$this->db->delete('shop',$delete);
+		}
+
+		public function delete_cate_detail($delete){
+			$this->db->delete('shop_category_detail',$delete);
+		}
+
+		public function delete_shop_detail($delete){
+			$this->db->delete('shop_detail',$delete);
+		}
+
+		public function delete_shop_payment($delete){
+			$this->db->delete('shop_payment',$delete);
+		}
+
+		public function delete_shop_tranfer($delete){
+			$this->db->delete('tranfer_detail',$delete);
+		}
+
+		public function delete_product($delete){
+			$this->db->delete('product',array('order_ID' => $delete ));
+			$this->db->delete('product_category_detail',array('order_ID' => $delete));
+			$this->db->delete('product_detail',array('order_ID' => $delete));
+			$this->db->delete('product_gallery',array('order_ID' => $delete));
+
+		}
+
+		public function delete_product_cate($delete){
+			$this->db->delete('product_category',$delete);
+		}
+
+
+		public function checkshop_cate_detail($s_id){
+			$sql="SELECT * FROM shop_category_detail WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			if(empty($query)){
+				return 0;
+			}else{
+				return 1;
+			}
+		}
+
+		public function checkproduct($s_id){
+			$sql="SELECT * FROM product WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			if(empty($query)){
+				return 0;
+			}else{
+				return 1;
+			}
+		}
+
+		public function checkshop_detail($s_id){
+			$sql="SELECT * FROM shop_detail WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			if(empty($query)){
+				return 0;
+			}else{
+				return 1;
+			}
+		}
+
+		public function checkshop_payment($s_id){
+			$sql="SELECT * FROM shop_payment WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			if(empty($query)){
+				return 0;
+			}else{
+				return 1;
+			}
+		}
+
+		public function checkshop_tranfer($s_id){
+			$sql="SELECT * FROM tranfer_detail WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			if(empty($query)){
+				return 0;
+			}else{
+				return 1;
+			}
+		}
+
+		public function checkproduct_cate($s_id){
+			$sql="SELECT * FROM product_category WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			if(empty($query)){
+				return 0;
+			}else{
+				return 1;
+			}
+		}
+
+		
+
+		public function checkorder($s_id){
+			$sql="SELECT * FROM `order` WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			if(empty($query)){
+				return 0;
+			}else{
+				return 1;
+			}
+		}
+
 
 
 		public function get_p_ID($s_ID){
@@ -258,8 +410,8 @@
 			return $query;
 		}
 
-		public function get_bankdetail(){
-			$sql="SELECT * FROM shop_payment;";
+		public function get_bankdetail($s_id){
+			$sql="SELECT * FROM shop_payment WHERE s_ID='$s_id';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
@@ -294,6 +446,12 @@
 			return $query;
 		}
 
+		public function data_del_order($s_id){
+			$sql="SELECT * FROM `order` WHERE s_ID='$s_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 		public function get_gallery($p_id){
 			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' AND pic_name='main_product.jpg';";
 			$query=$this->db->query($sql)->result_array();
@@ -320,9 +478,9 @@
 
 		}
 
-		public function get_success_order(){
+		public function get_success_order($s_id){
 			
-			$sql="SELECT * FROM `order` WHERE order_status='1';";
+			$sql="SELECT * FROM `order` WHERE order_status='1' AND s_ID='$s_id';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
@@ -368,6 +526,33 @@
     		}
 		}
 
+		public function insert_data_management($insert_data_management_en,$insert_data_management_th){
+			if($this->db->insert('layout_shop',$insert_data_management_en)){
+    			$s=1;
+    		}else{
+    			$s=0;
+    		}
+    		if($this->db->insert('layout_shop',$insert_data_management_th)){
+    			 $s1=1;
+    		}else{
+    			$s1=0;
+    		}
+
+    		if($s==1&&$s1==1){
+    			return 1;
+    		}
+    		else{
+    			return 0;
+    		}
+		}
+
+		public function get_datamanagement($idset){
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT * FROM layout_shop WHERE s_ID='$idset' AND lang_ID='$lang';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 		public function insert_product_detail($insert_product_datail_en,$insert_product_datail_th){
 			if($this->db->insert('product_detail',$insert_product_datail_en)){
     			$s=1;
@@ -375,6 +560,26 @@
     			$s=0;
     		}
     		if($this->db->insert('product_detail',$insert_product_datail_th)){
+    			 $s1=1;
+    		}else{
+    			$s1=0;
+    		}
+
+    		if($s==1&&$s1==1){
+    			return 1;
+    		}
+    		else{
+    			return 0;
+    		}
+		}
+
+		public function update_management($insert_data_management_en,$insert_data_management_th,$whereupdate_man_en,$whereupdate_man_th){
+			if($this->db->update('layout_shop',$insert_data_management_en,$whereupdate_man_en)){
+    			$s=1;
+    		}else{
+    			$s=0;
+    		}
+    		if($this->db->update('layout_shop',$insert_data_management_th,$whereupdate_man_th)){
     			 $s1=1;
     		}else{
     			$s1=0;
@@ -404,6 +609,12 @@
 			return $query;
 		}
 
+		public function get_datamanagement_show($type_layout){
+			$sql="SELECT * FROM layout_shop WHERE type_layout='$type_layout';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 		public function update_cate_datail($idupdate_en,$id_gd_en){
 			if($this->db->update('product_category_detail',array('product_category_ID' => $idupdate_en),array('product_cat_detail_ID' => $id_gd_en ))){
 				return 1;
@@ -412,6 +623,39 @@
 			}
 
 		}
+
+		public function update_shop($updateshop, $where_update){
+			if($this->db->update('shop',$updateshop,$where_update)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
+		public function update_cate($update_shop_cate, $where_update){
+			if($this->db->update('shop_category_detail',$update_shop_cate,$where_update)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
+		public function update_detail_en($updateshop_detailen, $where_update_datail){
+			if($this->db->update('shop_detail',$updateshop_detailen, $where_update_datail)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
+		public function update_detail_th($updateshop_detailth, $where_update_datail){
+			if($this->db->update('shop_detail',$updateshop_detailth, $where_update_datail)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
 		public function get_pdetail($p_id){
 			$sql="SELECT product_detail_ID FROM product_detail WHERE p_ID='$p_id';";
 			$query=$this->db->query($sql)->result_array();
@@ -441,8 +685,8 @@
 			}
 		}
 
-		public function order_detail(){
-			$sql="SELECT order.order_ID,order.order_status,order.order_sum_price,order.order_date,order.order_update_date,member.f_name,member.l_name FROM member,`order` WHERE order.memberID=member.memberID;";
+		public function order_detail($s_id){
+			$sql="SELECT order.order_ID,order.order_status,order.order_sum_price,order.order_date,order.order_update_date,member.f_name,member.l_name FROM member,`order` WHERE order.memberID=member.memberID AND order.s_ID='$s_id';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}

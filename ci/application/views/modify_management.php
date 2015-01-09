@@ -79,20 +79,21 @@ body {
                                              </div>
                                              </div>
 
-                <form class="form-horizontal" name="modify_management" id="modify_manage" action=""  method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" name="modify_management" id="modify_manage" action="<?php echo site_url('backshop/update_manage');?>"  method="post" enctype="multipart/form-data">
                     <fieldset >
 
                                <div class="form-group ">
                                               <label  class="col-lg-3 col-sm-3 control-label animated fadeInLeft"><?=$this->lang->line("sel_management");?></label>
                                               <div class="col-lg-6 col-sm-6">
                                                 
-                                                 <select name="select_topic_m" class="form-control animated fadeInDown" id="stpm" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("ctopic-type");?>">
-                                                      <option><?=$this->lang->line("t_home");?></option>
-                                                      <option><?=$this->lang->line("t_hs");?></option>
-                                                      <option><?=$this->lang->line("t_pay");?></option>
-                                                      <option><?=$this->lang->line("t_article");?></option>
-                                                      <option><?=$this->lang->line("t_aboutme");?></option>
-                                                      <option><?=$this->lang->line("t_contact");?></option>
+                                                 <select name="select_topic" class="form-control animated fadeInDown" id="stpm" ata-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("ctopic-type");?>">
+                                                      
+                                                      <option value="1"><?=$this->lang->line("t_home");?></option>
+                                                      <option value="2"><?=$this->lang->line("t_hs");?></option>
+                                                      <option value="3"><?=$this->lang->line("t_pay");?></option>
+                                                      
+                                                      <option value="4"><?=$this->lang->line("t_aboutme");?></option>
+                                                      <option value="5"><?=$this->lang->line("t_contact");?></option>
                                                  
                                                  </select>
                                             </div>
@@ -102,9 +103,9 @@ body {
                                  <div class="form-group ">
                                            <label  class="col-lg-3 col-sm-3 control-label animated fadeInLeft"><?=$this->lang->line("de_management_th");?></label>
                                               <div class="col-lg-9 col-sm-9">
-                                                <form method="post" id="de_th" name="deth" class="animated fadeInDown">
-                                                  <textarea id="elm1_th" name="area1"></textarea>
-                                                </form>
+                                                
+                                                  <textarea id="elm1_th" name="area1"><?php echo $result[1]['layout_detail'];?></textarea>
+                                                
                                               </div>
 
                                              
@@ -119,9 +120,9 @@ body {
                                            <label  class="col-lg-3 col-sm-3 control-label animated fadeInLeft"><?=$this->lang->line("de_management_en");?></label>
                                             <div class="col-lg-9 col-sm-9">
                                        
-                                              <form method="post" id="de_en" name="deen" class="animated fadeInDown" >
-                                              <textarea id="elm2_en" name="area2"></textarea>
-                                              </form>
+                                              
+                                              <textarea id="elm2_en" name="area2"><?php echo $result[0]['layout_detail'];?></textarea>
+                                              
                                             </div>
 
                                              
@@ -173,7 +174,7 @@ body {
     <script src="<?php echo JS_comment;?>tinymce.js"></script>
    <script type="text/javascript">
 tinymce.init({
-    selector: "textarea",
+    selector: "textarea#elm1_th",
     theme: "modern",
     plugins: [
         "advlist autolink lists link charmap print preview hr anchor pagebreak",
@@ -203,6 +204,39 @@ tinymce.init({
         "Webdings=webdings;"+
         "Wingdings=wingdings,zapf dingbats"
 });
+
+tinymce.init({
+    selector: "textarea#elm2_en",
+    theme: "modern",
+    plugins: [
+        "advlist autolink lists link charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code ",
+        "insertdatetime  nonbreaking save table contextmenu directionality",
+        "emoticons  paste textcolor colorpicker textpattern"
+    ],
+    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent ",
+    toolbar2: "print preview  | forecolor backcolor emoticons",
+    image_advtab: true,
+    
+    font_formats: "Andale Mono=andale mono,times;"+
+        "Arial=arial,helvetica,sans-serif;"+
+        "Arial Black=arial black,avant garde;"+
+        "Book Antiqua=book antiqua,palatino;"+
+        "Comic Sans MS=comic sans ms,sans-serif;"+
+        "Courier New=courier new,courier;"+
+        "Georgia=georgia,palatino;"+
+        "Helvetica=helvetica;"+
+        "Impact=impact,chicago;"+
+        "Symbol=symbol;"+
+        "Tahoma=tahoma,arial,helvetica,sans-serif;"+
+        "Terminal=terminal,monaco;"+
+        "Times New Roman=times new roman,times;"+
+        "Trebuchet MS=trebuchet ms,geneva;"+
+        "Verdana=verdana,geneva;"+
+        "Webdings=webdings;"+
+        "Wingdings=wingdings,zapf dingbats"
+});
+
 </script>
     
     

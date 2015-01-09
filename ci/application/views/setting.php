@@ -77,7 +77,7 @@ body {
                                              </div>
                                              </div>
      
-                <form class="form-horizontal" id="setting"  name="setting" action=""   method="post"  enctype="multipart/form-data">
+                <form class="form-horizontal" id="setting"  name="setting" action="<?php echo site_url('backshop/process_update_setting') ?>"   method="post"  enctype="multipart/form-data">
                     <fieldset >
 
                                <div class="form-group col-lg-12">
@@ -102,7 +102,7 @@ body {
                                                                     <label for="inputsname" class="col-lg-3 col-sm-2 control-label"><?=$this->lang->line("s_name");?></label>
                                                                     
                                                                     <div class="col-lg-5 col-sm-5">
-                                                                      <input type="text" id="shopname_en" class="form-control " name="shopname_en"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("note");?>">
+                                                                      <input type="text" id="shopname_en" class="form-control " name="shopname_en" value="<?php echo $name_en; ?>" data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("note");?>">
 
                                                                     </div>
                                                                     <div class="col-lg-1 col-sm-1 ">
@@ -115,7 +115,7 @@ body {
                                                                     <label for="inputsname" class="col-lg-3 col-sm-2 control-label"></label>
                                                                     
                                                                     <div class="col-lg-5 col-sm-5">
-                                                                      <input type="text" id="shopname_th" class="form-control" name="shopname_th" data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("note2");?>">
+                                                                      <input type="text" id="shopname_th" class="form-control" name="shopname_th" value="<?php echo $name_th; ?>" data-toggle="popover" data-trigger="hover " data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("note2");?>">
                                                                     </div>
                                                                     <div class="col-lg-1 col-sm-1 ">
                                                                     <label  class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
@@ -132,7 +132,7 @@ body {
                                                                     </div>
                                                                     <div class="col-md-2"></div>
                                                                     <div class="col-lg-3 col-sm-3">
-                                                                      <input type="text" class="form-control" name="urlname" value="">
+                                                                      <input type="text" class="form-control" name="urlname" value="<?php echo $url; ?>">
                                                                     </div>
                                                                     </div>
                                                                     <div class="col-lg-1 col-sm-5">
@@ -143,13 +143,14 @@ body {
                                                                   <div class="form-group" align="center">
                                                                     <label  class="col-lg-3 col-sm-2 control-label"><?=$this->lang->line("s_type");?></label>
                                                                     <div class="col-lg-3 col-sm-5">
+
                                                                     <select name="category" class="form-control">
                                                                     <?php 
 
                                                                       foreach( $cate as $value){ 
                                                                       echo "<option value=\"$value->shop_category_ID\">".$value->shop_name_type."</option>";}
                                                                     ?>
-                                                                        
+                        
                                                                     </select>
                                                                    
                                                                     </div>
@@ -158,7 +159,7 @@ body {
                                                                   <div class="form-group " align="center">
                                                                     <label class="col-lg-3 col-sm-2 control-label"><?=$this->lang->line("shop_detail");?></label>
                                                                     <div class="col-lg-5 col-sm-5">
-                                                                      <textarea rows="3" cols="60" class="form-control" id="sde" name="shopdetail_en" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("dnote");?>"></textarea>
+                                                                      <textarea rows="3" cols="60" class="form-control" id="sde" name="shopdetail_en"   data-toggle="popover" data-trigger="hover" data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("dnote");?>"><?php echo $detail_en; ?></textarea>
                                                                     </div>
                                                                     <div class="col-lg-1 col-sm-1 ">
                                                                     <label for="inputslang" class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-en.jpg" width="25" height="15" border="0"></label>
@@ -168,7 +169,7 @@ body {
                                                                   <div class="form-group" align="center">
                                                                     <label  class="col-lg-3 col-sm-2 control-label"></label>
                                                                     <div class="col-lg-5 col-sm-5">
-                                                                      <textarea rows="3" cols="60" class="form-control" name="shopdetail_th" id="sdt" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("dnote2");?>"></textarea>
+                                                                      <textarea rows="3" cols="60" class="form-control" name="shopdetail_th"  id="sdt" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="bottom" data-content="<?=$this->lang->line("dnote2");?>"><?php echo $detail_th; ?></textarea>
                                                                     </div>
                                                                     <div class="col-lg-1 col-sm-1 ">
                                                                     <label  class="col-lg-0.7 control-label"><img src="<?php echo logo_pic;?>flag-th.jpg" width="25" height="15" border="0"></label>
@@ -177,7 +178,7 @@ body {
                                                                   <div class="form-group" align="center">
                                                                     <label  class="col-lg-3 col-sm-2 control-label"><?=$this->lang->line("s_fanpage");?></label>
                                                                     <div class="col-lg-4 col-sm-5">
-                                                                      <input type="text" class="form-control" name="fanpageshop" id="fp" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("fnote");?>" >
+                                                                      <input type="text" class="form-control" name="fanpageshop"  value="<?php echo $fanpage; ?>" id="fp" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="<?=$this->lang->line("fnote");?>" >
                                                                     </div>
                                                                   </div>
 
@@ -201,7 +202,7 @@ body {
 
                                                          <div class="fileinput fileinput-new " data-provides="fileinput" id="profilepop" data-toggle="popover" data-trigger="hover " data-placement="right" data-content="<?=$this->lang->line("profile_size");?>" >
                                                             <div class="fileinput-new thumbnail" style="width: 180px; height: 180px; " >
-                                                              <img src="<?php echo logo_pic;?>avatar.png" class="img-responsive" style="width: 180px; height: 180px; ">
+                                                              <img src="<?php echo shop.$profile;?>" class="img-responsive" style="width: 180px; height: 180px; ">
                                                             </div>
                                                             <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px; " ></div>
                                                             <div>
@@ -223,7 +224,7 @@ body {
 
                                                                  <div class="fileinput fileinput-new" data-provides="fileinput" id="bgpop" data-toggle="popover" data-trigger="hover " data-placement="right" data-content="<?=$this->lang->line("bg_size");?>"> 
                                                                     <div class="fileinput-new thumbnail img-responsive" style="width: 180px; height: 180px; " >
-                                                                      <img src="<?php echo logo_pic;?>bg_shop.jpg" class="img-responsive" style="width: 180px; height: 180px; ">
+                                                                      <img src="<?php echo shop.$bg;?>" class="img-responsive" style="width: 180px; height: 180px; ">
                                                                     </div>
                                                                     <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px;"></div>
                                                                     <div>
@@ -242,7 +243,7 @@ body {
                                                                 <div class="col-lg-2">
                                                                   <div class="fileinput fileinput-new" data-provides="fileinput" id="coverpop" data-toggle="popover" data-trigger="hover " data-placement="right" data-content="<?=$this->lang->line("cover_size");?>">
                                                                     <div class="fileinput-new thumbnail img-responsive" style="width: 600px; height: 240px; ">
-                                                                      <img src="<?php echo logo_pic;?>pic_cover.jpg" class="img-responsive"style="width: 600px; height: 240px;">
+                                                                      <img src="<?php echo shop.$header;?>" class="img-responsive"style="width: 600px; height: 240px;">
                                                                     </div>
                                                                     <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 600px; height: 240px;" ></div>
                                                                     <div>
@@ -300,7 +301,7 @@ body {
 
                                   <div class="col-md-1 ">
 
-                                          <h4><input type="submit" class="btn btn-primary animated swing" id="btn_add" name="btnadd"  value="<?=$this->lang->line("save");?>" /></h4>
+                                          <h4><input type="submit" class="btn btn-primary animated swing" id="btn_add"  onclick="document.getElementById('setting').submit();" name="btnadd"  value="<?=$this->lang->line("save");?> " /></h4>
                                          
                                            
                                    </div >
@@ -427,7 +428,7 @@ $("#addsetting").validate({
 function del_shop() {
     var x;
     if (confirm("<?=$this->lang->line("confirm_del");?>") == true) {
-        document.getElementById("del").href = "<?php echo site_url('backshop/test_alert');?>";
+        document.getElementById("del").href = "<?php echo site_url('backshop/delete_shop');?>";
     } else {
         document.getElementById("del").href = "<?php echo site_url('backshop/setting');?>";
     }
