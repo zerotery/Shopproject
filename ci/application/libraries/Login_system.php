@@ -16,10 +16,10 @@ class Login_system {
     	//echo $CI->session->userdata('status')." ".$CI->session->userdata('status_shop');
     	if($CI->session->userdata('status')=='t' && $CI->session->userdata('status_shop')=='t'){
     		$CI->session->set_userdata('loginname',"$user");
-    		redirect('backshop/myshop');
+    		redirect('main/index?Status=1', 'refresh');
     	}else if($CI->session->userdata('status')=='t' && $CI->session->userdata('status_shop')=='f'){
     		$CI->session->set_userdata('loginname',"$user");
-            redirect('main/index', 'refresh');
+            redirect('main/index?Status=1', 'refresh');
     	}else{
     		echo '<script language="javascript">';
 			echo 'alert("Wrong Username or Password or no active member.")';
