@@ -129,7 +129,7 @@ body {
                                                                                     echo '<div class="col-sm-6 col-md-4 col-lg-8" align="center">';
                                                                                     echo '<div class="form-group animated fadeInUp">';
                                                                                     echo '<div class="col-lg-12 thumbnail">';
-                                                                                    echo '<img src="'.product.$data_p[0]['p_update_date'].'/'.$s_id.'/'.$data_p[0]['p_ID'].'/'.$get_gallery[$i]['pic_name'].'" class="img-responsive" style="height:160px;width:200px;">';
+                                                                                    echo '<img src="'.product.$data_p[0]['p_update_date'].'/'.$s_id.'/'.$data_p[0]['p_ID'].'/'.$get_gallery[$i]['pic_name'].'?v='.Date("Y.m.d.G.i.s").'" class="img-responsive" style="height:160px;width:200px;">';
                                                                                     echo '</div></div></div>';
                                                                                     echo '</div>';
                                                                                     echo '</td>';

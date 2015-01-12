@@ -108,8 +108,8 @@ body {
                          </tr>
                          <tr style="color:black">
                            <td class="warning" ></td>
-                           <td class="warning" ><input style="height:25.2px" class="search" id="orderid" placeholder="<?=$this->lang->line("order_search");?>" /></td>
-                           <td class="warning" ><input style="height:25.2px" class="search" id="name_member" placeholder="<?=$this->lang->line("cus_search");?>" /></td>
+                           <td class="warning" ><input style="height:25.2px" id="orderid" name="orderid" placeholder="<?=$this->lang->line("order_search");?>" /></td>
+                           <td class="warning" ><input style="height:25.2px"  id="name_member" placeholder="<?=$this->lang->line("cus_search");?>" /></td>
                            <td class="warning" ><center><select  class="search" name="order_status" id="order_status" style="width:135px;height:25.2px">
                         <option selected="selected" value=""></option>
                         <option value="<?=$this->lang->line("wait_payment");?>"><?=$this->lang->line("wait_payment");?></option>
@@ -138,18 +138,18 @@ body {
                                for($i=0; $i<count($result); $i++){
                                 echo '<tr style="color:black">';
                                 echo '<td class="warning" ><label ><input class="checkbox" type="checkbox" name="check_list[]" value="'.$result[$i]['order_ID'].'"></label></td>';
-                                echo '<td class="warning order" style="font-size:11pt" ><center>'.$result[$i]['order_ID'].'</center></td>';
+                                echo '<td class="warning order" style="font-size:11pt" align="center" >'.$result[$i]['order_ID'].'</td>';
                                 
                                 echo '<td class="warning name_member" style="font-size:11pt" >'.$result[$i]['f_name']." ".$result[$i]['l_name'].'</td>';
                                 if($result[$i]['order_status']==0){
-                                  echo '<td class="warning status" style="font-size:11pt" ><center>'.$this->lang->line("wait_payment").'</center></td>';
+                                  echo '<td class="warning status" style="font-size:11pt" align="center">'.$this->lang->line("wait_payment").'</td>';
                                 }else{
-                                  echo '<td class="warning status" style="font-size:11pt" ><center>'.$this->lang->line("complete_payment").'</center></td>';
+                                  echo '<td class="warning status" style="font-size:11pt" align="center" >'.$this->lang->line("complete_payment").'</td>';
                                 }
-                                echo '<td class="warning sumprice" style="font-size:11pt" ><center>'.$result[$i]['order_sum_price'].'</center></td>';
-                                echo '<td class="warning orderdate" style="font-size:11pt" ><center>'.$result[$i]['order_date'].'</center></td>';
-                                echo '<td class="warning update" style="font-size:11pt " ><center>'.$result[$i]['order_update_date'].'</center></td>';
-                                echo '<td class="warning" style="font-size:15pt" ><center>['. anchor(site_url('backshop/modifyorder').'/?o_id='.$result[$i]['order_ID'].'',$this->lang->line("modify")).']</center></td>';
+                                echo '<td class="warning sumprice" style="font-size:11pt" align="center" >'.$result[$i]['order_sum_price'].'</td>';
+                                echo '<td class="warning orderdate" style="font-size:11pt" align="center" >'.$result[$i]['order_date'].'</td>';
+                                echo '<td class="warning update" style="font-size:11pt " align="center" >'.$result[$i]['order_update_date'].'</td>';
+                                echo '<td class="warning" style="font-size:15pt" >['. anchor(site_url('backshop/modifyorder').'/?o_id='.$result[$i]['order_ID'].'',$this->lang->line("modify")).']</center></td>';
                                 echo '</tr>';
                                }       
 
@@ -192,8 +192,9 @@ body {
               var userList = new List('users', options);
 
               $('#orderid').keyup(function() {
-              var orderid = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+              var orderid = document.getElementById('orderid').value;
               userList.filter(function (item) {
+                
               if (item.values().order == orderid) {
                 return true;
               } else {
@@ -214,7 +215,7 @@ body {
               });
 
               $('#sum_price').keyup(function() {
-              var sprice = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+              var sprice = document.getElementById('sum_price').value;
               userList.filter(function (item) {
               if (item.values().sumprice == sprice) {
                 return true;
@@ -225,7 +226,7 @@ body {
               });
 
               $('#add_date').keyup(function() {
-              var add_date = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+              var add_date = document.getElementById('add_date').value;
               userList.filter(function (item) {
               if (item.values().orderdate == add_date) {
                 return true;
@@ -236,7 +237,7 @@ body {
               });
 
                $('#modify_date').keyup(function() {
-              var modify_date = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+              var modify_date = document.getElementById('modify_date').value;
               userList.filter(function (item) {
               if (item.values().update == modify_date) {
                 return true;
