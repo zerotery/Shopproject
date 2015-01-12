@@ -121,7 +121,7 @@ body {
                                 else{
                                   $name_main="main_product.jpg";
                                 }
-                                echo '<img src="'.product.$dataproduct[$i][0]['p_update_date'].'/'.$shopid.'/'.$dataproduct[$i][0]['p_ID'].'/'.$name_main.'" class="img-responsive" style="height:160px;width:200px;">';
+                                echo '<img src="'.product.$dataproduct[$i][0]['p_update_date'].'/'.$shopid.'/'.$dataproduct[$i][0]['p_ID'].'/'.$name_main.'?v='.Date("Y.m.d.G.i.s").'" class="img-responsive" style="height:160px;width:200px;">';
                                 echo '</div></div></div>';
                                 echo '</div>';
                                 echo '</td>';

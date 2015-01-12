@@ -849,11 +849,6 @@
 			
 			$data['user']=$this->session->userdata('loginname');
 
-			if($this->session->userdata('p_rf')==1){
-				redirect('backshop/modifyproduct','refresh');
-				
-				$this->session->unset_userdata('p_rf');
-			}
 			
 			$p_id=$this->input->get('p_id');
 			if($p_id!=NULL){
@@ -1075,8 +1070,8 @@
                                           $hit='./asset/temp/'.$productmain_pic;
                                           unlink($hit);
                                       	  }
-                                      	  redirect('backshop/modifyproduct');
-                                          $this->session->set_userdata('p_rf',1);
+                                      	  redirect('backshop/productManage');
+                                          
                                           
                                           
                                          
