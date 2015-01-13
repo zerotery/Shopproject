@@ -17,7 +17,7 @@
 	$lang['store']="back office";
 	$lang['product']="Product";
 	$lang['product_type']="Category";
-	$lang['product_management']="Category Management";
+	$lang['product_management']="Products Management";
 	$lang['option']="Option";
 	$lang['sell']="Sell";
 	$lang['order_buy']="Order";
@@ -337,7 +337,57 @@
     $lang['cart']="Basket";
     $lang['cart_count']="ea";
     $lang['mbox']="Message";
+    $lang['all_product']="All product";
 
+
+    $lang['obox']="... How to order ...";
+    $lang['pbox']="How to buy";
+    $lang['bbox']="Payment via bank";
+    $lang['go_t_pay']="Go to payment notify";
+    $lang['pbox_c']="Inform payment";
+
+    $lang['bank_acc_pay']="Account transfer :";
+    $lang['bank_pay_date']="Payment date :";
+    $lang['bank_pay_time']="Payment time(estimated) :";
+    $lang['bank_pay_price']="Transfer amount :";
+    $lang['name_pay']="Name :";
+    $lang['surname_pay']="Surname :";
+    $lang['email_pay']="E-mail :";
+    $lang['evidence_pay']="Evidence of payment :";
+    $lang['detail_pay']="more detail :";
+    $lang['send_form']="inform payment";
+
+    $lang['abox']="... About us ...";
+    $lang['show_shop_detail']="Shop detail";
+
+    $lang['cbox']="... Contact us ...";
+    $lang['name_owner']="name :";
+    $lang['surname_owner']="surname :";
+    $lang['email_owner']="email :";
+
+    $lang['n_pro']="Category :";
+    $lang['p_pro']="Price :";
+    $lang['up_pro']="Latest updates :";
+    $lang['q_pro']="Quantity :";
+    $lang['o_pro']="ADD TO CART";
+
+    $lang['basket']="BASKET";
+    $lang['cartbox1']="Product list";
+    $lang['cartbox2']="product in basket";
+
+    $lang['productname']="Product";
+    $lang['productprice']="Price";
+    $lang['qpro']="Quantity";
+    $lang['ps_pro']="Total price";
+    $lang['ps_proall']="Total price result";
+    $lang['send_pro']="Delivery methods";
+    $lang['send_postcode']="Type";
+    $lang['send_postcode_p']="Price";
+    $lang['send_postcode_all']="Total price";
+    $lang['send_order']="ORDER";
+
+    $lang['domestic_registered']=" Domestic registered";
+    $lang['domestic_ems']="Domestic EMS";
 
 
 

@@ -353,6 +353,78 @@
     $lang['cart']="สินค้าในตระกร้า";
     $lang['cart_count']="ชิ้น";
     $lang['mbox']="ข้อความ";
+    $lang['all_product']="สินค้าทั้งหมด";
+
+    $lang['obox']="... วิธีการสั่งซื้อสินค้า ...";
+    $lang['pbox']="วิธีการชำระเงิน";
+    $lang['bbox']="ชำระเงินผ่านทางธนาคาร";
+    $lang['go_t_pay']="ไปหน้าแจ้งการชำระเงิน";
+    $lang['pbox_c']="แจ้งชำระเงิน";
+
+
+
+
+    $lang['bank_acc_pay']="บัญชีที่โอนเงิน :";
+    $lang['bank_pay_date']="วันที่ชำระเงิน :";
+    $lang['bank_pay_time']="เวลา(โดยประมาณ) :";
+    $lang['bank_pay_price']="จำนวนเงินที่โอน :";
+    $lang['name_pay']="ชื่อ :";
+    $lang['surname_pay']="นามสกุล :";
+    $lang['email_pay']="E-mail :";
+    $lang['evidence_pay']="หลักฐานการชำระเงิน :";
+    $lang['detail_pay']="รายละเอียดเพิ่มเติม :";
+    $lang['send_form']="แจ้งการชำระเงิน";
+
+
+    $lang['abox']="... เกี่ยวกับเรา ...";
+    $lang['show_shop_detail']="รายละเอียดร้าน";
+
+    $lang['cbox']="... ติดต่อเรา ...";
+    $lang['name_owner']="ชื่อ :";
+    $lang['surname_owner']="สกุล :";
+    $lang['email_owner']="email :";
+
+    $lang['n_pro']="หมวดหมู่ :";
+    $lang['p_pro']="ราคา :";
+    $lang['up_pro']="อัพเดตล่าสุด :";
+    $lang['q_pro']="จำนวน :";
+    $lang['o_pro']="หยิบใส่ตระกร้า";
+
+
+    $lang['basket']="ตะกร้าสินค้า";
+    $lang['cartbox1']="รายการสินค้า";
+    $lang['cartbox2']="สินค้าในตะกร้า";
+
+    $lang['productname']="สินค้า";
+    $lang['productprice']="ราคา";
+    $lang['qpro']="จำนวน";
+    $lang['ps_pro']="ราคารวม";
+    $lang['ps_proall']="ราคาสินค้าทั้งหมด";
+    $lang['send_pro']="วิธีการจัดส่ง";
+    $lang['send_postcode']="ประเภท";
+    $lang['send_postcode_p']="ค่าขนส่ง";
+    $lang['send_postcode_all']="ราคารวม";
+    $lang['send_order']="สั่งซื้อสินค้า";
+    $lang['domestic_registered']=" พัสดุแบบลงทะเบียน";
+    $lang['domestic_ems']="พัสดุEMS";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
 
 
 
