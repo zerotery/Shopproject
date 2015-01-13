@@ -8,9 +8,19 @@
 	
 		}
 		public function index(){
+			$status=NUll;
 			$lang=$this->load_language->lang();
-             $this->lang->load($lang,$lang);
-			$this->load->view('main');
+            $this->lang->load($lang,$lang);
+			$status=$this->input->get('Status');
+			if(!empty($status)){
+				echo "$status";
+			}else{
+				$status=0;
+				echo "$status";
+			}
+			$data['status']=$status;
+			
+			$this->load->view('main',$data);
 
 
 		}

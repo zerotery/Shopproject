@@ -83,11 +83,11 @@
                     <div class="row col-md-9 col-sm-9">
                     <div class="col-md-1 col-sm-4">
 
-                      <label for="inputurl" class="col-lg-3 control-label">www.myaday.net/Project/TBShop/</label>
+                      <label for="inputurl" class="col-lg-7 control-label">www.myaday.net/Project/TBShop/Shop/</label>
                     </div>
-                    <div class="col-md-2"></div>
-                    <div class="col-lg-3 col-sm-3">
-                      <input type="text" class="form-control" name="urlname" value="">
+                    <div class="col-md-3"></div>
+                    <div class="col-lg-2 col-sm-3">
+                      <input type="text" class="form-control" name="urlname" id="urlname" value="">
                     </div>
                     </div>
                     <div class="col-lg-1 col-sm-5">
@@ -207,7 +207,7 @@
 
                      <div class="fileinput fileinput-new " data-provides="fileinput" id="profilepop" data-toggle="popover" data-trigger="hover " data-placement="right" data-content="<?=$this->lang->line("profile_size");?>" >
                         <div class="fileinput-new thumbnail" style="width: 180px; height: 180px; " >
-                          <img src="<?php echo logo_pic;?>avatar.png" class="img-responsive" style="width: 180px; height: 180px; ">
+                          <img src="<?php echo logo_pic;?>Avatar.png" class="img-responsive" style="width: 180px; height: 180px; ">
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px; " ></div>
                         <div>

@@ -25,6 +25,7 @@
 			$data['user']=$this->session->userdata('loginname');
 			$data['userid']=$this->session->userdata('memberid');	
 			$data['myshop'] = $this->shop->showshop();
+			
 			$this->load->view('myshop',$data);
 		}
 
@@ -263,9 +264,8 @@
 		}
 
 		public function remove_productType(){
-			$test=$this->input->post('checkall');
-			$test2=$this->input->post('check1');
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     				$i++;	
@@ -356,9 +356,8 @@
 		}
 
 		public function remove_product(){
-			$test=$this->input->post('checkall');
-			$test2=$this->input->post('check1');
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     				$i++;	
@@ -851,11 +850,6 @@
 			
 			$data['user']=$this->session->userdata('loginname');
 
-			if($this->session->userdata('p_rf')==1){
-				redirect('backshop/modifyproduct','refresh');
-				
-				$this->session->unset_userdata('p_rf');
-			}
 			
 			$p_id=$this->input->get('p_id');
 			if($p_id!=NULL){
@@ -1077,8 +1071,8 @@
                                           $hit='./asset/temp/'.$productmain_pic;
                                           unlink($hit);
                                       	  }
-                                      	  redirect('backshop/modifyproduct');
-                                          $this->session->set_userdata('p_rf',1);
+                                      	  redirect('backshop/productManage');
+                                          
                                           
                                           
                                          
@@ -1271,7 +1265,9 @@
 
 		public function delete_order(){
 			$s_id=$this->session->userdata('id');
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
+
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     					
@@ -1305,7 +1301,8 @@
 	}
 
 		public function delete_bank(){
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     					
@@ -1684,7 +1681,8 @@
 		public function delete_gallery(){
 			$p_id=$this->session->userdata('p_id');
 			$s_id=$this->session->userdata('id');
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     				$i++;	
@@ -1746,6 +1744,7 @@
 			
 
 			$data['nameshop']=$shop[0]['shop_name'];
+
 			if(!empty($result)){
 				$data['result']=$result;
 			}else{
@@ -2250,7 +2249,8 @@
 		}
 
 		public function delete_management(){
-			if(!empty($this->input->post('check_list'))) {
+			$check_list=$this->input->post('check_list');
+			if(!empty($check_list)) {
 				$i = 0;
     				foreach($this->input->post('check_list') as $check) {
     					

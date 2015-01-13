@@ -70,7 +70,7 @@
                              <div class="col-lg-12">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                   <div class="fileinput-new " >
-                                    <img src="<?php echo upload;?><?php echo $userid."/".$namepicture;?>" class="img-responsive" style="height:180px;width:180px;" >
+                                    <img src="<?php echo upload;?><?php echo $userid."/".$namepicture.'?v='.Date("Y.m.d.G.i.s"); ?>" class="img-responsive" style="height:180px;width:180px;" >
                                   </div>
                                   <div class="fileinput-preview fileinput-exists thumbnail" style="width: 180px; height: 180px;"></div>
                                   <div>
