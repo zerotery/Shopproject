@@ -25,6 +25,7 @@
 			$data['user']=$this->session->userdata('loginname');
 			$data['userid']=$this->session->userdata('memberid');	
 			$data['myshop'] = $this->shop->showshop();
+			
 			$this->load->view('myshop',$data);
 		}
 

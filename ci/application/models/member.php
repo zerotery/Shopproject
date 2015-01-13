@@ -123,6 +123,10 @@
 
     	}
 
+    	public function update_url($up,$where_up){
+    		$this->db->update('shop',$up,$where_up);
+    	}
+
     	public function get_picture($memID){
    			$sql="SELECT profile_pic FROM member WHERE memberID='$memID';";
    			$query=$this->db->query($sql)->result();

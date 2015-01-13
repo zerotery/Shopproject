@@ -16,7 +16,7 @@ class Login_system {
     	//echo $CI->session->userdata('status')." ".$CI->session->userdata('status_shop');
     	if($CI->session->userdata('status')=='t' && $CI->session->userdata('status_shop')=='t'){
     		$CI->session->set_userdata('loginname',"$user");
-    		redirect('main/index?Status=1', 'refresh');
+    		redirect('main/index?Status=1');
     	}else if($CI->session->userdata('status')=='t' && $CI->session->userdata('status_shop')=='f'){
     		$CI->session->set_userdata('loginname',"$user");
             redirect('main/index?Status=1', 'refresh');

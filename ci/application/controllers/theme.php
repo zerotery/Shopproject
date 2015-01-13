@@ -23,7 +23,11 @@
                    $data['error']=$error;
                    $this->load->view('theme1',$data);
                  
-                }
+          }
+
+          public function test1($s_id=null){
+          	echo "Main Shop ID".$s_id;
+          }
 
 		
 
