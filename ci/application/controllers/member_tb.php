@@ -462,7 +462,7 @@
                       $profile=$result['spro'];
                       $bg=$result['sbg'];
                       $cover=$result['scover'];
-                      $URL="www.myaday.net/Project/TBShop/Shop/".$this->input->post('urlname').'?shopid='.$s_id;
+                      $URL="www.myaday.net/Project/TBShop/Shop/".$this->input->post('urlname').'/'.$s_id;
                       //echo $s_id;
                       $where_up=array('s_ID'=>$s_id);
                       $up=array('s_url' => "$URL");
