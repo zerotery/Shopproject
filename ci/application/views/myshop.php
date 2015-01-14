@@ -66,7 +66,7 @@ body {
             echo '<td>'.anchor(site_url('backshop/gobackshop/').'/?shopid='.$num,'go backshop').'</td>';
             $temp[$i] = explode("/",$myshop[$i]['s_url']);
             
-            $url[$i]=$temp[$i][3].'/'.$temp[$i][4].'/'.$temp[$i][5];
+            $url[$i]=$temp[$i][3].'/'.$temp[$i][4].'/'.$temp[$i][5].'/'.$temp[$i][6];
             //$picname_bg = "bg" . '.' .end($temp);
             echo '<td>'.anchor($url[$i]).'</td>';
             $j++;

@@ -24,7 +24,7 @@
 
 <style type="text/css">
 body{
-  background:url("<?php echo logo_pic;?>reg_bg.jpg") no-repeat center center fixed;
+  background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg;?>") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -35,7 +35,7 @@ body{
 </style>
 <style type="text/css">
 header {
-  background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
+  background: url("<?php echo shop.'/'.$s_id.'/'.$pic_header;?>") no-repeat center top ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -53,7 +53,7 @@ header {
 
 <body>
 
-<?php echo $this->load->view('header/navbar_nlog')?>
+<?php echo $this->load->view('header/navbar_log')?>
 
 
 
@@ -111,17 +111,35 @@ header {
                       <div class="navbar navbar-custom navbar-inverse">
                           
 
-                 
-                              <ul class="nav navbar-nav nav-justified">
-                                <li class="active"><a href="<?php echo site_url('theme1/home');?>"><?=$this->lang->line("t_home");?></a></li>
-                                <li><a href="<?php echo site_url('theme1/how2order');?>" ><?=$this->lang->line("t_hs");?></a></li>
-                                <li><a href="<?php echo site_url('theme1/informpayment');?>" ><?=$this->lang->line("t_pay");?></a></li>
-                                <li ><a href="<?php echo site_url('theme1/aboutus');?>"><?=$this->lang->line("t_aboutme");?></a></li>
-                                <li><a href="<?php echo site_url('theme1/contactus');?>"><?=$this->lang->line("t_contact");?></a></li>
-                               
-                             
-                              </ul>
-                           
+                              <?php
+                              if($layout==0){
+                              echo '<ul class="nav navbar-nav nav-justified">';
+                              echo '<li class="active"><a href="'.site_url('theme1/home').'">'.$this->lang->line("t_home").'</a></li>';
+                              echo '<li><a href="'.site_url('theme1/how2order').'">'.$this->lang->line("t_hs").'</a></li>';
+                              echo '<li><a href="'.site_url('theme1/informpayment').'">'.$this->lang->line("t_pay").'</a></li>';
+                              echo '<li><a href="'.site_url('theme1/aboutus').'">'.$this->lang->line("t_aboutme").'</a></li>';
+                              echo '<li><a href="'.site_url('theme1/contactus').'">'.$this->lang->line("t_contact").'</a></li>';
+                              echo '</ul>';
+                              }else{
+                                echo '<ul class="nav navbar-nav nav-justified">';
+                                for($i=0;$i<count($layout);$i++){
+
+                                if($layout[$i]['type_layout']==1){
+                                  echo '<li class="active"><a href="'.site_url('theme1/home').'">'.$this->lang->line("t_home").'</a></li>';
+                                }else if($layout[$i]['type_layout']==2){
+                                  echo '<li><a href="'.site_url('theme1/how2order').'">'.$this->lang->line("t_hs").'</a></li>';
+                                }else if($layout[$i]['type_layout']==3){
+                                  echo '<li><a href="'.site_url('theme1/informpayment').'">'.$this->lang->line("t_pay").'</a></li>';
+                                }else if($layout[$i]['type_layout']==4){
+                                  echo '<li><a href="'.site_url('theme1/aboutus').'">'.$this->lang->line("t_aboutme").'</a></li>';
+                                }else if($layout[$i]['type_layout']==4){
+                                  echo '<li><a href="'.site_url('theme1/contactus').'">'.$this->lang->line("t_contact").'</a></li>';
+                                }
+                                  
+                                }
+                                echo '</ul>';
+                              }
+                              ?>
                        
                       </div><!--/.navbar -->
 
@@ -172,14 +190,21 @@ header {
                        <ul class="nav nav-stacked affix-top" id="sidebar" >
                         <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
                             
-                                      <li><a href="<?php echo site_url('theme1/category');?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [0]</a></li>
-                                      <li><a href="#"><i class="glyphicon glyphicon-gift"></i>Fashion [0]</a></li>
-                                      <li><a href="#"><i class="glyphicon glyphicon-gift"></i>etc...</a></li>
+                                      <li><a href="<?php echo site_url('theme1/category');?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [<?php echo $all_product;?>]</a></li>
+                                      <?php
+                                        for($i=0;$i<count($cate_product);$i++){
+                                          echo '<li><a href="#"><i class="glyphicon glyphicon-gift"></i>'.$cate_product[$i]['product_category_name']." ".'['.$cate_product[$i][0].']'.'</a></li>';
+                                          
+                                        }
+
+                                      ?>
+
+                                     
                             
                                       
 
 
-                                    </ul>
+                      </ul>
                                     
                                  
                                     
@@ -200,16 +225,59 @@ header {
                    
                             <div class="col-xs-12 col-sm-12 mborder" >
                             
-                              <label id="message"></label>
-
+                             <?php 
+                                 if($layout==0){ }else{echo $layout[0]['layout_detail'];}
                               
+                             
+                              ?> 
+
+                                
                             </div>
+
+
 
                           
-                            </div>
+                </div>
                             <h2 class="h2space"></h2>
           <h2 id="sec1"><div id="divl" ><?=$this->lang->line("product");?></div> <div id="divr" ><a href="<?php echo site_url('theme1/category');?>"><?=$this->lang->line("view_all_product");?></a></div></h2>
+                <?php
+                 
+                  for($j=0;$j<floor((count($product)/3)+1);$j++){
+                  echo '<div class="row">';
 
+                  for($i=0;$i<count($product);$i++){
+                    
+                    
+
+                      echo '<div class="col-xs-4 col-sm-4 ">';
+                             echo  '<div class="box-product " >';
+                             echo    '<div class="inner" >';
+                             echo     '<div class="image thumbnailz "><a href="#"><img src="'.product.$product[$i]['p_update_date'].'/'.$product[$i]['s_ID'].'/'.$product[$i]['p_ID'].'/'.$product[$i]['pic_name'].'" ></a>';
+                             echo     '</div>';
+                             echo      '<div class="name"><a href="#">'.$product[$i]['product_name'].'</a></div>';
+                             echo     '<div class="price">'.'฿'.$product[$i]['p_price'].'</a></div>'; 
+                             echo      '</div>';                                  
+                             echo     '<div  class="abs"  >';
+                             echo     '<div class="cart ">';
+                             echo      '<a class="button1 animated fadeInLeft " title="'.$this->lang->line("add_to_cart").'"  href="productdetail.html"><span></span></a>';
+                             echo      '<a class="btn-detail ml10 animated fadeInRight " title="'.$this->lang->line("view_product").'" href="'.site_url('theme1/product').'"><span></span></a>';
+                             echo      '</div>';         
+                             echo      '</div>';   
+                             echo      '</div>';   
+                              
+                             echo      '</div>';   
+                    
+                    }
+                    echo '</div>';
+                  }
+
+
+               
+
+
+
+
+                ?>
                 <div class="row">
                             <div class="col-xs-4 col-sm-4 ">
                               <div class="box-product " >
@@ -229,6 +297,8 @@ header {
                               </div>
                               
                             </div>
+
+
                            <div class="col-xs-4  col-sm-4">
                              <div class="box-product " >
                                  <div class="inner" >
@@ -510,7 +580,7 @@ header {
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
 
-<script src="<?php echo JS_THEME1;?>scripts.js"></script>
+<script type="text/javascript" src="<?php echo JS_THEME1;?>scripts.js"></script>
 <script type="text/javascript">
 
        $(document).ready(function () {
