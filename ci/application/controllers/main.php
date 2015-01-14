@@ -52,7 +52,12 @@
 		public function chenge_lang($type){
 			$this->load_language->change_lang($type);
 			$page = $this->session->userdata('address');
-			header("Refresh: 0; url=$page");
+			
+			$temp = explode("/",$page);
+			$url='/'.$temp[1].'/'.$temp[2].'/'.$temp[4].'/'.$temp[5].'/'.$temp[6].'/'.$temp[7];
+			
+            //$picname_profile = "profile" . '.' .end($temp);
+			header("Refresh: 0; url=$url");
 			//redirect($page, 'refresh');
  			
 		}

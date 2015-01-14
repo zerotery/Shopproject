@@ -40,7 +40,8 @@
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
-$route['Shop/:any/(:num)'] = 'theme/test1/$1';
+$route['Shop/:any/(:num)/(:num)'] = 'cashshop/goshop/$1/$2';
+$route['Shop'] = 'cashshop';
 
 
 /* End of file routes.php */
