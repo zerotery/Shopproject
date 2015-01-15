@@ -1,7 +1,7 @@
 <html>
     
 <head>
-<title>TB Shop - Registration</title>
+<title>TB Shop - Shop Online</title>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
@@ -12,7 +12,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo THEME1_URL;?>stylesheet.css">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME1_URL;?>shortcodes.css">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME1_URL;?>transition.css">
-
 
 
 
@@ -114,26 +113,26 @@ header {
                               <?php
                               if($layout==0){
                               echo '<ul class="nav navbar-nav nav-justified">';
-                              echo '<li class="active"><a href="'.site_url('theme1/home').'">'.$this->lang->line("t_home").'</a></li>';
-                              echo '<li><a href="'.site_url('theme1/how2order').'">'.$this->lang->line("t_hs").'</a></li>';
-                              echo '<li><a href="'.site_url('theme1/informpayment').'">'.$this->lang->line("t_pay").'</a></li>';
-                              echo '<li><a href="'.site_url('theme1/aboutus').'">'.$this->lang->line("t_aboutme").'</a></li>';
-                              echo '<li><a href="'.site_url('theme1/contactus').'">'.$this->lang->line("t_contact").'</a></li>';
+                              echo '<li class="active"><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'">'.$this->lang->line("t_home").'</a></li>';
+                              echo '<li><a href="'.site_url('Shop/how2order').'/'.$s_id.'">'.$this->lang->line("t_hs").'</a></li>';
+                              echo '<li><a href="'.site_url('Shop/informpayment').'/'.$s_id.'">'.$this->lang->line("t_pay").'</a></li>';
+                              echo '<li><a href="'.site_url('Shop/aboutus').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'</a></li>';
+                              echo '<li><a href="'.site_url('Shop/contactus').'/'.$s_id.'">'.$this->lang->line("t_contact").'</a></li>';
                               echo '</ul>';
                               }else{
                                 echo '<ul class="nav navbar-nav nav-justified">';
                                 for($i=0;$i<count($layout);$i++){
 
                                 if($layout[$i]['type_layout']==1){
-                                  echo '<li class="active"><a href="'.site_url('theme1/home').'">'.$this->lang->line("t_home").'</a></li>';
+                                  echo '<li class="active"><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'">'.$this->lang->line("t_home").'</a></li>';
                                 }else if($layout[$i]['type_layout']==2){
-                                  echo '<li><a href="'.site_url('theme1/how2order').'">'.$this->lang->line("t_hs").'</a></li>';
+                                  echo '<li><a href="'.site_url('Shop/how2order').'/'.$s_id.'">'.$this->lang->line("t_hs").'</a></li>';
                                 }else if($layout[$i]['type_layout']==3){
-                                  echo '<li><a href="'.site_url('theme1/informpayment').'">'.$this->lang->line("t_pay").'</a></li>';
+                                  echo '<li><a href="'.site_url('Shop/informpayment').'/'.$s_id.'">'.$this->lang->line("t_pay").'</a></li>';
                                 }else if($layout[$i]['type_layout']==4){
-                                  echo '<li><a href="'.site_url('theme1/aboutus').'">'.$this->lang->line("t_aboutme").'</a></li>';
-                                }else if($layout[$i]['type_layout']==4){
-                                  echo '<li><a href="'.site_url('theme1/contactus').'">'.$this->lang->line("t_contact").'</a></li>';
+                                  echo '<li><a href="'.site_url('Shop/aboutus').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'</a></li>';
+                                }else if($layout[$i]['type_layout']==5){
+                                  echo '<li><a href="'.site_url('Shop/contactus').'/'.$s_id.'">'.$this->lang->line("t_contact").'</a></li>';
                                 }
                                   
                                 }
@@ -153,7 +152,7 @@ header {
                       <div class="col-lg-8 col-md-7 col-sm-6">
 
                       <ol class="breadcrumb-shop" >
-                          <li><a href="<?php echo site_url('theme1/home');?>"  ><?=$this->lang->line("home");?></a></li>
+                          <li><a href="<?php echo site_url('Shop/home').'/'.$s_id.'/'.'1';?>"  ><?=$this->lang->line("home");?></a></li>
                           
                       </ol>
                       
@@ -224,14 +223,16 @@ header {
                 <div class="row">
                    
                             <div class="col-xs-12 col-sm-12 mborder" >
-                            
+                            <div class="toey">
                              <?php 
-                                 if($layout==0){ }else{echo $layout[0]['layout_detail'];}
-                              
+                             for($i=0;$i<count($layout);$i++){
+                                 if($layout==0){ }else if($layout[$i]['type_layout']==1){echo $layout[$i]['layout_detail'];}
+                             }
                              
                               ?> 
 
                                 
+                            </div>
                             </div>
 
 
@@ -239,16 +240,23 @@ header {
                           
                 </div>
                             <h2 class="h2space"></h2>
-          <h2 id="sec1"><div id="divl" ><?=$this->lang->line("product");?></div> <div id="divr" ><a href="<?php echo site_url('theme1/category');?>"><?=$this->lang->line("view_all_product");?></a></div></h2>
+          <h2 id="sec1"><div id="divl" ><?=$this->lang->line("product");?></div> </h2>
                 <?php
-                 
-                  for($j=0;$j<floor((count($product)/3)+1);$j++){
+
+                  if((count($product)%3==1)){
+                    $r=floor((count($product)/3)+1);
+                  }else{
+                    $r=count($product)/3;
+                  }
+                  //$n_p=0;
+                  
+                  //for($j=0;$j<$r;$j++){
+                  //echo '<div class="row">';
+                 // $num=0;
                   echo '<div class="row">';
-
                   for($i=0;$i<count($product);$i++){
-                    
-                    
-
+                      
+                      
                       echo '<div class="col-xs-4 col-sm-4 ">';
                              echo  '<div class="box-product " >';
                              echo    '<div class="inner" >';
@@ -265,11 +273,11 @@ header {
                              echo      '</div>';   
                              echo      '</div>';   
                               
-                             echo      '</div>';   
-                    
+                             echo      '</div>';
+                             
                     }
                     echo '</div>';
-                  }
+                //  }
 
 
                

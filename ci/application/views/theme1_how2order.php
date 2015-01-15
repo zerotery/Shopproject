@@ -1,7 +1,7 @@
 <html>
     
 <head>
-<title>TB Shop - Registration</title>
+<title>TB Shop - Shop Online</title>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
@@ -24,7 +24,7 @@
 
 <style type="text/css">
 body{
-  background:url("<?php echo logo_pic;?>reg_bg.jpg") no-repeat center center fixed;
+  background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg;?>") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -35,7 +35,7 @@ body{
 </style>
 <style type="text/css">
 header {
-  background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
+  background: url("<?php echo shop.'/'.$s_id.'/'.$pic_header;?>") no-repeat center top ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -53,7 +53,7 @@ header {
 
 <body>
 
-<?php echo $this->load->view('header/navbar_nlog')?>
+<?php echo $this->load->view('header/navbar_log')?>
 
 
 
@@ -110,19 +110,37 @@ header {
                       <!-- Fixed navbar -->
                       <div class="navbar navbar-custom navbar-inverse">
                           
+                              <?php
+                              if($layout==0){
+                              echo '<ul class="nav navbar-nav nav-justified">';
+                              echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'">'.$this->lang->line("t_home").'</a></li>';
+                              echo '<li class="active"><a href="'.site_url('Shop/how2order').'/'.$s_id.'">'.$this->lang->line("t_hs").'</a></li>';
+                              echo '<li><a href="'.site_url('Shop/informpayment').'/'.$s_id.'">'.$this->lang->line("t_pay").'</a></li>';
+                              echo '<li><a href="'.site_url('Shop/aboutus').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'</a></li>';
+                              echo '<li><a href="'.site_url('Shop/contactus').'/'.$s_id.'">'.$this->lang->line("t_contact").'</a></li>';
+                              echo '</ul>';
+                              }else{
+                                echo '<ul class="nav navbar-nav nav-justified">';
+                                for($i=0;$i<count($layout);$i++){
 
-                 
-                              <ul class="nav navbar-nav nav-justified">
-                                <li ><a href="<?php echo site_url('theme1/home');?>"><?=$this->lang->line("t_home");?></a></li>
-                                <li class="active"><a href="<?php echo site_url('theme1/how2order');?>" ><?=$this->lang->line("t_hs");?></a></li>
-                                <li><a href="<?php echo site_url('theme1/informpayment');?>" ><?=$this->lang->line("t_pay");?></a></li>
-                                <li ><a href="<?php echo site_url('theme1/aboutus');?>"><?=$this->lang->line("t_aboutme");?></a></li>
-                                <li><a href="<?php echo site_url('theme1/contactus');?>"><?=$this->lang->line("t_contact");?></a></li>
-                               
-                             
-                              </ul>
-                           
-                       
+                                if($layout[$i]['type_layout']==1){
+                                  echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'">'.$this->lang->line("t_home").'</a></li>';
+                                }else if($layout[$i]['type_layout']==2){
+                                  echo '<li class="active"><a href="'.site_url('Shop/how2order').'/'.$s_id.'">'.$this->lang->line("t_hs").'</a></li>';
+                                }else if($layout[$i]['type_layout']==3){
+                                  echo '<li><a href="'.site_url('Shop/informpayment').'/'.$s_id.'">'.$this->lang->line("t_pay").'</a></li>';
+                                }else if($layout[$i]['type_layout']==4){
+                                  echo '<li><a href="'.site_url('Shop/aboutus').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'</a></li>';
+                                }else if($layout[$i]['type_layout']==5){
+                                  echo '<li><a href="'.site_url('Shop/contactus').'/'.$s_id.'">'.$this->lang->line("t_contact").'</a></li>';
+                                }
+                                  
+                                }
+                                echo '</ul>';
+                              }
+                              ?>
+
+
                       </div><!--/.navbar -->
 
                    </div>
@@ -135,8 +153,8 @@ header {
                       <div class="col-lg-8 col-md-7 col-sm-6">
 
                       <ol class="breadcrumb-shop" >
-                          <li><a href="<?php echo site_url('theme1/home');?>"  ><?=$this->lang->line("t_home");?></a></li>
-                          <li><a href="<?php echo site_url('theme1/how2order');?>"  ><?=$this->lang->line("t_hs");?></a></li>
+                          <li><a href="<?php echo site_url('Shop/home').'/'.$s_id.'/'.'1';?>"  ><?=$this->lang->line("t_home");?></a></li>
+                          <li><a href="<?php echo site_url('Shop/how2order').'/'.$s_id;?>"  ><?=$this->lang->line("t_hs");?></a></li>
                           
                       </ol>
                       
@@ -170,17 +188,24 @@ header {
                      <!-- left -->
                     
                             
-                       <ul class="nav nav-stacked affix-top" id="sidebar" >
+                        <ul class="nav nav-stacked affix-top" id="sidebar" >
                         <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
                             
-                                      <li><a href="<?php echo site_url('theme1/category');?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [0]</a></li>
-                                      <li><a href="#"><i class="glyphicon glyphicon-gift"></i>Fashion [0]</a></li>
-                                      <li><a href="#"><i class="glyphicon glyphicon-gift"></i>etc...</a></li>
+                                      <li><a href="<?php echo site_url('theme1/category');?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [<?php echo $all_product;?>]</a></li>
+                                      <?php
+                                        for($i=0;$i<count($cate_product);$i++){
+                                          echo '<li><a href="#"><i class="glyphicon glyphicon-gift"></i>'.$cate_product[$i]['product_category_name']." ".'['.$cate_product[$i][0].']'.'</a></li>';
+                                          
+                                        }
+
+                                      ?>
+
+                                     
                             
                                       
 
 
-                                    </ul>
+                      </ul>
                                     
                                  
                                     
@@ -200,29 +225,18 @@ header {
                 <div class="row">
                    
                             <div class="col-xs-12 col-sm-12 oborder" >
-                            
-                              <label id="message0"></label>
-
-                              
-                            </div>
-
+                            <div class="toey">
+                             <?php 
+                             for($i=0;$i<count($layout);$i++){
+                                 if($layout==0){ }else if($layout[$i]['type_layout']==2){echo $layout[$i]['layout_detail'];}
+                             }
+                             
+                             ?> 
+                            </div> 
                           
                             </div>
                             <h2 class="h2space"></h2>
-          <h2 id="sec1"><div  ><?=$this->lang->line("pbox");?></div> </h2>
-
-                <div class="row">
-                   
-                            <div class="col-xs-12 col-sm-12 pborder" >
-                            
-                              <label id="message1"></label>
-
-                              
-                            </div>
-
-                          
-                            </div>
-                            <h2 class="h2space"></h2>
+          
 
           <h2 id="sec2"><div><?=$this->lang->line("bbox");?></div> </h2>
 
@@ -244,23 +258,46 @@ header {
                                               <th class="warning tcolor"><?=$this->lang->line("bank_account");?></th>
                                               <th class="warning tcolor"><?=$this->lang->line("account_type");?></th>
                                              </tr>
-                                              <tr>
-                                                  <td ><font><?=$this->lang->line("bkb");?></font></td>
-                                                  <td ><font><?=$this->lang->line("your_name");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("bank_branch");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("bank_account");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("acc_type1");?></font></td>
-                                                   
-                                              </tr>
-                                              <tr>
-                                                  <td ><font><?=$this->lang->line("ktb");?></font></td>
-                                                  <td ><font><?=$this->lang->line("your_name");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("bank_branch");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("bank_account");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("acc_type2");?></font></td>
-                                                   
-                                              </tr>
 
+
+                                             
+                                                  <?php
+                                                  for($i=0; $i<count($bank); $i++){
+                                                   echo '<tr>';
+                                                    if($bank[$i]['owner_bank_select']==1){
+                                                        echo '<td ><font>'.$this->lang->line("ktb").'</font></td>';
+                                                    }else if($bank[$i]['owner_bank_select']==2){
+                                                        echo '<td ><font>'.$this->lang->line("scb").'</font></td>';
+                                                    }else if($result[$i]['owner_bank_select']==3){
+                                                        echo '<td ><font>'.$this->lang->line("bkb").'</font></td>';
+                                                    }else if($result[$i]['owner_bank_select']==4){
+                                                        echo '<td ><font>'.$this->lang->line("tmb").'</font></td>';
+                                                    }else if($result[$i]['owner_bank_select']==5){
+                                                        echo '<td ><font>'.$this->lang->line("krungsri").'</font></td>';
+                                                    }else if($result[$i]['owner_bank_select']==6){
+                                                        echo '<td ><font>'.$this->lang->line("kbank").'</font></td>';
+                                                    }else if($result[$i]['owner_bank_select']==7){
+                                                        echo '<td ><font>'.$this->lang->line("uob").'</font></td>';
+                                                    }
+                                                   echo '<td ><font>'.$bank[$i]['name_account'].'</font></td>';
+                                                   echo '<td ><font>'.$bank[$i]['bank_branch'].'</font></td>';
+                                                   echo '<td ><font>'.$bank[$i]['bank_account'].'</font></td>';
+                                                   
+                                                    if($bank[$i]['bank_type']==1){
+                                                   echo '<td ><font>'.$this->lang->line("acc_type1").'</font></td>';
+                                                    }else{
+                                                   echo '<td ><font>'.$this->lang->line("acc_type2").'</font></td>';
+                                                    }
+                                                    echo '</tr>';
+                               
+                                                  }
+                                                  
+
+
+                                                  
+
+                                                  ?>
+                                                 
                                                          
 
                                              
@@ -271,7 +308,7 @@ header {
                                     </div>
 
                               </form>
-                                <a href="<?php echo site_url('theme1/informpayment');?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("go_t_pay");?></div></a>
+                                <a href="<?php echo site_url('Shop/informpayment/').'/'.$s_id;?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("go_t_pay");?></div></a>
                               
                             </div>
 

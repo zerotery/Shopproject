@@ -40,6 +40,10 @@ a:hover {
 a img {
   border: none;
 }
+.toey{
+  color: black;
+}
+
 .clear {
   clear:both;
 }

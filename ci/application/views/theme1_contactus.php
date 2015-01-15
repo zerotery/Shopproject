@@ -1,7 +1,7 @@
 <html>
     
 <head>
-<title>TB Shop - Registration</title>
+<title>TB Shop - Shop Online</title>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
@@ -24,7 +24,7 @@
 
 <style type="text/css">
 body{
-  background:url("<?php echo logo_pic;?>reg_bg.jpg") no-repeat center center fixed;
+  background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg;?>") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -35,7 +35,7 @@ body{
 </style>
 <style type="text/css">
 header {
-  background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
+  background: url("<?php echo shop.'/'.$s_id.'/'.$pic_header;?>") no-repeat center top ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -49,11 +49,12 @@ header {
 
 
 
+
 </head>
 
 <body>
 
-<?php echo $this->load->view('header/navbar_nlog')?>
+<?php echo $this->load->view('header/navbar_log')?>
 
 
 
@@ -111,17 +112,35 @@ header {
                       <div class="navbar navbar-custom navbar-inverse">
                           
 
-                 
-                              <ul class="nav navbar-nav nav-justified">
-                                <li ><a href="<?php echo site_url('theme1/home');?>"><?=$this->lang->line("t_home");?></a></li>
-                                <li ><a href="<?php echo site_url('theme1/how2order');?>" ><?=$this->lang->line("t_hs");?></a></li>
-                                <li><a href="<?php echo site_url('theme1/informpayment');?>" ><?=$this->lang->line("t_pay");?></a></li>
-                                <li  ><a href="<?php echo site_url('theme1/aboutus');?>"><?=$this->lang->line("t_aboutme");?></a></li>
-                                <li class="active"><a href="<?php echo site_url('theme1/contactus');?>"><?=$this->lang->line("t_contact");?></a></li>
-                               
-                             
-                              </ul>
-                           
+                             <?php
+                              if($layout==0){
+                              echo '<ul class="nav navbar-nav nav-justified">';
+                              echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'">'.$this->lang->line("t_home").'</a></li>';
+                              echo '<li><a href="'.site_url('Shop/how2order').'/'.$s_id.'">'.$this->lang->line("t_hs").'</a></li>';
+                              echo '<li><a href="'.site_url('Shop/informpayment').'/'.$s_id.'">'.$this->lang->line("t_pay").'</a></li>';
+                              echo '<li ><a href="'.site_url('Shop/aboutus').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'</a></li>';
+                              echo '<li class="active"><a href="'.site_url('Shop/contactus').'/'.$s_id.'">'.$this->lang->line("t_contact").'</a></li>';
+                              echo '</ul>';
+                              }else{
+                                echo '<ul class="nav navbar-nav nav-justified">';
+                                for($i=0;$i<count($layout);$i++){
+
+                                if($layout[$i]['type_layout']==1){
+                                  echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'">'.$this->lang->line("t_home").'</a></li>';
+                                }else if($layout[$i]['type_layout']==2){
+                                  echo '<li><a href="'.site_url('Shop/how2order').'/'.$s_id.'">'.$this->lang->line("t_hs").'</a></li>';
+                                }else if($layout[$i]['type_layout']==3){
+                                  echo '<li><a href="'.site_url('Shop/informpayment').'/'.$s_id.'">'.$this->lang->line("t_pay").'</a></li>';
+                                }else if($layout[$i]['type_layout']==4){
+                                  echo '<li  ><a href="'.site_url('Shop/aboutus').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'</a></li>';
+                                }else if($layout[$i]['type_layout']==5){
+                                  echo '<li class="active"><a href="'.site_url('Shop/contactus').'/'.$s_id.'">'.$this->lang->line("t_contact").'</a></li>';
+                                }
+                                  
+                                }
+                                echo '</ul>';
+                              }
+                              ?>
                        
                       </div><!--/.navbar -->
 
@@ -135,8 +154,8 @@ header {
                       <div class="col-lg-8 col-md-7 col-sm-6">
 
                       <ol class="breadcrumb-shop" >
-                          <li><a href="<?php echo site_url('theme1/home');?>"  ><?=$this->lang->line("t_home");?></a></li>
-                          <li><a href="<?php echo site_url('theme1/contactus');?>"  ><?=$this->lang->line("t_contact");?></a></li>
+                          <li><a href="<?php echo site_url('Shop/home').'/'.$s_id.'/'.'1';?>"  ><?=$this->lang->line("t_home");?></a></li>
+                          <li><a href="<?php echo site_url('Shop/contactus').'/'.$s_id;?>"  ><?=$this->lang->line("t_contact");?></a></li>
                       </ol>
                       
                       
@@ -172,9 +191,14 @@ header {
                        <ul class="nav nav-stacked affix-top" id="sidebar" >
                         <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
                             
-                                      <li><a href="<?php echo site_url('theme1/category');?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [0]</a></li>
-                                      <li><a href="#"><i class="glyphicon glyphicon-gift"></i>Fashion [0]</a></li>
-                                      <li><a href="#"><i class="glyphicon glyphicon-gift"></i>etc...</a></li>
+                                      <li><a href="<?php echo site_url('theme1/category');?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [<?php echo $all_product;?>]</a></li>
+                                      <?php
+                                        for($i=0;$i<count($cate_product);$i++){
+                                          echo '<li><a href="#"><i class="glyphicon glyphicon-gift"></i>'.$cate_product[$i]['product_category_name']." ".'['.$cate_product[$i][0].']'.'</a></li>';
+                                          
+                                        }
+
+                                      ?>
                             
                                       
 
@@ -205,7 +229,7 @@ header {
                                     <div class="col-xs-8 col-sm-8 mt10">
                                                  
                                                    
-                                        <label type="text" id="shopname" class="animated fadeInLeft"   style="width:130px;height:25px"  >Bememoriez</label>                   
+                                        <label type="text" id="shopname" class="animated fadeInLeft"   style="width:130px;height:25px"  ><?php echo $about[0]['shop_name']; ?></label>                   
                                                                            
                                                                       
                                 </div>
@@ -215,29 +239,20 @@ header {
                                     <div class="col-xs-8 col-sm-8 mt10">
                                                  
                                                    
-                                        <label type="text" id="name" class="animated fadeInLeft"   style="width:130px;height:25px"  > นายอุดมเอก</label>                  
+                                        <label type="text" id="name" class="animated fadeInLeft"   style="width:130px;height:25px"  ><?php echo $about[1][0]['f_name']." ".$about[1][0]['l_name']; ?></label>                  
                                                                            
                                                                       
                                 </div>
                               </div>
 
-                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("surname_owner");?></label>
-                                                     <div class="col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                                        <label type="text" class="animated fadeInLeft"  id="surname"> แต้จิ๋ว</label>                 
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
+                              
 
                               <div class="form-group">
                                 <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("email_owner");?></label>
                                     <div class="col-xs-8 col-sm-8 mt10">
                                                  
                                                    
-                                        <label type="text" id="email" class="animated fadeInLeft"  style="width:130px;height:25px"  > bas-123@hotmail.com</label>                  
+                                        <label type="text" id="email" class="animated fadeInLeft"  style="width:130px;height:25px"  ><?php echo $about[1][0]['email']; ?></label>                  
                                                                            
                                                                       
                                 </div>
@@ -260,8 +275,14 @@ header {
                                    
                                             <div class="col-xs-12 col-sm-12 aborder" >
                                             
-                                              <label id="message"></label>
-
+                                              <div class="toey">
+                             <?php 
+                             for($i=0;$i<count($layout);$i++){
+                                 if($layout==0){ }else if($layout[$i]['type_layout']==5){echo $layout[$i]['layout_detail'];}
+                             }
+                             
+                             ?> 
+                            </div> 
                                               
                                             </div>
 

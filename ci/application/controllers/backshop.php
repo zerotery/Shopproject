@@ -318,12 +318,13 @@
 				$namepic[$i]=$this->shop->get_gallery($p_id[$i]['p_ID']);
 
 			}
+			print_r($namepic);
 			
 			$data['shopid']=$s_id;
 			$data['nameshop']=$shop[0]['shop_name'];
 			$data['dataproduct']=$result;
 			$data['namepic']=$namepic;
-			$this->load->view('productManage',$data);
+			//$this->load->view('productManage',$data);
 			
 			
 		}
