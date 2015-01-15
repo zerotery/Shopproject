@@ -12,7 +12,7 @@
 	$lang['noshop']="You have no shop";
 	$lang['viewshop']="My shop";
 	$lang['home']="Home";	
-	$lang['shop_name']="Shop name";
+	$lang['shop_name']="Shop name :";
 	$lang['seeshop']="Go shop";
 	$lang['store']="back office";
 	$lang['product']="Product";
@@ -110,7 +110,7 @@
  	$lang['s_type']="Shop Category:";
  	$lang['shop_detail']="Shop Description:";
  	$lang['s_address']="Shop Description extra";
- 	$lang['s_fanpage']="Fanpage";
+ 	$lang['s_fanpage']="Fanpage :";
  	$lang['decorate']="Shop Decorate";
  	$lang['theme']="Theme:";
  	$lang['theme_s1']="Design 1";

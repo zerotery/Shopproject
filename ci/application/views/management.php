@@ -119,7 +119,7 @@ body {
                                   echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("t_pay").'</td>';
                                 }else if($result[$i]['type_layout']==4){
                                   echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("t_aboutme").'</td>';
-                                }else if($result[$i]['type_layout']==4){
+                                }else if($result[$i]['type_layout']==5){
                                   echo '<td class="warning" style="font-size:11pt" >'.$this->lang->line("t_contact").'</td>';
                                 }
                                 

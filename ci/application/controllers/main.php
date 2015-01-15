@@ -53,9 +53,11 @@
 			$this->load_language->change_lang($type);
 			$page = $this->session->userdata('address');
 			
-			$temp = explode("/",$page);
-			$url='/'.$temp[1].'/'.$temp[2].'/'.$temp[4].'/'.$temp[5].'/'.$temp[6].'/'.$temp[7];
+			$temp = explode("/index.php/",$page);
+
+			$url=$temp[0].'/'.$temp[1];
 			
+			//print_r($temp);
             //$picname_profile = "profile" . '.' .end($temp);
 			header("Refresh: 0; url=$url");
 			//redirect($page, 'refresh');

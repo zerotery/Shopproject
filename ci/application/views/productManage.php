@@ -115,13 +115,8 @@ body {
                                 echo '<div class="col-sm-6 col-md-4 col-lg-8" align="center">';
                                 echo '<div class="form-group animated fadeInUp">';
                                 echo '<div class="col-lg-12 thumbnail">';
-                                if($namepic[$i]==NULL){
-                                  $name_main="item.png";
-                                }
-                                else{
-                                  $name_main="main_product.jpg";
-                                }
-                                echo '<img src="'.product.$dataproduct[$i][0]['p_update_date'].'/'.$shopid.'/'.$dataproduct[$i][0]['p_ID'].'/'.$name_main.'?v='.Date("Y.m.d.G.i.s").'" class="img-responsive" style="height:160px;width:200px;">';
+                               
+                                echo '<img src="'.product.$dataproduct[$i][0]['p_update_date'].'/'.$shopid.'/'.$dataproduct[$i][0]['p_ID'].'/'.$namepic[$i][0]['pic_name'].'?v='.Date("Y.m.d.G.i.s").'" class="img-responsive" style="height:160px;width:200px;">';
                                 echo '</div></div></div>';
                                 echo '</div>';
                                 echo '</td>';

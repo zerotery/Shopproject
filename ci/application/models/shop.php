@@ -174,6 +174,17 @@
 
 		}
 
+		public function about_shop($s_id){
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT shop.memberID,shop.s_url,shop.shop_fanpage,shop_detail.shop_name,shop_detail.shop_detail_data FROM shop,shop_detail WHERE shop.s_ID='$s_id' AND shop.s_ID=shop_detail.s_ID AND shop_detail.lang_ID='$lang';";
+			$query=$this->db->query($sql)->result_array();
+			$m_id=$query[0]['memberID'];
+			$sql="SELECT f_name,l_name,email FROM member WHERE memberID='$m_id';";
+			$member=$this->db->query($sql)->result_array();
+			array_push($query,$member);
+			return $query;
+		}
+
 		public function insert_pcate($en,$th){
 
 			if($this->db->insert('product_category',$en)){
@@ -514,7 +525,7 @@
 		}
 
 		public function get_gallery($p_id){
-			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' AND pic_name='main_product.jpg';";
+			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' AND (pic_name='main_product.jpg' OR pic_name='item.png');";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 			/*if(empty($query)){

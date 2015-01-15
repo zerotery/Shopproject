@@ -41,8 +41,10 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route['Shop/:any/(:num)/(:num)'] = 'cashshop/goshop/$1/$2';
-$route['Shop'] = 'cashshop';
-
-
+$route['Shop/home/(:num)/(:num)'] = 'cashshop/goshop/$1/$2';
+$route['Shop/how2order/(:num)'] = 'cashshop/how2order_theme1/$1';
+$route['Shop/informpayment/(:num)'] = 'cashshop/informpayment_theme1/$1';
+$route['Shop/aboutus/(:num)'] = 'cashshop/aboutus_theme1/$1';
+$route['Shop/contactus/(:num)'] = 'cashshop/contactus_theme1/$1';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

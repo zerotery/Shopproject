@@ -26,7 +26,7 @@
 
 
 	$lang['shipping']="ทึ่อยู่การจัดส่ง";
-	$lang['shop_name']="ชื่อร้าน";
+	$lang['shop_name']="ชื่อร้าน :";
 	$lang['seeshop']="ไปหน้าร้าน";
 	$lang['store']="แผงหลังร้าน";
 	$lang['product']='สินค้า';
@@ -106,7 +106,7 @@
  	$lang['s_type']="หมวดหมู่ร้านค้า:";
  	$lang['shop_detail']="รายละเอียดร้านค้าโดยย่อ:";
  	$lang['s_address']="รายละเอียดร้านค้าเพิ่มเติม";
- 	$lang['s_fanpage']="แฟนเพจ";
+ 	$lang['s_fanpage']="แฟนเพจ:";
  	$lang['decorate']="การปรับแต่งร้าน";
  	$lang['theme']="ธีม:";
  	$lang['theme_s1']="แบบที่ 1";
@@ -287,7 +287,7 @@
 
 
  	$lang['store_setting']="ตั้งค่าร้านค้า";
- 	$lang['url_name2']="URL ร้าน";
+ 	$lang['url_name2']="URL ร้าน :";
  	$lang['setting_information1']="ทั่วไป";
  	$lang['setting_information2']="ตกแต่ง";
  	$lang['del_shop']="ลบร้านค้า";
