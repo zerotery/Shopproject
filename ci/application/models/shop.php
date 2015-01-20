@@ -125,7 +125,7 @@
 
 		public function get_product_show($s_id){
 			$lang=$this->session->userdata('langdata');
-			$sql="SELECT product.s_ID,product.p_ID,product.p_price,product.p_update_date,product_detail.product_name,product_gallery.pic_name FROM product,product_detail,product_gallery WHERE product.s_ID='$s_id' AND product.p_ID=product_gallery.p_ID AND product.p_ID=product_detail.p_ID AND (product_gallery.pic_name='main_product.jpg' OR product_gallery.pic_name='item.png')  AND product_detail.lang_ID='$lang';";
+			$sql="SELECT product.s_ID,product.p_ID,product.p_price,product.p_update_date,product_detail.product_name,product_gallery.pic_name FROM product,product_detail,product_gallery WHERE product.s_ID='$s_id' AND product.p_ID=product_gallery.p_ID AND product.p_ID=product_detail.p_ID AND (product_gallery.pic_name='main_product.jpg' OR product_gallery.pic_name='profile_product.jpg')  AND product_detail.lang_ID='$lang';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
@@ -135,6 +135,34 @@
 			$sql="SELECT * FROM product WHERE s_ID='$s_id';";
 			$query=$this->db->query($sql)->result_array();
 			return count($query);
+		}
+
+		public function get_select_product($s_id,$category_id,$g_lang){
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT * FROM product,product_category,product_detail,product_gallery,product_category_detail WHERE product.s_ID='$s_id' AND product_category_detail.p_ID=product.p_ID AND product_detail.p_ID=product.p_ID AND product.p_ID=product_gallery.p_ID AND product.s_ID=product_category.s_ID AND (product_category_detail.product_category_ID='$category_id' OR product_category.grouplang='$g_lang') AND product_category_detail.product_category_ID=product_category.product_category_ID AND product_category.lang_ID='$lang' AND product_detail.lang_ID='$lang' AND product_detail.lang_ID='$lang' AND (product_detail.product_status='Have stock' OR product_detail.product_status='มีสินค้า') AND (product_gallery.pic_name='main_product.jpg' OR product_gallery.pic_name='profile_product.jpg');";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_all_product_show($p_ID){
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT * FROM product,product_detail WHERE product.p_ID='$p_ID' AND product.p_ID=product_detail.p_ID AND product_detail.lang_ID='$lang' AND (product_detail.product_status='Have stock' OR product_detail.product_status='มีสินค้า');";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_name_category($category_id,$g_lang){
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT * FROM product_category WHERE (product_category_ID='$category_id' OR grouplang='$g_lang') AND lang_ID='$lang';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_grouplang_category($category_id){
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT grouplang FROM product_category WHERE product_category_ID='$category_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
 		}
 
 		public function get_product_category($s_id){
@@ -513,7 +541,7 @@
 		}
 
 		public function get_pgallery($p_id){
-			$sql="SELECT * FROM product_gallery WHERE p_ID='$p_id' AND pic_name!='main_product.jpg';";
+			$sql="SELECT * FROM product_gallery WHERE p_ID='$p_id' AND pic_name!='main_product.jpg' AND pic_name!='profile_product.jpg';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
@@ -525,7 +553,7 @@
 		}
 
 		public function get_gallery($p_id){
-			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' AND (pic_name='main_product.jpg' OR pic_name='item.png');";
+			$sql="SELECT pic_name,gallery_product_ID FROM product_gallery WHERE p_ID='$p_id' AND (pic_name='main_product.jpg' OR pic_name='profile_product.jpg');";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 			/*if(empty($query)){
@@ -536,6 +564,8 @@
 			
 
 		}
+
+
 
 		public function get_gallery_all($p_id){
 			$sql="SELECT pic_name FROM product_gallery WHERE p_ID='$p_id' ;";
@@ -683,6 +713,13 @@
 
 		public function get_catedetail($p_id){
 			$sql="SELECT product_cat_detail_ID FROM product_category_detail WHERE p_ID='$p_id';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function gettype_product_cate($p_id){
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT product_category.product_category_name FROM product_category,product_category_detail WHERE product_category.product_category_ID=product_category_detail.product_category_ID AND product_category_detail.p_ID='$p_id' AND product_category.lang_ID='$lang';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
