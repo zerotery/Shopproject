@@ -306,7 +306,7 @@ a.btn-detail span {
 #tab-description ul li {
 	margin: 6px 0px;
 	padding: 0 0 0 24px;
-	background: url('../images/bullet2.png') 3px 3px no-repeat;
+	/* background: url(../images/bullet2.png) 3px 3px no-repeat; */
 }
 #tab-description ol {
 	margin: 0;
@@ -329,25 +329,7 @@ a.btn-detail span {
 
 
 
-.divider-all {
-  width: 100%;
-  height: auto;
-  padding-right: 0px;
-  padding-left: 0px;
-  
-  margin-top: 0 !important;
-  background-color: #F8F8FF;
-  position: absolute;
-  background:url() no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: 1;
-  
 
-
-  }
 #divider-content {
     width: 970px;
   padding-right: 0px;
@@ -922,7 +904,7 @@ display:block;
   position:relative;
   margin:-20px 25px 0 0;
   text-decoration:none;
-  background:url(../images/btn-search.png) no-repeat 0 0;
+  /*background:url(../images/btn-search.png) no-repeat 0 0;*/
   padding:10px 0 0 25px;
   height:20px;
 }
