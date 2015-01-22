@@ -12,7 +12,7 @@ class cashshop extends CI_controller {
 
    public function index(){
 
-
+           print_r($_GET["champ"]);
    }
 
    public function goshop($s_id=null,$stheme=null){
@@ -49,11 +49,19 @@ class cashshop extends CI_controller {
      $product=$this->shop->get_product_show($s_id);
      $data['product']=$product; 
      $this->session->set_userdata('s_in',0);
+     $this->session->set_userdata('address_add_cart',$_SERVER['PHP_SELF']);
 				 //print_r($product);
 				 //echo "<br>".count($product);
                   // echo $s_id." ".$stheme;
+    // $this->session->set_userdata('re_cart',0);
      if($stheme==1){
-
+           if($this->session->userdata('re_cart')==1){
+             $data['re']=$this->session->userdata('re_cart');
+             $this->session->unset_userdata('re_cart');
+       }else{
+            $data['re']=0;
+       }
+          
 
            $this->load->view('theme1_home',$data);
 
@@ -401,6 +409,93 @@ public function product_theme1($s_id=null,$p_id=null){
 }
 
                   
+}
+
+
+public function add_cart(){
+      
+      //$s_id=$this->input->post('shop_id');
+      //$p_id=$this->input->post('product_id');
+      //echo "$s_id"." "."$p_id";
+       if($this->shop->validate_add_cart_item() == TRUE){
+
+
+      if($this->input->post('ajax') != '1'){
+           // $s_id = $this->input->post('shop_id');
+           // $url='Shop/product/all/'.$s_id;
+            //redirect('cart');
+           // redirect("$url"); // If javascript is not enabled, reload the page with new data
+      }else{
+            echo 'true'; // If javascript is enabled, return true, so the cart gets updated
+      }
+
+      }
+
+
+}
+
+public function update_cart(){
+
+      if($this->input->post('ajax') != '1'){
+           // $s_id = $this->input->post('shop_id');
+            //$url='Shop/product/all/'.$s_id;
+            //redirect('cart');
+           // redirect("$url"); // If javascript is not enabled, reload the page with new data
+      }else{
+
+            $row_id=$this->input->post('row_cart');
+            $qty_cart=$this->input->post('qty_cart');
+            
+            for($i=0;$i<count($row_id);$i++){
+
+                  $data = array(
+                        'rowid' => $row_id[$i],
+                        'qty'   => $qty_cart[$i]
+                  );
+
+            $this->cart->update($data);
+
+            }
+            $this->session->set_userdata('re_cart',1);
+            echo 'true';
+
+            
+      }
+    
+}
+
+public function emtry_cart(){
+
+      $this->cart->destroy();
+
+
+
+}
+
+function show_cart(){
+    $this->load->view('theme1_cart_detail');
+}
+
+public function delete_cart(){
+
+      $s_id=$this->input->get('sid');
+      $row_id=$this->input->get('row_id');
+      $qty=0;
+      
+            $data = array(
+            'rowid' => $row_id,
+            'qty'   => $qty
+            );
+
+      $this->cart->update($data);
+      $url=site_url('Shop/home').'/'.$s_id.'/'.'1';
+      $this->session->set_userdata('re_cart',1);
+      
+      redirect($url);      
+     
+
+
+
 }
 
 

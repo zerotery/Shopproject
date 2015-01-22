@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
+
 $route['Shop/product/detail/(:num)/(:num)'] = 'cashshop/product_theme1/$1/$2';
 $route['Shop/product/all/(:num)'] = 'cashshop/all_product/$1';
 $route['Shop/product/:any/(:num)/(:num)'] = 'cashshop/cate_product/$1/$2';

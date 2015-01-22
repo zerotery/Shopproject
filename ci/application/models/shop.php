@@ -103,6 +103,34 @@
 
     	}
 
+    	public function validate_add_cart_item(){
+
+    		$lang=$this->session->userdata('langdata');
+			$s_id = $this->input->post('shop_id');
+    		$p_id = $this->input->post('product_id');
+
+			$sql="SELECT * FROM product,product_detail WHERE product.p_ID='$p_id' AND product.p_ID=product_detail.p_ID AND product_detail.lang_ID='$lang' AND (product_detail.product_status='Have stock' OR product_detail.product_status='มีสินค้า') LIMIT 1;";
+			$query=$this->db->query($sql)->result_array();
+			
+			if(count($query) > 0){
+     			 $data = array(
+     			 	   'id'      => $p_id,
+                       'qty'     => 1,
+                       'price'   => $query[0]['p_price'],
+                       'name'    => $query[0]['product_name'] 	
+                
+            	);
+ 
+            // Add the data to the cart using the insert function that is available because we loaded the cart library
+            $this->cart->insert($data); 
+             
+            return TRUE;
+     		  }else{
+       		return FALSE;
+    		  }
+
+    	}
+
     	public function inputdetailth($data){
 
     		if($this->db->insert('shop_detail',$data)){
