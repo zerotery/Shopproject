@@ -201,6 +201,23 @@ a.button span, a.button2 span {
 	-o-border-radius:2px;
 	-webkit-border-radius:2px;
 }
+
+input.button1 {
+  display:inline-block;
+  background:url(../theme1/img/cartBl.png) left top no-repeat;
+  text-decoration:none;
+  cursor:pointer;
+  width:51px;
+  height:51px;
+}
+input.button1:hover {
+  background-position:left bottom;
+}
+input.button1 span {
+  text-indent:-9999px;
+  float:left;
+}
+
 a.button1 {
 	display:inline-block;
 	background:url(../theme1/img/cartBl.png) left top no-repeat;
@@ -1025,4 +1042,23 @@ display:block;
   background:url(../theme1/img/headerBG.png) repeat-x left bottom ;
 
 }
+
+input[type=submit] {
+    display:inline-block;
+  background:url(../theme1/img/cartBl.png) left top no-repeat;
+  text-decoration:none;
+  cursor:pointer;
+  width:51px;
+  height:51px;
+  border: 0;
+  
+}
+input[type=submit]:hover {
+  background-position:left bottom;
+}
+input[type=submit] span {
+  text-indent:-9999px;
+  float:left;
+}
+
 
