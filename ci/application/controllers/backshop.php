@@ -25,7 +25,7 @@ class backshop extends CI_controller {
 		$data['user']=$this->session->userdata('loginname');
 		$data['userid']=$this->session->userdata('memberid');	
 		$data['myshop'] = $this->shop->showshop();
-		
+		$this->cart->destroy();
 		$this->load->view('myshop',$data);
 	}
 
@@ -1400,7 +1400,7 @@ class backshop extends CI_controller {
          	$data['product_order']=$data_product;
          	
          	$data['nameshop']=$shop[0]['shop_name'];
-         	
+         	//print_r($data_product);
          	$this->load->view('modifyorder',$data);
          	
          	

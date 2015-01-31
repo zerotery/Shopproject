@@ -589,6 +589,7 @@
                 
 
                 public function logout(){
+                  $this->cart->destroy();
                   $this->login_system->logout();
                 }
 
@@ -597,7 +598,7 @@
                   $lang=$this->load_language->lang();
                   $this->lang->load($lang,$lang);
                   $this->login_system->checklogin();
-                 
+                  $this->cart->destroy();
 
                   
                       $data['user']=$this->session->userdata('loginname');

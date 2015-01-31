@@ -84,7 +84,7 @@
     <div class="row">
       <div class="col-lg-12  ">
        <div class="page-header-show">
-        
+
        </div>
      </div>
    </div>
@@ -98,42 +98,28 @@
         <!-- Wrap all page content here -->
         <section>
           <div id="divider-left" class="padding-0" >
-            
+
           </div></section>
 
           <section class=" affix-top2">
-           
-            <div  id="divider-right " >
 
-              <div class="col-xs-12 col-sm-12  " >             
-                <a  data-toggle="modal" data-target="#cartModal"><ul class="nav nav-stacked affix-top " id="cart" >
-                 <h3 class="color cart-margin"><i class="glyphicon glyphicon-shopping-cart space"></i><?=$this->lang->line("cart");?>
-                   
-                   <li><label class="color">0</label><?=$this->lang->line("cart_count");?></li></h3>
-                   
-                   
-                   
-
-
-                 </ul></a>                                                                                                       
-               </div> 
-             </div>
-           </section>
-           <section>
+            <?php echo $this->load->view('theme1_cart')?>
+          </section>
+          <section>
             <div id="divider-center"> 
 
 
               <header>
-                
+
               </header>
 
               <div id="divider-nav">
                <div class="col-xs-12 padding-0">
                 <!-- Fixed navbar -->
                 <div class="navbar navbar-custom navbar-inverse">
-                 
 
-                 
+
+
                   <?php
                   if($layout==0){
                     echo '<ul class="nav navbar-nav nav-justified">';
@@ -178,26 +164,26 @@
 
                   <ol class="breadcrumb-shop" >
                     <?php if($this->session->userdata('s_in')==0){
-                             echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'"  >'.$this->lang->line("home").'</a></li>';
-                             echo '<li><a href="'.site_url('Shop/product/detail').'/'.$s_id.'/'.$p_id.'"  >'.$product_detail[0]['product_name'].'</a></li>';
-                          }else if($this->session->userdata('s_in')==1){
-                             echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'"  >'.$this->lang->line("home").'</a></li>';
-                             echo '<li><a href="'.site_url('Shop/product/all').'/'.$s_id.'"  >'.$this->lang->line("all_product").'</a></li>';
-                             echo '<li><a href="'.site_url('Shop/product/detail').'/'.$s_id.'/'.$p_id.'">'.$product_detail[0]['product_name'].'</a></li>';
-                          }else{
-                             echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'"  >'.$this->lang->line("home").'</a></li>';
-                             echo '<li><a href="'.site_url('Shop/product/all').'/'.$s_id.'"  >'.$this->lang->line("all_product").'</a></li>';
-                             echo '<li><a href="'.site_url('Shop/product').'/'.$namecate[0]['product_category_name'].'/'.$s_id.'/'.$category_id.'">'.$namecate[0]['product_category_name'].'</a></li>';
-                             echo '<li><a href="'.site_url('Shop/product/detail').'/'.$s_id.'/'.$p_id.'"  >'.$product_detail[0]['product_name'].'</a></li>';
-                          }
-                     
-                    
-                    ?>
+                     echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'"  >'.$this->lang->line("home").'</a></li>';
+                     echo '<li><a href="'.site_url('Shop/product/detail').'/'.$s_id.'/'.$p_id.'"  >'.$product_detail[0]['product_name'].'</a></li>';
+                   }else if($this->session->userdata('s_in')==1){
+                     echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'"  >'.$this->lang->line("home").'</a></li>';
+                     echo '<li><a href="'.site_url('Shop/product/all').'/'.$s_id.'"  >'.$this->lang->line("all_product").'</a></li>';
+                     echo '<li><a href="'.site_url('Shop/product/detail').'/'.$s_id.'/'.$p_id.'">'.$product_detail[0]['product_name'].'</a></li>';
+                   }else{
+                     echo '<li><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'1'.'"  >'.$this->lang->line("home").'</a></li>';
+                     echo '<li><a href="'.site_url('Shop/product/all').'/'.$s_id.'"  >'.$this->lang->line("all_product").'</a></li>';
+                     echo '<li><a href="'.site_url('Shop/product').'/'.$namecate[0]['product_category_name'].'/'.$s_id.'/'.$category_id.'">'.$namecate[0]['product_category_name'].'</a></li>';
+                     echo '<li><a href="'.site_url('Shop/product/detail').'/'.$s_id.'/'.$p_id.'"  >'.$product_detail[0]['product_name'].'</a></li>';
+                   }
+
+
+                   ?>
                    
-                  </ol>
-                  
-                  
-                  
+                 </ol>
+
+
+
                       <!--<div class="col-lg-4 col-md-5 col-sm-6">
                           <h6>What the ?</h6>
                         </div>-->
@@ -249,9 +235,10 @@
                     
                     <div class="col-xs-9  ">
                       <div class="row">
+
                         <div class="col-lg-12  ">
                          <div class="page-header-s">
-                          
+
                          </div>
                        </div>
                      </div>
@@ -259,43 +246,47 @@
                      <h2 id="sec1"><div><?php echo $product_detail[0]['product_name']?></div> </h2>
 
                      <div class="row">
-                      <div class="col-xs-6 col-sm-6 " >
-                        <figure class="box" >
-                          
-                          
-                          <a class="jackbox" data-group="images" data-thumbnail="<?php echo product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$profile_galery[0]['pic_name'];?>"  data-description="#description_1" href="<?php echo product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$profile_galery[0]['pic_name'];?>"/><!-- end opening tag -->
-                            
-                            <!-- thumbnail -->
-                            <div class="jackbox-hover jackbox-hover-black jackbox-hover-magnify"></div><img src="<?php echo product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$profile_galery[0]['pic_name'];?>" width="300" height="340" alt="responsive lightbox">
-                            
-                          </a>
+                      <?php $attributes = array('id' => 'myform');
+                        echo form_open('cashshop/add_cart',$attributes);?>
+                        <div class="col-xs-6 col-sm-6 " >
+                          <figure class="box" >
 
-                          <ul class="jackbox-hidden-items">
-                            
-                            <!-- for hidden items, "data-href" is used instead of the regular "href" attribute that regular links use like above -->
-                            <?php
-                            for($i=0;$i<count($product_gallery);$i++){
-                              echo ' <li class="jackbox" data-group="images" data-description="#description_1" data-thumbnail="'.product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$product_gallery[$i]['pic_name'].'" data-href="'.product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$product_gallery[$i]['pic_name'].'"></li>';
-                            }
 
-                            ?>
-                            
-                            
-                          </ul>
-                          
-                          
-                        </figure>
+                            <a class="jackbox" data-group="images" data-thumbnail="<?php echo product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$profile_galery[0]['pic_name'];?>"  data-description="#description_1" href="<?php echo product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$profile_galery[0]['pic_name'];?>"/><!-- end opening tag -->
 
-                      </div>
-                      <form>
+                              <!-- thumbnail -->
+                              <div class="jackbox-hover jackbox-hover-black jackbox-hover-magnify"></div><img src="<?php echo product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$profile_galery[0]['pic_name'];?>" width="300" height="340" alt="responsive lightbox">
+
+                            </a>
+
+                            <ul class="jackbox-hidden-items">
+
+                              <!-- for hidden items, "data-href" is used instead of the regular "href" attribute that regular links use like above -->
+                              <?php
+                              for($i=0;$i<count($product_gallery);$i++){
+                                echo ' <li class="jackbox" data-group="images" data-description="#description_1" data-thumbnail="'.product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$product_gallery[$i]['pic_name'].'" data-href="'.product.$product_detail[0]['p_update_date'].'/'.$product_detail[0]['s_ID'].'/'.$product_detail[0]['p_ID'].'/'.$product_gallery[$i]['pic_name'].'"></li>';
+                              }
+
+                              ?>
+
+
+                            </ul>
+
+
+                          </figure>
+
+                        </div>
+
+
+
 
                         <div class="col-xs-6 col-sm-6 dborder" >
-                          
+
                           <div class="form-group">
                             <label  class="col-lg-5  col-sm-5 control-label animated pulse mt10"><?=$this->lang->line("n_pro");?></label>
                             <div class="col-xs-7 col-sm-7 mt10">
-                             
-                             
+
+
                               <label type="text" id="catname" class="animated pulse"   style="width:130px;height:25px"  ><?php echo $product_type[0]['product_category_name'];?></label>                   
                               
                               
@@ -304,8 +295,8 @@
                           <div class="form-group">
                             <label  class="col-lg-5  col-sm-5 control-label animated pulse mt10"><?=$this->lang->line("p_pro");?></label>
                             <div class="col-xs-7 col-sm-7 mt10">
-                             
-                             
+
+
                               <label type="text" id="price" class="animated pulse"   style="width:130px;height:25px"  ><?php echo $product_detail[0]['p_price']." ";?><?=$this->lang->line("monetary");?></label>                   
                               
                               
@@ -314,35 +305,38 @@
                           <div class="form-group">
                             <label  class="col-lg-5  col-sm-5 control-label animated pulse mt10"><?=$this->lang->line("up_pro");?></label>
                             <div class="col-xs-7 col-sm-7 mt10">
-                             
-                             
+
+
                               <label type="text" id="update_date" class="animated pulse"   style="width:130px;height:25px"  ><?php echo $product_detail[0]['p_update_date'];?></label>                   
                               
                               
                             </div>
+                        
                           </div>
-
+                          <?php echo form_hidden('shop_id', $product_detail[0]['s_ID']);
+                                echo form_hidden('product_id', $product_detail[0]['p_ID']);
+                          ?>  
                           
 
                           <div class="form-group">
-                            
+
                             <div  class="col-xs-12 col-sm-12 mt10" align="right">
-                             
-                             
+
+
                              <div id="send_order" class="btn btn-danger"   name="send_order"><?=$this->lang->line("o_pro");?></div>                            
                              
                            </div>
 
                          </div>
 
-                       </form>
+                       <?php echo  form_close();?>
 
 
 
                        <div class="row">
                         <div class="col-lg-12  ">
                          <div class="page-header-show">
-                          
+
                          </div>
                        </div>
                      </div>
@@ -360,10 +354,10 @@
                  <div class="row">
                   <div class="col-lg-12  ">
                    <div class="page-header-x">
-                    
+
                    </div>
                    <div class="page-header">
-                    
+
                    </div>
                  </div>
 
@@ -372,9 +366,9 @@
              </div><!--/col-->             
              <div class="row">
               <div class="col-lg-12  ">
-               
+
                <div class="page-header-s">
-                
+
                </div>
              </div>
 
@@ -406,118 +400,7 @@
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
 </ul>
 <!-- Modal cart 1-->
-<div  class="modal animated pulse" data-easein="pulse" data-easeout="rollOut"  id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg " style="font-size: 11px;letter-spacing: 0.2em;text-align: center;text-transform: uppercase;background-color:white">
-    <div class="modal-content"style="background-color:white ">
-      <div class="modal-header"style="background-color:white ">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel" style="color:#696969;"><?=$this->lang->line("basket");?></h4>
-      </div>
-      <div class="modal-body" style="background-color:white ">
-        
-        <div style="text-transform: none;color:black;font-size:10pt;" align="left"><?=$this->lang->line("cartbox1");?>(<?=$this->lang->line("cartbox2");?> <label class="space2">0</label><?=$this->lang->line("cart_count");?>)</div>
-
-        <div class="row">
-         
-          <div class="col-xs-12 col-sm-12 bborder" >
-            
-            <form id="order" name="orderinfo"  method="post"  enctype="multipart/form-data" >
-              
-
-             <div class="table-responsive ">
-              <table class="table" id="product-table" style="width:100%;border: 2px solid #eee">
-                <!-- On rows -->
-                <tr class="active"   >
-                 
-                  <th width="20%" style="font-size:10pt "  class="warning tcolor "><?=$this->lang->line("productname");?></th>
-                  <th width="20%" style="font-size:10pt"  class="warning tcolor"><?=$this->lang->line("productprice");?></th>
-                  <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("qpro");?></th>
-                  <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("ps_pro");?></th>
-                  <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("order_detail");?></th>
-                  <th width="5%" class="warning tcolor"></th>
-
-                </tr>
-                <tr id="trpro">
-                  <td style="border: 1px solid #eee" ><font>รองเท้า Merrell ลาย Forest camouflage</font></td>
-                  <td style="border: 1px solid #eee"><span >1890.00</span><?=$this->lang->line("monetary");?></td>
-                  <td style="border: 1px solid #eee"><font ><input type="number" class="quantity" name="quantity" min="1" max="1000" value="1" ></font></td>
-                  <td  style="border: 1px solid #eee"><span class="total" id="s_price">1890.00</span><font class="space2"><?=$this->lang->line("monetary");?></font></td>
-                  <td  style="border: 1px solid #eee"><textarea id="detail_order" name="detail_order"></textarea></td>
-                  <td style="border: 1px solid #eee"><div id="delete_order" class="btn glyphicon glyphicon-trash btn-remove " style="color:red"></div></td>
-                  
-                </tr>
-                <tr id="trprosum">
-                 
-                 <td width="40%" style="border: 1px solid #eee" colspan="2" align="right"><font ><?=$this->lang->line("ps_proall");?></font></td>  
-                 <td width="20%" style="border: 1px solid #eee" colspan="2" align="center"><span id="sumary">1890.00</span><?=$this->lang->line("monetary");?></td>
-                 <td colspan="2"></td>    
-               </tr>
-               
-               
-               
-             </table>
-
-
-           </div>
-
-         </form>
-       </div>
-     </div>
-
-     <div style="text-transform: none;color:black;font-size:10pt;" align="left"><?=$this->lang->line("send_pro");?></div>
-
-     <div class="row">
-       
-      <div class="col-xs-12 col-sm-12 bborder" >
-        
-        <form id="order" name="orderinfo"  method="post"  enctype="multipart/form-data" >
-          
-
-         <div class="table-responsive ">
-          <td><table class="table" style="width:100%;border: 2px solid #eee" >
-            <tbody>
-              
-              <tr class="active"  >
-               
-                <th width="20%" style="font-size:10pt "  class="warning tcolor" colspan="2"><?=$this->lang->line("send_postcode");?></th>
-                <th width="20%" style="font-size:10pt"  class="warning tcolor"><?=$this->lang->line("send_postcode_p");?></th>
-                <th width="20%" style="font-size:10pt"  class="warning tcolor"><?=$this->lang->line("send_postcode_all");?></th>
-                
-                
-
-              </tr>
-              <tr>
-                <td><input type="radio" name="post" id="registered" ></td><td><?=$this->lang->line("domestic_registered");?></td><td>+ 0.00 <font class="space2"><?=$this->lang->line("monetary");?></font></td><td>1890.00<font class="space2"><?=$this->lang->line("monetary");?></font></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="post" id="ems"></td><td><?=$this->lang->line("domestic_ems");?></td><td>+ 80.00 <font class="space2"><?=$this->lang->line("monetary");?></font></td><td>1970.00<font class="space2"><?=$this->lang->line("monetary");?></font></td>
-              </tr>
-              
-            </tbody>
-          </table>
-        </td>
-
-
-      </div>
-      <a href="<?php echo site_url('theme1/informpayment');?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("send_order");?></div></a>
-      
-    </form>
-  </div>
-</div>
-
-
-
-
-
-
-</div>
-<div class="modal-footer" style="background-color:white ">
-  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  
-</div>
-</div>
-</div>
-</div>
+<?php echo $this->load->view('theme1_cart_detail');?>
 <?php echo $this->load->view('footer/footer')?>
 
 
@@ -539,8 +422,8 @@
 <script type="text/javascript">
 
 jQuery(document).ready(function() {
-  
- 
+
+
   jQuery(".jackbox[data-group]").jackBox("init");
 
 
@@ -549,27 +432,120 @@ jQuery(document).ready(function() {
 
 </script>
 
+
+
 <script type="text/javascript">
 
-$(document).ready(function () {
-  
-  $('#product-table').on( 'click', '.btn-remove', function( event ) {
-    var $tr = $("#trpro").closest('tr').css("display","none");
-    $tr.find('.quantity').val( '0' );
-    $tr.find('.total').text( '0.00' );
-    
 
-    
+
+var re=<?php echo $re;?>;
+if(re==1){
+  $('#cartModal').modal('show');
+
+  
+}else{
+
+}
+
+$('#send_order').click(function(e) {
+
+ $("#myform").submit();
+ 
+});
+
+$(document).ready(function() { 
+ 
+    $("div.row form").submit(function() {
+      // Get the product ID and the quantity 
+      var s_id = $(this).find('input[name=shop_id]').val();
+      var p_id = $(this).find('input[name=product_id]').val();
+      //alert(s_id+" "+p_id);
+      $.post("<?php echo site_url();?>cashshop/add_cart", { shop_id: s_id, product_id: p_id, ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+
+            location.reload();
+
+            
+          }else{
+            alert("Product does not exist");
+          }
+        });
+      return false; // Stop the browser of loading the page defined in the form "action" parameter.
+    });
+
   });
 
-  $('#sumary').html - $("#s_price").html();
+$('input[type=number]').click(function(e) {
+
+ $("#view_cart").submit();
+ 
 });
 
 
 
+$(document).ready(function() { 
+
+  $("#view_cart").submit(function() {
+    var myForm = document.forms.view_cart;
+    var rowid_cart = myForm.elements['rowid[]'];
+    var qty_cart  = myForm.elements['qty[]'];
+    if(rowid_cart.length==null){
+      var st=new Array();
+      var st2=new Array();
+      
+      var rowid = rowid_cart.value;
+      var qtycart  = qty_cart.value;
+      st= rowid;
+      st2=qtycart;
+      //alert(st+" "+st2);
+      //alert(rowid+" "+qtycart);
+      $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+
+           location.reload();
 
 
+         }else{
+          alert("Product does not exist");
+        }
+      });
 
+
+    }else{
+      var myForm = document.forms.view_cart;
+      var rowid_cart = myForm.elements['rowid[]'];
+      var qty_cart  = myForm.elements['qty[]'];
+      
+
+      var st=new Array();
+      var st2=new Array();
+      for (var i = 0; i<rowid_cart.length; i++) {
+
+        st[i]=rowid_cart[i].value;
+
+        st2[i]=qty_cart[i].value;
+
+      }
+     //alert(st+" "+st2);
+     $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+      function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+
+            location.reload();
+          }else{
+            alert("Product does not exist");
+          }
+        });
+   }
+      return false; // Stop the browser of loading the page defined in the form "action" parameter.
+    });
+
+});
 </script>
 
 </body>

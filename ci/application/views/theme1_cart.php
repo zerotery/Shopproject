@@ -11,7 +11,7 @@
 							echo '<li><label class="color">'.$num_cart.'</label>'.$this->lang->line("cart_count").'</li></h3>';
 						}
 
-
+						
                    ?>
                   
                    

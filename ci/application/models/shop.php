@@ -158,6 +158,8 @@
 			return $query;
 		}
 
+		
+
 		public function get_all_product($s_id){
 			$lang=$this->session->userdata('langdata');
 			$sql="SELECT * FROM product WHERE s_ID='$s_id';";
@@ -737,6 +739,34 @@
 				return 0;
 			}
 
+		}
+
+		public function get_email($memberid){
+			$sql="SELECT email FROM member WHERE memberID='$memberid';";
+			$query=$this->db->query($sql)->result_array();
+			return $query[0]['email'];
+		}
+
+		public function insert_order($data){
+
+			if($this->db->insert('order',$data)){
+				//$sql="SELECT MAX(order_ID) as order_ID FROM order;";
+				//$query=$this->db->query($sql)->result_array();
+				return mysql_insert_id();
+			}else{
+				return 0;
+			}
+
+		}
+
+		public function insert_order_product($data){
+			if($this->db->insert('order_product',$data)){
+				//$sql="SELECT MAX(order_ID) as order_ID FROM order;";
+				//$query=$this->db->query($sql)->result_array();
+				return 'true';
+			}else{
+				return 'fail';
+			}
 		}
 
 		public function get_catedetail($p_id){

@@ -75,7 +75,7 @@
 	$lang['userlog']="Username";
 	$lang['passlog']="Password";
 	$lang['logged2']="Sign in";
-
+	$lang['add_shipping']="Shipping address:";
 
 
 

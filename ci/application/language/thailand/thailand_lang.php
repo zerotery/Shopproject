@@ -18,7 +18,7 @@
 	$lang['userlog']="ชื่อผู้ใช้";
 	$lang['passlog']="รหัสผ่าน";
 	$lang['logged2']="ลงชื่อเข้าใช้";
-
+	$lang['add_shipping']="ที่อยู่ในการจัดส่ง :";
 
 
 
