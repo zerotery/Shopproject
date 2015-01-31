@@ -100,21 +100,7 @@
 
           <section class=" affix-top2">
 
-            <div  id="divider-right " >
-
-              <div class="col-xs-12 col-sm-12  " >             
-                <a  data-toggle="modal" data-target="#cartModal"><ul class="nav nav-stacked affix-top " id="cart" >
-                 <h3 class="color cart-margin"><i class="glyphicon glyphicon-shopping-cart space"></i><?=$this->lang->line("cart");?>
-
-                   <li><label class="color">0</label><?=$this->lang->line("cart_count");?></li></h3>
-
-
-
-
-
-                 </ul></a>                                                                                                       
-               </div> 
-             </div>
+             <?php echo $this->load->view('theme1_cart')?>
            </section>
            <section>
             <div id="divider-center"> 
@@ -235,14 +221,16 @@
 
                       <div class="h2space"></div>
                       <h2 id="sec1"><?=$namecate[0]['product_category_name'];?> [<?php echo count($select_product);?>] </h2>
+                      <div class="row">
                       <?php
 
                       
                       if(!empty(count($select_product))){
-                        echo '<div class="row">';
+                        
                          for($i=0;$i<count($select_product);$i++){
 
-
+                        $attributes = array('id' => 'myform');
+                        echo form_open('cashshop/add_cart',$attributes);
                         echo '<div class="col-xs-4 col-sm-4 ">';
                         echo  '<div class="box-product " >';
                         echo    '<div class="inner" >';
@@ -250,19 +238,22 @@
                         echo     '</div>';
                         echo      '<div class="name"><a href="#">'.$select_product[$i]['product_name'].'</a></div>';
                         echo     '<div class="price">'.'฿'.$select_product[$i]['p_price'].'</a></div>'; 
-                        echo      '</div>';                                  
+                        echo      '</div>';
+                        echo form_hidden('shop_id', $select_product[$i]['s_ID']);
+                        echo form_hidden('product_id', $select_product[$i]['p_ID']);                                  
                         echo     '<div  class="abs"  >';
                         echo     '<div class="cart ">';
-                        echo      '<a class="button1 animated fadeInLeft " title="'.$this->lang->line("add_to_cart").'"  href="productdetail.html"><span></span></a>';
-                        echo      '<a class="btn-detail ml10 animated fadeInRight " title="'.$this->lang->line("view_product").'" href="'.site_url('Shop/product/detail/').'/'.$select_product[$i]['s_ID'].'/'.$select_product[$i]['p_ID'].'"><span></span></a>';
+                        echo     '<input type="submit" class="button1 animated fadeInLeft" value="">';
+                        echo      '<a id="btn_add_cart" class="btn-detail ml10 animated fadeInRight " title="'.$this->lang->line("view_product").'" href="'.site_url('Shop/product/detail/').'/'.$select_product[$i]['s_ID'].'/'.$select_product[$i]['p_ID'].'"><span></span></a>';
                         echo      '</div>';         
                         echo      '</div>';   
                         echo      '</div>';   
 
                         echo      '</div>';
+                        echo  form_close();
 
                       }
-                      echo '</div>';
+                      
                       }else{
                         echo '<div class="row">';
                         echo      '</div>';
@@ -277,6 +268,8 @@
 
 
                       ?>
+
+                      </div>
                      
 
 
@@ -329,119 +322,7 @@
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
 </ul>
 <!-- Modal cart 1-->
-<div  class="modal animated pulse" data-easein="pulse" data-easeout="rollOut"  id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg " style="font-size: 11px;letter-spacing: 0.2em;text-align: center;text-transform: uppercase;background-color:white">
-    <div class="modal-content"style="background-color:white ">
-      <div class="modal-header"style="background-color:white ">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel" style="color:#696969;"><?=$this->lang->line("basket");?></h4>
-      </div>
-      <div class="modal-body" style="background-color:white ">
-
-        <div style="text-transform: none;color:black;font-size:10pt;" align="left"><?=$this->lang->line("cartbox1");?>(<?=$this->lang->line("cartbox2");?> <label class="space2">0</label><?=$this->lang->line("cart_count");?>)</div>
-
-        <div class="row">
-
-          <div class="col-xs-12 col-sm-12 bborder" >
-
-            <form id="order" name="orderinfo"  method="post"  enctype="multipart/form-data" >
-
-
-             <div class="table-responsive ">
-              <table class="table" id="product-table" style="width:100%;border: 2px solid #eee">
-                <!-- On rows -->
-                <tr class="active"   >
-
-                  <th width="20%" style="font-size:10pt "  class="warning tcolor "><?=$this->lang->line("productname");?></th>
-                  <th width="20%" style="font-size:10pt"  class="warning tcolor"><?=$this->lang->line("productprice");?></th>
-                  <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("qpro");?></th>
-                  <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("ps_pro");?></th>
-                  <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("order_detail");?></th>
-
-                  <th width="5%" class="warning tcolor"></th>
-
-                </tr>
-                <tr id="trpro">
-                  <td style="border: 1px solid #eee" ><font>รองเท้า Merrell ลาย Forest camouflage</font></td>
-                  <td style="border: 1px solid #eee"><span >1890.00</span><?=$this->lang->line("monetary");?></td>
-                  <td style="border: 1px solid #eee"><font ><input type="number" class="quantity" name="quantity" min="1" max="1000" value="1" ></font></td>
-                  <td  style="border: 1px solid #eee"><span class="total" id="s_price">1890.00</span><font class="space2"><?=$this->lang->line("monetary");?></font></td>
-                  <td  style="border: 1px solid #eee"><textarea id="detail_order" name="detail_order"></textarea></td>
-                  <td style="border: 1px solid #eee"><div id="delete_order" class="btn glyphicon glyphicon-trash btn-remove " style="color:red"></div></td>
-
-                </tr>
-                <tr id="trprosum">
-
-                 <td width="40%" style="border: 1px solid #eee" colspan="2" align="right"><font ><?=$this->lang->line("ps_proall");?></font></td>  
-                 <td width="20%" style="border: 1px solid #eee" colspan="2" align="center"><span id="sumary">1890.00</span><?=$this->lang->line("monetary");?></td>
-                 <td colspan="2"></td>   
-               </tr>
-
-
-
-             </table>
-
-
-           </div>
-
-         </form>
-       </div>
-     </div>
-
-     <div style="text-transform: none;color:black;font-size:10pt;" align="left"><?=$this->lang->line("send_pro");?></div>
-
-     <div class="row">
-
-      <div class="col-xs-12 col-sm-12 bborder" >
-
-        <form id="order" name="orderinfo"  method="post"  enctype="multipart/form-data" >
-
-
-         <div class="table-responsive ">
-          <td><table class="table" style="width:100%;border: 2px solid #eee" >
-            <tbody>
-
-              <tr class="active"  >
-
-                <th width="20%" style="font-size:10pt "  class="warning tcolor" colspan="2"><?=$this->lang->line("send_postcode");?></th>
-                <th width="20%" style="font-size:10pt"  class="warning tcolor"><?=$this->lang->line("send_postcode_p");?></th>
-                <th width="20%" style="font-size:10pt"  class="warning tcolor"><?=$this->lang->line("send_postcode_all");?></th>
-
-
-
-              </tr>
-              <tr>
-                <td><input type="radio" name="post" id="registered" ></td><td><?=$this->lang->line("domestic_registered");?></td><td>+ 0.00 <font class="space2"><?=$this->lang->line("monetary");?></font></td><td>1890.00<font class="space2"><?=$this->lang->line("monetary");?></font></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="post" id="ems"></td><td><?=$this->lang->line("domestic_ems");?></td><td>+ 80.00 <font class="space2"><?=$this->lang->line("monetary");?></font></td><td>1970.00<font class="space2"><?=$this->lang->line("monetary");?></font></td>
-              </tr>
-
-            </tbody>
-          </table>
-        </td>
-
-
-      </div>
-      <a href="<?php echo site_url('theme1/informpayment');?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("send_order");?></div></a>
-
-    </form>
-  </div>
-</div>
-
-
-
-
-
-
-</div>
-<div class="modal-footer" style="background-color:white ">
-  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-</div>
-</div>
-</div>
-</div>
+<?php echo $this->load->view('theme1_cart_detail');?>
 <?php echo $this->load->view('footer/footer')?>
 
 
@@ -459,19 +340,202 @@
 
 <script type="text/javascript" src="<?php echo JS_THEME1;?>scripts.js"></script>
 <script type="text/javascript">
+var re=<?php echo $re;?>;
+var status_order=0;
+if(re==1){
+  $('#cartModal').modal('show');
 
-$(document).ready(function () {
+  
+}else{
 
-  $('#product-table').on( 'click', '.btn-remove', function( event ) {
-    var $tr = $("#trpro").closest('tr').css("display","none");
-    $tr.find('.quantity').val( '0' );
-    $tr.find('.total').text( '0.00' );
+}
 
+$(document).ready(function() { 
+ 
+    $("div.row form").submit(function() {
+      // Get the product ID and the quantity 
+      var s_id = $(this).find('input[name=shop_id]').val();
+      var p_id = $(this).find('input[name=product_id]').val();
+      //alert(s_id+" "+p_id);
+      $.post("<?php echo site_url();?>cashshop/add_cart", { shop_id: s_id, product_id: p_id, ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
 
+            location.reload();
+
+            
+          }else{
+            alert("Product does not exist");
+          }
+        });
+      return false; // Stop the browser of loading the page defined in the form "action" parameter.
+    });
 
   });
 
-  $('#sumary').html - $("#s_price").html();
+$('input[type=number]').click(function(e) {
+ window.status_order=1;
+ //alert(status_order);
+ $("#view_cart").submit();
+ 
+});
+
+$('#btn_submit_order').click(function(e) {
+ window.status_order=2;
+ //alert(status_order);
+ $("#view_cart").submit();
+ 
+});
+
+//alert(status_order);
+
+
+$(document).ready(function() { 
+
+  $("#view_cart").submit(function() {
+    if(status_order==1){
+      var myForm = document.forms.view_cart;
+    var rowid_cart = myForm.elements['rowid[]'];
+    var qty_cart  = myForm.elements['qty[]'];
+    if(rowid_cart.length==null){
+      var st=new Array();
+      var st2=new Array();
+      
+      var rowid = rowid_cart.value;
+      var qtycart  = qty_cart.value;
+      st= rowid;
+      st2=qtycart;
+      //alert(st+" "+st2);
+      //alert(rowid+" "+qtycart);
+      $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+            
+           location.reload();
+
+            
+          }else{
+            alert("Product does not exist");
+          }
+        });
+
+
+    }else{
+      var myForm = document.forms.view_cart;
+      var rowid_cart = myForm.elements['rowid[]'];
+      var qty_cart  = myForm.elements['qty[]'];
+      
+       
+       var st=new Array();
+       var st2=new Array();
+      for (var i = 0; i<rowid_cart.length; i++) {
+        
+          st[i]=rowid_cart[i].value;
+
+          st2[i]=qty_cart[i].value;
+
+     }
+     //alert(st+" "+st2);
+     $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+
+            location.reload();
+          }else{
+            alert("Product does not exist");
+          }
+        });
+    }
+    }else if(status_order==2){
+      //alert("eiei");
+      var myForm = document.forms.view_cart;
+      var s_id = myForm.elements['s_id[]'];
+      var p_cart = myForm.elements['p_id[]'];
+      var qty_cart  = myForm.elements['qty[]'];
+      var o_detail  = myForm.elements['detail_order[]'];
+      var post_product  = myForm.elements['post_product'];
+    if(typeof(s_id) == "undefined"){
+      alert("Product does not exist");
+    }else{
+      if(s_id.length==null){
+      var st=new Array();
+      var st2=new Array();
+      var st3=new Array();
+      var st4=new Array();
+      var st5=new Array();
+      
+      var a1 = s_id.value;
+      var a2 = p_cart.value;
+      var a3 = qty_cart.value;
+      var a4 = o_detail.value;
+      var a5 = post_product.value;
+      
+
+
+
+
+      st= a1;
+      st2=a2;
+      st3=a3;
+      st4=a4;
+      st5=a5;
+      //alert(st+" "+st2);
+      //alert(rowid+" "+qtycart);
+      $.post("<?php echo site_url();?>cashshop/insert_order", { 's_id_cart[]':st,'p_id_cart[]':st2,'qty_cart[]':st3,'o_cart[]':st4,'price_cart[]':st5,ajax: '1' },
+        function(data){ 
+          if(data == 'true'){
+           
+           <?php 
+           $url=site_url('Shop/informpayment').'/'.$s_id;
+           ?>
+           window.location.assign('<?php echo $url;?>');
+
+            
+          }else{
+            alert("Product does not exist");
+          }
+        });
+    
+    }else{
+
+      var st=new Array();
+      var st2=new Array();
+      var st3=new Array();
+      var st4=new Array();
+      var st5=new Array();
+      for (var i = 0; i<s_id.length; i++) {
+        st[i]= s_id[i].value;
+        st2[i]=p_cart[i].value;
+        st3[i]=qty_cart[i].value;
+        st4[i]=o_detail[i].value;
+        st5[i]=post_product.value;
+      }  
+      $.post("<?php echo site_url();?>cashshop/insert_order", { 's_id_cart[]':st,'p_id_cart[]':st2,'qty_cart[]':st3,'o_cart[]':st4,'price_cart[]':st5,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+           <?php 
+           $url=site_url('Shop/informpayment').'/'.$s_id;
+           ?>
+           window.location.assign('<?php echo $url;?>');
+           //location.reload();
+
+            
+          }else{
+            alert("Product does not exist");
+          }
+        });
+
+    }
+  }
+  }
+
+      return false; // Stop the browser of loading the page defined in the form "action" parameter.
+    });
+
 });
 
 

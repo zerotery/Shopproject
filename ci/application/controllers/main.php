@@ -14,6 +14,7 @@
 			$status=$this->input->get('Status');
 			if(!empty($status)){
 				echo "$status";
+				$this->cart->destroy();
 			}else{
 				$status=0;
 				echo "$status";
