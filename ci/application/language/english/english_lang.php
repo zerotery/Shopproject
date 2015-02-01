@@ -293,7 +293,7 @@
  	$lang['ctopic-type']="Don't choose the same topic with topic you have already chosen.";
  	$lang['t_home']="Home";
  	$lang['t_hs']="How to buy";
- 	$lang['t_pay']="Payment notify";
+ 	$lang['t_pay']="Notify payment ";
  	$lang['t_article']="Article";
  	$lang['t_aboutme']="About us";
  	$lang['t_contact']="Contact us";
@@ -346,6 +346,8 @@
     $lang['go_t_pay']="Go to payment notify";
     $lang['pbox_c']="Inform payment";
 
+    $lang['order_number']="order No.:";
+     $lang['order_num_note']="You can check your order number in your e-mail.";
     $lang['bank_acc_pay']="Account transfer :";
     $lang['bank_pay_date']="Payment date :";
     $lang['bank_pay_time']="Payment time(estimated) :";
@@ -356,6 +358,7 @@
     $lang['evidence_pay']="Evidence of payment :";
     $lang['detail_pay']="more detail :";
     $lang['send_form']="inform payment";
+    $lang['add_shipping']="Shipping address:";
 
     $lang['abox']="... About us ...";
     $lang['show_shop_detail']="Shop detail";
@@ -388,6 +391,30 @@
 
     $lang['domestic_registered']=" Domestic registered";
     $lang['domestic_ems']="Domestic EMS";
+
+    $lang['main']="HOME";
+    $lang['webboard']="Webboard";
+    $lang['oshop']="Open store free";
+    $lang['help']="Help";
+    $lang['shop']="Store";
+    $lang['shop_all']="See all";
+    $lang['shop_go']="Go to shop";
+    $lang['content']="เปิดร้านค้าออนไลน์ฟรี TB SHOP.com - Free E-commerce Shop";
+    $lang['content-sell']="SELL";
+    $lang['content-op']="open store free";
+    $lang['h-con']="Contact us";
+    $lang['contact-1']="We are TBshop service team. Sincere customer service ,so if you have any questions or problems. You can contact us through the contact information immediately.";
+    $lang['hotline']="Hot Line :";
+    $lang['hotline-d']="TEL. 085-105-3395, 094-2846801 (Every day, except public holidays  9.00AM - 18.00PM)";
+    $lang['service-email']="E-mail :";
+    $lang['facebook']="Facebook :";
+
+    $lang['shop-search']="All Stores";
+
+    $lang['t2_menu']="MENU";
+    $lang['qty']="qty:";
+    $lang['basket_t2']="Basket";
+
 
 
 

@@ -1,6 +1,6 @@
 <?php
 	
-	class theme1 extends CI_controller {
+	class theme2 extends CI_controller {
 		function __construct(){
 			parent::__construct();
 			$this->load->model('member','member');
@@ -15,69 +15,69 @@
 
 		}
 
-		  public function home($error=null){
+		  public function t2_home($error=null){
                   
                    $lang=$this->load_language->lang();
                    $this->lang->load($lang,$lang);
 
                    $data['error']=$error;
-                   $this->load->view('theme1_home',$data);
+                   $this->load->view('theme2_home',$data);
                  
                 }
 
-           public function how2order($error=null){
+           public function t2_how2order($error=null){
                   
                    $lang=$this->load_language->lang();
                    $this->lang->load($lang,$lang);
 
                    $data['error']=$error;
-                   $this->load->view('theme1_how2order',$data);
+                   $this->load->view('theme2_how2order',$data);
                  
                 }
 
 		
-            public function informpayment($error=null){
+            public function t2_informpayment($error=null){
 
 
             	   $lang=$this->load_language->lang();
                    $this->lang->load($lang,$lang);
                    $data['error']=$error;
-                   $this->load->view('theme1_informpayment',$data);
+                   $this->load->view('theme2_informpayment',$data);
             }
 
-              public function aboutus($error=null){
+              public function t2_aboutus($error=null){
 
 
             	   $lang=$this->load_language->lang();
                    $this->lang->load($lang,$lang);
                    $data['error']=$error;
-                   $this->load->view('theme1_aboutus',$data);
+                   $this->load->view('theme2_aboutus',$data);
             }
-            public function contactus($error=null){
+            public function t2_contactus($error=null){
 
 
             	   $lang=$this->load_language->lang();
                    $this->lang->load($lang,$lang);
                    $data['error']=$error;
-                   $this->load->view('theme1_contactus',$data);
-            }
-
-            public function category($error=null){
-
-
-            	   $lang=$this->load_language->lang();
-                   $this->lang->load($lang,$lang);
-                   $data['error']=$error;
-                   $this->load->view('theme1_category',$data);
+                   $this->load->view('theme2_contactus',$data);
             }
 
-            public function product($error=null){
+            public function t2_category($error=null){
 
 
             	   $lang=$this->load_language->lang();
                    $this->lang->load($lang,$lang);
                    $data['error']=$error;
-                   $this->load->view('theme1_product',$data);
+                   $this->load->view('theme2_category',$data);
+            }
+
+            public function t2_product($error=null){
+
+
+            	   $lang=$this->load_language->lang();
+                   $this->lang->load($lang,$lang);
+                   $data['error']=$error;
+                   $this->load->view('theme2_product',$data);
             }
 
 

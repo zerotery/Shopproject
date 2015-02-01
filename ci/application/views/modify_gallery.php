@@ -11,7 +11,7 @@ body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.42857143;
-  brackgound:#000000; 
+  background:#000000; 
   background:url("<?php echo logo_pic;?>bg_backshop.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;

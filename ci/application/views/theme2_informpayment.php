@@ -1,17 +1,17 @@
 <html>
     
 <head>
-<title>TB Shop - Registration</title>
+<title>TB Shop</title>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
 <meta charset="UTF-8">
-
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo THEME1_URL;?>stylesheet.css">
-<link rel="stylesheet" type="text/css" href="<?php echo THEME1_URL;?>shortcodes.css">
-<link rel="stylesheet" type="text/css" href="<?php echo THEME1_URL;?>transition.css">
+<link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>stylesheet.css">
+<link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>shortcodes.css">
+<link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>transition.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap-datetimepicker.css">
 
 
@@ -23,13 +23,37 @@
 
 
 
+
+
+
 <style type="text/css">
-body{
-  background:url("<?php echo logo_pic;?>reg_bg.jpg") no-repeat center center fixed;
+
+.divider-all {
+  width: 80%;
+  height: auto;
+  padding-right: 0px;
+  padding-left: 0px;
+  
+  margin-top: 0 !important;
+  background-color: #F8F8FF;
+  position: absolute;
+  background:url("<?php echo logo_pic;?>bg_shop.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  z-index: 1;
+  
+
+
+  }
+body{
+  background:url("<?php echo logo_pic;?>bg_shop.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 
  }
 
@@ -57,48 +81,54 @@ header {
 <?php echo $this->load->view('header/navbar_nlog')?>
 
 
+    <div id="wrapper">
 
 
-<div class="divider-all" >
-<div class="row">
+      
+      
+        <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+      <ul id="sidebar_menu" class="sidebar-nav">
+           <li class="sidebar-brand "><a  id="menu-toggle"  style="color:#FAEBD7" ><?=$this->lang->line("t2_menu");?><span id="main_icon" class="glyphicon glyphicon-th-list animated bounce"></span></a></li>
+      </ul>
+        <ul class="sidebar-nav" id="sidebar"> 
+          <li class=" animated m_hover"><a class="animated-home fadeInRight2" href="<?php echo site_url('theme2/t2_home');?>"><?=$this->lang->line("t_home");?><span class="sub_icon glyphicon glyphicon-home "></span></a></li>
+          <li class=" animated m_hover"><a class="animated-htb fadeInRight2" href="<?php echo site_url('theme2/t2_how2order');?>" ><?=$this->lang->line("t_hs");?><span class="sub_icon glyphicon glyphicon-question-sign " ></span></a></li>
+          <li class=" active animated m_hover"><a class="animated-pay fadeInRight2" href="<?php echo site_url('theme2/t2_informpayment');?>" ><?=$this->lang->line("t_pay");?><span class="sub_icon glyphicon glyphicon-usd glyphicon-green"></span></a></li>
+          <li class="animated m_hover"><a class="animated-about fadeInRight2" href="<?php echo site_url('theme2/t2_aboutus');?>"><?=$this->lang->line("t_aboutme");?><span class="sub_icon glyphicon glyphicon-pushpin"></span></a></li>
+          <li class="animated m_hover"><a class="animated-contact fadeInRight2" href="<?php echo site_url('theme2/t2_contactus');?>"><?=$this->lang->line("t_contact");?><span class="sub_icon glyphicon glyphicon-envelope"></span></a></li>
+          <li class=" active_c animated m_hover" >
+              <a data-toggle="modal" data-target="#cartModal" class="animated-basket fadeInRight2 "><?=$this->lang->line("basket_t2");?>
+                  <span class="badge badge-color " >3</span><i class=" sub_icon glyphicon glyphicon-shopping-cart glyphicon-sea"> </i>
+              </a>
+                       
+          </li>
+      
+                      
+                        
+                    
+          
+                                   
+          
+        </ul>
+      </div>
+
+
+      <div class="divider-all">
+        <div class="row">
           <div class="col-lg-12  ">
              <div class="page-header-show">
                       
                     </div>
                     </div>
                     </div>
-
-
-
-<div class="bs-docs-section clearfix">
-
-        <div class="row">
+        <div class="bs-docs-section clearfix">
+          <div class="row">
           <div class="col-lg-12">
-                <!-- Wrap all page content here -->
-                <section>
-              <div id="divider-left" class="padding-0" >
-                
-              </div></section>
-
-              <section class=" affix-top2">
- 
-              <div  id="divider-right " >
-
-                  <div class="col-xs-12 col-sm-12  " >             
-                  <a  data-toggle="modal" data-target="#cartModal"><ul class="nav nav-stacked affix-top " id="cart" >
-                           <h3 class="color cart-margin"><i class="glyphicon glyphicon-shopping-cart space"></i><?=$this->lang->line("cart");?>
-                           
-                           <li><label class="color">0</label><?=$this->lang->line("cart_count");?></li></h3>
-                                                                              
-                              
-                                                                                        
-
-
-                   </ul></a>                                                                                                       
-                  </div> 
-              </div>
-              </section>
-              <section>
+             
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <section>
               <div id="divider-center"> 
 
 
@@ -106,40 +136,22 @@ header {
                           
                       </header>
 
-              <div id="divider-nav">
-                 <div class="col-xs-12 padding-0">
-                      <!-- Fixed navbar -->
-                      <div class="navbar navbar-custom navbar-inverse">
-                          
 
-                 
-                              <ul class="nav navbar-nav nav-justified">
-                                <li ><a href="<?php echo site_url('theme1/home');?>"><?=$this->lang->line("t_home");?></a></li>
-                                <li ><a href="<?php echo site_url('theme1/how2order');?>" ><?=$this->lang->line("t_hs");?></a></li>
-                                <li class="active"><a href="<?php echo site_url('theme1/informpayment');?>" ><?=$this->lang->line("t_pay");?></a></li>
-                                <li ><a href="<?php echo site_url('theme1/aboutus');?>"><?=$this->lang->line("t_aboutme");?></a></li>
-                                <li><a href="<?php echo site_url('theme1/contactus');?>"><?=$this->lang->line("t_contact");?></a></li>
-                               
-                             
-                              </ul>
-                           
-                       
-                      </div><!--/.navbar -->
-
-                   </div>
-              </div>
-
-          
+            <div class="page-header-shop"></div>
                       <!-- Begin page content -->
-               <div class="page-header-shop padding-0">
-                    <div class="rowz">
-                      <div class="col-lg-8 col-md-7 col-sm-6">
-
-                      <ol class="breadcrumb-shop" >
-                          <li><a href="<?php echo site_url('theme1/home');?>"  ><?=$this->lang->line("t_home");?></a></li>
-                          <li><a href="<?php echo site_url('theme1/informpayment');?>"  ><?=$this->lang->line("t_pay");?></a></li>
-                      </ol>
+               <div class="page-header-shop padding-0 breadcrumb-img ">
+                    <div class="rowz ">
+                      <div class="col-lg-12 col-md-12 col-sm-12 ">
+                        
+                            <ol class=" btn-group btn-breadcrumb breadcrumb-img margin-pad3">
+                          
+                              <li class="btn btn-danger"><a href="<?php echo site_url('theme2/t2_home');?>"  ><?=$this->lang->line("home");?></a></li>
+                              <li class="btn btn-success" ><a href="<?php echo site_url('theme2/t2_informpayment');?>"  ><?=$this->lang->line("t_pay");?></a></li>
+                        
                       
+                            </ol> 
+                         
+                        
                       
                         
                       <!--<div class="col-lg-4 col-md-5 col-sm-6">
@@ -170,10 +182,10 @@ header {
                      <!-- left -->
                     
                             
-                       <ul class="nav nav-stacked affix-top" id="sidebar" >
+                       <ul class="nav nav-stacked affix-top" id="sidebarz" >
                         <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
                             
-                                      <li><a href="<?php echo site_url('theme1/category');?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [0]</a></li>
+                                      <li><a href="<?php echo site_url('theme2/t2_category');?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [0]</a></li>
                                       <li><a href="#"><i class="glyphicon glyphicon-gift"></i>Fashion [0]</a></li>
                                       <li><a href="#"><i class="glyphicon glyphicon-gift"></i>etc...</a></li>
                             
@@ -187,7 +199,8 @@ header {
                 </div> 
                                    
                                 
-     <div class="col-xs-9  ">
+    
+                  <div class="col-xs-9  ">
             <div class="row">
           <div class="col-lg-12  ">
            <div class="page-header-s">
@@ -205,6 +218,20 @@ header {
                             <div class="col-xs-12 col-sm-12 bborder" >
                             
                               <form id="confirm_pay" name="confirmpayment"  method="post"  enctype="multipart/form-data" >
+
+                                              <div class="form-group">
+                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("order_number");?></label>
+                                                     <div class=" col-xs-8 col-sm-8 mt10">
+                                                 
+                                                   
+                                                       <input type="text" id="ordernum"   style="width:130px;height:25px"  name="ordernum"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="right" data-content="<?=$this->lang->line("order_num_note");?>" >                     
+                                                                           
+                                                                      
+                                                </div>
+                                              </div>
+
+
+
                                               <div class="form-group">
                                                     <label  class="col-lg-3  col-sm-3 control-label animated fadeInDown"  rowspan="2"><?=$this->lang->line("bank_acc_pay");?></label>
                                                        <div class="col-xs-8 col-sm-8 table-responsive">
@@ -322,6 +349,16 @@ header {
                                                 </div>
                                               </div>
                                               <div class="form-group">
+                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("add_shipping");?></label>
+                                                     <div class="col-xs-8 col-sm-8 mt10">
+                                                 
+                                                   
+                                                        <textarea type="text" id="add_shipping"    >    </textarea>                 
+                                                                           
+                                                                      
+                                                </div>
+                                              </div>
+                                              <div class="form-group">
                                                 <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("detail_pay");?></label>
                                                      <div class="col-xs-8 col-sm-8 mt10">
                                                  
@@ -364,13 +401,14 @@ header {
                     </div>
 
                     </div>  
-            </div>
-          </div>       
 
-          
+                
+
+           
     
 
-
+             </div>
+          </div>  
 
                         
 
@@ -378,18 +416,23 @@ header {
   
   </div>
   </section>
-  </div> 
-  </div>
-  </div>  
-  </div>              
+        </div>
+       </div>
+      </div>
+      </div>
+      </div>
+    </div>
 
-  
 
 
+            
+ 
 
-<ul class="nav pull-right scroll-top">
+ <?php echo $this->load->view('footer/footer')?>
+   <ul class="nav pull-right scroll-top">
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
 </ul>
+
 <!-- Modal cart 1-->
                                 <div  class="modal animated pulse" data-easein="pulse" data-easeout="rollOut"  id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg " style="font-size: 11px;letter-spacing: 0.2em;text-align: center;text-transform: uppercase;background-color:white">
@@ -401,16 +444,16 @@ header {
                                       <div class="modal-body" style="background-color:white ">
                                           
                                               <div style="text-transform: none;color:black;font-size:10pt;" align="left"><?=$this->lang->line("cartbox1");?>(<?=$this->lang->line("cartbox2");?> <label class="space2">0</label><?=$this->lang->line("cart_count");?>)</div>
-
+                                              <form id="order" name="orderinfo"  method="post"  enctype="multipart/form-data" >
+                                          
                                               <div class="row">
                                                  
                                                           <div class="col-xs-12 col-sm-12 bborder" >
                                                           
-                                                            <form id="order" name="orderinfo"  method="post"  enctype="multipart/form-data" >
-                                          
+                                                            
 
                                                                <div class="table-responsive ">
-                                                                    <table class="table" id="product-table" style="width:100%;border: 2px solid #eee">
+                                                                    <table class="table"   id="product-table" style="width:100%;border: 2px solid #eee">
                                                                       <!-- On rows -->
                                                                         <tr class="active"   >
                                                                            
@@ -419,6 +462,7 @@ header {
                                                                             <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("qpro");?></th>
                                                                             <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("ps_pro");?></th>
                                                                             <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("order_detail");?></th>
+                                                                            
                                                                             <th width="5%" class="warning tcolor"></th>
 
                                                                            </tr>
@@ -435,7 +479,7 @@ header {
                                                                                  
                                                                                  <td width="40%" style="border: 1px solid #eee" colspan="2" align="right"><font ><?=$this->lang->line("ps_proall");?></font></td>  
                                                                                  <td width="20%" style="border: 1px solid #eee" colspan="2" align="center"><span id="sumary">1890.00</span><?=$this->lang->line("monetary");?></td>
-                                                                                 <td colspan="2"></td>      
+                                                                                 <td colspan="2"></td>   
                                                                               </tr>
                                                                            
                                                                            
@@ -445,7 +489,7 @@ header {
 
                                                                   </div>
 
-                                                            </form>
+                                                            
                                                           </div>
                                                 </div>
 
@@ -477,6 +521,7 @@ header {
                                                               <tr>
                                                               <td><input type="radio" name="post" id="ems"></td><td><?=$this->lang->line("domestic_ems");?></td><td>+ 80.00 <font class="space2"><?=$this->lang->line("monetary");?></font></td><td>1970.00<font class="space2"><?=$this->lang->line("monetary");?></font></td>
                                                               </tr>
+
                                                              
                                                               </tbody>
                                                               </table>
@@ -489,36 +534,27 @@ header {
                                                             </form>
                                                           </div>
                                                 </div>
+                                                </form>
 
-                                  
-
-
-
-
+                                               
                                       </div>
                                       <div class="modal-footer" style="background-color:white ">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      
+                                        
                                       
                                       </div>
                                     </div>
                                   </div>
                                 </div>
- <?php echo $this->load->view('footer/footer')?>
-                      
 
 
-                     
-
-
-
-
-
+    
 
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
-
-<script src="<?php echo JS_THEME1;?>scripts.js"></script>
+<script src="<?php echo JS_THEME2;?>scripts.js"></script>
 <script src="<?php echo JS_URL;?>moment.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap-datetimepicker.js"></script>
 
@@ -531,7 +567,6 @@ header {
                 $('#datetimepicker2').datetimepicker({pickDate: false});
             });
 </script>
-
 <script type="text/javascript">
 
        $(document).ready(function () {
@@ -554,7 +589,22 @@ header {
 
 
     </script>
+    <script type="text/javascript">
+      $("#menu-toggle").click(function(e) {
+       e.preventDefault();
+       $("#wrapper").toggleClass("active");});
 
+    </script>
+
+  
+
+    
+
+    
+
+    
+
+    
 </body>
 
 
