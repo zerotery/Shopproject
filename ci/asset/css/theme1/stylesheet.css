@@ -40,6 +40,10 @@ a:hover {
 a img {
   border: none;
 }
+.toey{
+  color: black;
+}
+
 .clear {
   clear:both;
 }
@@ -197,6 +201,23 @@ a.button span, a.button2 span {
 	-o-border-radius:2px;
 	-webkit-border-radius:2px;
 }
+
+input.button1 {
+  display:inline-block;
+  background:url(../theme1/img/cartBl.png) left top no-repeat;
+  text-decoration:none;
+  cursor:pointer;
+  width:51px;
+  height:51px;
+}
+input.button1:hover {
+  background-position:left bottom;
+}
+input.button1 span {
+  text-indent:-9999px;
+  float:left;
+}
+
 a.button1 {
 	display:inline-block;
 	background:url(../theme1/img/cartBl.png) left top no-repeat;
@@ -303,7 +324,7 @@ a.btn-detail span {
 #tab-description ul li {
 	margin: 6px 0px;
 	padding: 0 0 0 24px;
-	background: url('../images/bullet2.png') 3px 3px no-repeat;
+	/* background: url(../images/bullet2.png) 3px 3px no-repeat; */
 }
 #tab-description ol {
 	margin: 0;
@@ -326,25 +347,7 @@ a.btn-detail span {
 
 
 
-.divider-all {
-  width: 100%;
-  height: auto;
-  padding-right: 0px;
-  padding-left: 0px;
-  
-  margin-top: 0 !important;
-  background-color: #F8F8FF;
-  position: absolute;
-  background:url() no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: 1;
-  
 
-
-  }
 #divider-content {
     width: 970px;
   padding-right: 0px;
@@ -922,7 +925,7 @@ display:block;
   position:relative;
   margin:-20px 25px 0 0;
   text-decoration:none;
-  background:url(../images/btn-search.png) no-repeat 0 0;
+  /*background:url(../images/btn-search.png) no-repeat 0 0;*/
   padding:10px 0 0 25px;
   height:20px;
 }
@@ -1060,4 +1063,6 @@ input[type=submit]:hover {
 input[type=submit] span {
   text-indent:-9999px;
   float:left;
+
 }
+

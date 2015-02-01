@@ -1,6 +1,7 @@
 <html>
-    
+
 <head>
+
 <title>TB Shop</title>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
@@ -13,11 +14,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>shortcodes.css">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>transition.css">
 <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap-datetimepicker.css">
-
-
-
-
-
 
 
 
@@ -57,21 +53,21 @@ body{
 
  }
 
-</style>
+  </style>
+  
 <style type="text/css">
-header {
-  background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
+  header {
+    background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     vertical-align: middle;
 
-}
+  }
 
 
-</style>
-
+  </style>
 
 
 </head>
@@ -132,9 +128,9 @@ header {
               <div id="divider-center"> 
 
 
-                      <header>
-                          
-                      </header>
+              <header>
+                
+              </header>
 
 
             <div class="page-header-shop"></div>
@@ -154,34 +150,26 @@ header {
                         
                       
                         
-                      <!--<div class="col-lg-4 col-md-5 col-sm-6">
-                          <h6>What the ?</h6>
-                      </div>-->
+
+                      </div>
+                      
                     </div>
-                     
                   </div>
-                </div>
-   
                   
-                      
-                
-                      
-                          
-                     
-  
-  
-
-                      
-
+                  
+                  
+                  
+                  
+                  
                                               
                                                
                                              
             <div id="divider-content  ">                                   
               <div class="row">             
                  <div class="col-xs-3" >
-                     <!-- left -->
-                    
-                            
+                       <!-- left -->
+                       
+                       
                        <ul class="nav nav-stacked affix-top" id="sidebarz" >
                         <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
                             
@@ -193,235 +181,241 @@ header {
 
 
                                     </ul>
-                                    
-                                 
-                                    
-                </div> 
-                                   
-                                
-    
-                  <div class="col-xs-9  ">
-            <div class="row">
-          <div class="col-lg-12  ">
-           <div class="page-header-s">
-                    
-                    </div>
-              </div>
-          </div>
-           
-                           
-
-          <h2 id="sec2"><div><?=$this->lang->line("pbox_c");?></div> </h2>
-
-                <div class="row">
-                   
-                            <div class="col-xs-12 col-sm-12 bborder" >
+                      
+                      
+                      
+                    </div> 
+                      
+             <div class="col-xs-9  ">
+                        <div class="row">
+                          <div class="col-lg-12  ">
+                           <div class="page-header-s">
                             
-                              <form id="confirm_pay" name="confirmpayment"  method="post"  enctype="multipart/form-data" >
+                           </div>
+                         </div>
+                       </div>
+                       
+                       
 
-                                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("order_number");?></label>
-                                                     <div class=" col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                                       <input type="text" id="ordernum"   style="width:130px;height:25px"  name="ordernum"  data-toggle="popover" data-trigger="hover " data-container="body" data-placement="right" data-content="<?=$this->lang->line("order_num_note");?>" >                     
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
+                       <h2 id="sec2"><div><?=$this->lang->line("pbox_c");?></div> </h2>
 
+                       <div class="row">
+                         
+                        <div class="col-xs-12 col-sm-12 bborder" >
+                          
+                          <form action="<?php echo site_url('cashshop/submit_order'); ?>" id="confirm_pay" name="confirmpayment"  method="post"  enctype="multipart/form-data" >
+                            
+                            <div class="form-group">
+                            <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("order_number");?></label>
+                            <div class=" col-xs-8 col-sm-8 mt10">
+                             
+                             <input type="text" id="number_order" name="number_order"   style="width:130px;height:25px" data-toggle="popover" data-trigger="hover " data-container="body" data-placement="right" data-content="<?=$this->lang->line("order_num_note");?>"  >
+                             
+                             
+                             
+                             
+                           </div>
+                         </div>
+                            <div class="form-group">
+                              <label  class="col-lg-3  col-sm-3 control-label animated fadeInDown mt10"  rowspan="2"><?=$this->lang->line("bank_acc_pay");?></label>
+                              <div class="col-xs-8 col-sm-8 table-responsive">
+                                <td><table class="table" >
+                                  <tbody>
+                                    <?php
 
+                                    for($i=0;$i<count($bank);$i++){
+                                      echo '<tr>';
+                                      if($bank[$i]['owner_bank_select']==1){
+                                        echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("ktb").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
+                                        
+                                      }else if($bank[$i]['owner_bank_select']==2){
+                                        echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("scb").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
+                                        
+                                      }else if($result[$i]['owner_bank_select']==3){
+                                        echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("bkb").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
+                                        
+                                      }else if($result[$i]['owner_bank_select']==4){
+                                        echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("tmb").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
+                                        
+                                      }else if($result[$i]['owner_bank_select']==5){
+                                        echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("krungsri").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
+                                        
+                                      }else if($result[$i]['owner_bank_select']==6){
+                                        echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("kbank").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
+                                        
+                                      }else if($result[$i]['owner_bank_select']==7){
+                                        echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("uob").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
+                                      }
+                                      echo '</tr>';
+                                    }
+                                    ?>
+                                    
+                                  </tbody>
+                                </table>
+                              </td>
+                              
+                              
+                              
+                              
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown"><?=$this->lang->line("bank_pay_date");?></label>
+                            <div class="col-lg-8  col-sm-8">
+                              
+                              <input type="text" id="datetimepicker1" class="form-control" name="payment_date"  style="width:130px;height:25px" data-date-format="YYYY-MM-DD"  >
+                            </div>
+                          </div>
+                          <div class="form-group  ">
+                            <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("bank_pay_time");?></label>
+                            <div class="col-lg-8 col-sm-8 mt10 ">
+                             
+                             
+                              <input type="text" id="datetimepicker2" class="form-control" name="payment_time"  style="width:130px;height:25px" data-date-format="hh:mm A"  >
+                              
+                              
+                              
+                              
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("bank_pay_price");?></label>
+                            <div class=" col-xs-8 col-sm-8 mt10">
+                             
+                             <input type="text" id="price" name="price"   style="width:130px;height:25px"  >
+                             
+                             
+                             
+                             
+                           </div>
+                         </div>
+                         <div class="form-group">
+                          <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("name_pay");?></label>
+                          <div class=" col-xs-8 col-sm-8 mt10">
+                           
+                           
+                           <input type="text" id="name" name="name"  style="width:130px;height:25px"  >                     
+                           
+                           
+                         </div>
+                       </div>
+                       <div class="form-group">
+                        <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("surname_pay");?></label>
+                        <div class="col-xs-8 col-sm-8 mt10">
+                         
+                         
+                         <input type="text" id="surname" name="surname"   style="width:130px;height:25px"  >                   
+                         
+                         
+                       </div>
+                     </div>
+                     <div class="form-group">
+                      <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("email_pay");?></label>
+                      <div class="col-xs-8 col-sm-8 mt10">
+                       
+                       
+                        <input type="text" id="email" name="email"  style="width:130px;height:25px"  >                      
+                        
+                        
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("evidence_pay");?></label>
+                      <div class="col-xs-8 col-sm-8 mt10">
+                       
+                       
+                       
+                       <div class="fileinput fileinput-new" data-provides="fileinput" id="bgpop"> 
+                        <div class="fileinput-new thumbnail img-responsive" style="width: 180px; height: 180px; " >
+                          <img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="width: 180px; height: 180px; ">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px;"></div>
+                        <div>
+                          <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="tranfer" id="tranfer"></span>
+                          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
+                        </div>
+                      </div>                  
+                      
+                      
+                    </div>
+                  </div>
 
-                                              <div class="form-group">
-                                                    <label  class="col-lg-3  col-sm-3 control-label animated fadeInDown"  rowspan="2"><?=$this->lang->line("bank_acc_pay");?></label>
-                                                       <div class="col-xs-8 col-sm-8 table-responsive">
-                                                          <td><table class="table" >
-                                                              <tbody>
-                                                              
-
-                                                              <tr>
-                                                              <td><input type="radio" name="bank" ></td><td>ธนาคารกสิกรไทย</td><td>6112061035</td><td>สาขาอาคารเสริมมิตร</td>
-                                                              </tr>
-                                                              <tr>
-                                                              <td><input type="radio" name="bank" ></td><td>ธนาคารกรุงเทพ</td><td>1017675115</td><td>สาขาใหญ่สีลม</td>
-                                                              </tr>
-                                                              <tr>
-                                                              <td><input type="radio" name="bank" ></td><td>ธนาคารไทยพาณิชย์</td><td>0142735993</td><td>สาขาพหลโยธินเพลส</td>
-                                                              </tr>
-                                                              <tr>
-                                                              <td><input type="radio" name="bank" ></td><td>ธนาคารกรุงไทย</td><td>0810084309</td><td>สาขาสี่แยกอโศก</td>
-                                                              </tr>
-                                                              </tbody>
-                                                              </table>
-                                                          </td>
-                                                   
-                                                                            
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown"><?=$this->lang->line("bank_pay_date");?></label>
-                                                     <div class="col-lg-8  col-sm-8">
-                                                        
-                                                        <input type="text" id="datetimepicker1" class="form-control" name="payment_date"  style="width:130px;height:25px" data-date-format="YYYY-MM-DD"  >
-                                                         
-                                                      
-                    
-                                                                                   
-                                                   
-                                                                            
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
-                                              <div class="form-group  ">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("bank_pay_time");?></label>
-                                                     <div class="col-lg-8 col-sm-8 mt10 ">
-                                                 
-                                                           
-                                                        <input type="text" id="datetimepicker2" class="form-control" name="payment_time"  style="width:130px;height:25px" data-date-format="hh:mm A"  >
-                                                        
-                                                                            
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("bank_pay_price");?></label>
-                                                     <div class=" col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   <input type="text" id="price"   style="width:130px;height:25px"  >
-                                                        
-                                                                            
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("name_pay");?></label>
-                                                     <div class=" col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                                       <input type="text" id="name"   style="width:130px;height:25px"  >                     
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("surname_pay");?></label>
-                                                     <div class="col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                                         <input type="text" id="surname"   style="width:130px;height:25px"  >                   
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("email_pay");?></label>
-                                                     <div class="col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                                      <input type="text" id="email"   style="width:130px;height:25px"  >                      
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("evidence_pay");?></label>
-                                                     <div class="col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                                         
-                                                         <div class="fileinput fileinput-new" data-provides="fileinput" id="bgpop"> 
-                                                            <div class="fileinput-new thumbnail img-responsive" style="width: 180px; height: 180px; " >
-                                                              <img src="<?php echo logo_pic;?>item.png" class="img-responsive" style="width: 180px; height: 180px; ">
-                                                            </div>
-                                                            <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px;"></div>
-                                                            <div>
-                                                              <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_shopbg"></span>
-                                                              <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
-                                                            </div>
-                                                          </div>                  
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
+                  <div class="form-group">
                                                 <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("add_shipping");?></label>
                                                      <div class="col-xs-8 col-sm-8 mt10">
                                                  
                                                    
-                                                        <textarea type="text" id="add_shipping"    >    </textarea>                 
+                                                        <textarea type="text" id="add_shipping" name="add_shipping"   >    </textarea>                 
                                                                            
                                                                       
                                                 </div>
-                                              </div>
-                                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("detail_pay");?></label>
-                                                     <div class="col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                                        <textarea type="text" id="detailpay"    >    </textarea>                 
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
+                  </div>
 
-                                 
-                                     <a href="<?php echo site_url('theme1/informpayment');?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("send_form");?></div></a>
-                              
-                              </form>
-                               
-                            </div>
 
-                          
-                            </div>
-                            
-                   <div class="row">
-          <div class="col-lg-12  ">
-           <div class="page-header-x">
-                    
-                    </div>
-             <div class="page-header">
-                    
-                    </div>
-                    </div>
 
-                    </div>                                     
-                            
-      </div><!--/col-->             
-            <div class="row">
-          <div class="col-lg-12  ">
-           
-             <div class="page-header-s">
-                    
-                    </div>
-                    </div>
 
-                    </div>  
+                  <div class="form-group">
+                    <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("detail_pay");?></label>
+                    <div class="col-xs-8 col-sm-8 mt10">
+                     
+                     
+                      <textarea type="text" id="detailpay" name="detailpay">    </textarea>                 
+                      
+                      
+                    </div>
+                  </div>
 
+                  
+                  <a href="#" id="btn_submit"><div  class="pull-right btn btn-info"><?=$this->lang->line("send_form");?></div></a>
+                  
+                </form>
                 
+              </div>
 
-           
-    
-
+              
+            </div>
+            
+            <div class="row">
+              <div class="col-lg-12  ">
+               <div class="page-header-x">
+                
+               </div>
+               <div class="page-header">
+                
+               </div>
              </div>
-          </div>  
 
-                        
+           </div>                                     
+           
+         </div><!--/col-->             
+         <div class="row">
+          <div class="col-lg-12  ">
+           
+           <div class="page-header-s">
+            
+           </div>
+         </div>
+
+       </div>  
+
+     </div>
+   </div>       
+
+   
+   
+
+
+
+   
+   </div>
+ </section>
+</div> 
+</div>
+</div>  
+</div>      
 
 
   
-  </div>
-  </section>
-        </div>
-       </div>
-      </div>
-      </div>
-      </div>
-    </div>
 
 
 
@@ -434,6 +428,7 @@ header {
 </ul>
 
 <!-- Modal cart 1-->
+
                                 <div  class="modal animated pulse" data-easein="pulse" data-easeout="rollOut"  id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg " style="font-size: 11px;letter-spacing: 0.2em;text-align: center;text-transform: uppercase;background-color:white">
                                     <div class="modal-content"style="background-color:white ">
@@ -546,12 +541,8 @@ header {
                                       </div>
                                     </div>
                                   </div>
-                                </div>
-
-
-    
-
-
+                                </div>        
+                  
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
 <script src="<?php echo JS_THEME2;?>scripts.js"></script>
@@ -559,9 +550,12 @@ header {
 <script src="<?php echo JS_URL;?>bootstrap-datetimepicker.js"></script>
 
 
+</script>
+
 
 
 <script type="text/javascript">
+
             $(function () {
                 $('#datetimepicker1').datetimepicker({pickTime: false});
                 $('#datetimepicker2').datetimepicker({pickDate: false});
@@ -569,21 +563,93 @@ header {
 </script>
 <script type="text/javascript">
 
-       $(document).ready(function () {
-    
-            $('#product-table').on( 'click', '.btn-remove', function( event ) {
-                var $tr = $("#trpro").closest('tr').css("display","none");
-                $tr.find('.quantity').val( '0' );
-                $tr.find('.total').text( '0.00' );
-                
+var re=<?php echo $re;?>;
 
-                
-            });
 
-            $('#sumary').html - $("#s_price").html();
+if(re==1){
+  $('#cartModal').modal('show');
+
+  
+}else{
+
+}
+
+$('#btn_submit').click(function(e) {
+ 
+ //alert(status_order);
+ $("#confirm_pay").submit();
+ 
+});
+
+$('input[type=number]').click(function(e) {
+
+ $("#view_cart").submit();
+ 
+});
+
+
+
+$(document).ready(function() { 
+
+  $("#view_cart").submit(function() {
+    var myForm = document.forms.view_cart;
+    var rowid_cart = myForm.elements['rowid[]'];
+    var qty_cart  = myForm.elements['qty[]'];
+    if(rowid_cart.length==null){
+      var st=new Array();
+      var st2=new Array();
+      
+      var rowid = rowid_cart.value;
+      var qtycart  = qty_cart.value;
+      st= rowid;
+      st2=qtycart;
+      //alert(st+" "+st2);
+      //alert(rowid+" "+qtycart);
+      $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+            
+           location.reload();
+
+            
+          }else{
+            alert("Product does not exist");
+          }
         });
 
 
+    }else{
+      var myForm = document.forms.view_cart;
+      var rowid_cart = myForm.elements['rowid[]'];
+      var qty_cart  = myForm.elements['qty[]'];
+      
+       
+       var st=new Array();
+       var st2=new Array();
+      for (var i = 0; i<rowid_cart.length; i++) {
+        
+          st[i]=rowid_cart[i].value;
+
+          st2[i]=qty_cart[i].value;
+
+     }
+     //alert(st+" "+st2);
+     $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+
+            location.reload();
+          }else{
+            alert("Product does not exist");
+          }
+        });
+    }
+      return false; // Stop the browser of loading the page defined in the form "action" parameter.
+    });
+
+});
 
 
 
@@ -597,6 +663,7 @@ header {
     </script>
 
   
+
 
     
 

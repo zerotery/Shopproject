@@ -14,6 +14,7 @@
 			$status=$this->input->get('Status');
 			if(!empty($status)){
 				echo "$status";
+				$this->cart->destroy();
 			}else{
 				$status=0;
 				echo "$status";
@@ -52,7 +53,14 @@
 		public function chenge_lang($type){
 			$this->load_language->change_lang($type);
 			$page = $this->session->userdata('address');
-			header("Refresh: 0; url=$page");
+			
+			$temp = explode("/index.php/",$page);
+
+			$url=$temp[0].'/'.$temp[1];
+			
+			//print_r($temp);
+            //$picname_profile = "profile" . '.' .end($temp);
+			header("Refresh: 0; url=$url");
 			//redirect($page, 'refresh');
  			
 		}

@@ -5,7 +5,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#" align="left">
+    <a class="navbar-brand" href="<?php echo site_url('main/index?Status=1');?>" align="left">
     <img src="<?php echo logo_pic;?>logo2.png" width="100px" height="20px" >
     </a>
   </div>

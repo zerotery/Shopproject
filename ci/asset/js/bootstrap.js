@@ -1689,8 +1689,7 @@ $('#add_row').popover();
 $('#spt').popover();
 $('#stp').popover();
 $('#stpm').popover();
-$('#ordernum').popover();
-
+$('#number_order').popover();
 
 ///////////////////////////////////////////////////////////////////////////
 ////////////////

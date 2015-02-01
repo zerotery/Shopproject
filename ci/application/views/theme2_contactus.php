@@ -1,6 +1,7 @@
 <html>
-    
+
 <head>
+
 <title>TB Shop</title>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
@@ -56,29 +57,31 @@ body{
 
  }
 
-</style>
-<style type="text/css">
-header {
-  background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
+ 
+
+  </style>
+   <style type="text/css">
+  header {
+    background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     vertical-align: middle;
 
-}
+  }
 
 
-</style>
+  </style>
+
 
 
 
 </head>
-
 <body>
 
-<?php echo $this->load->view('header/navbar_nlog')?>
 
+  <?php echo $this->load->view('header/navbar_nlog')?>
 
     <div id="wrapper">
 
@@ -113,6 +116,7 @@ header {
       </div>
 
 
+
       <div class="divider-all">
         <div class="row">
           <div class="col-lg-12  ">
@@ -131,9 +135,11 @@ header {
               <div id="divider-center"> 
 
 
-                      <header>
-                          
-                      </header>
+
+              <header>
+                
+              </header>
+
 
 
             <div class="page-header-shop"></div>
@@ -150,36 +156,36 @@ header {
                             </ol> 
                          
                         
+ 
+            
+
+          
+          
+                      </div>
                       
-                        
-                      <!--<div class="col-lg-4 col-md-5 col-sm-6">
-                          <h6>What the ?</h6>
-                      </div>-->
                     </div>
-                     
                   </div>
-                </div>
-   
                   
-                      
-                
-                      
-                          
-                     
-  
-  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
 
-                      
+                  
 
-                                              
-                                               
-                                             
-            <div id="divider-content  ">                                   
-              <div class="row">             
-                 <div class="col-xs-3" >
-                     <!-- left -->
-                    
-                            
+                  
+                  
+                  
+                 <div id="divider-content  ">                                   
+                    <div class="row">             
+                     <div class="col-xs-3" >
+                       <!-- left -->
+                       
+                       
                        <ul class="nav nav-stacked affix-top" id="sidebarz" >
                         <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
                             
@@ -191,133 +197,133 @@ header {
 
 
                                     </ul>
-                                    
-                                 
-                                    
-                </div> 
-                                   
-                             <div class="col-xs-9  ">
-            <div class="row">
-          <div class="col-lg-12  ">
-           <div class="page-header-s">
-                    
-                    </div>
-              </div>
-          </div>
-           <h2 id="sec0"><div><?=$this->lang->line("cbox");?></div> </h2>
-
-                <div class="row">
-                   
-                            <div class="col-xs-12 col-sm-12 cborder" >
-                            
-                              <div class="form-group">
-                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("shop_name");?></label>
-                                    <div class="col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                        <label type="text" id="shopname" class="animated fadeInLeft"   style="width:130px;height:25px"  >Bememoriez</label>                   
-                                                                           
-                                                                      
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("name_owner");?></label>
-                                    <div class="col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                        <label type="text" id="name" class="animated fadeInLeft"   style="width:130px;height:25px"  > นายอุดมเอก</label>                  
-                                                                           
-                                                                      
-                                </div>
-                              </div>
-
-                              <div class="form-group">
-                                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("surname_owner");?></label>
-                                                     <div class="col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                                        <label type="text" class="animated fadeInLeft"  id="surname"> แต้จิ๋ว</label>                 
-                                                                           
-                                                                      
-                                                </div>
-                                              </div>
-
-                              <div class="form-group">
-                                <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("email_owner");?></label>
-                                    <div class="col-xs-8 col-sm-8 mt10">
-                                                 
-                                                   
-                                        <label type="text" id="email" class="animated fadeInLeft"  style="width:130px;height:25px"  > bas-123@hotmail.com</label>                  
-                                                                           
-                                                                      
-                                </div>
-                              </div>
-                              <div class="row">
-          <div class="col-lg-12  ">
-             <div class="page-header-show">
                       
-                    </div>
-                    </div>
-                    </div>
-                              
-                            </div>
+                      
+                      
+                    </div> 
+                    
+                   
 
+            <div class="col-xs-9  ">
+                      <div class="row">
+                        <div class="col-lg-12  ">
+                         <div class="page-header-s">
                           
-                            </div>
-                             <h2 id="sec0"><div id="divl" ><?=$this->lang->line("mbox");?></div> </h2>
+                         </div>
+                       </div>
+                     </div>
+                     <h2 id="sec0"><div><?=$this->lang->line("cbox");?></div> </h2>
 
-                                <div class="row">
-                                   
-                                            <div class="col-xs-12 col-sm-12 aborder" >
-                                            
-                                              <label id="message"></label>
-
-                                              
-                                            </div>
-
-                                          
-                                            </div>
-
-         
-                   <div class="row">
-          <div class="col-lg-12  ">
-           <div class="page-header-x">
-                    
-                    </div>
-             <div class="page-header">
-                    
-                    </div>
-                    </div>
-
-                    </div>                                     
+                     <div class="row">
+                       
+                      <div class="col-xs-12 col-sm-12 cborder" >
+                        
+                        <div class="form-group">
+                          <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("shop_name");?></label>
+                          <div class="col-xs-8 col-sm-8 mt10">
+                           
+                           
+                            <label type="text" id="shopname" class="animated fadeInLeft"   style="width:130px;height:25px"  ><?php echo $about[0]['shop_name']; ?></label>                   
                             
-      </div><!--/col-->             
-            <div class="row">
-          <div class="col-lg-12  ">
-           
-             <div class="page-header-s">
-                    
-                    </div>
-                    </div>
-
-                    </div>  
-    
-
-             </div>
-          </div>  
+                            
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("name_owner");?></label>
+                          <div class="col-xs-8 col-sm-8 mt10">
+                           
+                           
+                            <label type="text" id="name" class="animated fadeInLeft"   style="width:130px;height:25px"  ><?php echo $about[1][0]['f_name']." ".$about[1][0]['l_name']; ?></label>                  
+                            
+                            
+                          </div>
+                        </div>
 
                         
 
+                        <div class="form-group">
+                          <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("email_owner");?></label>
+                          <div class="col-xs-8 col-sm-8 mt10">
+                           
+                           
+                            <label type="text" id="email" class="animated fadeInLeft"  style="width:130px;height:25px"  ><?php echo $about[1][0]['email']; ?></label>                  
+                            
+                            
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12  ">
+                           <div class="page-header-show">
+                            
+                           </div>
+                         </div>
+                       </div>
+                       
+                     </div>
+
+                     
+                   </div>
+                   <h2 id="sec0"><div id="divl" ><?=$this->lang->line("mbox");?></div> </h2>
+
+                   <div class="row">
+                     
+                    <div class="col-xs-12 col-sm-12 aborder" >
+                      
+                      <div class="toey">
+                       <?php 
+                       for($i=0;$i<count($layout);$i++){
+                         if($layout==0){ }else if($layout[$i]['type_layout']==5){echo $layout[$i]['layout_detail'];}
+                       }
+                       
+                       ?> 
+                     </div> 
+                     
+                   </div>
+
+                   
+                 </div>
+
+                 
+                 <div class="row">
+                  <div class="col-lg-12  ">
+                   <div class="page-header-x">
+                    
+                   </div>
+                   <div class="page-header">
+                    
+                   </div>
+                 </div>
+
+               </div>                                     
+               
+             </div><!--/col-->             
+             <div class="row">
+              <div class="col-lg-12  ">
+               
+               <div class="page-header-s">
+                
+               </div>
+             </div>
+
+           </div>   
+         </div>
+       </div>       
+
+
+                    </div> 
+    
+
+           
+   </section>
+ </div> 
+</div>
+</div>  
+</div>  
+</div> 
+</div>           
+
 
   
-  </div>
-  </section>
-        </div>
-       </div>
-      </div>
-      </div>
-      </div>
-    </div>
 
 
 
@@ -330,6 +336,7 @@ header {
 </ul>
 
 <!-- Modal cart 1-->
+
                                 <div  class="modal animated pulse" data-easein="pulse" data-easeout="rollOut"  id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg " style="font-size: 11px;letter-spacing: 0.2em;text-align: center;text-transform: uppercase;background-color:white">
                                     <div class="modal-content"style="background-color:white ">
@@ -445,29 +452,90 @@ header {
                                 </div>
 
 
-    
-
-
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
+
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
 <script src="<?php echo JS_THEME2;?>scripts.js"></script>
 <script type="text/javascript">
 
-       $(document).ready(function () {
-    
-            $('#product-table').on( 'click', '.btn-remove', function( event ) {
-                var $tr = $("#trpro").closest('tr').css("display","none");
-                $tr.find('.quantity').val( '0' );
-                $tr.find('.total').text( '0.00' );
-                
+var re=<?php echo $re;?>;
+if(re==1){
+  $('#cartModal').modal('show');
 
-                
-            });
+  
+}else{
 
-            $('#sumary').html - $("#s_price").html();
+}
+
+$('input[type=number]').click(function(e) {
+
+ $("#view_cart").submit();
+ 
+});
+
+
+
+$(document).ready(function() { 
+
+  $("#view_cart").submit(function() {
+    var myForm = document.forms.view_cart;
+    var rowid_cart = myForm.elements['rowid[]'];
+    var qty_cart  = myForm.elements['qty[]'];
+    if(rowid_cart.length==null){
+      var st=new Array();
+      var st2=new Array();
+      
+      var rowid = rowid_cart.value;
+      var qtycart  = qty_cart.value;
+      st= rowid;
+      st2=qtycart;
+      //alert(st+" "+st2);
+      //alert(rowid+" "+qtycart);
+      $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+            
+           location.reload();
+
+            
+          }else{
+            alert("Product does not exist");
+          }
         });
 
 
+    }else{
+      var myForm = document.forms.view_cart;
+      var rowid_cart = myForm.elements['rowid[]'];
+      var qty_cart  = myForm.elements['qty[]'];
+      
+       
+       var st=new Array();
+       var st2=new Array();
+      for (var i = 0; i<rowid_cart.length; i++) {
+        
+          st[i]=rowid_cart[i].value;
+
+          st2[i]=qty_cart[i].value;
+
+     }
+     //alert(st+" "+st2);
+     $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+
+            location.reload();
+          }else{
+            alert("Product does not exist");
+          }
+        });
+    }
+      return false; // Stop the browser of loading the page defined in the form "action" parameter.
+    });
+
+});
 
 
 
@@ -486,9 +554,7 @@ header {
 
     
 
-    
-
-    
+ 
 </body>
 
 

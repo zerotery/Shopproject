@@ -1,6 +1,7 @@
 <html>
-    
+
 <head>
+
 <title>TB Shop</title>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
@@ -12,15 +13,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>stylesheet.css">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>shortcodes.css">
 <link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>transition.css">
-
-
-
-
-
-
-
-
-
 
 
 
@@ -56,28 +48,29 @@ body{
 
  }
 
+
 </style>
+
 <style type="text/css">
-header {
-  background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
+  header {
+    background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     vertical-align: middle;
 
-}
+  }
 
 
-</style>
-
+  </style>
 
 
 </head>
 
 <body>
 
-<?php echo $this->load->view('header/navbar_nlog')?>
+  <?php echo $this->load->view('header/navbar_nlog')?>
 
 
     <div id="wrapper">
@@ -131,9 +124,11 @@ header {
               <div id="divider-center"> 
 
 
-                      <header>
-                          
-                      </header>
+
+              <header>
+                
+              </header>
+
 
 
             <div class="page-header-shop"></div>
@@ -152,34 +147,29 @@ header {
                         
                       
                         
-                      <!--<div class="col-lg-4 col-md-5 col-sm-6">
-                          <h6>What the ?</h6>
-                      </div>-->
+
+                      </div>
+                      
                     </div>
-                     
                   </div>
-                </div>
-   
                   
-                      
-                
-                      
-                          
-                     
-  
-  
-
-                      
-
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                                               
                                                
                                              
             <div id="divider-content  ">                                   
-              <div class="row">             
-                 <div class="col-xs-3" >
-                     <!-- left -->
-                    
-                            
+                    <div class="row">             
+                     <div class="col-xs-3" >
+                       <!-- left -->
+                       
+                       
                        <ul class="nav nav-stacked affix-top" id="sidebarz" >
                         <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
                             
@@ -191,147 +181,153 @@ header {
 
 
                                     </ul>
-                                    
-                                 
-                                    
-                </div> 
-                                   
-                                
-    
-
-
-                
-
-          <div class="col-xs-9  ">
-            <div class="row">
-          <div class="col-lg-12  ">
-           <div class="page-header-s">
+                      
+                      
+                      
+                    </div> 
                     
-                    </div>
-              </div>
-          </div>
-           <h2 id="sec0"><div><?=$this->lang->line("obox");?></div> </h2>
-
-                <div class="row">
                    
-                            <div class="col-xs-12 col-sm-12 oborder" >
-                            
-                              <label id="message0"></label>
 
-                              
-                            </div>
-
+            <div class="col-xs-9  ">
+                      <div class="row">
+                        <div class="col-lg-12  ">
+                         <div class="page-header-s">
                           
-                            </div>
-                            <h2 class="h2space"></h2>
-          <h2 id="sec1"><div  ><?=$this->lang->line("pbox");?></div> </h2>
+                         </div>
+                       </div>
+                     </div>
+                     <h2 id="sec0"><div><?=$this->lang->line("obox");?></div> </h2>
 
-                <div class="row">
-                   
-                            <div class="col-xs-12 col-sm-12 pborder" >
-                            
-                              <label id="message1"></label>
+                     <div class="row">
+                       
+                      <div class="col-xs-12 col-sm-12 oborder" >
+                        <div class="toey">
+                         <?php 
+                         for($i=0;$i<count($layout);$i++){
+                           if($layout==0){ }else if($layout[$i]['type_layout']==2){echo $layout[$i]['layout_detail'];}
+                         }
+                         
+                         ?> 
+                       </div> 
+                       
+                     </div>
+                     <h2 class="h2space"></h2>
+                     
 
-                              
-                            </div>
+                     <h2 id="sec2"><div><?=$this->lang->line("bbox");?></div> </h2>
 
-                          
-                            </div>
-                            <h2 class="h2space"></h2>
-
-          <h2 id="sec2"><div><?=$this->lang->line("bbox");?></div> </h2>
-
-                <div class="row">
-                   
-                            <div class="col-xs-12 col-sm-12 bborder" >
-                            
-                              <form id="bank" name="bankinfo"  method="post"  enctype="multipart/form-data" >
-            
-
-                                 <div class="table-responsive ">
-                                      <table class="table">
-                                        <!-- On rows -->
-                                          <tr class="active">
-                                             
-                                              <th class="warning tcolor"><?=$this->lang->line("bank_select");?></th>
-                                              <th class="warning tcolor"><?=$this->lang->line("your_name");?></th>
-                                              <th class="warning tcolor"><?=$this->lang->line("bank_branch");?></th>
-                                              <th class="warning tcolor"><?=$this->lang->line("bank_account");?></th>
-                                              <th class="warning tcolor"><?=$this->lang->line("account_type");?></th>
-                                             </tr>
-                                              <tr>
-                                                  <td ><font><?=$this->lang->line("bkb");?></font></td>
-                                                  <td ><font><?=$this->lang->line("your_name");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("bank_branch");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("bank_account");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("acc_type1");?></font></td>
-                                                   
-                                              </tr>
-                                              <tr>
-                                                  <td ><font><?=$this->lang->line("ktb");?></font></td>
-                                                  <td ><font><?=$this->lang->line("your_name");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("bank_branch");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("bank_account");?></font></td>
-                                                  <td ><font ><?=$this->lang->line("acc_type2");?></font></td>
-                                                   
-                                              </tr>
-
-                                                         
-
-                                             
-                                             
-                                          
-                                      </table>
-
-                                    </div>
-
-                              </form>
-                                <a href="<?php echo site_url('theme2/t2_informpayment');?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("go_t_pay");?></div></a>
-                              
-                            </div>
-
-                          
-                            </div>
-                            <h2 class="h2space"></h2>
-                   <div class="row">
-          <div class="col-lg-12  ">
-           <div class="page-header-x">
-                    
-                    </div>
-             <div class="page-header">
-                    
-                    </div>
-                    </div>
-
-                    </div>                                     
-                            
-      </div><!--/col-->             
-            <div class="row">
-          <div class="col-lg-12  ">
-           
-             <div class="page-header-s">
-                    
-                    </div>
-                    </div>
-
-                    </div>  
-    
-
-             </div>
-          </div>  
-
+                     <div class="row">
+                       
+                      <div class="col-xs-12 col-sm-12 bborder" >
                         
+                        <form id="bank" name="bankinfo"  method="post"  enctype="multipart/form-data" >
+                          
+
+                         <div class="table-responsive ">
+                          <table class="table">
+                            <!-- On rows -->
+                            <tr class="active">
+                             
+                              <th class="warning tcolor"><?=$this->lang->line("bank_select");?></th>
+                              <th class="warning tcolor"><?=$this->lang->line("your_name");?></th>
+                              <th class="warning tcolor"><?=$this->lang->line("bank_branch");?></th>
+                              <th class="warning tcolor"><?=$this->lang->line("bank_account");?></th>
+                              <th class="warning tcolor"><?=$this->lang->line("account_type");?></th>
+                            </tr>
+
+
+                            
+                            <?php
+                            for($i=0; $i<count($bank); $i++){
+                             echo '<tr>';
+                             if($bank[$i]['owner_bank_select']==1){
+                              echo '<td ><font>'.$this->lang->line("ktb").'</font></td>';
+                            }else if($bank[$i]['owner_bank_select']==2){
+                              echo '<td ><font>'.$this->lang->line("scb").'</font></td>';
+                            }else if($result[$i]['owner_bank_select']==3){
+                              echo '<td ><font>'.$this->lang->line("bkb").'</font></td>';
+                            }else if($result[$i]['owner_bank_select']==4){
+                              echo '<td ><font>'.$this->lang->line("tmb").'</font></td>';
+                            }else if($result[$i]['owner_bank_select']==5){
+                              echo '<td ><font>'.$this->lang->line("krungsri").'</font></td>';
+                            }else if($result[$i]['owner_bank_select']==6){
+                              echo '<td ><font>'.$this->lang->line("kbank").'</font></td>';
+                            }else if($result[$i]['owner_bank_select']==7){
+                              echo '<td ><font>'.$this->lang->line("uob").'</font></td>';
+                            }
+                            echo '<td ><font>'.$bank[$i]['name_account'].'</font></td>';
+                            echo '<td ><font>'.$bank[$i]['bank_branch'].'</font></td>';
+                            echo '<td ><font>'.$bank[$i]['bank_account'].'</font></td>';
+                            
+                            if($bank[$i]['bank_type']==1){
+                             echo '<td ><font>'.$this->lang->line("acc_type1").'</font></td>';
+                           }else{
+                             echo '<td ><font>'.$this->lang->line("acc_type2").'</font></td>';
+                           }
+                           echo '</tr>';
+                           
+                         }
+                         
+
+
+                         
+
+                         ?>
+                         
+                         
+
+                         
+                         
+                         
+                       </table>
+
+                     </div>
+
+                   </form>
+                   <a href="<?php echo site_url('theme2/t2_informpayment').'/'.$s_id;?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("go_t_pay");?></div></a>
+                   
+                 </div>
+
+                 
+               </div>
+               <h2 class="h2space"></h2>
+               <div class="row">
+                <div class="col-lg-12  ">
+                 <div class="page-header-x">
+                  
+                 </div>
+                 <div class="page-header">
+                  
+                 </div>
+               </div>
+
+             </div>                                     
+             
+           </div><!--/col-->             
+           <div class="row">
+            <div class="col-lg-12  ">
+             
+             <div class="page-header-s">
+              
+             </div>
+           </div>
+
+         </div>  
+       </div>
+     </div>       
+
+     
+     
+    </div>
+   </div>
+ </section>
+</div> 
+</div>
+</div>  
+</div>      
 
 
   
-  </div>
-  </section>
-        </div>
-       </div>
-      </div>
-      </div>
-      </div>
-    </div>
 
 
 
@@ -344,6 +340,7 @@ header {
 </ul>
 
 <!-- Modal cart 1-->
+
                                 <div  class="modal animated pulse" data-easein="pulse" data-easeout="rollOut"  id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg " style="font-size: 11px;letter-spacing: 0.2em;text-align: center;text-transform: uppercase;background-color:white">
                                     <div class="modal-content"style="background-color:white ">
@@ -459,31 +456,92 @@ header {
                                 </div>
 
 
-    
-
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
+
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
 <script src="<?php echo JS_THEME2;?>scripts.js"></script>
+
 <script type="text/javascript">
 
-       $(document).ready(function () {
-    
-            $('#product-table').on( 'click', '.btn-remove', function( event ) {
-                var $tr = $("#trpro").closest('tr').css("display","none");
-                $tr.find('.quantity').val( '0' );
-                $tr.find('.total').text( '0.00' );
-                
+var re=<?php echo $re;?>;
+if(re==1){
+  $('#cartModal').modal('show');
 
-                
-            });
+  
+}else{
 
-            $('#sumary').html - $("#s_price").html();
+}
+
+$('input[type=number]').click(function(e) {
+
+ $("#view_cart").submit();
+ 
+});
+
+
+
+$(document).ready(function() { 
+
+  $("#view_cart").submit(function() {
+    var myForm = document.forms.view_cart;
+    var rowid_cart = myForm.elements['rowid[]'];
+    var qty_cart  = myForm.elements['qty[]'];
+    if(rowid_cart.length==null){
+      var st=new Array();
+      var st2=new Array();
+      
+      var rowid = rowid_cart.value;
+      var qtycart  = qty_cart.value;
+      st= rowid;
+      st2=qtycart;
+      //alert(st+" "+st2);
+      //alert(rowid+" "+qtycart);
+      $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+            
+           location.reload();
+
+            
+          }else{
+            alert("Product does not exist");
+          }
         });
 
 
+    }else{
+      var myForm = document.forms.view_cart;
+      var rowid_cart = myForm.elements['rowid[]'];
+      var qty_cart  = myForm.elements['qty[]'];
+      
+       
+       var st=new Array();
+       var st2=new Array();
+      for (var i = 0; i<rowid_cart.length; i++) {
+        
+          st[i]=rowid_cart[i].value;
 
+          st2[i]=qty_cart[i].value;
 
+     }
+     //alert(st+" "+st2);
+     $.post("<?php echo site_url();?>cashshop/update_cart", { 'row_cart[]':st,'qty_cart[]':st2,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+
+            location.reload();
+          }else{
+            alert("Product does not exist");
+          }
+        });
+    }
+      return false; // Stop the browser of loading the page defined in the form "action" parameter.
+    });
+
+});
 
 
     </script>
@@ -491,6 +549,7 @@ header {
       $("#menu-toggle").click(function(e) {
        e.preventDefault();
        $("#wrapper").toggleClass("active");});
+
 
     </script>
 
