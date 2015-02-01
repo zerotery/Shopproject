@@ -226,7 +226,19 @@
                          
                         <div class="col-xs-12 col-sm-12 bborder" >
                           
-                          <form id="confirm_pay" name="confirmpayment"  method="post"  enctype="multipart/form-data" >
+                          <form action="<?php echo site_url('cashshop/submit_order'); ?>" id="confirm_pay" name="confirmpayment"  method="post"  enctype="multipart/form-data" >
+                            
+                            <div class="form-group">
+                            <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10">Number Order:</label>
+                            <div class=" col-xs-8 col-sm-8 mt10">
+                             
+                             <input type="text" id="number_order" name="number_order"   style="width:130px;height:25px"  >
+                             
+                             
+                             
+                             
+                           </div>
+                         </div>
                             <div class="form-group">
                               <label  class="col-lg-3  col-sm-3 control-label animated fadeInDown"  rowspan="2"><?=$this->lang->line("bank_acc_pay");?></label>
                               <div class="col-xs-8 col-sm-8 table-responsive">
@@ -342,7 +354,7 @@
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail img-responsive" style="width: 180px; height: 180px;"></div>
                         <div>
-                          <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="select_shopbg"></span>
+                          <span class="btn btn-info btn-file"><span class="fileinput-new"><?=$this->lang->line("select_pic");?></span><span class="fileinput-exists"><?=$this->lang->line("change_pic");?></span><input type="file" name="tranfer" id="tranfer"></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?=$this->lang->line("remove_pic");?></a>
                         </div>
                       </div>                  
@@ -377,7 +389,7 @@
                   </div>
 
                   
-                  <a href="<?php echo site_url('theme1/informpayment');?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("send_form");?></div></a>
+                  <a href="#" id="btn_submit"><div  class="pull-right btn btn-info"><?=$this->lang->line("send_form");?></div></a>
                   
                 </form>
                 
@@ -456,6 +468,10 @@
 <script src="<?php echo JS_URL;?>bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery.validate.min.js"></script>
 <script type="text/javascript">
+  $(function () {
+                $('#datetimepicker1').datetimepicker({pickTime: false});
+                $('#datetimepicker2').datetimepicker({pickDate: false});
+            });
 
 $.validator.addMethod(
  "regex",
@@ -469,6 +485,11 @@ $.validator.addMethod(
 
 $("#confirm_pay").validate({
   rules: {
+    number_order: {
+      required: true,
+      regex: /^([0-9])+$/
+      
+    },
     bank: {
       required: true
       
@@ -506,6 +527,11 @@ $("#confirm_pay").validate({
     }
   },
   messages: {
+    number_order: {
+      required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>",
+      regex: "<?php echo "<font color='red'>".$this->lang->line("error_price")."</font>";?>"
+      
+    },
     bank: {
       required: "<?php echo "<font color='red'>".$this->lang->line("error_empty")."</font>";?>"
       
@@ -569,6 +595,8 @@ $("#confirm_pay").validate({
 
 <script type="text/javascript">
 var re=<?php echo $re;?>;
+
+
 if(re==1){
   $('#cartModal').modal('show');
 
@@ -576,6 +604,13 @@ if(re==1){
 }else{
 
 }
+
+$('#btn_submit').click(function(e) {
+ 
+ //alert(status_order);
+ $("#confirm_pay").submit();
+ 
+});
 
 $('input[type=number]').click(function(e) {
 
