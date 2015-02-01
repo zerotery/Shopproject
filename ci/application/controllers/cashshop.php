@@ -621,7 +621,7 @@ public function insert_order(){
                  
                   $ci->email->to($email);  
                   if($lang=="english"){
-                    $ci->email->subject('You have order in'.' '.$nameshop.'.'.'If you transfered money.please confirm money transfer follow url');
+                    $ci->email->subject('You have order in'.' '.$nameshop.'order number is '.$order_id.'.'.'If you transfered money.please confirm money transfer follow url');
                     $ci->email->message(''."   ".anchor(site_url('Shop/informpayment').'/'.$s_id,'confirm money transfer') );
                     if($ci->email->send()){
                       $a=1;
@@ -629,7 +629,7 @@ public function insert_order(){
                       $a=2;
                     }
                   }else if($lang=="thailand"){
-                    $ci->email->subject('คุณมีการสั่งซื้อสินค้าที่ร้าน'.' '.$nameshop.'.'.'ถ้าคุณทำการโอนเงินเพื่อชำระเงินของสินค้าเเล้วกรุณาทำการยืนยันการโอนเงินโดยกด link ');
+                    $ci->email->subject('คุณมีการสั่งซื้อสินค้าที่ร้าน'.' '.$nameshop.'รห้สการสั่งซื้อคือ '.$order_id.'.'.'ถ้าคุณทำการโอนเงินเพื่อชำระเงินของสินค้าเเล้วกรุณาทำการยืนยันการโอนเงินโดยกด link ');
                     $ci->email->message(''."   ".anchor(site_url('Shop/informpayment').'/'.$s_id,'ยืนยันการชำระเงิน') );
                     if($ci->email->send()){
                       $a=1;
@@ -711,7 +711,7 @@ public function insert_order(){
                  
                   $ci->email->to($email);  
                   if($lang=="english"){
-                    $ci->email->subject('You have order in'.' '.$nameshop.'.'.'If you transfered money.please confirm money transfer follow url');
+                    $ci->email->subject('You have order in'.' '.$nameshop.'order number is '.$order_id.'.'.'If you transfered money.please confirm money transfer follow url');
                     $ci->email->message(''."   ".anchor(site_url('Shop/informpayment').'/'.$s_id,'confirm money transfer') );
                     if($ci->email->send()){
                       $a=1;
@@ -719,7 +719,7 @@ public function insert_order(){
                       $a=2;
                     }
                   }else if($lang=="thailand"){
-                    $ci->email->subject('คุณมีการสั่งซื้อสินค้าที่ร้าน'.' '.$nameshop.'.'.'ถ้าคุณทำการโอนเงินเพื่อชำระเงินของสินค้าเเล้วกรุณาทำการยืนยันการโอนเงินโดยกด link ');
+                    $ci->email->subject('คุณมีการสั่งซื้อสินค้าที่ร้าน'.' '.$nameshop.'รห้สการสั่งซื้อคือ '.$order_id.'.'.'ถ้าคุณทำการโอนเงินเพื่อชำระเงินของสินค้าเเล้วกรุณาทำการยืนยันการโอนเงินโดยกด link ');
                     $ci->email->message(''."   ".anchor(site_url('Shop/informpayment').'/'.$s_id,'ยืนยันการชำระเงิน') );
                     if($ci->email->send()){
                       $a=1;
@@ -751,10 +751,182 @@ public function insert_order(){
       }
 }
 
+public function submit_order(){
+  
+  $order_ID=$this->input->post('number_order');
+  $result_order=$this->shop->find_order($order_ID);
+  //$lname=$this->input->post('lastname');
+  //$email=$this->input->post('email');
+  //$perid=$this->input->post('license');
+  //$address=$this->input->post('address');
+  //$province=$this->input->post('province');
+  if(!empty($result_order)){
+    //print_r($result_order);
+    $s=0;
+     $filename = "./uploads/orders/".$result_order[0]['s_ID'];
 
-       
+      if (file_exists($filename)) {
+                      if(file_exists("./uploads/orders/".$result_order[0]['s_ID']."/".$result_order[0]['order_ID'])){
+                        $s=1;
+                      }else{
+                        mkdir("./uploads/orders/".$result_order[0]['s_ID']."/".$result_order[0]['order_ID']);
+                        $s=1;
+                      }
+                      
+      }else {
+                      
+                      mkdir("./uploads/orders/".$result_order[0]['s_ID']);
+                      if(file_exists("./uploads/orders/".$result_order[0]['s_ID']."/".$result_order[0]['order_ID'])){
+                        $s=1;
+                      }else{
+                        mkdir("./uploads/orders/".$result_order[0]['s_ID']."/".$result_order[0]['order_ID']);
+                        $s=1;
+                      }
+    }
+      if($s==1){
+        //echo "haha";
+        //print_r($result_order);
+        $set1=0;
+                     $config['upload_path'] ='./uploads/orders/'.$result_order[0]['s_ID']."/".$result_order[0]['order_ID']."/";
+                     $config['allowed_types'] = 'gif|jpg|png';
+                     $config['max_size'] = '0';
+                     $config['max_width']  = '0';
+                     $config['max_height']  = '0';
+                     $this->upload->initialize($config);
+                     
+                     if(!$this->upload->do_upload('tranfer')){
+                        
+                    //0 loop 3 4 loop 2
+                    
+                          if($_FILES['tranfer']['error']==4){
+                          $file = logo_pic."item.png";
+                          $newfile = "./uploads/orders/".$result_order[0]['s_ID']."/".$result_order[0]['order_ID']."/"."tranfer_".$result_order[0]['order_ID'].".png";
+
+                          if (copy($file, $newfile)) {
+                          $set1=1;
+                          $namepic="tranfer_".$result_order[0]['order_ID'].".png";
+                          }  
+                          
+                          }else if($_FILES['tranfer']['error']==0){
+                            $set1=0;
+                            echo "<script>
+                            alert('Have problem upload picture'); 
+                            window.history.go(-1);
+                            </script>";
+                          }
+
+                    }else{
+                      //echo "upload success";
+                     $data=array('upload_data' =>$this->upload->data());
+                      
+                     $picnameold=$data['upload_data']['file_name']; 
+                     // $width=$data['select_tranfer']['image_width'];
+                     // $height=$data['select_tranfer']['image_height'];
+                     $temp = explode(".",$data['upload_data']['file_name']);
+                     $namepic= "tranfer_".$result_order[0]['order_ID'] . '.' .end($temp);
+                      
+                     if(rename ("./uploads/orders/".$result_order[0]['s_ID']."/".$result_order[0]['order_ID']."/".$picnameold, "./uploads/orders/".$result_order[0]['s_ID']."/".$result_order[0]['order_ID']."/".$namepic)){
+                      $set1=1;
+                     }else{
+                      $set1=0;
+                            echo "<script>
+                            alert('Have problem upload picture'); 
+                            window.history.go(-1);
+                            </script>";
+                     }
+                      
+                    }
+                    if($set1==1){
+                      $name=$this->input->post('name')." ".$this->input->post('surname');
+                      $date_tranfer=$this->input->post('payment_date');
+                      $email=$this->input->post('email');
+                      $tranfer_time=$this->input->post('payment_time');
+                      $bank_tranfer=$this->input->post('bank');
+                      $payment=$this->input->post('price');
+                      $moredetail=$this->input->post('detailpay');
+                      $tranfer_pic=$namepic;
+                      $data=array(
+                          'member_name'=>$name,
+                          'date'=>$date_tranfer,
+                          'email_tranfer'=>$email,
+                          'tranfer_time'=>$tranfer_time,
+                          'bank_transfer'=>$bank_tranfer,
+                          'payment'=>$payment,
+                          'more_detail'=> $moredetail,
+                          'evidence_pic'=>$tranfer_pic,
+
+                          'order_ID'=>$result_order[0]['order_ID'],
+                          's_ID'=>$result_order[0]['s_ID']
+
+
+                        );
+
+                      $result=$this->shop->insert_tranfer($data);
+                      if($result==1){
+                        $send_order=$this->input->post('add_shipping');
+                        $order_date=$result_order[0]['order_date'];
+                        $data=array(
+                          'send_order_address'=>$send_order,
+                          'order_date'=>$order_date,
+                          'order_ID'=>$result_order[0]['order_ID']
+                          
+
+
+                        );
+                        $result_1=$this->shop->insert_shipping($data);
+                        if($result_1==1){
+                          echo "<script>
+                            alert('Save success'); 
+                            window.history.go(-1);
+                            location.reload();
+                            </script>";
+                        }else{
+                          echo "<script>
+                            alert('Save unsuccess'); 
+                            window.history.go(-1);
+                            </script>";
+                        }
+                      }else{
+                            echo "<script>
+                            alert('Have problem with database'); 
+                            window.history.go(-1);
+                            </script>";
+                      }
+
+                    }else{
+                       echo "<script>
+                            alert('Have problem upload picture'); 
+                            window.history.go(-1);
+                            </script>";
+                    }
+
+      }else{
+        echo "<script>
+             alert('Have problem create upload folder'); 
+             window.history.go(-1);
+            </script>";
+      }
+
+
+     
+  }else{
+    echo "<script>
+             alert('No have Order number'); 
+             window.history.go(-1);
+     </script>";
+  }
+  
 
 }
+       
+
+
+
+
+
+}
+
+
 
 
 

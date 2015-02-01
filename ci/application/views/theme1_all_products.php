@@ -523,6 +523,9 @@ $(document).ready(function() {
            //location.reload();
 
             
+          }else if(data == 'email'){
+            alert("Email Send have problem.");
+
           }else{
             alert("Product does not exist");
           }

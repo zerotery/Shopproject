@@ -759,6 +759,30 @@
 
 		}
 
+		public function insert_tranfer($data){
+			if($this->db->insert('tranfer_detail',$data)){
+				
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
+		public function insert_shipping($data){
+			if($this->db->insert('order_shipping',$data)){
+				
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
+		public function find_order($order_ID){
+			$sql="SELECT order_ID,s_ID,memberID,order_date FROM `order` WHERE order_ID='$order_ID';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
 		public function insert_order_product($data){
 			if($this->db->insert('order_product',$data)){
 				//$sql="SELECT MAX(order_ID) as order_ID FROM order;";
