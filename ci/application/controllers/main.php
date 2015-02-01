@@ -65,6 +65,31 @@
  			
 		}
 
+		public function webboard(){
+			$status=NUll;
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+			$this->load->view('webboard');
+
+		}
+
+		public function help(){
+			$status=NUll;
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+			$this->load->view('help');
+
+		}
+		public function allShop(){
+			$status=NUll;
+			$lang=$this->load_language->lang();
+            $this->lang->load($lang,$lang);
+			$this->load->view('allShop');
+
+		}
+
+
+
 		
 
 

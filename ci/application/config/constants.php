@@ -39,8 +39,10 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 define("LAYOUT_URL","http://localhost/Shopproject/ci/asset/css/");
 
 define("THEME1_URL","http://localhost/Shopproject/ci/asset/css/theme1/");
+define("THEME2_URL","http://localhost/Shopproject/ci/asset/css/theme2/");
 define("JS_URL","http://localhost/Shopproject/ci/asset/js/");
 define("JS_THEME1","http://localhost/Shopproject/ci/asset/js/theme1/");
+define("JS_THEME2","http://localhost/Shopproject/ci/asset/js/theme2/");
 define("BI","https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/");
 
 define("logo_pic","http://localhost/Shopproject/ci/asset/img/");

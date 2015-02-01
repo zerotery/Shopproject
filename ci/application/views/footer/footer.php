@@ -1,5 +1,5 @@
 <footer style=" position:fixed;
-   z-index:10;
+   z-index:100;
    left:0px;
    bottom:0px;
    height:30px;

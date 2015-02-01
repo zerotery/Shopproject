@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+/*===============================================================
+		Template Name: Anycart
+		Version: 1.0
+		Description: Responsive and clean template for retail shop
+		Theme URI: http://www.curvepixell.com/web/anycart
+		Development: Stevemun
+		Author URI: http://themeforest.net/user/stevemun7
+		Tags: Anycrt, retail, curvepixell
+===============================================================*/
+
+
+
+
+
+
+
+/*===============================================================
+		Universal Transition Start
+===============================================================*/
+#currency a, 
+#language a, 
+.mini-cart-info tr:hover, 
+#welcome a, 
+#menu > ul > li ul > li > a, 
+a.button, 
+a.button2, 
+.button, 
+.htabs a, 
+.box-product > div, 
+.box-product .abs, 
+.box-product1 > div, 
+.box-product1 .abs, 
+.box-category > ul > li > a, 
+.box-category > ul > li ul > li > a, 
+.product-list > div, 
+.product-grid > div, 
+.product-info .image, 
+.product-info .image-additional a, 
+#footer .column a, 
+#powered a, 
+ul.list-bullet li a, 
+#currency a, 
+#mobileMenu ul.menu-none, 
+input[type='text'], 
+input[type='password'], 
+textarea, 
+input[type=submit],
+#header .links a, 
+.linkText, 
+#wrap > a:hover, 
+.span2 a:hover, 
+.product-filter, 
+.backTop, 
+a.button1, 
+a.btn-detail, 
+.product-list .name a, 
+.sitemap-info, 
+#c_switcher, 
+#l_switcher,
+#footerm .column ul li a
+{
+	transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+	-o-transition:all 0.3s ease-in-out;
+	-ms-transition:all 0.3s ease-in-out;
+}
+/*===============================================================
+		Universal Transition End
+===============================================================*/

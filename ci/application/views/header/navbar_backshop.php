@@ -69,7 +69,7 @@
         </ul>
       </li>
       <li>
-        <a href="<?php echo site_url('backshop/myshop');?>"><span class="glyphicon glyphicon-home" >&nbsp<?=$this->lang->line("viewshop");?></span></a>
+        <a href="<?php echo site_url('backshop/myshop');?>"><span  ><img style="width:25px;height:25px" src="<?php echo logo_pic;?>icon_openshop_s.png">&nbsp<?=$this->lang->line("viewshop");?></span></a>
       </li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown"><?=$this->lang->line("login");?><b class="caret"></b></a>

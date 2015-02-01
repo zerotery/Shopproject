@@ -205,7 +205,7 @@
 
                         ?>
                         
-                        
+                        </ul>
                       </div> 
                       
                       
@@ -229,18 +229,19 @@
                           <form action="<?php echo site_url('cashshop/submit_order'); ?>" id="confirm_pay" name="confirmpayment"  method="post"  enctype="multipart/form-data" >
                             
                             <div class="form-group">
-                            <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10">Number Order:</label>
+                            <label  class="col-lg-4  col-sm-4 control-label animated fadeInDown mt10"><?=$this->lang->line("order_number");?></label>
                             <div class=" col-xs-8 col-sm-8 mt10">
                              
-                             <input type="text" id="number_order" name="number_order"   style="width:130px;height:25px"  >
+                              <input type="text" id="number_order" name="number_order"   style="width:130px;height:25px" data-toggle="popover" data-trigger="hover " data-container="body" data-placement="right" data-content="<?=$this->lang->line("order_num_note");?>"  >
                              
                              
                              
                              
                            </div>
                          </div>
+
                             <div class="form-group">
-                              <label  class="col-lg-3  col-sm-3 control-label animated fadeInDown"  rowspan="2"><?=$this->lang->line("bank_acc_pay");?></label>
+                              <label  class="col-lg-3  col-sm-3 control-label animated fadeInDown mt10"  rowspan="2"><?=$this->lang->line("bank_acc_pay");?></label>
                               <div class="col-xs-8 col-sm-8 table-responsive">
                                 <td><table class="table" >
                                   <tbody>
