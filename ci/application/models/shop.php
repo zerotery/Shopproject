@@ -15,6 +15,38 @@
 
 		}
 
+		public function get_shop_show(){
+			$lang=$this->session->userdata('langdata');
+			//$sql="SELECT s_ID,  FROM member WHERE username='$chuser' AND password='$chpass';";
+			
+			$sql="SELECT shop.s_ID,shop.memberID,shop.shop_pic,shop.shop_create_date,shop.s_url,shop_detail.shop_name,shop_detail.lang_ID FROM shop,shop_detail WHERE shop.s_ID=shop_detail.s_ID AND shop_detail.lang_ID='$lang' ORDER BY shop.shop_create_date DESC LIMIT 6;";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function get_shop_show_all(){
+			$lang=$this->session->userdata('langdata');
+			//$sql="SELECT s_ID,  FROM member WHERE username='$chuser' AND password='$chpass';";
+			
+			$sql="SELECT shop.s_ID,shop.memberID,shop.shop_pic,shop.shop_create_date,shop.s_url,shop_detail.shop_name,shop_detail.lang_ID FROM shop,shop_detail WHERE shop.s_ID=shop_detail.s_ID AND shop_detail.lang_ID='$lang';";
+			$query=$this->db->query($sql)->result_array();
+			return $query;
+		}
+
+		public function search_shop($cate_search){
+			$lang=$this->session->userdata('langdata');
+			$sql="SELECT shop_group_lang FROM shop_category WHERE shop_category_ID='$cate_search';";
+			$query=$this->db->query($sql)->result_array();
+			$g_lang=$query[0]['shop_group_lang'];
+			$sql="SELECT shop_category_ID FROM shop_category WHERE shop_group_lang='$g_lang';";
+			$query_1=$this->db->query($sql)->result_array();
+			$cate_ID_1=$query_1[0]['shop_category_ID'];
+			$cate_ID_2=$query_1[1]['shop_category_ID'];
+			$sql="SELECT shop.s_ID,shop.memberID,shop.shop_pic,shop.shop_create_date,shop.s_url,shop_detail.shop_name,shop_detail.lang_ID,shop_category_detail.s_ID FROM shop,shop_detail,shop_category_detail WHERE shop.s_ID=shop_detail.s_ID AND shop.s_ID=shop_category_detail.s_ID AND shop_detail.lang_ID='$lang' AND (shop_category_detail.shop_category_ID='$cate_ID_1' OR shop_category_detail.shop_category_ID='$cate_ID_2');";
+			$query_2=$this->db->query($sql)->result_array();
+			return $query_2;
+		}
+
 		public function get_picshop($s_id){
 
 			//$sql="SELECT s_ID,  FROM member WHERE username='$chuser' AND password='$chpass';";

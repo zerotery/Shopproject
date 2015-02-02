@@ -42,14 +42,21 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 $route['Shop/product/detail/(:num)/(:num)'] = 'cashshop/product_theme1/$1/$2';
+$route['Shop/product/detail/t2/(:num)/(:num)'] = 'cashshop/product_theme2/$1/$2';
 $route['Shop/product/all/(:num)'] = 'cashshop/all_product/$1';
+$route['Shop/product/all/t2/(:num)'] = 'cashshop/all_product_2/$1';
 $route['Shop/product/:any/(:num)/(:num)'] = 'cashshop/cate_product/$1/$2';
+$route['Shop/product_t2/:any/(:num)/(:num)'] = 'cashshop/cate_product_2/$1/$2';
 $route['Shop/:any/(:num)/(:num)'] = 'cashshop/goshop/$1/$2';
 $route['Shop/home/(:num)/(:num)'] = 'cashshop/goshop/$1/$2';
 $route['Shop/how2order/(:num)'] = 'cashshop/how2order_theme1/$1';
+$route['Shop/how2order/t2/(:num)'] = 'cashshop/how2order_theme2/$1';
 $route['Shop/informpayment/(:num)'] = 'cashshop/informpayment_theme1/$1';
+$route['Shop/informpayment/t2/(:num)'] = 'cashshop/informpayment_theme2/$1';
 $route['Shop/aboutus/(:num)'] = 'cashshop/aboutus_theme1/$1';
+$route['Shop/aboutus/t2/(:num)'] = 'cashshop/aboutus_theme2/$1';
 $route['Shop/contactus/(:num)'] = 'cashshop/contactus_theme1/$1';
+$route['Shop/contactus/t2/(:num)'] = 'cashshop/contactus_theme2/$1';
 $route['Shop/product/(:num)/(:num)'] = 'cashshop/product_theme1/$1/$2';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

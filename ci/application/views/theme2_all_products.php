@@ -2,32 +2,31 @@
 
 <head>
 
-<title>TB Shop - Shop Online</title>
-<link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
+  <title>TB Shop - Shop Online</title>
+  <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
-<meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
-<meta charset="UTF-8">
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
-<link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>stylesheet.css">
-<link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>shortcodes.css">
-<link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>transition.css">
-
-
+  <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
+  <meta charset="UTF-8">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo LAYOUT_URL;?>bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>shortcodes.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo THEME2_URL;?>transition.css">
 
 
 
 
 
 
-<style type="text/css">
+
+  <style type="text/css">
   .divider-all {
     width: 100%;
     height: auto;
     padding-right: 0px;
     padding-left: 0px;
-    
+
     margin-top: 0 !important;
     background-color: #F8F8FF;
     position: absolute;
@@ -37,7 +36,7 @@
     -o-background-size: cover;
     background-size: cover;
     z-index: 1;
-    
+
 
 
   }
@@ -66,6 +65,7 @@
   </style>
 
 
+
 </head>
 
 <body>
@@ -73,18 +73,17 @@
   <?php echo $this->load->view('header/navbar_log')?>
 
 
-    <div id="wrapper">
+  <div id="wrapper">
 
 
-      
-      
-        <!-- Sidebar -->
-      <div id="sidebar-wrapper">
+
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
       <ul id="sidebar_menu" class="sidebar-nav">
-           <li class="sidebar-brand "><a  id="menu-toggle"  style="color:#FAEBD7" ><?=$this->lang->line("t2_menu");?><span id="main_icon" class="glyphicon glyphicon-th-list animated bounce"></span></a></li>
-      </ul>
-
-       <?php
+       <li class="sidebar-brand "><a  id="menu-toggle"  style="color:#FAEBD7" ><?=$this->lang->line("t2_menu");?><span id="main_icon" class="glyphicon glyphicon-th-list animated bounce"></span></a></li>
+     </ul>
+      <?php
                   if($layout==0){
                     echo '<ul class="sidebar-nav" id="sidebar"> ';
                     echo '<li class="animated m_hover"><a class="animated-home fadeInRight2" href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'">'.$this->lang->line("t_home").'<span class="sub_icon glyphicon glyphicon-home glyphicon-blue"></span></a></li>';
@@ -119,28 +118,26 @@
                    echo $this->load->view('theme2_cart');
                   }
                   ?>
-
-        
-
-      </div>
+  </div>
 
 
-      <div class="divider-all">
-        <div class="row">
-          <div class="col-lg-12  ">
-             <div class="page-header-show">
-                      
-                    </div>
-                    </div>
-                    </div>
-        <div class="bs-docs-section clearfix">
-          <div class="row">
-          <div class="col-lg-12">
-             
+
+  <div class="divider-all">
+    <div class="row">
+      <div class="col-lg-12  ">
+       <div class="page-header-show">
+
+       </div>
+     </div>
+   </div>
+   <div class="bs-docs-section clearfix">
+    <div class="row">
+      <div class="col-lg-12">
+
         <!-- Page content -->
         <div id="page-content-wrapper">
-            <section>
-              <div id="divider-center"> 
+          <section>
+            <div id="divider-center"> 
 
 
 
@@ -149,48 +146,50 @@
               </header>
 
 
+              <div class="page-header-shop"></div>
+              <!-- Begin page content -->
+              <div class="page-header-shop padding-0 breadcrumb-img ">
+                <div class="rowz ">
+                  <div class="col-lg-12 col-md-12 col-sm-12 ">
 
-            <div class="page-header-shop"></div>
-                      <!-- Begin page content -->
-               <div class="page-header-shop padding-0 breadcrumb-img ">
+                    <ol class=" btn-group btn-breadcrumb breadcrumb-img margin-pad3">
 
-                    <div class="rowz">
+                      <li class="btn btn-danger"><a href="<?php echo site_url('Shop/home').'/'.$s_id.'/'.'2';?>"  ><?=$this->lang->line("home");?></a></li>
+                      <li class="btn btn-success" ><a href="<?php echo site_url('Shop/product/all/t2').'/'.$s_id;?>"  ><?=$this->lang->line("all_product");?></a></li>
 
-                      <div class="col-lg-12 col-md-12 col-sm-12 ">
+                    </ol> 
 
 
-                      <ol class="btn-group btn-breadcrumb breadcrumb-img margin-pad3" >
-                          
-                          <li class="btn btn-danger"><a href="<?php echo site_url('Shop/home').'/'.$s_id.'/'.'2';?>"  ><?=$this->lang->line("home");?></a></li>
-                          
-                      </ol>
-                      
-                      
-                        
 
-                      </div>
-                      
-                    </div>
                   </div>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
 
-          
-                                              
-                                               
-                                             
-            <div id="divider-content  ">                                   
-              <div class="row">             
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div id="divider-content  ">                                   
+                <div class="row">             
                  <div class="col-xs-3" >
-                     <!-- left -->
-                    <ul class="nav nav-stacked affix-top" id="sidebar" >
+                   <!-- left -->
+
+
+                   <ul class="nav nav-stacked affix-top" id="sidebar" >
                         <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
                         
                         <li><a href="<?php echo site_url('Shop/product/all/t2').'/'.$s_id;?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [<?php echo $all_product;?>]</a></li>
@@ -207,49 +206,29 @@
 
 
                       </ul>
-                            
-                       
-                                 
-                                    
+
+
+
                 </div> 
-                                   
-                         <div class="col-xs-9  ">
-                      <div class="row">
-                        <div class="col-lg-12  ">
-                         <div class="page-header-s">
 
-                         </div>
-                       </div>
+
+
+                <div class="col-xs-9  ">
+                  <div class="row">
+                    <div class="col-lg-12  ">
+                     <div class="page-header-s">
+
                      </div>
-                     <h2 id="sec0"><div id="divl" ><?=$this->lang->line("mbox");?></div> </h2>
-
-                     <div class="row">
-
-                      <div class="col-xs-12 col-sm-12 mborder" >
-                        <div class="toey">
-                         <?php 
-                         for($i=0;$i<count($layout);$i++){
-                           if($layout==0){ }else if($layout[$i]['type_layout']==1){echo $layout[$i]['layout_detail'];}
-                         }
-                         
-                         ?> 
-
-                         
-                       </div>
-                     </div>
-
-
-
-                     
                    </div>
-                   <h2 class="h2space"></h2>
-                   <h2 id="sec1"><div id="divl" ><?=$this->lang->line("product");?></div> </h2>
-                   <div class="row">
-                     <?php
+                 </div>
 
+                 <h2 id="sec1"><?=$this->lang->line("all_product");?> [<?php echo $all_product;?>] </h2>
 
-
-                     for($i=0;$i<count($product);$i++){
+                 <div class="row">
+                  <?php
+                      $this->session->set_userdata('local_product',1);
+                      
+                      for($i=0;$i<count($product);$i++){
                       $attributes = array('id' => 'myform');
                       echo form_open('cashshop/add_cart',$attributes);
 
@@ -266,7 +245,7 @@
                       echo     '<div  class="abs"  >';
                       echo     '<div class="cart ">';
                       echo      '<input type="submit" class="button1 animated fadeInLeft" value="">';
-                      echo      '<a id="btn_add_cart" class="btn-detail ml10 animated fadeInRight " title="'.$this->lang->line("view_product").'" href="'.site_url('Shop/product/detail/t2').'/'.$product[$i]['s_ID'].'/'.$product[$i]['p_ID'].'"><span></span></a>';
+                      echo      '<a id="btn_add_cart" class="btn-detail ml10 animated fadeInRight " title="'.$this->lang->line("view_product").'" href="'.site_url('Shop/product/detail/').'/'.$product[$i]['s_ID'].'/'.$product[$i]['p_ID'].'"><span></span></a>';
                       echo      '</div>';         
                       echo      '</div>';   
                       echo      '</div>';   
@@ -275,50 +254,73 @@
                       echo  form_close();
 
                     }
+                     
+                //  }
 
-                    ?>
-                  </div>  
 
-                  <div class="row">
-                    <div class="col-lg-12  ">
-                     <div class="page-header-x">
 
-                     </div>
-                     <div class="page-header">
 
-                     </div>
-                   </div>
 
-                 </div>                                     
 
-               </div><!--/col-->             
-               <div class="row">
-                <div class="col-lg-12  ">
 
-                 <div class="page-header-s">
-
+                      ?>
                  </div>
-               </div>
-
-             </div>  
-         </div>
-       </div>       
 
 
-                    </div> 
-    
 
-        
-   </section>
- </div> 
+                  
+
+
+<div class="row">
+  <div class="col-lg-12  ">
+   <div class="page-header-x">
+
+   </div>
+   <div class="page-header">
+
+   </div>
+ </div>
+
+</div>                                     
+
+</div><!--/col-->             
+<div class="row">
+  <div class="col-lg-12  ">
+
+   <div class="page-header-s">
+
+   </div>
+ </div>
+
+</div> 
+</div>
+</div>       
+
+
+</div> 
+
+
+
+</section>
+</div> 
 </div>
 </div>  
 </div>  
 </div> 
-</div>           
-       
-     
-<?php echo $this->load->view('footer/footer');?>
+</div>          
+
+
+
+
+
+
+
+
+
+
+
+
+<?php echo $this->load->view('footer/footer')?>
 <ul class="nav pull-right scroll-top">
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
 </ul>
@@ -328,19 +330,10 @@
 
 
 
-
-
-
-    
-
-
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
 <script src="<?php echo JS_THEME2;?>scripts.js"></script>
-
 <script type="text/javascript">
-
-//var re=0;
 var re=<?php echo $re;?>;
 var status_order=0;
 if(re==1){
@@ -374,6 +367,7 @@ $(document).ready(function() {
     });
 
   });
+
 
 $('input[type=number]').click(function(e) {
  window.status_order=1;
@@ -458,7 +452,7 @@ $(document).ready(function() {
       var qty_cart  = myForm.elements['qty[]'];
       var o_detail  = myForm.elements['detail_order[]'];
       var post_product  = myForm.elements['post_product'];
-    if(typeof(s_id) == "undefined"){
+   if(typeof(s_id) == "undefined"){
       alert("Product does not exist");
     }else{
       if(s_id.length==null){
@@ -495,9 +489,6 @@ $(document).ready(function() {
            window.location.assign('<?php echo $url;?>');
 
             
-          }else if(data == 'email'){
-            alert("Email Send have problem.");
-
           }else{
             alert("Product does not exist");
           }
@@ -527,19 +518,18 @@ $(document).ready(function() {
            window.location.assign('<?php echo $url;?>');
            //location.reload();
 
+            
           }else if(data == 'email'){
             alert("Email Send have problem.");
 
           }else{
-            alert("Product does not exist.");
+            alert("Product does not exist");
           }
         });
 
     }
   }
-    }
-    
-    
+  }
 
       return false; // Stop the browser of loading the page defined in the form "action" parameter.
     });
@@ -551,19 +541,26 @@ $(document).ready(function() {
 
 
 
-    </script>
-    <script type="text/javascript">
-      $("#menu-toggle").click(function(e) {
-       e.preventDefault();
-       $("#wrapper").toggleClass("active");});
 
-    </script>
 
-  
 
-    
 
-    
+</script>
+<script type="text/javascript">
+$("#menu-toggle").click(function(e) {
+ e.preventDefault();
+ $("#wrapper").toggleClass("active");});
+
+</script>
+
+
+
+
+
+
+
+
+
 </body>
 
 
