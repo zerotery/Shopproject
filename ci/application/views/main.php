@@ -128,7 +128,7 @@ body {
 								  
 								  <div class="hborder"></div>
 								  <div class="space"></div>
-								  <h3 id="sec1" class="h2space"><div id="divl" style="color:#8b4513" ><?=$this->lang->line("shop");?></div> <div id="divr" ><a style="color:#006400" href="<?php echo site_url('main/allShop');?>"><?=$this->lang->line("shop_all");?></a></div></h3>
+								  <h3 id="sec1" class="h2space"><div id="divl" style="color:#8b4513" ><?=$this->lang->line("shop");?></div> <div id="divr" ><a style="color:#006400" href="<?php echo site_url('main/allShop')."?Status=1";?>"><?=$this->lang->line("shop_all");?></a></div></h3>
 								  <div class="col-xs-12 col-sm-12 mborder ">
 														  <div class="row">
 													          <div class="col-lg-12  ">
@@ -140,122 +140,38 @@ body {
 
 													                    </div>
 														   <div class="row">
-									                            <div class="col-xs-4  col-sm-4">
-											                             <div class="box-product " >
-											                                 <div class="inner"  >
-											                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-											                                  </div>
-											                                  <div class="name"><a href="#">Golden ring one</a></div>
-											                                  <div class="price" align="left"> </div>
-											                                  </div>
-											                                  
-											                                  <div  class="abs"  >
-											                                  <div class="cart animated fadeInUp ">
-											                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-											                                  </div>        
-											                              </div>
-											                              </div>
+														   <?php
+														   		for($i=0;$i<count($shop_result);$i++){
+														   			echo '<div class="col-xs-4  col-sm-4">';
+														   			echo '<div class="box-product " >';
+														   			echo '<div class="inner">';
+														   			echo '<div class="specialnew"></div>';
+														   			echo '<div class="image thumbnailz "><a href="#"><img style="height:180px" src="'.shop.$shop_result[$i]['s_ID'].'/'.$shop_result[$i]['shop_pic'].'"></a>';
+														   			echo '</div>';
+														   			echo '<div class="name"><a href="#">'.$shop_result[$i]['shop_name'].'</a></div>';
+														   			echo '<div class="price" align="left"> </div>';
+														   			echo '</div>';
+														   			if($status==1){
+														   			$temp[$i] = explode("/",$shop_result[$i]['s_url']);
+            
+            														$url[$i]=$temp[$i][3].'/'.$temp[$i][4].'/'.$temp[$i][5].'/'.$temp[$i][6];
+            
+            														
+														   			echo '<div  class="abs"  >';
+														   			echo '<div class="cart animated fadeInUp ">';
+														   			echo '<a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px" href="'.site_url($url[$i]).'">'.$this->lang->line("shop_go").'</a>';
+														   			echo '</div> ';
+														   			echo '</div> ';
 
+														   			}
+														   			echo '</div> ';
+														   			echo '</div> ';
+														   			
+														   		}
 
-											                            </div>
-
-									                            <div class="col-xs-4  col-sm-4">
-												                             <div class="box-product " >
-												                                 <div class="inner" >
-												                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-												                                  </div>
-												                                  <div class="name"><a href="#">Golden ring one</a></div>
-												                                  <div class="price"></div>
-												                                  </div>
-												                                  
-												                                  <div  class="abs "  >
-												                                  <div class="cart animated fadeInUp ">
-												                                  <a class="btn btn-info " style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-												                                  </div>        
-												                              </div>
-												                              </div>
-
-
-												                            </div>
-
-												                <div class="col-xs-4  col-sm-4">
-											                             <div class="box-product " >
-											                                 <div class="inner"  >
-											                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-											                                  </div>
-											                                  <div class="name"><a href="#">Golden ring one</a></div>
-											                                  <div class="price" align="left"> </div>
-											                                  </div>
-											                                  
-											                                  <div  class="abs"  >
-											                                  <div class="cart animated fadeInUp ">
-											                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-											                                  </div>        
-											                              </div>
-											                              </div>
-
-
-											                            </div>            
-														  </div>
-														  <div class="row">
-									                            <div class="col-xs-4  col-sm-4">
-											                             <div class="box-product " >
-											                                 <div class="inner"  >
-											                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-											                                  </div>
-											                                  <div class="name"><a href="#">Golden ring one</a></div>
-											                                  <div class="price" align="left"> </div>
-											                                  </div>
-											                                  
-											                                  <div  class="abs"  >
-											                                  <div class="cart animated fadeInUp ">
-											                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-											                                  </div>        
-											                              </div>
-											                              </div>
-
-
-											                            </div>
-
-									                            <div class="col-xs-4  col-sm-4">
-												                             <div class="box-product " >
-												                                 <div class="inner" >
-												                                  <div class="specialnew"></div>
-												                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-												                                  </div>
-												                                  <div class="name"><a href="#">Golden ring one</a></div>
-												                                  <div class="price"></div>
-												                                  </div>
-												                                  
-												                                  <div  class="abs "  >
-												                                  <div class="cart animated fadeInUp ">
-												                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-												                                  </div>        
-												                              </div>
-												                              </div>
-
-
-												                            </div>
-
-												                <div class="col-xs-4  col-sm-4">
-											                             <div class="box-product " >
-											                                 <div class="inner"  >
-											                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-											                                  </div>
-											                                  <div class="name"><a href="#">Golden ring one</a></div>
-											                                  <div class="price" align="left"> </div>
-											                                  </div>
-											                                  
-											                                  <div  class="abs"  >
-											                                  <div class="cart animated fadeInUp ">
-											                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-											                                  </div>        
-											                              </div>
-											                              </div>
-
-
-											                            </div>            
-														  </div>
+														   ?>
+														   </div>
+														   
 
 														 
 
@@ -291,7 +207,11 @@ body {
 
 
 
-	<?php echo $this->load->view('header/navbar_nlog')?>
+	<?php 
+
+	if($status==0){echo $this->load->view('header/navbar_nlog');}else if($status==1){
+		echo $this->load->view('header/navbar_log');
+	}?>
 		
 		<div class="row">
           <div class="col-lg-12  ">
