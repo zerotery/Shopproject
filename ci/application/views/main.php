@@ -1,5 +1,5 @@
 <html>
-	<head>
+<head>
 	<title>TB Shop</title>
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
@@ -30,7 +30,7 @@ body {
 			
 				<div class="row">
           <div class="col-lg-12  ">
-             <div class="page-header-mh">
+             <div class="page-header-webboard">
                       
                     </div>
                     </div>
@@ -190,6 +190,8 @@ body {
 
 				                  </div>
 								  
+				</div>
+
 				</div>
 
 

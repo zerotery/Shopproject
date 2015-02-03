@@ -87,11 +87,11 @@
          <?php
                   if($layout==0){
                     echo '<ul class="sidebar-nav" id="sidebar"> ';
-                    echo '<li class="animated m_hover"><a class="animated-home fadeInRight2" href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'">'.$this->lang->line("t_home").'<span class="sub_icon glyphicon glyphicon-home glyphicon-blue"></span></a></li>';
+                    echo '<li class="animated m_hover"><a class="animated-home fadeInRight2" href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'">'.$this->lang->line("t_home").'<span class="sub_icon glyphicon glyphicon-home "></span></a></li>';
                     echo '<li class="animated m_hover"><a class="animated-htb fadeInRight2" href="'.site_url('Shop/how2order/t2').'/'.$s_id.'" >'.$this->lang->line("t_hs").'<span class="sub_icon glyphicon glyphicon-question-sign " ></span></a></li>';
                     echo '<li class="animated m_hover"><a class="animated-pay fadeInRight2" href="'.site_url('Shop/informpayment/t2').'/'.$s_id.'">'.$this->lang->line("t_pay").'<span class="sub_icon glyphicon glyphicon-usd"></span></a></li>';
-                    echo '<li class="active animated m_hover"><a class="animated-about fadeInRight2" href="'.site_url('Shop/aboutus/t2').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'<span class="sub_icon glyphicon glyphicon-pushpin "></span></a></li>';
-                    echo '<li class="animated m_hover"><a class="animated-contact fadeInRight2" href="'.site_url('Shop/contactus/t2').'/'.$s_id.'">'.$this->lang->line("t_contact").'<span class="sub_icon glyphicon glyphicon-envelope glyphicon-orange"></span></a></li>';
+                    echo '<li class="animated m_hover"><a class="animated-about fadeInRight2" href="'.site_url('Shop/aboutus/t2').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'<span class="sub_icon glyphicon glyphicon-pushpin "></span></a></li>';
+                    echo '<li class="animated m_hover"><a class="animated-contact fadeInRight2" href="'.site_url('Shop/contactus/t2').'/'.$s_id.'">'.$this->lang->line("t_contact").'<span class="sub_icon glyphicon glyphicon-envelope "></span></a></li>';
                     
                     
                     echo $this->load->view('theme2_cart');
@@ -104,15 +104,15 @@
                     for($i=0;$i<count($layout);$i++){
 
                       if($layout[$i]['type_layout']==1){
-                        echo '<li class="animated m_hover"><a class="animated-home fadeInRight2" href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'">'.$this->lang->line("t_home").'<span class="sub_icon glyphicon glyphicon-home glyphicon-blue"></span></a></li>';
+                        echo '<li class="animated m_hover"><a class="animated-home fadeInRight2" href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'">'.$this->lang->line("t_home").'<span class="sub_icon glyphicon glyphicon-home "></span></a></li>';
                       }else if($layout[$i]['type_layout']==2){
                         echo '<li class="animated m_hover"><a class="animated-htb fadeInRight2" href="'.site_url('Shop/how2order/2').'/'.$s_id.'" >'.$this->lang->line("t_hs").'<span class="sub_icon glyphicon glyphicon-question-sign " ></span></a></li>';
                       }else if($layout[$i]['type_layout']==3){
                         echo '<li class="animated m_hover"><a class="animated-pay fadeInRight2" href="'.site_url('Shop/informpayment/2').'/'.$s_id.'">'.$this->lang->line("t_pay").'<span class="sub_icon glyphicon glyphicon-usd"></span></a></li>';
                       }else if($layout[$i]['type_layout']==4){
-                        echo '<li class="active animated m_hover"><a class="animated-about fadeInRight2" href="'.site_url('Shop/aboutus/2').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'<span class="sub_icon glyphicon glyphicon-pushpin "></span></a></li>';
+                        echo '<li class="animated m_hover"><a class="animated-about fadeInRight2" href="'.site_url('Shop/aboutus/2').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'<span class="sub_icon glyphicon glyphicon-pushpin "></span></a></li>';
                       }else if($layout[$i]['type_layout']==5){
-                        echo '<li class="animated m_hover"><a class="animated-contact fadeInRight2" href="'.site_url('Shop/contactus/2').'/'.$s_id.'">'.$this->lang->line("t_contact").'<span class="sub_icon glyphicon glyphicon-envelope glyphicon-orange"></span></a></li>';
+                        echo '<li class="animated m_hover"><a class="animated-contact fadeInRight2" href="'.site_url('Shop/contactus/2').'/'.$s_id.'">'.$this->lang->line("t_contact").'<span class="sub_icon glyphicon glyphicon-envelope "></span></a></li>';
                       }
                       
                     }
@@ -156,12 +156,12 @@
                               echo '<li class="btn btn-success"><a href="'.site_url('Shop/product/detail/t2').'/'.$s_id.'/'.$p_id.'"  >'.$product_detail[0]['product_name'].'</a></li>';
                             }else if($this->session->userdata('s_in')==1){
                               echo '<li class="btn btn-danger"><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'"  >'.$this->lang->line("home").'</a></li>';
-                              echo '<li class="btn btn-success"><a href="'.site_url('Shop/product/all/t2').'/'.$s_id.'"  >'.$this->lang->line("all_product").'</a></li>';
-                              echo '<li class="btn btn-warning"><a href="'.site_url('Shop/product/detail/t2').'/'.$s_id.'/'.$p_id.'">'.$product_detail[0]['product_name'].'</a></li>';
+                              echo '<li class="btn btn-success"><a  href="'.site_url('Shop/product/all/t2').'/'.$s_id.'"  >'.$this->lang->line("all_product").'</a></li>';
+                              echo '<li class="btn btn-warning"><a style="color:black" href="'.site_url('Shop/product/detail/t2').'/'.$s_id.'/'.$p_id.'">'.$product_detail[0]['product_name'].'</a></li>';
                             }else{
                               echo '<li class="btn btn-danger"><a href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'"  >'.$this->lang->line("home").'</a></li>';
                               echo '<li class="btn btn-success"><a href="'.site_url('Shop/product/all/t2').'/'.$s_id.'"  >'.$this->lang->line("all_product").'</a></li>';
-                              echo '<li class="btn btn-warning"><a href="'.site_url('Shop/product/t2').'/'.$namecate[0]['product_category_name'].'/'.$s_id.'/'.$category_id.'">'.$namecate[0]['product_category_name'].'</a></li>';
+                              echo '<li class="btn btn-warning"><a style="color:black" href="'.site_url('Shop/product_t2').'/'.$namecate[0]['product_category_name'].'/'.$s_id.'/'.$category_id.'">'.$namecate[0]['product_category_name'].'</a></li>';
                               echo '<li class="btn btn-primary"><a href="'.site_url('Shop/product/detail/t2').'/'.$s_id.'/'.$p_id.'"  >'.$product_detail[0]['product_name'].'</a></li>';
                             }
 
@@ -287,6 +287,17 @@
                             </div>
                         
                           </div>
+                          <div class="form-group">
+                            <label  class="col-lg-5  col-sm-5 control-label animated pulse mt10"><?=$this->lang->line("product_detail2");?></label>
+                            <div class="col-xs-7 col-sm-7 mt10">
+
+
+                              <label type="text" id="product_detail" class="animated pulse"   style="width:130px;height:25px"  >2 แผ่น V2d จบ [ภาคไทย]</label>                   
+                              
+                              
+                            </div>
+                        
+                          </div>
                           <?php echo form_hidden('shop_id', $product_detail[0]['s_ID']);
                                 echo form_hidden('product_id', $product_detail[0]['p_ID']);
                           ?>  
@@ -357,8 +368,10 @@
 </div>
 </div>  
 </div> 
-</div>
-</div>    
+
+</div>   
+</div> 
+
                   
                   
                   

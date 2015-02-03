@@ -313,6 +313,17 @@
                             </div>
                         
                           </div>
+                          <div class="form-group">
+                            <label  class="col-lg-5  col-sm-5 control-label animated pulse mt10"><?=$this->lang->line("product_detail2");?></label>
+                            <div class="col-xs-7 col-sm-7 mt10">
+
+
+                              <label type="text" id="product_detail" class="animated pulse"   style="width:130px;height:25px"  >2 แผ่น V2d จบ [ภาคไทย]</label>                   
+                              
+                              
+                            </div>
+                        
+                          </div>
                           <?php echo form_hidden('shop_id', $product_detail[0]['s_ID']);
                                 echo form_hidden('product_id', $product_detail[0]['p_ID']);
                           ?>  

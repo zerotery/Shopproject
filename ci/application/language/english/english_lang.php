@@ -414,7 +414,7 @@
     $lang['t2_menu']="MENU";
     $lang['qty']="qty:";
     $lang['basket_t2']="Basket";
-
+    $lang['product_detail2']="Detail : ";
 
 
 
