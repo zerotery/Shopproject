@@ -180,7 +180,8 @@ body {
 
 
 
-
+		</div>
+	</div>
 
 
 
@@ -192,7 +193,11 @@ body {
 
 
 
-	<?php echo $this->load->view('header/navbar_nlog')?>
+	<?php 
+
+	if($status==0){echo $this->load->view('header/navbar_nlog');}else if($status==1){
+		echo $this->load->view('header/navbar_log');
+	}?>
 		
 		<div class="row">
           <div class="col-lg-12  ">

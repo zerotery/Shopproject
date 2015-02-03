@@ -2,7 +2,7 @@
 
 <head>
 
-<title>TB Shop</title>
+<title>TB Shop - Shop Online</title>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo logo_pic;?>icon5.gif">
 
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
@@ -18,42 +18,38 @@
 
 
 <style type="text/css">
-
-.divider-all {
-  width: 80%;
-  height: auto;
-  padding-right: 0px;
-  padding-left: 0px;
-  
-  margin-top: 0 !important;
-  background-color: #F8F8FF;
-  position: absolute;
-  background:url("<?php echo logo_pic;?>bg_shop.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: 1;
-  
+  .divider-all {
+    width: 100%;
+    height: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+    
+    margin-top: 0 !important;
+    background-color: #F8F8FF;
+    position: absolute;
+    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg;?>") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+    
 
 
   }
-body{
-  background:url("<?php echo logo_pic;?>bg_shop.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  body{
+    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg;?>") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
+  }
 
- }
-
-
-</style>
-
-<style type="text/css">
+  </style>
+  <style type="text/css">
   header {
-    background: url("<?php echo logo_pic;?>header1.jpg") no-repeat center top ; 
+    background: url("<?php echo shop.'/'.$s_id.'/'.$pic_header;?>") no-repeat center top ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -70,7 +66,7 @@ body{
 
 <body>
 
-  <?php echo $this->load->view('header/navbar_nlog')?>
+ <?php echo $this->load->view('header/navbar_log')?>
 
 
     <div id="wrapper">
@@ -83,26 +79,42 @@ body{
       <ul id="sidebar_menu" class="sidebar-nav">
            <li class="sidebar-brand "><a  id="menu-toggle"  style="color:#FAEBD7" ><?=$this->lang->line("t2_menu");?><span id="main_icon" class="glyphicon glyphicon-th-list animated bounce"></span></a></li>
       </ul>
-        <ul class="sidebar-nav" id="sidebar"> 
-          <li class=" animated m_hover"><a class="animated-home fadeInRight2" href="<?php echo site_url('theme2/t2_home');?>"><?=$this->lang->line("t_home");?><span class="sub_icon glyphicon glyphicon-home "></span></a></li>
-          <li class="active animated m_hover"><a class="animated-htb fadeInRight2" href="<?php echo site_url('theme2/t2_how2order');?>" ><?=$this->lang->line("t_hs");?><span class="sub_icon glyphicon glyphicon-question-sign glyphicon-yellow" ></span></a></li>
-          <li class="animated m_hover"><a class="animated-pay fadeInRight2" href="<?php echo site_url('theme2/t2_informpayment');?>" ><?=$this->lang->line("t_pay");?><span class="sub_icon glyphicon glyphicon-usd"></span></a></li>
-          <li class="animated m_hover"><a class="animated-about fadeInRight2" href="<?php echo site_url('theme2/t2_aboutus');?>"><?=$this->lang->line("t_aboutme");?><span class="sub_icon glyphicon glyphicon-pushpin"></span></a></li>
-          <li class="animated m_hover"><a class="animated-contact fadeInRight2" href="<?php echo site_url('theme2/t2_contactus');?>"><?=$this->lang->line("t_contact");?><span class="sub_icon glyphicon glyphicon-envelope"></span></a></li>
-          <li class=" active_c animated m_hover" >
-              <a data-toggle="modal" data-target="#cartModal" class="animated-basket fadeInRight2 "><?=$this->lang->line("basket_t2");?>
-                  <span class="badge badge-color " >3</span><i class=" sub_icon glyphicon glyphicon-shopping-cart glyphicon-sea"> </i>
-              </a>
-                       
-          </li>
-      
-                      
-                        
+        <?php
+                  if($layout==0){
+                    echo '<ul class="sidebar-nav" id="sidebar"> ';
+                    echo '<li class="animated m_hover"><a class="animated-home fadeInRight2" href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'">'.$this->lang->line("t_home").'<span class="sub_icon glyphicon glyphicon-home "></span></a></li>';
+                    echo '<li class="active animated m_hover"><a class="animated-htb fadeInRight2" href="'.site_url('Shop/how2order/t2').'/'.$s_id.'" >'.$this->lang->line("t_hs").'<span class="sub_icon glyphicon glyphicon-question-sign glyphicon-yellow" ></span></a></li>';
+                    echo '<li class="animated m_hover"><a class="animated-pay fadeInRight2" href="'.site_url('Shop/informpayment/t2').'/'.$s_id.'">'.$this->lang->line("t_pay").'<span class="sub_icon glyphicon glyphicon-usd"></span></a></li>';
+                    echo '<li class=" animated m_hover"><a class="animated-about fadeInRight2" href="'.site_url('Shop/aboutus/t2').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'<span class="sub_icon glyphicon glyphicon-pushpin "></span></a></li>';
+                    echo '<li class="animated m_hover"><a class="animated-contact fadeInRight2" href="'.site_url('Shop/contactus/t2').'/'.$s_id.'">'.$this->lang->line("t_contact").'<span class="sub_icon glyphicon glyphicon-envelope "></span></a></li>';
                     
-          
-                                   
-          
-        </ul>
+                    
+                    echo $this->load->view('theme2_cart');
+                    
+
+
+                    echo '</ul>';
+                  }else{
+                    echo '<ul class="sidebar-nav" id="sidebar">';
+                    for($i=0;$i<count($layout);$i++){
+
+                      if($layout[$i]['type_layout']==1){
+                        echo '<li class="animated m_hover"><a class="animated-home fadeInRight2" href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'">'.$this->lang->line("t_home").'<span class="sub_icon glyphicon glyphicon-home "></span></a></li>';
+                      }else if($layout[$i]['type_layout']==2){
+                        echo '<li class="active animated m_hover"><a class="animated-htb fadeInRight2" href="'.site_url('Shop/how2order/2').'/'.$s_id.'" >'.$this->lang->line("t_hs").'<span class="sub_icon glyphicon glyphicon-question-sign glyphicon-yellow " ></span></a></li>';
+                      }else if($layout[$i]['type_layout']==3){
+                        echo '<li class="animated m_hover"><a class="animated-pay fadeInRight2" href="'.site_url('Shop/informpayment/2').'/'.$s_id.'">'.$this->lang->line("t_pay").'<span class="sub_icon glyphicon glyphicon-usd"></span></a></li>';
+                      }else if($layout[$i]['type_layout']==4){
+                        echo '<li class="active animated m_hover"><a class="animated-about fadeInRight2" href="'.site_url('Shop/aboutus/2').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'<span class="sub_icon glyphicon glyphicon-pushpin "></span></a></li>';
+                      }else if($layout[$i]['type_layout']==5){
+                        echo '<li class="animated m_hover"><a class="animated-contact fadeInRight2" href="'.site_url('Shop/contactus/2').'/'.$s_id.'">'.$this->lang->line("t_contact").'<span class="sub_icon glyphicon glyphicon-envelope "></span></a></li>';
+                      }
+                      
+                    }
+                   echo $this->load->view('theme2_cart');
+                  }
+                  ?>
+
       </div>
 
 
@@ -138,9 +150,9 @@ body{
                       <div class="col-lg-12 col-md-12 col-sm-12 ">
                         
                             <ol class=" btn-group btn-breadcrumb breadcrumb-img margin-pad3">
-                          
-                              <li class="btn btn-danger"><a href="<?php echo site_url('theme2/t2_home');?>"  ><?=$this->lang->line("home");?></a></li>
-                              <li class="btn btn-success" ><a href="<?php echo site_url('theme2/t2_how2order');?>"  ><?=$this->lang->line("t_hs");?></a></li>
+                    
+                              <li class="btn btn-danger"><a href="<?php echo site_url('Shop/home').'/'.$s_id.'/'.'2';?>"  ><?=$this->lang->line("home");?></a></li>
+                              <li class="btn btn-success" ><a href="<?php echo site_url('Shop/how2order/t2').'/'.$s_id;?>"  ><?=$this->lang->line("t_hs");?></a></li>
                               
                             </ol> 
                          
@@ -167,23 +179,28 @@ body{
             <div id="divider-content  ">                                   
                     <div class="row">             
                      <div class="col-xs-3" >
-                       <!-- left -->
-                       
-                       
-                       <ul class="nav nav-stacked affix-top" id="sidebarz" >
+                     <!-- left -->
+                    <ul class="nav nav-stacked affix-top" id="sidebar" >
                         <h3><i class="glyphicon glyphicon-book space"></i><?=$this->lang->line("category");?></h3>
-                            
-                                      <li><a href="<?php echo site_url('theme2/t2_category');?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [0]</a></li>
-                                      <li><a href="#"><i class="glyphicon glyphicon-gift"></i>Fashion [0]</a></li>
-                                      <li><a href="#"><i class="glyphicon glyphicon-gift"></i>etc...</a></li>
-                            
-                                      
+                        
+                        <li><a href="<?php echo site_url('Shop/product/all/t2').'/'.$s_id;?>"><i class="glyphicon glyphicon-star"></i><?=$this->lang->line("all_product");?> [<?php echo $all_product;?>]</a></li>
+                        <?php
+                        for($i=0;$i<count($cate_product);$i++){
+                          echo '<li><a href="'.site_url('Shop/product_t2').'/'.$cate_product[$i]['product_category_name'].'/'.$s_id.'/'.$cate_product[$i]['product_category_ID'].'"><i class="glyphicon glyphicon-gift"></i>'.$cate_product[$i]['product_category_name']." ".'['.$cate_product[$i][0].']'.'</a></li>';
+
+                        }
+
+                        ?>
+                        
+                        
+                        
 
 
-                                    </ul>
-                      
-                      
-                      
+                      </ul>
+                            
+                       
+                                 
+                                    
                     </div> 
                     
                    
@@ -284,7 +301,7 @@ body{
                      </div>
 
                    </form>
-                   <a href="<?php echo site_url('theme2/t2_informpayment').'/'.$s_id;?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("go_t_pay");?></div></a>
+                   <a href="<?php echo site_url('Shop/informpayment/t2/').'/'.$s_id;?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("go_t_pay");?></div></a>
                    
                  </div>
 
@@ -324,9 +341,11 @@ body{
 </div> 
 </div>
 </div>  
+
 </div>   
 </div>
 </div>   
+
 
 
   
@@ -341,122 +360,7 @@ body{
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
 </ul>
 
-<!-- Modal cart 1-->
-
-                                <div  class="modal animated pulse" data-easein="pulse" data-easeout="rollOut"  id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog modal-lg " style="font-size: 11px;letter-spacing: 0.2em;text-align: center;text-transform: uppercase;background-color:white">
-                                    <div class="modal-content"style="background-color:white ">
-                                      <div class="modal-header"style="background-color:white ">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel" style="color:#696969;"><?=$this->lang->line("basket");?></h4>
-                                      </div>
-                                      <div class="modal-body" style="background-color:white ">
-                                          
-                                              <div style="text-transform: none;color:black;font-size:10pt;" align="left"><?=$this->lang->line("cartbox1");?>(<?=$this->lang->line("cartbox2");?> <label class="space2">0</label><?=$this->lang->line("cart_count");?>)</div>
-                                              <form id="order" name="orderinfo"  method="post"  enctype="multipart/form-data" >
-                                          
-                                              <div class="row">
-                                                 
-                                                          <div class="col-xs-12 col-sm-12 bborder" >
-                                                          
-                                                            
-
-                                                               <div class="table-responsive ">
-                                                                    <table class="table"   id="product-table" style="width:100%;border: 2px solid #eee">
-                                                                      <!-- On rows -->
-                                                                        <tr class="active"   >
-                                                                           
-                                                                            <th width="20%" style="font-size:10pt "  class="warning tcolor "><?=$this->lang->line("productname");?></th>
-                                                                            <th width="20%" style="font-size:10pt"  class="warning tcolor"><?=$this->lang->line("productprice");?></th>
-                                                                            <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("qpro");?></th>
-                                                                            <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("ps_pro");?></th>
-                                                                            <th width="20%" style="font-size:10pt"  class="warning tcolor "><?=$this->lang->line("order_detail");?></th>
-                                                                            
-                                                                            <th width="5%" class="warning tcolor"></th>
-
-                                                                           </tr>
-                                                                            <tr id="trpro">
-                                                                                <td style="border: 1px solid #eee" ><font>รองเท้า Merrell ลาย Forest camouflage</font></td>
-                                                                                <td style="border: 1px solid #eee"><span >1890.00</span><?=$this->lang->line("monetary");?></td>
-                                                                                <td style="border: 1px solid #eee"><font ><input type="number" class="quantity" name="quantity" min="1" max="1000" value="1" ></font></td>
-                                                                                <td  style="border: 1px solid #eee"><span class="total" id="s_price">1890.00</span><font class="space2"><?=$this->lang->line("monetary");?></font></td>
-                                                                                <td  style="border: 1px solid #eee"><textarea id="detail_order" name="detail_order"></textarea></td>
-                                                                                <td style="border: 1px solid #eee"><div id="delete_order" class="btn glyphicon glyphicon-trash btn-remove " style="color:red"></div></td>
-                                                                                 
-                                                                            </tr>
-                                                                              <tr id="trprosum">
-                                                                                 
-                                                                                 <td width="40%" style="border: 1px solid #eee" colspan="2" align="right"><font ><?=$this->lang->line("ps_proall");?></font></td>  
-                                                                                 <td width="20%" style="border: 1px solid #eee" colspan="2" align="center"><span id="sumary">1890.00</span><?=$this->lang->line("monetary");?></td>
-                                                                                 <td colspan="2"></td>   
-                                                                              </tr>
-                                                                           
-                                                                           
-                                                                        
-                                                                    </table>
-
-
-                                                                  </div>
-
-                                                            
-                                                          </div>
-                                                </div>
-
-                                                <div style="text-transform: none;color:black;font-size:10pt;" align="left"><?=$this->lang->line("send_pro");?></div>
-
-                                              <div class="row">
-                                                 
-                                                          <div class="col-xs-12 col-sm-12 bborder" >
-                                                          
-                                                            <form id="order" name="orderinfo"  method="post"  enctype="multipart/form-data" >
-                                          
-
-                                                               <div class="table-responsive ">
-                                                                    <td><table class="table" style="width:100%;border: 2px solid #eee" >
-                                                              <tbody>
-                                                              
-                                                                <tr class="active"  >
-                                                                           
-                                                                            <th width="20%" style="font-size:10pt "  class="warning tcolor" colspan="2"><?=$this->lang->line("send_postcode");?></th>
-                                                                            <th width="20%" style="font-size:10pt"  class="warning tcolor"><?=$this->lang->line("send_postcode_p");?></th>
-                                                                            <th width="20%" style="font-size:10pt"  class="warning tcolor"><?=$this->lang->line("send_postcode_all");?></th>
-                                                                       
-                                                                          
-
-                                                                </tr>
-                                                              <tr>
-                                                              <td><input type="radio" name="post" id="registered" ></td><td><?=$this->lang->line("domestic_registered");?></td><td>+ 0.00 <font class="space2"><?=$this->lang->line("monetary");?></font></td><td>1890.00<font class="space2"><?=$this->lang->line("monetary");?></font></td>
-                                                              </tr>
-                                                              <tr>
-                                                              <td><input type="radio" name="post" id="ems"></td><td><?=$this->lang->line("domestic_ems");?></td><td>+ 80.00 <font class="space2"><?=$this->lang->line("monetary");?></font></td><td>1970.00<font class="space2"><?=$this->lang->line("monetary");?></font></td>
-                                                              </tr>
-
-                                                             
-                                                              </tbody>
-                                                              </table>
-                                                          </td>
-
-
-                                                                  </div>
-                                                                   <a href="<?php echo site_url('theme1/informpayment');?>"><div  class="pull-right btn btn-info"><?=$this->lang->line("send_order");?></div></a>
-                              
-                                                            </form>
-                                                          </div>
-                                                </div>
-                                                </form>
-
-                                               
-                                      </div>
-                                      <div class="modal-footer" style="background-color:white ">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                      
-                                        
-                                      
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-
+<?php echo $this->load->view('theme1_cart_detail');?>
 
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>
@@ -546,7 +450,11 @@ $(document).ready(function() {
 });
 
 
-    </script>
+
+
+
+
+</script>
     <script type="text/javascript">
       $("#menu-toggle").click(function(e) {
        e.preventDefault();

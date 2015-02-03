@@ -103,14 +103,16 @@ body {
 
 													                    </div>
 
-					                    <form id="search_shop" name="search_shop" method="post" enctype="multipart/form-data">
+					                    <form action="<?php echo site_url('main/search_cate'); ?>" id="search_shop" name="search_shop" method="post" enctype="multipart/form-data">
 								  		<div class="col-xs-6 col-sm-6">
 							 	
-												<select id="search" name="store" style="color:black;width:192px;height:42px;float:left">
-												  <option value="audi" selected><?=$this->lang->line("shop-search");?></option>
-												  <option value="volvo">Volvo</option>
-												  <option value="saab">Saab</option>
-												  <option value="vw">VW</option>
+												<select id="search" name="search" style="color:black;width:192px;height:42px;float:left">
+												  <option value="all" selected><?=$this->lang->line("shop-search");?></option>
+												  <?php 
+
+                      								foreach( $cate as $value){ 
+                      								echo "<option value=\"$value->shop_category_ID\">".$value->shop_name_type."</option>";}
+                    							  ?>
 												  
 												</select> 
 												<a id="search_store" name="search_store" class="btn btn-info glyphicon glyphicon-search" style="width:60px;height:41px;"></a>
@@ -127,122 +129,37 @@ body {
 
 													                    </div>
 														   <div class="row">
-									                            <div class="col-xs-4  col-sm-4">
-											                             <div class="box-product " >
-											                                 <div class="inner"  >
-											                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-											                                  </div>
-											                                  <div class="name"><a href="#">Golden ring one</a></div>
-											                                  <div class="price" align="left"> </div>
-											                                  </div>
-											                                  
-											                                  <div  class="abs"  >
-											                                  <div class="cart animated fadeInUp ">
-											                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-											                                  </div>        
-											                              </div>
-											                              </div>
+														   <?php
+														   		for($i=0;$i<count($shop_result);$i++){
+														   			echo '<div class="col-xs-4  col-sm-4">';
+														   			echo '<div class="box-product " >';
+														   			echo '<div class="inner">';
+														   			echo '<div class="specialnew"></div>';
+														   			echo '<div class="image thumbnailz "><a href="#"><img style="height:180px" src="'.shop.$shop_result[$i]['s_ID'].'/'.$shop_result[$i]['shop_pic'].'"></a>';
+														   			echo '</div>';
+														   			echo '<div class="name"><a href="#">'.$shop_result[$i]['shop_name'].'</a></div>';
+														   			echo '<div class="price" align="left"> </div>';
+														   			echo '</div>';
+														   			if($status==1){
+														   			$temp[$i] = explode("/",$shop_result[$i]['s_url']);
+            
+            														$url[$i]=$temp[$i][3].'/'.$temp[$i][4].'/'.$temp[$i][5].'/'.$temp[$i][6];
+            
+            														
+														   			echo '<div  class="abs"  >';
+														   			echo '<div class="cart animated fadeInUp ">';
+														   			echo '<a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px" href="'.site_url($url[$i]).'">'.$this->lang->line("shop_go").'</a>';
+														   			echo '</div> ';
+														   			echo '</div> ';
 
+														   			}
+														   			echo '</div> ';
+														   			echo '</div> ';
+														   			
+														   		}
 
-											                            </div>
-
-									                            <div class="col-xs-4  col-sm-4">
-												                             <div class="box-product " >
-												                                 <div class="inner" >
-												                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-												                                  </div>
-												                                  <div class="name"><a href="#">Golden ring one</a></div>
-												                                  <div class="price"></div>
-												                                  </div>
-												                                  
-												                                  <div  class="abs "  >
-												                                  <div class="cart animated fadeInUp ">
-												                                  <a class="btn btn-info " style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-												                                  </div>        
-												                              </div>
-												                              </div>
-
-
-												                            </div>
-
-												                <div class="col-xs-4  col-sm-4">
-											                             <div class="box-product " >
-											                                 <div class="inner"  >
-											                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-											                                  </div>
-											                                  <div class="name"><a href="#">Golden ring one</a></div>
-											                                  <div class="price" align="left"> </div>
-											                                  </div>
-											                                  
-											                                  <div  class="abs"  >
-											                                  <div class="cart animated fadeInUp ">
-											                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-											                                  </div>        
-											                              </div>
-											                              </div>
-
-
-											                            </div>            
-														  </div>
-														  <div class="row">
-									                            <div class="col-xs-4  col-sm-4">
-											                             <div class="box-product " >
-											                                 <div class="inner"  >
-											                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-											                                  </div>
-											                                  <div class="name"><a href="#">Golden ring one</a></div>
-											                                  <div class="price" align="left"> </div>
-											                                  </div>
-											                                  
-											                                  <div  class="abs"  >
-											                                  <div class="cart animated fadeInUp ">
-											                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-											                                  </div>        
-											                              </div>
-											                              </div>
-
-
-											                            </div>
-
-									                            <div class="col-xs-4  col-sm-4">
-												                             <div class="box-product " >
-												                                 <div class="inner" >
-												                                  
-												                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-												                                  </div>
-												                                  <div class="name"><a href="#">Golden ring one</a></div>
-												                                  <div class="price"></div>
-												                                  </div>
-												                                  
-												                                  <div  class="abs "  >
-												                                  <div class="cart animated fadeInUp ">
-												                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-												                                  </div>        
-												                              </div>
-												                              </div>
-
-
-												                            </div>
-
-												                <div class="col-xs-4  col-sm-4">
-											                             <div class="box-product " >
-											                                 <div class="inner"  >
-											                                  <div class="image thumbnailz "><a href="#"><img style="height:180px" src="<?php echo logo_pic;?>Avatar.png"></a>
-											                                  </div>
-											                                  <div class="name"><a href="#">Golden ring one</a></div>
-											                                  <div class="price" align="left"> </div>
-											                                  </div>
-											                                  
-											                                  <div  class="abs"  >
-											                                  <div class="cart animated fadeInUp ">
-											                                  <a class="btn btn-info" style="font-family: TX Timesquare;font-size:17pt;height:40px"><?=$this->lang->line("shop_go");?></a>
-											                                  </div>        
-											                              </div>
-											                              </div>
-
-
-											                            </div>            
-														  </div>
+														   ?>
+														   </div>
 
 														 
 
@@ -264,7 +181,7 @@ body {
 				</div>
 
 
-
+		</div>
 
 
 
@@ -278,7 +195,11 @@ body {
 
 
 
-	<?php echo $this->load->view('header/navbar_nlog')?>
+	<?php 
+
+	if($status==0){echo $this->load->view('header/navbar_nlog');}else if($status==1){
+		echo $this->load->view('header/navbar_log');
+	}?>
 		
 		<div class="row">
           <div class="col-lg-12  ">
@@ -300,6 +221,14 @@ body {
     $(document).ready( function(){
         $.fn.snow({ minSize: 10, maxSize: 25, newOn: 1500});
 	});
+
+	$('#search_store').click(function(e) {
+ 
+ 	//alert(status_order);
+ 	$("#search_shop").submit();
+ 
+	});
+	
 
     </script>
 
