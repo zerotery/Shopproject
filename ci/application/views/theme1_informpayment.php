@@ -255,19 +255,19 @@
                                       }else if($bank[$i]['owner_bank_select']==2){
                                         echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("scb").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
                                         
-                                      }else if($result[$i]['owner_bank_select']==3){
+                                      }else if($bank[$i]['owner_bank_select']==3){
                                         echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("bkb").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
                                         
-                                      }else if($result[$i]['owner_bank_select']==4){
+                                      }else if($bank[$i]['owner_bank_select']==4){
                                         echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("tmb").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
                                         
-                                      }else if($result[$i]['owner_bank_select']==5){
+                                      }else if($bank[$i]['owner_bank_select']==5){
                                         echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("krungsri").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
                                         
-                                      }else if($result[$i]['owner_bank_select']==6){
+                                      }else if($bank[$i]['owner_bank_select']==6){
                                         echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("kbank").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
                                         
-                                      }else if($result[$i]['owner_bank_select']==7){
+                                      }else if($bank[$i]['owner_bank_select']==7){
                                         echo '<td><input type="radio" name="bank" id="bank" value="'.$bank[$i]['owner_bank_select'].'"></td><td>'.$this->lang->line("uob").'</td><td>'.$bank[$i]['bank_account'].'</td><td>'.$bank[$i]['bank_branch'].'</td>';
                                       }
                                       echo '</tr>';

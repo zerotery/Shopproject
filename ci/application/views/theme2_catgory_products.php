@@ -330,7 +330,7 @@
 <ul class="nav pull-right scroll-top">
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
 </ul>
-<?php echo $this->load->view('theme1_cart_detail');?>
+<?php echo $this->load->view('theme2_cart_detail');?>
 
 
 
@@ -484,12 +484,12 @@ $(document).ready(function() {
       st5=a5;
       //alert(st+" "+st2);
       //alert(rowid+" "+qtycart);
-      $.post("<?php echo site_url();?>cashshop/insert_order", { 's_id_cart[]':st,'p_id_cart[]':st2,'qty_cart[]':st3,'o_cart[]':st4,'price_cart[]':st5,ajax: '1' },
+      $.post("<?php echo site_url();?>cashshop/insert_order_2", { 's_id_cart[]':st,'p_id_cart[]':st2,'qty_cart[]':st3,'o_cart[]':st4,'price_cart[]':st5,ajax: '1' },
         function(data){ 
           if(data == 'true'){
            
            <?php 
-           $url=site_url('Shop/informpayment').'/'.$s_id;
+           $url=site_url('Shop/informpayment/t2').'/'.$s_id;
            ?>
            window.location.assign('<?php echo $url;?>');
 
@@ -513,12 +513,12 @@ $(document).ready(function() {
         st4[i]=o_detail[i].value;
         st5[i]=post_product.value;
       }  
-      $.post("<?php echo site_url();?>cashshop/insert_order", { 's_id_cart[]':st,'p_id_cart[]':st2,'qty_cart[]':st3,'o_cart[]':st4,'price_cart[]':st5,ajax: '1' },
+      $.post("<?php echo site_url();?>cashshop/insert_order_2", { 's_id_cart[]':st,'p_id_cart[]':st2,'qty_cart[]':st3,'o_cart[]':st4,'price_cart[]':st5,ajax: '1' },
         function(data){ 
           // Interact with returned data
           if(data == 'true'){
            <?php 
-           $url=site_url('Shop/informpayment').'/'.$s_id;
+           $url=site_url('Shop/informpayment/t2').'/'.$s_id;
            ?>
            window.location.assign('<?php echo $url;?>');
            //location.reload();

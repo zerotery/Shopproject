@@ -261,15 +261,15 @@
                               echo '<td ><font>'.$this->lang->line("ktb").'</font></td>';
                             }else if($bank[$i]['owner_bank_select']==2){
                               echo '<td ><font>'.$this->lang->line("scb").'</font></td>';
-                            }else if($result[$i]['owner_bank_select']==3){
+                            }else if($bank[$i]['owner_bank_select']==3){
                               echo '<td ><font>'.$this->lang->line("bkb").'</font></td>';
-                            }else if($result[$i]['owner_bank_select']==4){
+                            }else if($bank[$i]['owner_bank_select']==4){
                               echo '<td ><font>'.$this->lang->line("tmb").'</font></td>';
-                            }else if($result[$i]['owner_bank_select']==5){
+                            }else if($bank[$i]['owner_bank_select']==5){
                               echo '<td ><font>'.$this->lang->line("krungsri").'</font></td>';
-                            }else if($result[$i]['owner_bank_select']==6){
+                            }else if($bank[$i]['owner_bank_select']==6){
                               echo '<td ><font>'.$this->lang->line("kbank").'</font></td>';
-                            }else if($result[$i]['owner_bank_select']==7){
+                            }else if($bank[$i]['owner_bank_select']==7){
                               echo '<td ><font>'.$this->lang->line("uob").'</font></td>';
                             }
                             echo '<td ><font>'.$bank[$i]['name_account'].'</font></td>';
@@ -360,7 +360,7 @@
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
 </ul>
 
-<?php echo $this->load->view('theme1_cart_detail');?>
+<?php echo $this->load->view('theme2_cart_detail');?>
 
 
 <script type="text/javascript" src="<?php echo JS_URL;?>jquery-1.10.2.js"></script>

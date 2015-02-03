@@ -292,7 +292,7 @@
                             <div class="col-xs-7 col-sm-7 mt10">
 
 
-                              <label type="text" id="product_detail" class="animated pulse"   style="width:130px;height:25px"  >2 แผ่น V2d จบ [ภาคไทย]</label>                   
+                              <label type="text" id="product_detail" class="animated pulse"   style="width:130px;height:25px"  ><?php echo $product_detail[0]['product_detail'];?></label>                   
                               
                               
                             </div>
@@ -385,7 +385,7 @@
 </ul>        
 <?php echo $this->load->view('footer/footer')?>
 
-<?php echo $this->load->view('theme1_cart_detail');?>
+<?php echo $this->load->view('theme2_cart_detail');?>
 
 
 

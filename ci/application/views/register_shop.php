@@ -372,7 +372,7 @@ $("#regshop").validate({
     },
     urlname: {
       required: true,
-      regex: /^([a-zA-Z0-9])+$/,
+      regex: /^([a-zA-Z0-9]|[-_])+$/,
       rangelength: [5, 15]
     },
     shopdetail_en: {
