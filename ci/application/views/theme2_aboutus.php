@@ -356,7 +356,7 @@
    <ul class="nav pull-right scroll-top">
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
 </ul>
-<?php echo $this->load->view('theme1_cart_detail');?>
+<?php echo $this->load->view('theme2_cart_detail');?>
 
 
     

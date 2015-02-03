@@ -185,7 +185,7 @@
 
 		public function get_product_show($s_id){
 			$lang=$this->session->userdata('langdata');
-			$sql="SELECT product.s_ID,product.p_ID,product.p_price,product.p_update_date,product_detail.product_name,product_gallery.pic_name FROM product,product_detail,product_gallery WHERE product.s_ID='$s_id' AND product.p_ID=product_gallery.p_ID AND product.p_ID=product_detail.p_ID AND (product_gallery.pic_name='main_product.jpg' OR product_gallery.pic_name='profile_product.jpg')  AND product_detail.lang_ID='$lang';";
+			$sql="SELECT product.s_ID,product.p_ID,product.p_price,product.p_update_date,product_detail.product_name,product_gallery.pic_name FROM product,product_detail,product_gallery WHERE product.s_ID='$s_id' AND product.p_ID=product_gallery.p_ID AND product.p_ID=product_detail.p_ID AND (product_gallery.pic_name='main_product.jpg' OR product_gallery.pic_name='profile_product.jpg') AND (product_detail.product_status='Have stock' OR product_detail.product_status='มีสินค้า')  AND product_detail.lang_ID='$lang';";
 			$query=$this->db->query($sql)->result_array();
 			return $query;
 		}
@@ -193,8 +193,9 @@
 		
 
 		public function get_all_product($s_id){
+			//$lang=$this->session->userdata('langdata');
 			$lang=$this->session->userdata('langdata');
-			$sql="SELECT * FROM product WHERE s_ID='$s_id';";
+			$sql="SELECT * FROM product,product_detail WHERE s_ID='$s_id' AND product.p_ID=product_detail.p_ID AND product_detail.lang_ID='$lang' AND (product_detail.product_status='Have stock' OR product_detail.product_status='มีสินค้า');";
 			$query=$this->db->query($sql)->result_array();
 			return count($query);
 		}
@@ -234,7 +235,7 @@
 
 			for($i=0;$i<count($query);$i++){
             	$product_category_ID=$query[$i]['product_category_ID'];
-            	$sql="SELECT * FROM product_category_detail WHERE product_category_ID='$product_category_ID';";
+            	$sql="SELECT * FROM product_category_detail,product_detail WHERE product_category_detail.p_ID=product_detail.p_ID AND product_detail.lang_ID='$lang' AND (product_detail.product_status='Have stock' OR product_detail.product_status='มีสินค้า') AND product_category_ID='$product_category_ID';";
 				$sum_p_cate[$i]=$this->db->query($sql)->result_array();
 				$result_sum[$i]=count($sum_p_cate[$i]);
 				array_push($query[$i],$result_sum[$i]);

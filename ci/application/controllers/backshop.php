@@ -1033,7 +1033,7 @@ class backshop extends CI_controller {
                   					
                           //$this->session->set_userdata('picture_name',"$picname");
                   					
-                  					$set=1;
+                  					$set=2;
                   				}else if($_FILES['update_modproduct']['error']==0){
                   					$set=null;
                   					
@@ -1121,7 +1121,9 @@ class backshop extends CI_controller {
                   					
                   					
                   				}
-                  			}
+                  			}else if($set==2){
+                                redirect('backshop/productManage');
+                            }
                   		}
                   	}
 
@@ -1846,7 +1848,8 @@ class backshop extends CI_controller {
     		$data['nameshop']=$shop[0]['shop_name'];
     		
     		$temp = explode("/",$shop[0]['s_url']);
-    		$data['url']=$temp[3];
+    		$data['url']=$temp[4];
+
     		$data['name_en']=$shopdetail[0]['shop_name'];
     		$data['name_th']=$shopdetail[1]['shop_name'];
     		$data['detail_en']=$shopdetail[0]['shop_detail_data'];
@@ -2025,8 +2028,12 @@ class backshop extends CI_controller {
     				$shopname_en="-";
     				$shopname_th="-";
     			}
-
-    			$URL="www.myaday.net/Project/TBShop/".$this->input->post('urlname');
+                $idset=$this->session->userdata('id');
+                $shop=$this->shop->getshop($idset);
+                $temp = explode("/",$shop[0]['s_url']);
+                
+                
+    			$URL="www.myaday.net/Project/TBShop/Shop/".$this->input->post('urlname')."/".$temp[5]."/".$temp[6];
     			$category=$this->input->post('category');
     			$shopdetail_en=$this->input->post('shopdetail_en');
     			$shopdetail_th=$this->input->post('shopdetail_th');

@@ -25,6 +25,13 @@
                  
                 }
 
+                public function checkusername(){
+                  $username=$this->input->post('username');
+                  $result=$this->member->checkuser($username);
+
+                  echo $result;
+                }
+
                 public function submit_data(){
                   
                   $filename = "./asset/temp";
