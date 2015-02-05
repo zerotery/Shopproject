@@ -340,7 +340,10 @@
 <script src="<?php echo JS_URL;?>bootstrap.js"></script>
 <script src="<?php echo JS_THEME2;?>scripts.js"></script>
 <script type="text/javascript">
+
+//var re=0;
 var re=<?php echo $re;?>;
+$("#status_sendorder").hide();
 var status_order=0;
 if(re==1){
   $('#cartModal').modal('show');
@@ -384,6 +387,8 @@ $('input[type=number]').click(function(e) {
 $('#btn_submit_order').click(function(e) {
  window.status_order=2;
  //alert(status_order);
+ $('#btn_submit_order').hide();
+ $("#status_sendorder").show();
  $("#view_cart").submit();
  
 });
@@ -395,7 +400,7 @@ $(document).ready(function() {
 
   $("#view_cart").submit(function() {
     if(status_order==1){
-      var myForm = document.forms.view_cart;
+    var myForm = document.forms.view_cart;
     var rowid_cart = myForm.elements['rowid[]'];
     var qty_cart  = myForm.elements['qty[]'];
     if(rowid_cart.length==null){
@@ -494,6 +499,9 @@ $(document).ready(function() {
            window.location.assign('<?php echo $url;?>');
 
             
+          }else if(data == 'email'){
+            alert("Email Send have problem.");
+
           }else{
             alert("Product does not exist");
           }
@@ -523,18 +531,19 @@ $(document).ready(function() {
            window.location.assign('<?php echo $url;?>');
            //location.reload();
 
-            
           }else if(data == 'email'){
             alert("Email Send have problem.");
 
           }else{
-            alert("Product does not exist");
+            alert("Product does not exist.");
           }
         });
 
     }
   }
-  }
+    }
+    
+    
 
       return false; // Stop the browser of loading the page defined in the form "action" parameter.
     });
@@ -546,7 +555,7 @@ $(document).ready(function() {
 
 
 
-</script>
+    </script>
 <script type="text/javascript">
 $("#menu-toggle").click(function(e) {
  e.preventDefault();

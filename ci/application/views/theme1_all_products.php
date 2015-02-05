@@ -338,8 +338,11 @@
 
 <script type="text/javascript" src="<?php echo JS_THEME1;?>scripts.js"></script>
 <script type="text/javascript">
+
+//var re=0;
 var re=<?php echo $re;?>;
 var status_order=0;
+$("#status_sendorder").hide();
 if(re==1){
   $('#cartModal').modal('show');
 
@@ -372,7 +375,6 @@ $(document).ready(function() {
 
   });
 
-
 $('input[type=number]').click(function(e) {
  window.status_order=1;
  //alert(status_order);
@@ -383,6 +385,8 @@ $('input[type=number]').click(function(e) {
 $('#btn_submit_order').click(function(e) {
  window.status_order=2;
  //alert(status_order);
+ $('#btn_submit_order').hide();
+ $("#status_sendorder").show();
  $("#view_cart").submit();
  
 });
@@ -456,7 +460,7 @@ $(document).ready(function() {
       var qty_cart  = myForm.elements['qty[]'];
       var o_detail  = myForm.elements['detail_order[]'];
       var post_product  = myForm.elements['post_product'];
-   if(typeof(s_id) == "undefined"){
+    if(typeof(s_id) == "undefined"){
       alert("Product does not exist");
     }else{
       if(s_id.length==null){
@@ -493,6 +497,9 @@ $(document).ready(function() {
            window.location.assign('<?php echo $url;?>');
 
             
+          }else if(data == 'email'){
+            alert("Email Send have problem.");
+
           }else{
             alert("Product does not exist");
           }
@@ -522,18 +529,19 @@ $(document).ready(function() {
            window.location.assign('<?php echo $url;?>');
            //location.reload();
 
-            
           }else if(data == 'email'){
             alert("Email Send have problem.");
 
           }else{
-            alert("Product does not exist");
+            alert("Product does not exist.");
           }
         });
 
     }
   }
-  }
+    }
+    
+    
 
       return false; // Stop the browser of loading the page defined in the form "action" parameter.
     });
