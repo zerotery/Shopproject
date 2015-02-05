@@ -136,7 +136,7 @@
 
       </div>
       <a href="javascript:{}" id="btn_submit_order"><div  class="pull-right btn btn-info"><?=$this->lang->line("send_order");?></div></a>
-      
+      <div id="status_sendorder"><h5>Please Wait! System will send Order number to your e-mail.</h5></div>
     
   </div>
 </div>

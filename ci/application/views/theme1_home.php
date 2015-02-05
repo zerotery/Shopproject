@@ -353,6 +353,7 @@
 //var re=0;
 var re=<?php echo $re;?>;
 var status_order=0;
+$("#status_sendorder").hide();
 if(re==1){
   $('#cartModal').modal('show');
 
@@ -395,6 +396,8 @@ $('input[type=number]').click(function(e) {
 $('#btn_submit_order').click(function(e) {
  window.status_order=2;
  //alert(status_order);
+ $('#btn_submit_order').hide();
+ $("#status_sendorder").show();
  $("#view_cart").submit();
  
 });

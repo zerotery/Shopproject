@@ -596,7 +596,8 @@ $("#confirm_pay").validate({
 
 <script type="text/javascript">
 var re=<?php echo $re;?>;
-
+var status_order=0;
+$("#status_sendorder").hide();
 
 if(re==1){
   $('#cartModal').modal('show');
@@ -614,7 +615,17 @@ $('#btn_submit').click(function(e) {
 });
 
 $('input[type=number]').click(function(e) {
+ window.status_order=1;
+ //alert(status_order);
+ $("#view_cart").submit();
+ 
+});
 
+$('#btn_submit_order').click(function(e) {
+ window.status_order=2;
+ //alert(status_order);
+ $('#btn_submit_order').hide();
+ $("#status_sendorder").show();
  $("#view_cart").submit();
  
 });
@@ -624,7 +635,8 @@ $('input[type=number]').click(function(e) {
 $(document).ready(function() { 
 
   $("#view_cart").submit(function() {
-    var myForm = document.forms.view_cart;
+    if(status_order==1){
+      var myForm = document.forms.view_cart;
     var rowid_cart = myForm.elements['rowid[]'];
     var qty_cart  = myForm.elements['qty[]'];
     if(rowid_cart.length==null){
@@ -678,6 +690,97 @@ $(document).ready(function() {
           }
         });
     }
+    }else if(status_order==2){
+      //alert("eiei");
+      var myForm = document.forms.view_cart;
+      var s_id = myForm.elements['s_id[]'];
+      var p_cart = myForm.elements['p_id[]'];
+      var qty_cart  = myForm.elements['qty[]'];
+      var o_detail  = myForm.elements['detail_order[]'];
+      var post_product  = myForm.elements['post_product'];
+    if(typeof(s_id) == "undefined"){
+      alert("Product does not exist");
+    }else{
+      if(s_id.length==null){
+      var st=new Array();
+      var st2=new Array();
+      var st3=new Array();
+      var st4=new Array();
+      var st5=new Array();
+      
+      var a1 = s_id.value;
+      var a2 = p_cart.value;
+      var a3 = qty_cart.value;
+      var a4 = o_detail.value;
+      var a5 = post_product.value;
+      
+
+
+
+
+      st= a1;
+      st2=a2;
+      st3=a3;
+      st4=a4;
+      st5=a5;
+      //alert(st+" "+st2);
+      //alert(rowid+" "+qtycart);
+      $.post("<?php echo site_url();?>cashshop/insert_order", { 's_id_cart[]':st,'p_id_cart[]':st2,'qty_cart[]':st3,'o_cart[]':st4,'price_cart[]':st5,ajax: '1' },
+        function(data){ 
+          if(data == 'true'){
+           
+           <?php 
+           $url=site_url('Shop/informpayment').'/'.$s_id;
+           ?>
+           window.location.assign('<?php echo $url;?>');
+
+            
+          }else if(data == 'email'){
+            alert("Email Send have problem.");
+
+          }else{
+            alert("Product does not exist");
+          }
+        });
+    
+    }else{
+
+      var st=new Array();
+      var st2=new Array();
+      var st3=new Array();
+      var st4=new Array();
+      var st5=new Array();
+      for (var i = 0; i<s_id.length; i++) {
+        st[i]= s_id[i].value;
+        st2[i]=p_cart[i].value;
+        st3[i]=qty_cart[i].value;
+        st4[i]=o_detail[i].value;
+        st5[i]=post_product.value;
+      }  
+      $.post("<?php echo site_url();?>cashshop/insert_order", { 's_id_cart[]':st,'p_id_cart[]':st2,'qty_cart[]':st3,'o_cart[]':st4,'price_cart[]':st5,ajax: '1' },
+        function(data){ 
+          // Interact with returned data
+          if(data == 'true'){
+           <?php 
+           $url=site_url('Shop/informpayment').'/'.$s_id;
+           ?>
+           window.location.assign('<?php echo $url;?>');
+           //location.reload();
+
+          }else if(data == 'email'){
+            alert("Email Send have problem.");
+
+          }else{
+            alert("Product does not exist.");
+          }
+        });
+
+    }
+  }
+    }
+    
+    
+
       return false; // Stop the browser of loading the page defined in the form "action" parameter.
     });
 
