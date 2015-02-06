@@ -16,25 +16,7 @@
 
 
 
-
-
-
-
-
-
-
-  <style type="text/css">
-  body{
-    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg;?>") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-  }
-
-  </style>
-  <style type="text/css">
+<style type="text/css">
   .divider-all {
     width: 100%;
     height: auto;
@@ -44,7 +26,7 @@
     margin-top: 0 !important;
     background-color: #F8F8FF;
     position: absolute;
-    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg;?>") no-repeat center center fixed;
+    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg.'?v='.Date('Y.m.d.G.i.s');?>") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -54,8 +36,20 @@
 
 
   }
+  
+  body{
+    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg.'?v='.Date('Y.m.d.G.i.s');?>") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+  }
+
+  </style>
+  <style type="text/css">
   header {
-    background: url("<?php echo shop.'/'.$s_id.'/'.$pic_header;?>") no-repeat center top ; 
+    background: url("<?php echo shop.'/'.$s_id.'/'.$pic_header.'?v='.Date('Y.m.d.G.i.s');?>") no-repeat center top ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -66,6 +60,7 @@
 
 
   </style>
+
 
 
 

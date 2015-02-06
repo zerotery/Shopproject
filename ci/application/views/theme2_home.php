@@ -21,7 +21,7 @@
 
 
 
-<style type="text/css">
+ <style type="text/css">
   .divider-all {
     width: 100%;
     height: auto;
@@ -31,7 +31,7 @@
     margin-top: 0 !important;
     background-color: #F8F8FF;
     position: absolute;
-    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg;?>") no-repeat center center fixed;
+    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg.'?v='.Date('Y.m.d.G.i.s');?>") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -41,8 +41,9 @@
 
 
   }
+  
   body{
-    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg;?>") no-repeat center center fixed;
+    background:url("<?php echo shop.'/'.$s_id.'/'.$pic_bg.'?v='.Date('Y.m.d.G.i.s');?>") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -53,7 +54,7 @@
   </style>
   <style type="text/css">
   header {
-    background: url("<?php echo shop.'/'.$s_id.'/'.$pic_header;?>") no-repeat center top ; 
+    background: url("<?php echo shop.'/'.$s_id.'/'.$pic_header.'?v='.Date('Y.m.d.G.i.s');?>") no-repeat center top ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -106,13 +107,13 @@
                       if($layout[$i]['type_layout']==1){
                         echo '<li class=" active animated m_hover"><a class="animated-home fadeInRight2" href="'.site_url('Shop/home').'/'.$s_id.'/'.'2'.'">'.$this->lang->line("t_home").'<span class="sub_icon glyphicon glyphicon-home glyphicon-blue"></span></a></li>';
                       }else if($layout[$i]['type_layout']==2){
-                        echo '<li class="animated m_hover"><a class="animated-htb fadeInRight2" href="'.site_url('Shop/how2order/2').'/'.$s_id.'" >'.$this->lang->line("t_hs").'<span class="sub_icon glyphicon glyphicon-question-sign " ></span></a></li>';
+                        echo '<li class="animated m_hover"><a class="animated-htb fadeInRight2" href="'.site_url('Shop/how2order/t2').'/'.$s_id.'" >'.$this->lang->line("t_hs").'<span class="sub_icon glyphicon glyphicon-question-sign " ></span></a></li>';
                       }else if($layout[$i]['type_layout']==3){
-                        echo '<li class="animated m_hover"><a class="animated-pay fadeInRight2" href="'.site_url('Shop/informpayment/2').'/'.$s_id.'">'.$this->lang->line("t_pay").'<span class="sub_icon glyphicon glyphicon-usd"></span></a></li>';
+                        echo '<li class="animated m_hover"><a class="animated-pay fadeInRight2" href="'.site_url('Shop/informpayment/t2').'/'.$s_id.'">'.$this->lang->line("t_pay").'<span class="sub_icon glyphicon glyphicon-usd"></span></a></li>';
                       }else if($layout[$i]['type_layout']==4){
-                        echo '<li class=" animated m_hover"><a class="animated-about fadeInRight2" href="'.site_url('Shop/aboutus/2').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'<span class="sub_icon glyphicon glyphicon-pushpin "></span></a></li>';
+                        echo '<li class=" animated m_hover"><a class="animated-about fadeInRight2" href="'.site_url('Shop/aboutus/t2').'/'.$s_id.'">'.$this->lang->line("t_aboutme").'<span class="sub_icon glyphicon glyphicon-pushpin "></span></a></li>';
                       }else if($layout[$i]['type_layout']==5){
-                        echo '<li class="animated m_hover"><a class="animated-contact fadeInRight2" href="'.site_url('Shop/contactus/2').'/'.$s_id.'">'.$this->lang->line("t_contact").'<span class="sub_icon glyphicon glyphicon-envelope "></span></a></li>';
+                        echo '<li class="animated m_hover"><a class="animated-contact fadeInRight2" href="'.site_url('Shop/contactus/t2').'/'.$s_id.'">'.$this->lang->line("t_contact").'<span class="sub_icon glyphicon glyphicon-envelope "></span></a></li>';
                       }
                       
                     }

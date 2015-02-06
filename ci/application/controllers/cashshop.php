@@ -69,7 +69,7 @@ class cashshop extends CI_controller {
            }else{
             $data['re']=0;
            }
-
+           
            $this->load->view('theme2_home',$data);
 
      }
@@ -705,7 +705,7 @@ public function product_theme1($s_id=null,$p_id=null){
      }
 
      $category_shop=$this->shop->get_shop_category($s_id);
-     print_r($category_shop);
+     //print_r($category_shop);
      $category_product=$this->shop->get_product_category($s_id);
      $all_product= $this->shop->get_all_product($s_id);
                   //print_r($category_product);
@@ -717,7 +717,7 @@ public function product_theme1($s_id=null,$p_id=null){
                   //print_r($about);
      $data['about']=$about;
      $product_detail=$this->shop->get_all_product_show($p_id);
-     print_r($product_detail);
+     //print_r($product_detail);
      $data['product_detail']=$product_detail;
      $profile_galery=$this->shop->get_gallery($p_id);
      $data['profile_galery']=$profile_galery;

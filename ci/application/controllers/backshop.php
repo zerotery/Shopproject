@@ -2105,7 +2105,7 @@ class backshop extends CI_controller {
     		
 
 
-    		if($set1==1&&$set2==1&&$set3==1){
+    		if(($set1==1)||($set2==1)||($set3==1)||($set1==1&&$set2==1)||($set1==1&&$set3==1)||($set2==1&&$set3==1)||($set1==1&&$set2==1&&$set3==1)){
 
     			$numsave=$idset%1000;
     			$filename = "./uploads/shops/".$numsave;
@@ -2182,7 +2182,7 @@ class backshop extends CI_controller {
     			
 
 
-    		}else if($set1==2&&$set2==2&&$set3==2){
+    		}else if(($set1==2)||($set2==2)||($set3==2)||($set1==2&&$set2==2)||($set1==2&&$set3==2)||($set2==2&&$set3==2)||($set1==2&&$set2==2&&$set3==2)){
     			redirect('backshop/myshop');
                     	//echo $s1." ".$s2." ".$s3." ".$s4;
     		}else{
