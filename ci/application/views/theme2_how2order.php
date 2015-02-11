@@ -234,7 +234,15 @@
                      
 
                      <h2 id="sec2"><div><?=$this->lang->line("bbox");?></div> </h2>
+                       <div class="row">
+                          <div class="col-lg-12  ">
+                           
+                           <div class="page-header-s">
+                            
+                           </div>
+                         </div>
 
+                       </div>
                      <div class="row">
                        
                       <div class="col-xs-12 col-sm-12 bborder" >
