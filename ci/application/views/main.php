@@ -40,6 +40,7 @@ body {
           
 
 				<div class="container " >
+				
 					<div id="divider-head">
 				    <div class="col-xs-12 col-sm-12 padding-0">
 
