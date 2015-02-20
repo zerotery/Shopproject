@@ -28,8 +28,8 @@ body {
 <body>
 
 			
-				<div class="row">
-          <div class="col-lg-12  ">
+			<div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 ">
              <div class="page-header-webboard">
                       
                     </div>
@@ -46,14 +46,14 @@ body {
 
 							 <header>
 							  
-							   <div  id="logo">
+							   <div class="col-lg-5 hidden-md hidden-sm hidden-xs "  id="logo">
 			           			<img style="width:280px" src="<?php echo logo_pic;?>TBshop_new_logo.png">
 			           		   </div>
-			           		   <div id="shopbox">
+			           		   <div class="col-lg-5  hidden-md hidden-sm hidden-xs" id="shopbox">
 			           		   	
 			           		   	<a href="<?php echo site_url('member_tb/regshop');?>" class="btn btnz " style="width:142px;height:80px;"><span  ><img  src="<?php echo logo_pic;?>icon_openshop_s.png">&nbsp;<span style="width: 50px; height: 50px;font-size:18pt;color:#D2691E"><?=$this->lang->line("content-sell");?></span><div style="color:#D2691E"><?=$this->lang->line("content-op");?></div> </span></a>
 			           		   </div>
-			           		   <div id="content-center">
+			           		   <div class="col-lg-5 hidden-md hidden-sm hidden-xs" id="content-center">
 			           		   	<h2 style="color:#bbb; font-size: 14px;  height: 20px; margin-top: 20px;margin-left:1px;"><?=$this->lang->line("content");?></h2>
 			           		   </div>
 			           	
@@ -87,9 +87,9 @@ body {
 
 
 								  <div>
-								  	
+								  	<div class="thumbnail" style="background-color:transparent">
 								  	<img  style="width:960;height:auto" src="<?php echo logo_pic;?>contactus.png" >
-							
+									</div>
 
 
 								  </div>
@@ -99,7 +99,7 @@ body {
 								  
 								 
 								  <h3 id="sec1" class="h2space"><div id="contact" style="color:#8b4513" ><?=$this->lang->line("h-con");?></div> </h3>
-								  <div class="col-xs-12 col-sm-12 mborder ">
+								  <div class="col-xs-12 col-sm-12 mborder "style="width:100%">
 														  
 														   <div class="row">
 														   	<div class="col-xs-12 col-sm-12">

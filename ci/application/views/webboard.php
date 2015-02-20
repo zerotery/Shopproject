@@ -29,16 +29,13 @@ body {
 
 			
 				<div class="row">
-          <div class="col-lg-12  ">
+          <div class="col-sm-12 col-md-12 col-lg-12 ">
              <div class="page-header-webboard">
                       
                     </div>
                     </div>
 
                     </div>
-
-                    
-          
 
           
 
@@ -49,14 +46,14 @@ body {
 
 							 <header>
 							  
-							   <div  id="logo">
+							   <div class="col-lg-5 hidden-md hidden-sm hidden-xs "  id="logo">
 			           			<img style="width:280px" src="<?php echo logo_pic;?>TBshop_new_logo.png">
 			           		   </div>
-			           		   <div id="shopbox">
+			           		   <div class="col-lg-5  hidden-md hidden-sm hidden-xs" id="shopbox">
 			           		   	
 			           		   	<a href="<?php echo site_url('member_tb/regshop');?>" class="btn btnz " style="width:142px;height:80px;"><span  ><img  src="<?php echo logo_pic;?>icon_openshop_s.png">&nbsp;<span style="width: 50px; height: 50px;font-size:18pt;color:#D2691E"><?=$this->lang->line("content-sell");?></span><div style="color:#D2691E"><?=$this->lang->line("content-op");?></div> </span></a>
 			           		   </div>
-			           		   <div id="content-center">
+			           		   <div class="col-lg-5 hidden-md hidden-sm hidden-xs" id="content-center">
 			           		   	<h2 style="color:#bbb; font-size: 14px;  height: 20px; margin-top: 20px;margin-left:1px;"><?=$this->lang->line("content");?></h2>
 			           		   </div>
 			           	
@@ -65,7 +62,7 @@ body {
            	        </div>
 					</div>
            	      <section><div id="divider-nav">
-           	      <div class="col-xs-12 padding-0">
+           	      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-0">
 
            	      <div class="navbar navbar-custom ">
 
@@ -88,9 +85,9 @@ body {
 
 				  <div class="col-xs-12 col-sm-12 padding-0">
 
-
-							<img style="width:960;height:auto" src="<?php echo logo_pic;?>coming-soon.png" >
-														 
+				  		 <div class="thumbnail" style="background-color:transparent">
+							<img style="width:960;" src="<?php echo logo_pic;?>coming-soon.png" >
+							</div>							 
 
 
 
